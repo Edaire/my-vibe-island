@@ -1,0 +1,68 @@
+{
+  "descriptors": [
+    {
+      "id": "codexRateLimits",
+      "displayName": "Codex Rate Limits",
+      "capabilities": [
+        "localAppServer",
+        "localCache",
+        "normalizedSnapshotOnly"
+      ],
+      "minimumRefreshIntervalSeconds": 60,
+      "availability": "needsPermission"
+    },
+    {
+      "id": "kimiUsage",
+      "displayName": "Kimi Usage",
+      "capabilities": [
+        "userOwnedCredential",
+        "normalizedSnapshotOnly"
+      ],
+      "minimumRefreshIntervalSeconds": 300,
+      "availability": "needsConfiguration"
+    },
+    {
+      "id": "zaiQuota",
+      "displayName": "Z.ai Quota",
+      "capabilities": [
+        "userOwnedCredential",
+        "normalizedSnapshotOnly"
+      ],
+      "minimumRefreshIntervalSeconds": 300,
+      "availability": "needsConfiguration"
+    },
+    {
+      "id": "claudeStatusLine",
+      "displayName": "Claude Status Line",
+      "capabilities": [
+        "statusLinePayload",
+        "normalizedSnapshotOnly"
+      ],
+      "minimumRefreshIntervalSeconds": 30,
+      "availability": "available"
+    },
+    {
+      "id": "localParsedUsage",
+      "displayName": "Local Parsed Usage",
+      "capabilities": [
+        "localCache",
+        "normalizedSnapshotOnly"
+      ],
+      "minimumRefreshIntervalSeconds": 30,
+      "availability": "available"
+    }
+  ],
+  "descriptorIds": [
+    "codexRateLimits",
+    "kimiUsage",
+    "zaiQuota",
+    "claudeStatusLine",
+    "localParsedUsage"
+  ],
+  "billingProviderExcluded": true,
+  "codexCapabilities": [
+    "localAppServer",
+    "localCache",
+    "normalizedSnapshotOnly"
+  ]
+}

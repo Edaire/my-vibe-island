@@ -1,0 +1,27 @@
+{
+  "tunnelKinds": [
+    "uds",
+    "tcp"
+  ],
+  "tunnelStatuses": [
+    "notDeployed",
+    "disconnected",
+    "connecting",
+    "connected",
+    "connectedAgo",
+    "reconnecting",
+    "error"
+  ],
+  "failureKinds": [
+    "hostUnreachable",
+    "authenticationFailed",
+    "deployMissing",
+    "hookOutdated",
+    "portConflict",
+    "staleListener",
+    "foreignListener",
+    "heartbeatTimeout",
+    "commandFailed",
+    "unknown"
+  ]
+}

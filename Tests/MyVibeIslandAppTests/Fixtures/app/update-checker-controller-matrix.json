@@ -1,0 +1,67 @@
+{
+  "rows": [
+    {
+      "id": "manual-check",
+      "initialSettings": {
+        "automaticChecksEnabled": false,
+        "automaticInstallEnabled": true
+      },
+      "actions": [
+        "manual"
+      ],
+      "planActions": [
+        "startManualCheck"
+      ],
+      "requests": [
+        {
+          "kind": "manual",
+          "currentVersion": "1.0.0",
+          "automaticInstallAllowed": false
+        }
+      ],
+      "finalSettings": {
+        "automaticChecksEnabled": false,
+        "automaticInstallEnabled": true
+      },
+      "lastPlanAction": "startManualCheck",
+      "events": [
+        "present",
+        "check:manual:1.0.0:false"
+      ]
+    },
+    {
+      "id": "disabled-then-enabled-background",
+      "initialSettings": {
+        "automaticChecksEnabled": false,
+        "automaticInstallEnabled": false
+      },
+      "actions": [
+        "background",
+        "updateSettings:true:true",
+        "background"
+      ],
+      "planActions": [
+        "skipBackgroundCheck",
+        "updateSettings",
+        "startBackgroundCheck"
+      ],
+      "requests": [
+        null,
+        null,
+        {
+          "kind": "background",
+          "currentVersion": "1.2.0",
+          "automaticInstallAllowed": true
+        }
+      ],
+      "finalSettings": {
+        "automaticChecksEnabled": true,
+        "automaticInstallEnabled": true
+      },
+      "lastPlanAction": "startBackgroundCheck",
+      "events": [
+        "check:background:1.2.0:true"
+      ]
+    }
+  ]
+}

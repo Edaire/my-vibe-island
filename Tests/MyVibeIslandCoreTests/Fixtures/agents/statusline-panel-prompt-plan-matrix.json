@@ -1,0 +1,29 @@
+{
+  "rows": [
+    {
+      "id": "deduped-placeholders-enabled",
+      "sourceId": "codex",
+      "templateId": "approval-panel",
+      "placeholderKeys": [
+        "cwd",
+        "sessionId"
+      ],
+      "isEnabled": true,
+      "diagnosticSummary": {
+        "placeholderCount": 2,
+        "isEnabled": true
+      }
+    },
+    {
+      "id": "disabled-empty-placeholders",
+      "sourceId": "opencode",
+      "templateId": "question-panel",
+      "placeholderKeys": [],
+      "isEnabled": false,
+      "diagnosticSummary": {
+        "placeholderCount": 0,
+        "isEnabled": false
+      }
+    }
+  ]
+}

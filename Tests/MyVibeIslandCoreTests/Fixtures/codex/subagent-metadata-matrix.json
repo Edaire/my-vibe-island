@@ -1,0 +1,58 @@
+{
+  "rows": [
+    {
+      "id": "full-codex-sidecar",
+      "metadata": {
+        "codexSubagentKind": "reviewer",
+        "codexSubagentParentThreadId": "parent-thread",
+        "codexSubagentNickname": "Reviewer",
+        "codexSubagentRole": "review",
+        "source": "codex",
+        "rawEventId": "event-1"
+      },
+      "displayLabel": "Reviewer",
+      "sidecarKey": "codex:event-1",
+      "isCodexSidecar": true
+    },
+    {
+      "id": "role-label-fallback",
+      "metadata": {
+        "codexSubagentKind": "worker",
+        "codexSubagentRole": "analysis"
+      },
+      "displayLabel": "analysis",
+      "isCodexSidecar": true
+    },
+    {
+      "id": "kind-label-fallback",
+      "metadata": {
+        "codexSubagentKind": "subagent"
+      },
+      "displayLabel": "subagent",
+      "isCodexSidecar": true
+    },
+    {
+      "id": "empty-label-default",
+      "metadata": {
+        "codexSubagentKind": "",
+        "codexSubagentNickname": "",
+        "codexSubagentRole": "",
+        "source": "",
+        "rawEventId": ""
+      },
+      "displayLabel": "Subagent",
+      "isCodexSidecar": false
+    },
+    {
+      "id": "non-codex-sidecar-source",
+      "metadata": {
+        "codexSubagentNickname": "OpenCode helper",
+        "source": "opencode",
+        "rawEventId": "event-2"
+      },
+      "displayLabel": "OpenCode helper",
+      "sidecarKey": "opencode:event-2",
+      "isCodexSidecar": false
+    }
+  ]
+}

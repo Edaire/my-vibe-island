@@ -1,0 +1,2 @@
+{"timestamp":"2026-08-19T09:00:00.000Z","type":"session_meta","payload":{"id":"runtime-child-rollout-probe","cwd":"/tmp/my-vibe-island-child-probe","thread_source":"subagent","agent_nickname":"RuntimeProbe","agent_role":"explorer","source":{"subagent":{"thread_spawn":{"parent_thread_id":"runtime-parent-rollout-probe","depth":1,"agent_nickname":"RuntimeProbe","agent_role":"explorer"}}}}}
+{"timestamp":"2026-08-19T09:00:01.000Z","type":"event_msg","payload":{"type":"task_started"}}

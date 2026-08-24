@@ -1,0 +1,74 @@
+{
+  "rows": [
+    {
+      "id": "below-threshold-observe",
+      "hostId": "devbox",
+      "policy": "automaticForKnownHost",
+      "healthCheckFailureCount": 2,
+      "failureThreshold": 3,
+      "userDisconnected": false,
+      "tunnelStatus": "connected",
+      "failureKind": "heartbeatTimeout",
+      "action": "observe",
+      "reconnectHintRepairAction": null,
+      "reconnectHintBlockReason": null,
+      "diagnosticSummary": "devbox reconnect observing healthcheck failures"
+    },
+    {
+      "id": "automatic-at-threshold",
+      "hostId": "devbox",
+      "policy": "automaticForKnownHost",
+      "healthCheckFailureCount": 3,
+      "failureThreshold": 3,
+      "userDisconnected": false,
+      "tunnelStatus": "connected",
+      "failureKind": "heartbeatTimeout",
+      "action": "attemptReconnect",
+      "reconnectHintRepairAction": "reconnectHostTunnel",
+      "reconnectHintBlockReason": "heartbeatTimeout",
+      "diagnosticSummary": "devbox reconnect eligible after healthcheck threshold"
+    },
+    {
+      "id": "prompt-at-threshold",
+      "hostId": "labbox",
+      "policy": "promptBeforeReconnect",
+      "healthCheckFailureCount": 4,
+      "failureThreshold": 3,
+      "userDisconnected": false,
+      "tunnelStatus": "error",
+      "failureKind": "authenticationFailed",
+      "action": "promptUser",
+      "reconnectHintRepairAction": "inspectDiagnostics",
+      "reconnectHintBlockReason": "authenticationFailed",
+      "diagnosticSummary": "labbox reconnect requires user confirmation"
+    },
+    {
+      "id": "manual-policy-suppressed-with-clamped-threshold",
+      "hostId": "manualbox",
+      "policy": "manualOnly",
+      "healthCheckFailureCount": 1,
+      "failureThreshold": 1,
+      "userDisconnected": false,
+      "tunnelStatus": "disconnected",
+      "failureKind": "deployMissing",
+      "action": "suppressedByPolicy",
+      "reconnectHintRepairAction": null,
+      "reconnectHintBlockReason": null,
+      "diagnosticSummary": "manualbox reconnect suppressed by manual policy"
+    },
+    {
+      "id": "user-disconnect-suppressed",
+      "hostId": "userbox",
+      "policy": "automaticForKnownHost",
+      "healthCheckFailureCount": 9,
+      "failureThreshold": 3,
+      "userDisconnected": true,
+      "tunnelStatus": "connected",
+      "failureKind": "heartbeatTimeout",
+      "action": "suppressedByUserDisconnect",
+      "reconnectHintRepairAction": null,
+      "reconnectHintBlockReason": null,
+      "diagnosticSummary": "userbox reconnect suppressed after user disconnect"
+    }
+  ]
+}

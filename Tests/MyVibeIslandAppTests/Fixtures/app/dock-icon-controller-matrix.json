@@ -1,0 +1,61 @@
+{
+  "rows": [
+    {
+      "id": "show-hide-sequence",
+      "initialState": {
+        "preferredDockVisible": false,
+        "currentPolicy": "accessory",
+        "lastPolicyChangeReason": "initial",
+        "reopenBehavior": "showIsland"
+      },
+      "visibilityRequests": [
+        true,
+        true,
+        false
+      ],
+      "actions": [
+        "setRegularPolicy",
+        "noChange",
+        "setAccessoryPolicy"
+      ],
+      "finalState": {
+        "preferredDockVisible": false,
+        "currentPolicy": "accessory",
+        "lastPolicyChangeReason": "userPreference",
+        "reopenBehavior": "showIsland"
+      },
+      "lastPlanAction": "setAccessoryPolicy",
+      "events": [
+        "regular",
+        "accessory"
+      ]
+    },
+    {
+      "id": "already-visible-hide",
+      "initialState": {
+        "preferredDockVisible": true,
+        "currentPolicy": "regular",
+        "lastPolicyChangeReason": "restoredSettings",
+        "reopenBehavior": "showIsland"
+      },
+      "visibilityRequests": [
+        true,
+        false
+      ],
+      "actions": [
+        "noChange",
+        "setAccessoryPolicy"
+      ],
+      "finalState": {
+        "preferredDockVisible": false,
+        "currentPolicy": "accessory",
+        "lastPolicyChangeReason": "userPreference",
+        "reopenBehavior": "showIsland"
+      },
+      "lastPlanAction": "setAccessoryPolicy",
+      "events": [
+        "accessory"
+      ]
+    }
+  ]
+}

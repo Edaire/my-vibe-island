@@ -1,0 +1,52 @@
+{
+  "rows": [
+    {
+      "id": "fixture-permission",
+      "rawEventName": "PermissionRequest",
+      "source": "opencode",
+      "sessionId": "opencode-session",
+      "requestId": "perm-fixture-1",
+      "cwd": "/tmp/opencode",
+      "toolName": "bash",
+      "messagePresent": false,
+      "taskCount": 0,
+      "todoCount": 0
+    },
+    {
+      "id": "fixture-question",
+      "rawEventName": "QuestionRequest",
+      "source": "opencode",
+      "sessionId": "opencode-session",
+      "requestId": "question-fixture-1",
+      "cwd": "/tmp/opencode",
+      "toolName": "Question",
+      "messagePresent": false,
+      "taskCount": 0,
+      "todoCount": 0
+    },
+    {
+      "id": "generic-fallback",
+      "rawEventName": "SessionStart",
+      "source": "opencode",
+      "sessionId": "generic-opencode-session",
+      "requestId": null,
+      "cwd": "/tmp/opencode",
+      "toolName": null,
+      "messagePresent": false,
+      "taskCount": 0,
+      "todoCount": 0
+    },
+    {
+      "id": "registry-permission",
+      "rawEventName": "PermissionRequest",
+      "source": "opencode",
+      "sessionId": "opencode-session",
+      "requestId": "perm-1",
+      "cwd": "",
+      "toolName": null,
+      "messagePresent": false,
+      "taskCount": 0,
+      "todoCount": 0
+    }
+  ]
+}

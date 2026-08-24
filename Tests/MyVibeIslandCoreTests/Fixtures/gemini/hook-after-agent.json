@@ -1,0 +1,6 @@
+{
+  "cwd": "/tmp/gemini-project",
+  "hook_event_name": "AfterAgent",
+  "session_id": "gemini-session-1",
+  "prompt_response": "Implemented the bridge protocol."
+}

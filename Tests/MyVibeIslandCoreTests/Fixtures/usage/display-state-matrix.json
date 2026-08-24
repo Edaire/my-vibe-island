@@ -1,0 +1,116 @@
+{
+  "rows": [
+    {
+      "id": "hidden",
+      "displayState": {
+        "status": "hidden",
+        "providerId": null,
+        "providerDisplayName": "Codex",
+        "displayStyle": "hidden",
+        "valueMode": "used",
+        "title": "Codex",
+        "primaryText": null,
+        "secondaryText": null,
+        "percent": null,
+        "freshness": null,
+        "bridgeHint": null
+      }
+    },
+    {
+      "id": "unavailable",
+      "displayState": {
+        "status": "unavailable",
+        "providerId": null,
+        "providerDisplayName": "Codex",
+        "displayStyle": "compactHint",
+        "valueMode": "used",
+        "title": "Codex",
+        "primaryText": "Usage unavailable",
+        "secondaryText": null,
+        "percent": null,
+        "freshness": null,
+        "bridgeHint": null
+      }
+    },
+    {
+      "id": "waiting",
+      "displayState": {
+        "status": "waiting",
+        "providerId": "codexRateLimits",
+        "providerDisplayName": "Codex",
+        "displayStyle": "infoBar",
+        "valueMode": "used",
+        "title": "Codex",
+        "primaryText": "Authorize provider",
+        "secondaryText": null,
+        "percent": null,
+        "freshness": "fresh",
+        "bridgeHint": null
+      }
+    },
+    {
+      "id": "error",
+      "displayState": {
+        "status": "error",
+        "providerId": "codexRateLimits",
+        "providerDisplayName": "Kimi",
+        "displayStyle": "compactHint",
+        "valueMode": "used",
+        "title": "Kimi",
+        "primaryText": "credentialMissing",
+        "secondaryText": null,
+        "percent": null,
+        "freshness": "fresh",
+        "bridgeHint": null
+      }
+    },
+    {
+      "id": "used",
+      "displayState": {
+        "status": "available",
+        "providerId": "codexRateLimits",
+        "providerDisplayName": "Codex",
+        "displayStyle": "ringBadge",
+        "valueMode": "used",
+        "title": "Codex",
+        "primaryText": "64% used",
+        "secondaryText": null,
+        "percent": 64,
+        "freshness": "fresh",
+        "bridgeHint": null
+      }
+    },
+    {
+      "id": "remaining",
+      "displayState": {
+        "status": "available",
+        "providerId": "codexRateLimits",
+        "providerDisplayName": "Codex",
+        "displayStyle": "infoBar",
+        "valueMode": "remaining",
+        "title": "Codex",
+        "primaryText": "36 percent remaining",
+        "secondaryText": null,
+        "percent": 64,
+        "freshness": "fresh",
+        "bridgeHint": null
+      }
+    },
+    {
+      "id": "reset-countdown",
+      "displayState": {
+        "status": "available",
+        "providerId": "codexRateLimits",
+        "providerDisplayName": "Codex",
+        "displayStyle": "compactHint",
+        "valueMode": "resetCountdown",
+        "title": "Codex",
+        "primaryText": "Resets in 5400s",
+        "secondaryText": null,
+        "percent": 64,
+        "freshness": "fresh",
+        "bridgeHint": null
+      }
+    }
+  ]
+}

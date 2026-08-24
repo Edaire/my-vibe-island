@@ -1,0 +1,54 @@
+{
+  "rows": [
+    {
+      "id": "refresh-loads-store",
+      "action": "refresh",
+      "result": {
+        "hostIds": ["devbox"],
+        "tunnelStatuses": {"devbox": "connected"},
+        "reconnectPolicies": {"devbox": "automaticForKnownHost"}
+      },
+      "store": {
+        "hostIds": ["devbox"],
+        "tunnelStatuses": {"devbox": "connected"},
+        "reconnectPolicies": {"devbox": "automaticForKnownHost"}
+      },
+      "lastPublishedStore": {
+        "hostIds": ["devbox"],
+        "tunnelStatuses": {"devbox": "connected"},
+        "reconnectPolicies": {"devbox": "automaticForKnownHost"}
+      },
+      "loadCount": 1,
+      "events": [{
+        "hostIds": ["devbox"],
+        "tunnelStatuses": {"devbox": "connected"},
+        "reconnectPolicies": {"devbox": "automaticForKnownHost"}
+      }]
+    },
+    {
+      "id": "replace-skips-loader",
+      "action": "replace",
+      "result": {
+        "hostIds": ["new"],
+        "tunnelStatuses": {},
+        "reconnectPolicies": {}
+      },
+      "store": {
+        "hostIds": ["new"],
+        "tunnelStatuses": {},
+        "reconnectPolicies": {}
+      },
+      "lastPublishedStore": {
+        "hostIds": ["new"],
+        "tunnelStatuses": {},
+        "reconnectPolicies": {}
+      },
+      "loadCount": 0,
+      "events": [{
+        "hostIds": ["new"],
+        "tunnelStatuses": {},
+        "reconnectPolicies": {}
+      }]
+    }
+  ]
+}

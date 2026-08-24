@@ -1,0 +1,19 @@
+{
+  "rows": [
+    {
+      "id": "register-with-rejection",
+      "registeredIds": ["toggle"],
+      "failures": ["jump:registrationRejected"],
+      "remainingIds": ["toggle"],
+      "lastRegistrationIds": ["toggle"],
+      "events": ["register:toggle:1", "register:jump:2"]
+    },
+    {
+      "id": "unregister-matching-ref",
+      "removedIds": ["toggle"],
+      "remainingIds": ["jump"],
+      "lastUnregistrationRemovedIds": ["toggle"],
+      "events": ["unregister:toggle:3"]
+    }
+  ]
+}

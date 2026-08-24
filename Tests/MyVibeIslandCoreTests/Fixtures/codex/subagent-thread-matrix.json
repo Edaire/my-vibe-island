@@ -1,0 +1,49 @@
+{
+  "rows": [
+    {
+      "id": "observed-and-design-fields",
+      "thread": {
+        "parentThreadId": "parent-thread",
+        "agentNickname": "Reviewer",
+        "agentRole": "review",
+        "childThreadId": "child-thread",
+        "spawnKind": "subagent",
+        "sourceWrapperId": "source-wrapper-1",
+        "observedAt": "2026-07-08T20:15:00Z",
+        "confidence": 0.8
+      },
+      "identityKey": "child-thread",
+      "identityIsWeak": false
+    },
+    {
+      "id": "confidence-low-clamped",
+      "thread": {
+        "parentThreadId": "parent-thread",
+        "confidence": 0
+      },
+      "identityKey": "weak:parentThreadId=parent-thread",
+      "identityIsWeak": true
+    },
+    {
+      "id": "confidence-high-clamped",
+      "thread": {
+        "parentThreadId": "parent-thread",
+        "confidence": 1
+      },
+      "identityKey": "weak:parentThreadId=parent-thread",
+      "identityIsWeak": true
+    },
+    {
+      "id": "weak-fallback-identity",
+      "thread": {
+        "parentThreadId": "parent-thread",
+        "agentNickname": "Reviewer",
+        "agentRole": "review",
+        "spawnKind": "subagent",
+        "confidence": 0.5
+      },
+      "identityKey": "weak:agentNickname=Reviewer|agentRole=review|parentThreadId=parent-thread|spawnKind=subagent",
+      "identityIsWeak": true
+    }
+  ]
+}

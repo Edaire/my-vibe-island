@@ -1,0 +1,59 @@
+{
+  "entries": [
+    {
+      "providerId": "codexRateLimits",
+      "accountId": {
+        "rawValue": "codex-a"
+      },
+      "accountDisplayLabel": "Codex A",
+      "providerAvailability": "available",
+      "minimumRefreshIntervalSeconds": 60,
+      "decision": {
+        "minimumIntervalActive": {
+          "remainingSeconds": 40
+        }
+      },
+      "isRefreshAllowed": false
+    },
+    {
+      "providerId": "codexRateLimits",
+      "accountId": {
+        "rawValue": "codex-b"
+      },
+      "accountDisplayLabel": "Codex B",
+      "providerAvailability": "available",
+      "minimumRefreshIntervalSeconds": 60,
+      "decision": {
+        "allowed": {}
+      },
+      "isRefreshAllowed": true
+    },
+    {
+      "providerId": "kimiUsage",
+      "accountId": null,
+      "accountDisplayLabel": null,
+      "providerAvailability": "available",
+      "minimumRefreshIntervalSeconds": 0,
+      "decision": {
+        "allowed": {}
+      },
+      "isRefreshAllowed": true
+    },
+    {
+      "providerId": "zaiQuota",
+      "accountId": null,
+      "accountDisplayLabel": null,
+      "providerAvailability": "needsConfiguration",
+      "minimumRefreshIntervalSeconds": 300,
+      "decision": {
+        "allowed": {}
+      },
+      "isRefreshAllowed": true
+    }
+  ],
+  "refreshableProviderIds": [
+    "codexRateLimits",
+    "kimiUsage",
+    "zaiQuota"
+  ]
+}

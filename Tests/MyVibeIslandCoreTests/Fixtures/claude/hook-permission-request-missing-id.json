@@ -1,0 +1,12 @@
+{
+  "cwd": "/tmp/claude",
+  "hook_event_name": "PermissionRequest",
+  "session_id": "claude-session",
+  "transcript_path": "/tmp/claude/transcript.jsonl",
+  "permission_mode": "default",
+  "model": "claude-sonnet-4-5",
+  "tool_name": "Bash",
+  "tool_input": {
+    "description": "Run test command"
+  }
+}

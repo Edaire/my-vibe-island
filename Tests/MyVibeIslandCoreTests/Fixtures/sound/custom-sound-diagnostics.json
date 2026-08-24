@@ -1,0 +1,41 @@
+{
+  "storeDiagnosticSummary": {
+    "fileCount": 4,
+    "assignmentCount": 2,
+    "hasLastImportError": true,
+    "hasLibraryDirectory": true,
+    "hasLoaded": true,
+    "isStarted": true
+  },
+  "validationReport": {
+    "issues": [
+      {
+        "kind": "duplicateFileId",
+        "fileId": "custom.permission",
+        "category": null
+      },
+      {
+        "kind": "invalidFile",
+        "fileId": "",
+        "category": null
+      },
+      {
+        "kind": "missingAssignedFile",
+        "fileId": "missing.custom",
+        "category": "failure"
+      },
+      {
+        "kind": "manifestReferencesMissingFile",
+        "fileId": "missing.manifest",
+        "category": null
+      }
+    ]
+  },
+  "externalFileDiagnosticSummary": {
+    "sourceMode": "referencedInPlace",
+    "format": "wav",
+    "hasStoredFileReference": true,
+    "hasDuration": true,
+    "isPlaybackEnabled": false
+  }
+}

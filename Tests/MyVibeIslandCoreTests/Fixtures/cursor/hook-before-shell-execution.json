@@ -1,0 +1,9 @@
+{
+  "hook_event_name": "beforeShellExecution",
+  "conversation_id": "cursor-conversation-1",
+  "generation_id": "cursor-generation-1",
+  "workspace_roots": ["/tmp/cursor-project"],
+  "command": "swift test",
+  "cwd": "/tmp/cursor-project",
+  "model": "cursor-small"
+}

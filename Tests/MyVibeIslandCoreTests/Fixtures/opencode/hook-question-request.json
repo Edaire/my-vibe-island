@@ -1,0 +1,6 @@
+{
+  "event": "question",
+  "id": "question-fixture-1",
+  "sessionID": "opencode-session",
+  "cwd": "/tmp/opencode"
+}

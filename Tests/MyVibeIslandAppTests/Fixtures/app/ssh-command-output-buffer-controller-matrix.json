@@ -1,0 +1,126 @@
+{
+  "rows": [
+    {
+      "id": "bounded-redacted-failure-output",
+      "captures": [
+        "capture:stdout=10:stderr=10:exit=2:duration=99:redacted=true"
+      ],
+      "buffers": [
+        {
+          "stdoutTail": "6789",
+          "stderrTail": "ghij",
+          "maxBytes": 4,
+          "truncated": true,
+          "exitCode": 2,
+          "durationMs": 99,
+          "redactionApplied": true
+        }
+      ],
+      "lastBuffer": {
+        "stdoutTail": "6789",
+        "stderrTail": "ghij",
+        "maxBytes": 4,
+        "truncated": true,
+        "exitCode": 2,
+        "durationMs": 99,
+        "redactionApplied": true
+      },
+      "events": [
+        {
+          "stdoutTail": "6789",
+          "stderrTail": "ghij",
+          "maxBytes": 4,
+          "truncated": true,
+          "exitCode": 2,
+          "durationMs": 99,
+          "redactionApplied": true
+        }
+      ]
+    },
+    {
+      "id": "negative-limit-normalizes-to-empty-tail",
+      "captures": [
+        "capture:stdout=6:stderr=5:exit=nil:duration=nil:redacted=false"
+      ],
+      "buffers": [
+        {
+          "stdoutTail": "",
+          "stderrTail": "",
+          "maxBytes": 0,
+          "truncated": true,
+          "redactionApplied": false
+        }
+      ],
+      "lastBuffer": {
+        "stdoutTail": "",
+        "stderrTail": "",
+        "maxBytes": 0,
+        "truncated": true,
+        "redactionApplied": false
+      },
+      "events": [
+        {
+          "stdoutTail": "",
+          "stderrTail": "",
+          "maxBytes": 0,
+          "truncated": true,
+          "redactionApplied": false
+        }
+      ]
+    },
+    {
+      "id": "latest-capture-replaces-last-buffer",
+      "captures": [
+        "capture:stdout=12:stderr=11:exit=1:duration=nil:redacted=false",
+        "capture:stdout=2:stderr=0:exit=0:duration=12:redacted=false"
+      ],
+      "buffers": [
+        {
+          "stdoutTail": "output",
+          "stderrTail": "-error",
+          "maxBytes": 6,
+          "truncated": true,
+          "exitCode": 1,
+          "redactionApplied": false
+        },
+        {
+          "stdoutTail": "ok",
+          "stderrTail": "",
+          "maxBytes": 6,
+          "truncated": false,
+          "exitCode": 0,
+          "durationMs": 12,
+          "redactionApplied": false
+        }
+      ],
+      "lastBuffer": {
+        "stdoutTail": "ok",
+        "stderrTail": "",
+        "maxBytes": 6,
+        "truncated": false,
+        "exitCode": 0,
+        "durationMs": 12,
+        "redactionApplied": false
+      },
+      "events": [
+        {
+          "stdoutTail": "output",
+          "stderrTail": "-error",
+          "maxBytes": 6,
+          "truncated": true,
+          "exitCode": 1,
+          "redactionApplied": false
+        },
+        {
+          "stdoutTail": "ok",
+          "stderrTail": "",
+          "maxBytes": 6,
+          "truncated": false,
+          "exitCode": 0,
+          "durationMs": 12,
+          "redactionApplied": false
+        }
+      ]
+    }
+  ]
+}

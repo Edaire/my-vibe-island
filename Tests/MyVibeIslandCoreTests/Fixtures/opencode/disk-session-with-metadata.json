@@ -1,0 +1,31 @@
+{
+  "session": {
+    "directory": "/tmp/opencode-fixture",
+    "title": "Fixture session",
+    "parentID": "opencode-parent",
+    "hasParentIDColumn": true
+  },
+  "messages": [
+    {
+      "id": "msg-opencode-1",
+      "sessionID": "/tmp/opencode-fixture",
+      "role": "assistant",
+      "modelID": "opencode-model",
+      "cost": "0.015",
+      "tokens": {
+        "input": "10",
+        "output": "20",
+        "reasoning": "3",
+        "cache": {
+          "read": "4",
+          "write": "5"
+        }
+      },
+      "time": {
+        "created": "2026-07-07T08:31:00Z",
+        "completed": "2026-07-07T08:32:00Z"
+      },
+      "error": "provider failed with sensitive details"
+    }
+  ]
+}

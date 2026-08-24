@@ -1,0 +1,60 @@
+{
+  "rows": [
+    {
+      "id": "plan-and-presentation",
+      "settings": {
+        "displayStyle": "ringBadge",
+        "valueMode": "used"
+      },
+      "actions": [
+        "refreshPlan:100",
+        "presentation:100"
+      ],
+      "actionResults": [
+        "plan:codexRateLimits",
+        "presentation:unavailable:codexRateLimits"
+      ],
+      "lastRefreshPlanProviders": [
+        "codexRateLimits"
+      ],
+      "lastPresentation": {
+        "selectedProviderId": "codexRateLimits",
+        "selectionReason": "fallback",
+        "displayStatus": "unavailable",
+        "displayStyle": "ringBadge",
+        "title": "Codex",
+        "selectedRefreshProviderId": "codexRateLimits"
+      },
+      "providerRefreshCount": 0,
+      "events": [
+        "plan:codexRateLimits",
+        "presentation:ringBadge:codexRateLimits"
+      ]
+    },
+    {
+      "id": "allowed-refresh-then-minimum-interval-skip",
+      "settings": {
+        "displayStyle": "ringBadge",
+        "valueMode": "used"
+      },
+      "actions": [
+        "refreshIfAllowed:100:60",
+        "refreshIfAllowed:120:60"
+      ],
+      "actionResults": [
+        "refresh:refreshed:codexRateLimits",
+        "refresh:skipped:minimumIntervalActive(remainingSeconds: 40)"
+      ],
+      "lastRefreshPlanProviders": [],
+      "lastRefreshResult": {
+        "kind": "skipped",
+        "decision": "minimumIntervalActive(remainingSeconds: 40)"
+      },
+      "providerRefreshCount": 1,
+      "events": [
+        "result:refreshed:codexRateLimits",
+        "result:skipped:minimumIntervalActive(remainingSeconds: 40)"
+      ]
+    }
+  ]
+}

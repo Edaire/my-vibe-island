@@ -1,0 +1,147 @@
+{
+  "states": [
+    {
+      "id": "default",
+      "state": {
+        "lastFiredAtMilliseconds": {},
+        "dedupWindowMilliseconds": 250,
+        "switcherHasNavigated": false,
+        "switcherOpenedAtMilliseconds": null,
+        "modifierHoldThresholdMilliseconds": 300,
+        "isModifierHeld": false,
+        "modifierKey": null,
+        "reverseSwitcherEnabled": false
+      }
+    },
+    {
+      "id": "normalized-negative-times",
+      "state": {
+        "lastFiredAtMilliseconds": {
+          "toggle-island": 0
+        },
+        "dedupWindowMilliseconds": 0,
+        "switcherHasNavigated": false,
+        "switcherOpenedAtMilliseconds": 0,
+        "modifierHoldThresholdMilliseconds": 0,
+        "isModifierHeld": false,
+        "modifierKey": "control",
+        "reverseSwitcherEnabled": false
+      }
+    },
+    {
+      "id": "held-reverse-switcher",
+      "state": {
+        "lastFiredAtMilliseconds": {
+          "toggle-island": 1000
+        },
+        "dedupWindowMilliseconds": 250,
+        "switcherHasNavigated": true,
+        "switcherOpenedAtMilliseconds": 900,
+        "modifierHoldThresholdMilliseconds": 300,
+        "isModifierHeld": true,
+        "modifierKey": "option",
+        "reverseSwitcherEnabled": true
+      }
+    }
+  ],
+  "hotKeyPlans": [
+    {
+      "id": "suppressed-within-window",
+      "hotKeyId": "toggle-island",
+      "decision": "suppressedDuplicate",
+      "nextState": {
+        "lastFiredAtMilliseconds": {
+          "toggle-island": 1000
+        },
+        "dedupWindowMilliseconds": 250,
+        "switcherHasNavigated": false,
+        "switcherOpenedAtMilliseconds": null,
+        "modifierHoldThresholdMilliseconds": 300,
+        "isModifierHeld": false,
+        "modifierKey": null,
+        "reverseSwitcherEnabled": false
+      }
+    },
+    {
+      "id": "dispatch-after-window",
+      "hotKeyId": "toggle-island",
+      "decision": "dispatch",
+      "nextState": {
+        "lastFiredAtMilliseconds": {
+          "toggle-island": 1300
+        },
+        "dedupWindowMilliseconds": 250,
+        "switcherHasNavigated": false,
+        "switcherOpenedAtMilliseconds": null,
+        "modifierHoldThresholdMilliseconds": 300,
+        "isModifierHeld": false,
+        "modifierKey": null,
+        "reverseSwitcherEnabled": false
+      }
+    },
+    {
+      "id": "dispatch-normalizes-negative-time",
+      "hotKeyId": "focus-active",
+      "decision": "dispatch",
+      "nextState": {
+        "lastFiredAtMilliseconds": {
+          "focus-active": 0
+        },
+        "dedupWindowMilliseconds": 250,
+        "switcherHasNavigated": false,
+        "switcherOpenedAtMilliseconds": null,
+        "modifierHoldThresholdMilliseconds": 300,
+        "isModifierHeld": false,
+        "modifierKey": null,
+        "reverseSwitcherEnabled": false
+      }
+    }
+  ],
+  "modifierPlans": [
+    {
+      "id": "keep-waiting-before-threshold",
+      "modifierKey": "control",
+      "decision": "keepWaiting",
+      "nextState": {
+        "lastFiredAtMilliseconds": {},
+        "dedupWindowMilliseconds": 250,
+        "switcherHasNavigated": false,
+        "switcherOpenedAtMilliseconds": null,
+        "modifierHoldThresholdMilliseconds": 300,
+        "isModifierHeld": false,
+        "modifierKey": "control",
+        "reverseSwitcherEnabled": false
+      }
+    },
+    {
+      "id": "open-switcher-at-threshold",
+      "modifierKey": "control",
+      "decision": "openSwitcher",
+      "nextState": {
+        "lastFiredAtMilliseconds": {},
+        "dedupWindowMilliseconds": 250,
+        "switcherHasNavigated": false,
+        "switcherOpenedAtMilliseconds": 2000,
+        "modifierHoldThresholdMilliseconds": 300,
+        "isModifierHeld": true,
+        "modifierKey": "control",
+        "reverseSwitcherEnabled": false
+      }
+    },
+    {
+      "id": "open-switcher-normalizes-negative-time",
+      "modifierKey": "option",
+      "decision": "openSwitcher",
+      "nextState": {
+        "lastFiredAtMilliseconds": {},
+        "dedupWindowMilliseconds": 250,
+        "switcherHasNavigated": false,
+        "switcherOpenedAtMilliseconds": 0,
+        "modifierHoldThresholdMilliseconds": 300,
+        "isModifierHeld": true,
+        "modifierKey": "option",
+        "reverseSwitcherEnabled": false
+      }
+    }
+  ]
+}

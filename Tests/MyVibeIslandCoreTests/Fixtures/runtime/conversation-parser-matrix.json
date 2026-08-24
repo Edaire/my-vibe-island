@@ -1,0 +1,73 @@
+{
+  "rows": [
+    {
+      "id": "safe-structured-metadata",
+      "outcome": "parsed",
+      "source": "codex",
+      "sessionId": "conversation-session",
+      "title": "Structured title",
+      "statusSummary": "2 active tasks",
+      "taskIds": [
+        "task-1"
+      ],
+      "todoIds": [
+        "todo-1"
+      ],
+      "failureKind": null,
+      "redactedMessage": null,
+      "redactionLevel": "metadataOnly"
+    },
+    {
+      "id": "sensitive-raw-fields-ignored",
+      "outcome": "parsed",
+      "source": "codex",
+      "sessionId": "conversation-session",
+      "title": null,
+      "statusSummary": null,
+      "taskIds": [],
+      "todoIds": [],
+      "failureKind": null,
+      "redactedMessage": null,
+      "redactionLevel": "metadataOnly"
+    },
+    {
+      "id": "invalid-source-fails-redacted",
+      "outcome": "failed",
+      "source": null,
+      "sessionId": null,
+      "title": null,
+      "statusSummary": null,
+      "taskIds": [],
+      "todoIds": [],
+      "failureKind": "invalidIdentity",
+      "redactedMessage": "invalid conversation metadata",
+      "redactionLevel": "metadataOnly"
+    },
+    {
+      "id": "invalid-session-fails-redacted",
+      "outcome": "failed",
+      "source": null,
+      "sessionId": null,
+      "title": null,
+      "statusSummary": null,
+      "taskIds": [],
+      "todoIds": [],
+      "failureKind": "invalidIdentity",
+      "redactedMessage": "invalid conversation metadata",
+      "redactionLevel": "metadataOnly"
+    },
+    {
+      "id": "raw-transcript-does-not-create-work-items",
+      "outcome": "parsed",
+      "source": "codex",
+      "sessionId": "conversation-session",
+      "title": null,
+      "statusSummary": null,
+      "taskIds": [],
+      "todoIds": [],
+      "failureKind": null,
+      "redactedMessage": null,
+      "redactionLevel": "metadataOnly"
+    }
+  ]
+}

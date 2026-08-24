@@ -1,0 +1,88 @@
+{
+  "cases": [
+    {
+      "name": "permission-request-stores-details",
+      "projection": {
+        "requestIds": ["r1"],
+        "sessionIds": ["s1"],
+        "sources": ["codex"],
+        "kinds": ["permission"],
+        "toolNames": ["Shell"],
+        "pendingRequestIds": ["r1"],
+        "storedSelections": [],
+        "singleLookupSelection": null,
+        "liveSessionIds": []
+      }
+    },
+    {
+      "name": "duplicate-permission-updates-tool-name",
+      "projection": {
+        "requestIds": ["r1"],
+        "sessionIds": ["s1"],
+        "sources": ["codex"],
+        "kinds": ["permission"],
+        "toolNames": ["Edit"],
+        "pendingRequestIds": ["r1"],
+        "storedSelections": [],
+        "singleLookupSelection": null,
+        "liveSessionIds": []
+      }
+    },
+    {
+      "name": "restored-session-drops-ephemeral-requests",
+      "projection": {
+        "requestIds": [],
+        "sessionIds": [],
+        "sources": [],
+        "kinds": [],
+        "toolNames": [],
+        "pendingRequestIds": [],
+        "storedSelections": [],
+        "singleLookupSelection": null,
+        "liveSessionIds": []
+      }
+    },
+    {
+      "name": "runtime-merges-stored-selection",
+      "projection": {
+        "requestIds": ["r1"],
+        "sessionIds": ["s1"],
+        "sources": ["codex"],
+        "kinds": ["permission"],
+        "toolNames": ["Shell"],
+        "pendingRequestIds": ["r1"],
+        "storedSelections": ["approve-once"],
+        "singleLookupSelection": "approve-once",
+        "liveSessionIds": ["s1"]
+      }
+    },
+    {
+      "name": "runtime-without-store-has-no-selection",
+      "projection": {
+        "requestIds": ["r1"],
+        "sessionIds": ["s1"],
+        "sources": ["codex"],
+        "kinds": ["permission"],
+        "toolNames": ["Shell"],
+        "pendingRequestIds": ["r1"],
+        "storedSelections": [null],
+        "singleLookupSelection": null,
+        "liveSessionIds": ["s1"]
+      }
+    },
+    {
+      "name": "existing-coordinator-does-not-restore-store-session",
+      "projection": {
+        "requestIds": [],
+        "sessionIds": ["live"],
+        "sources": ["codex"],
+        "kinds": [],
+        "toolNames": [],
+        "pendingRequestIds": [],
+        "storedSelections": [],
+        "singleLookupSelection": null,
+        "liveSessionIds": ["live"]
+      }
+    }
+  ]
+}

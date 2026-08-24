@@ -1,0 +1,79 @@
+{
+  "rows": [
+    {
+      "id": "uds-missing-remote",
+      "hostId": "devbox",
+      "transportKind": "uds",
+      "remoteEndpoint": "/tmp/remote.sock",
+      "localEndpoint": "/tmp/local.sock",
+      "hasUIDMismatch": true,
+      "tunnelStatus": "connected",
+      "probeResult": "remoteSocketMissing",
+      "status": "missingRemoteSocket",
+      "reconnectBlockReason": "remoteSocketMissing",
+      "reconnectRepairAction": "reconnectSSHRemoteForward",
+      "reconnectRequiresManualSetup": false,
+      "reconnectAllowsAttempt": true
+    },
+    {
+      "id": "tcp-healthy",
+      "hostId": "tcpbox",
+      "transportKind": "tcp",
+      "remoteEndpoint": "tcp:49152",
+      "localEndpoint": "127.0.0.1:49152",
+      "hasUIDMismatch": false,
+      "tunnelStatus": "connected",
+      "probeResult": "succeeded",
+      "status": "healthy",
+      "reconnectBlockReason": null,
+      "reconnectRepairAction": null,
+      "reconnectRequiresManualSetup": null,
+      "reconnectAllowsAttempt": null
+    },
+    {
+      "id": "uid-mismatch-requires-manual-setup",
+      "hostId": "devbox",
+      "transportKind": "uds",
+      "remoteEndpoint": "/tmp/remote.sock",
+      "localEndpoint": "/tmp/local.sock",
+      "hasUIDMismatch": true,
+      "tunnelStatus": "connected",
+      "probeResult": "uidMismatch",
+      "status": "uidMismatch",
+      "reconnectBlockReason": "uidMismatch",
+      "reconnectRepairAction": "setExplicitSocketMapping",
+      "reconnectRequiresManualSetup": true,
+      "reconnectAllowsAttempt": false
+    },
+    {
+      "id": "missing-local-socket-fail-closed",
+      "hostId": "devbox",
+      "transportKind": "uds",
+      "remoteEndpoint": "/tmp/remote.sock",
+      "localEndpoint": "/tmp/local.sock",
+      "hasUIDMismatch": true,
+      "tunnelStatus": "connected",
+      "probeResult": "localSocketMissing",
+      "status": "missingLocalSocket",
+      "reconnectBlockReason": "staleSocket",
+      "reconnectRepairAction": "enableStreamLocalBindUnlinkOrRemoveSocket",
+      "reconnectRequiresManualSetup": true,
+      "reconnectAllowsAttempt": false
+    },
+    {
+      "id": "disconnected-status-overrides-not-checked",
+      "hostId": "tcpbox",
+      "transportKind": "tcp",
+      "remoteEndpoint": "tcp:49152",
+      "localEndpoint": "127.0.0.1:49152",
+      "hasUIDMismatch": false,
+      "tunnelStatus": "disconnected",
+      "probeResult": "notChecked",
+      "status": "tunnelDisconnected",
+      "reconnectBlockReason": "tunnelDisconnected",
+      "reconnectRepairAction": "reconnectHostTunnel",
+      "reconnectRequiresManualSetup": false,
+      "reconnectAllowsAttempt": true
+    }
+  ]
+}

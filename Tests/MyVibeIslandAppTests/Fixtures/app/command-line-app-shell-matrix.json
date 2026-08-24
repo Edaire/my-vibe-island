@@ -1,0 +1,57 @@
+{
+  "rows": [
+    {
+      "id": "dry-run-app-shell",
+      "arguments": [
+        "--app",
+        "--dry-run"
+      ],
+      "outputLines": [
+        "My Vibe Island app shell",
+        "launch plan: dry run",
+        "launch mode: dryRun",
+        "target: Built-in Display",
+        "route: island",
+        "runtime starts: 19",
+        "actions: 36",
+        "status menu entries: 14",
+        "closed frame: 416,402 680x580",
+        "platform intents: 36",
+        "lifecycle intents: 10",
+        "runtime start intents: 19",
+        "notch window intents: 5",
+        "route intents: 1",
+        "platform intent plan: lifecycle, runtime, notch, statusMenu, route",
+        "platform launch: skipped (dry run)"
+      ]
+    },
+    {
+      "id": "explicit-appkit-launch",
+      "arguments": [
+        "--app",
+        "--run-appkit"
+      ],
+      "outputLines": [
+        "My Vibe Island app shell",
+        "launch plan: dry run",
+        "launch mode: appKit",
+        "target: Built-in Display",
+        "route: island",
+        "runtime starts: 19",
+        "actions: 36",
+        "status menu entries: 14",
+        "closed frame: 416,402 680x580",
+        "platform intents: 36",
+        "lifecycle intents: 10",
+        "runtime start intents: 19",
+        "notch window intents: 5",
+        "route intents: 1",
+        "platform intent plan: lifecycle, runtime, notch, statusMenu, route",
+        "platform launch: executed",
+        "appkit runner intents: 3",
+        "appkit executed intents: 3",
+        "appkit executed platform intents: 36"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "rows": [
+    {
+      "id": "ready-local-agent-and-terminal",
+      "generatedAt": "2026-07-08T16:55:00Z",
+      "outcome": "ready",
+      "readyAgentIds": [
+        "codex"
+      ],
+      "readyTerminalIds": [
+        "iterm"
+      ],
+      "blockingIssues": [],
+      "repairActions": []
+    },
+    {
+      "id": "blocked-denied-permission",
+      "generatedAt": null,
+      "outcome": "blocked",
+      "readyAgentIds": [],
+      "readyTerminalIds": [],
+      "blockingIssues": [
+        "accessibility permission denied for global shortcut repair"
+      ],
+      "repairActions": [
+        "Open System Settings"
+      ]
+    },
+    {
+      "id": "partial-repairable-agent-and-terminal",
+      "generatedAt": null,
+      "outcome": "partial",
+      "readyAgentIds": [],
+      "readyTerminalIds": [],
+      "blockingIssues": [],
+      "repairActions": [
+        "Install managed hook",
+        "Enable terminal integration"
+      ]
+    },
+    {
+      "id": "demo-only-no-local-integrations",
+      "generatedAt": null,
+      "outcome": "demoOnly",
+      "readyAgentIds": [],
+      "readyTerminalIds": [],
+      "blockingIssues": [],
+      "repairActions": []
+    },
+    {
+      "id": "environment-scan-blocking-hint",
+      "generatedAt": null,
+      "outcome": "blocked",
+      "readyAgentIds": [
+        "qwen"
+      ],
+      "readyTerminalIds": [],
+      "blockingIssues": [
+        "Grant Automation permission"
+      ],
+      "repairActions": [
+        "Restart watcher",
+        "Grant Automation permission"
+      ]
+    }
+  ]
+}

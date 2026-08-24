@@ -1,0 +1,64 @@
+{
+  "sections": [
+    {
+      "name": "system-info.txt",
+      "evidence": "idaString",
+      "isRequired": true,
+      "redactionLevel": "redacted"
+    },
+    {
+      "name": "config-snapshot.txt",
+      "evidence": "idaString",
+      "isRequired": true,
+      "redactionLevel": "redacted"
+    },
+    {
+      "name": "hooks-dump.txt",
+      "evidence": "privacyNote",
+      "isRequired": true,
+      "redactionLevel": "redacted"
+    },
+    {
+      "name": "environment-snapshot.txt",
+      "evidence": "idaString",
+      "isRequired": true,
+      "redactionLevel": "redacted"
+    },
+    {
+      "name": "codex-rollout-inventory.txt",
+      "evidence": "idaString",
+      "isRequired": true,
+      "redactionLevel": "redacted"
+    },
+    {
+      "name": "sessions-snapshot.txt",
+      "evidence": "idaString",
+      "isRequired": true,
+      "redactionLevel": "redacted"
+    },
+    {
+      "name": "logs/",
+      "evidence": "privacyNote",
+      "isRequired": true,
+      "redactionLevel": "redacted"
+    },
+    {
+      "name": "hang-samples/",
+      "evidence": "privacyNote",
+      "isRequired": false,
+      "redactionLevel": "redacted"
+    },
+    {
+      "name": "crash-reports/",
+      "evidence": "privacyNote",
+      "isRequired": false,
+      "redactionLevel": "redacted"
+    },
+    {
+      "name": "README-privacy.txt",
+      "evidence": "privacyDesign",
+      "isRequired": true,
+      "redactionLevel": "redacted"
+    }
+  ]
+}

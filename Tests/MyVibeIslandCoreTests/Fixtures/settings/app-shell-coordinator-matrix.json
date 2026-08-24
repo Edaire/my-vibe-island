@@ -1,0 +1,131 @@
+{
+  "cases": [
+    {
+      "name": "launch-clears-ignored-reason",
+      "plan": {
+        "state": {
+          "route": "island",
+          "isTerminated": false,
+          "notchVisibility": "visible"
+        },
+        "commandLabels": [
+          "launch"
+        ],
+        "actionLabels": [
+          "lifecycle:createRuntime",
+          "lifecycle:loadSettings",
+          "lifecycle:configureDockPolicy",
+          "lifecycle:createScreenSelection",
+          "lifecycle:createIslandWindow",
+          "lifecycle:startBridge",
+          "lifecycle:startRuntimeCoordinators",
+          "lifecycle:runOnboardingDecision",
+          "lifecycle:attachUpdateDriver",
+          "lifecycle:scheduleHealthChecks",
+          "runtime",
+          "runtime",
+          "runtime",
+          "runtime",
+          "runtime",
+          "runtime",
+          "runtime",
+          "runtime",
+          "runtime",
+          "runtime",
+          "runtime",
+          "runtime",
+          "runtime",
+          "runtime",
+          "runtime",
+          "runtime",
+          "runtime",
+          "runtime",
+          "runtime",
+          "notchWindow",
+          "notchWindow",
+          "notchWindow",
+          "notchWindow",
+          "notchWindow",
+          "applyMenuSnapshot",
+          "showIsland"
+        ]
+      }
+    },
+    {
+      "name": "disabled-menu-entry-records-ignored-reason",
+      "plan": {
+        "state": {
+          "route": "island",
+          "isTerminated": false,
+          "lastIgnoredReason": "disabledMenuEntry",
+          "notchVisibility": "visible"
+        },
+        "commandLabels": [],
+        "actionLabels": []
+      }
+    },
+    {
+      "name": "menu-command-routes-settings",
+      "plan": {
+        "state": {
+          "route": "island",
+          "isTerminated": false,
+          "notchVisibility": "visible",
+          "overlayLastActionLabel": "appCommand:openSettings"
+        },
+        "commandLabels": [
+          "menu:openSettings"
+        ],
+        "actionLabels": [
+          "overlay",
+          "openSettings:none"
+        ]
+      }
+    },
+    {
+      "name": "placement-change-hides-window",
+      "plan": {
+        "state": {
+          "route": "island",
+          "isTerminated": false,
+          "notchVisibility": "hidden"
+        },
+        "commandLabels": [
+          "replacePlacement"
+        ],
+        "actionLabels": [
+          "notchWindow",
+          "notchWindow",
+          "overlay",
+          "overlay"
+        ]
+      }
+    },
+    {
+      "name": "sequential-settings-then-terminate",
+      "plan": {
+        "state": {
+          "route": "none",
+          "isTerminated": true,
+          "notchVisibility": "closed",
+          "overlayLastActionLabel": "appCommand:openSettings"
+        },
+        "commandLabels": [
+          "menu:openSettings",
+          "terminate"
+        ],
+        "actionLabels": [
+          "overlay",
+          "openSettings:none",
+          "lifecycle:persistSettingsAndSessions",
+          "lifecycle:unregisterShortcuts",
+          "lifecycle:closeWindows",
+          "lifecycle:stopBridge",
+          "lifecycle:flushDiagnostics",
+          "notchWindow",
+          "notchWindow"
+        ]
+      }
+    }
+  ]
+}

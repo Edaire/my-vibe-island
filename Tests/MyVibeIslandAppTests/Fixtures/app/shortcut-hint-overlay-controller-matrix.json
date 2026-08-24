@@ -1,0 +1,29 @@
+{
+  "rows": [
+    {
+      "id": "present-hide-explicit-hide",
+      "actions": ["update:command:true", "update:option:true", "hide"],
+      "states": [
+        {"isVisible": true, "modifierKey": "command", "itemTitles": ["Approve"], "displayTexts": ["Cmd-Return"]},
+        {"isVisible": false, "modifierKey": "option", "itemTitles": [], "displayTexts": []},
+        {"isVisible": false, "modifierKey": "option", "itemTitles": [], "displayTexts": []}
+      ],
+      "finalState": {"isVisible": false, "modifierKey": "option", "itemTitles": [], "displayTexts": []},
+      "keyboardShortcutsEnabled": true,
+      "lastAction": "hide",
+      "events": ["present:command:Cmd-Return", "hide", "hide"]
+    },
+    {
+      "id": "disabled-then-enabled",
+      "actions": ["update:command:true", "updateSettings"],
+      "states": [
+        {"isVisible": false, "modifierKey": "command", "itemTitles": [], "displayTexts": []},
+        {"isVisible": true, "modifierKey": "command", "itemTitles": ["Approve"], "displayTexts": ["Cmd-Return"]}
+      ],
+      "finalState": {"isVisible": true, "modifierKey": "command", "itemTitles": ["Approve"], "displayTexts": ["Cmd-Return"]},
+      "keyboardShortcutsEnabled": true,
+      "lastAction": "present",
+      "events": ["hide", "present:command:Cmd-Return"]
+    }
+  ]
+}

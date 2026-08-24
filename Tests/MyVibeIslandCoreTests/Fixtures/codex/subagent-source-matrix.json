@@ -1,0 +1,64 @@
+{
+  "rows": [
+    {
+      "id": "full-source",
+      "sourceId": "codex",
+      "wrapperKind": "subagent-source",
+      "subagentKind": "reviewer",
+      "wrapperKey": "codex:event-1",
+      "canCreateTopLevelSession": true,
+      "confidence": 0.8,
+      "sourceThreadIdentityKey": "child-thread",
+      "detailThreadIdentityKey": "child-thread",
+      "hasDetailOther": true
+    },
+    {
+      "id": "low-confidence-clamped",
+      "sourceId": "codex",
+      "wrapperKind": null,
+      "subagentKind": null,
+      "wrapperKey": "codex:event-low",
+      "canCreateTopLevelSession": true,
+      "confidence": 0,
+      "sourceThreadIdentityKey": null,
+      "detailThreadIdentityKey": null,
+      "hasDetailOther": false
+    },
+    {
+      "id": "high-confidence-clamped",
+      "sourceId": "codex",
+      "wrapperKind": null,
+      "subagentKind": null,
+      "wrapperKey": "codex:event-high",
+      "canCreateTopLevelSession": true,
+      "confidence": 1,
+      "sourceThreadIdentityKey": null,
+      "detailThreadIdentityKey": null,
+      "hasDetailOther": false
+    },
+    {
+      "id": "empty-event-id",
+      "sourceId": "codex",
+      "wrapperKind": null,
+      "subagentKind": null,
+      "wrapperKey": null,
+      "canCreateTopLevelSession": true,
+      "confidence": 0.5,
+      "sourceThreadIdentityKey": null,
+      "detailThreadIdentityKey": null,
+      "hasDetailOther": false
+    },
+    {
+      "id": "detached-without-session",
+      "sourceId": "codex",
+      "wrapperKind": null,
+      "subagentKind": null,
+      "wrapperKey": "codex:event-detached",
+      "canCreateTopLevelSession": false,
+      "confidence": 0.5,
+      "sourceThreadIdentityKey": null,
+      "detailThreadIdentityKey": null,
+      "hasDetailOther": false
+    }
+  ]
+}

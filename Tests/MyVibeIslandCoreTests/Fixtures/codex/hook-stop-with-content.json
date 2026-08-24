@@ -1,0 +1,28 @@
+{
+  "cwd": "/tmp/codex",
+  "hook_event_name": "Stop",
+  "model": "gpt-5",
+  "permission_mode": "plan",
+  "session_id": "codex-session",
+  "transcript_path": null,
+  "turn_id": "turn-2",
+  "last_assistant_message": "Completed Codex task sync",
+  "tasks": [
+    {
+      "id": "task-codex-1",
+      "subject": "Sync Codex content",
+      "description": "Cover Stop payload normalization",
+      "status": "completed",
+      "activeForm": "Syncing Codex content",
+      "owner": "codex"
+    }
+  ],
+  "todos": [
+    {
+      "id": "todo-codex-1",
+      "content": "Verify Codex fixture",
+      "status": "completed",
+      "activeForm": "Verifying Codex fixture"
+    }
+  ]
+}

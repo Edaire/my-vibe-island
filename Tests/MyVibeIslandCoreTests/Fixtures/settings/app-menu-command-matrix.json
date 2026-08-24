@@ -1,0 +1,260 @@
+{
+  "cases": [
+    {
+      "name": "snapshot-normalizes-enabled-commands",
+      "snapshot": {
+        "statusItemVisible": true,
+        "enabledCommands": [
+          "openSettings",
+          "selectScreenMode:mainDisplay",
+          "quit"
+        ],
+        "launchAtLoginEnabled": true,
+        "dockIconVisible": false,
+        "selectedScreenMode": "manualDisplay",
+        "updateState": "available",
+        "diagnosticsExportAvailable": true,
+        "dockMenuMode": "statusItemAndDock"
+      }
+    },
+    {
+      "name": "toggle-dock-icon",
+      "snapshot": {
+        "statusItemVisible": true,
+        "enabledCommands": [
+          "toggleDockIcon",
+          "toggleLaunchAtLogin",
+          "selectScreenMode:mainDisplay"
+        ],
+        "launchAtLoginEnabled": false,
+        "dockIconVisible": true,
+        "selectedScreenMode": "builtInNotchDisplay",
+        "updateState": "unavailable",
+        "diagnosticsExportAvailable": false,
+        "dockMenuMode": "statusItemOnly"
+      },
+      "plan": {
+        "action": "routeCommand",
+        "nextSnapshot": {
+          "statusItemVisible": true,
+          "enabledCommands": [
+            "toggleDockIcon",
+            "toggleLaunchAtLogin",
+            "selectScreenMode:mainDisplay"
+          ],
+          "launchAtLoginEnabled": false,
+          "dockIconVisible": false,
+          "selectedScreenMode": "builtInNotchDisplay",
+          "updateState": "unavailable",
+          "diagnosticsExportAvailable": false,
+          "dockMenuMode": "statusItemOnly"
+        },
+        "routedCommand": "toggleDockIcon"
+      }
+    },
+    {
+      "name": "toggle-launch-at-login",
+      "snapshot": {
+        "statusItemVisible": true,
+        "enabledCommands": [
+          "toggleDockIcon",
+          "toggleLaunchAtLogin",
+          "selectScreenMode:mainDisplay"
+        ],
+        "launchAtLoginEnabled": false,
+        "dockIconVisible": true,
+        "selectedScreenMode": "builtInNotchDisplay",
+        "updateState": "unavailable",
+        "diagnosticsExportAvailable": false,
+        "dockMenuMode": "statusItemOnly"
+      },
+      "plan": {
+        "action": "routeCommand",
+        "nextSnapshot": {
+          "statusItemVisible": true,
+          "enabledCommands": [
+            "toggleDockIcon",
+            "toggleLaunchAtLogin",
+            "selectScreenMode:mainDisplay"
+          ],
+          "launchAtLoginEnabled": true,
+          "dockIconVisible": true,
+          "selectedScreenMode": "builtInNotchDisplay",
+          "updateState": "unavailable",
+          "diagnosticsExportAvailable": false,
+          "dockMenuMode": "statusItemOnly"
+        },
+        "routedCommand": "toggleLaunchAtLogin"
+      }
+    },
+    {
+      "name": "select-main-display",
+      "snapshot": {
+        "statusItemVisible": true,
+        "enabledCommands": [
+          "toggleDockIcon",
+          "toggleLaunchAtLogin",
+          "selectScreenMode:mainDisplay"
+        ],
+        "launchAtLoginEnabled": false,
+        "dockIconVisible": true,
+        "selectedScreenMode": "builtInNotchDisplay",
+        "updateState": "unavailable",
+        "diagnosticsExportAvailable": false,
+        "dockMenuMode": "statusItemOnly"
+      },
+      "plan": {
+        "action": "routeCommand",
+        "nextSnapshot": {
+          "statusItemVisible": true,
+          "enabledCommands": [
+            "toggleDockIcon",
+            "toggleLaunchAtLogin",
+            "selectScreenMode:mainDisplay"
+          ],
+          "launchAtLoginEnabled": false,
+          "dockIconVisible": true,
+          "selectedScreenMode": "mainDisplay",
+          "updateState": "unavailable",
+          "diagnosticsExportAvailable": false,
+          "dockMenuMode": "statusItemOnly"
+        },
+        "routedCommand": "selectScreenMode:mainDisplay"
+      }
+    },
+    {
+      "name": "checking-update-disabled",
+      "snapshot": {
+        "statusItemVisible": true,
+        "enabledCommands": [
+          "openSettings",
+          "checkForUpdates",
+          "exportDiagnostics"
+        ],
+        "launchAtLoginEnabled": false,
+        "dockIconVisible": false,
+        "selectedScreenMode": "builtInNotchDisplay",
+        "updateState": "checking",
+        "diagnosticsExportAvailable": false,
+        "dockMenuMode": "statusItemOnly"
+      },
+      "plan": {
+        "action": "ignoredDisabledCommand",
+        "nextSnapshot": {
+          "statusItemVisible": true,
+          "enabledCommands": [
+            "openSettings",
+            "checkForUpdates",
+            "exportDiagnostics"
+          ],
+          "launchAtLoginEnabled": false,
+          "dockIconVisible": false,
+          "selectedScreenMode": "builtInNotchDisplay",
+          "updateState": "checking",
+          "diagnosticsExportAvailable": false,
+          "dockMenuMode": "statusItemOnly"
+        }
+      }
+    },
+    {
+      "name": "diagnostics-disabled",
+      "snapshot": {
+        "statusItemVisible": true,
+        "enabledCommands": [
+          "openSettings",
+          "checkForUpdates",
+          "exportDiagnostics"
+        ],
+        "launchAtLoginEnabled": false,
+        "dockIconVisible": false,
+        "selectedScreenMode": "builtInNotchDisplay",
+        "updateState": "checking",
+        "diagnosticsExportAvailable": false,
+        "dockMenuMode": "statusItemOnly"
+      },
+      "plan": {
+        "action": "ignoredDisabledCommand",
+        "nextSnapshot": {
+          "statusItemVisible": true,
+          "enabledCommands": [
+            "openSettings",
+            "checkForUpdates",
+            "exportDiagnostics"
+          ],
+          "launchAtLoginEnabled": false,
+          "dockIconVisible": false,
+          "selectedScreenMode": "builtInNotchDisplay",
+          "updateState": "checking",
+          "diagnosticsExportAvailable": false,
+          "dockMenuMode": "statusItemOnly"
+        }
+      }
+    },
+    {
+      "name": "navigation-open-settings",
+      "snapshot": {
+        "statusItemVisible": true,
+        "enabledCommands": [
+          "openSettings",
+          "quit"
+        ],
+        "launchAtLoginEnabled": false,
+        "dockIconVisible": false,
+        "selectedScreenMode": "builtInNotchDisplay",
+        "updateState": "unavailable",
+        "diagnosticsExportAvailable": false,
+        "dockMenuMode": "statusItemOnly"
+      },
+      "plan": {
+        "action": "routeCommand",
+        "nextSnapshot": {
+          "statusItemVisible": true,
+          "enabledCommands": [
+            "openSettings",
+            "quit"
+          ],
+          "launchAtLoginEnabled": false,
+          "dockIconVisible": false,
+          "selectedScreenMode": "builtInNotchDisplay",
+          "updateState": "unavailable",
+          "diagnosticsExportAvailable": false,
+          "dockMenuMode": "statusItemOnly"
+        },
+        "routedCommand": "openSettings"
+      }
+    },
+    {
+      "name": "navigation-quit",
+      "snapshot": {
+        "statusItemVisible": true,
+        "enabledCommands": [
+          "openSettings",
+          "quit"
+        ],
+        "launchAtLoginEnabled": false,
+        "dockIconVisible": false,
+        "selectedScreenMode": "builtInNotchDisplay",
+        "updateState": "unavailable",
+        "diagnosticsExportAvailable": false,
+        "dockMenuMode": "statusItemOnly"
+      },
+      "plan": {
+        "action": "routeCommand",
+        "nextSnapshot": {
+          "statusItemVisible": true,
+          "enabledCommands": [
+            "openSettings",
+            "quit"
+          ],
+          "launchAtLoginEnabled": false,
+          "dockIconVisible": false,
+          "selectedScreenMode": "builtInNotchDisplay",
+          "updateState": "unavailable",
+          "diagnosticsExportAvailable": false,
+          "dockMenuMode": "statusItemOnly"
+        },
+        "routedCommand": "quit"
+      }
+    }
+  ]
+}

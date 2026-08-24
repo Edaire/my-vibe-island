@@ -1,0 +1,10 @@
+{
+  "rawEventName": "PermissionRequest",
+  "sessionId": "generic-session",
+  "requestId": "generic-permission-1",
+  "cwd": "/tmp/generic-agent",
+  "model": "generic-model",
+  "permissionMode": "default",
+  "toolName": "Shell",
+  "message": "Allow shell command?"
+}

@@ -1,0 +1,88 @@
+{
+  "rows": [
+    {
+      "id": "metadata-content",
+      "responseOK": true,
+      "responseMessage": "event accepted",
+      "sessionIds": [
+        "watch-session"
+      ],
+      "taskSummaries": [
+        "watch-task:Read watcher content:active"
+      ],
+      "todoSummaries": [
+        "watch-todo:Render watcher state:pending"
+      ],
+      "pendingRequestIds": [],
+      "presentationTaskSummary": "1/1 active tasks",
+      "presentationTodoSummary": "1 todos"
+    },
+    {
+      "id": "top-level-content",
+      "responseOK": true,
+      "responseMessage": "event accepted",
+      "sessionIds": [
+        "watch-session"
+      ],
+      "taskSummaries": [
+        "watch-task:Read watcher content:active"
+      ],
+      "todoSummaries": [
+        "watch-todo:Render watcher state:pending"
+      ],
+      "pendingRequestIds": [],
+      "presentationTaskSummary": "1/1 active tasks",
+      "presentationTodoSummary": "1 todos"
+    },
+    {
+      "id": "missing-session-id",
+      "responseOK": false,
+      "responseMessage": "invalid watch payload",
+      "sessionIds": [],
+      "taskSummaries": [],
+      "todoSummaries": [],
+      "pendingRequestIds": [],
+      "presentationTaskSummary": null,
+      "presentationTodoSummary": null
+    },
+    {
+      "id": "missing-event-kind",
+      "responseOK": false,
+      "responseMessage": "invalid watch payload",
+      "sessionIds": [],
+      "taskSummaries": [],
+      "todoSummaries": [],
+      "pendingRequestIds": [],
+      "presentationTaskSummary": null,
+      "presentationTodoSummary": null
+    },
+    {
+      "id": "invalid-content-only",
+      "responseOK": false,
+      "responseMessage": "unsupported command",
+      "sessionIds": [],
+      "taskSummaries": [],
+      "todoSummaries": [],
+      "pendingRequestIds": [],
+      "presentationTaskSummary": null,
+      "presentationTodoSummary": null
+    },
+    {
+      "id": "permission-event-content-only",
+      "responseOK": true,
+      "responseMessage": "event accepted",
+      "sessionIds": [
+        "watch-session"
+      ],
+      "taskSummaries": [
+        "watch-task:Read watcher content:active"
+      ],
+      "todoSummaries": [
+        "watch-todo:Render watcher state:pending"
+      ],
+      "pendingRequestIds": [],
+      "presentationTaskSummary": "1/1 active tasks",
+      "presentationTodoSummary": "1 todos"
+    }
+  ]
+}

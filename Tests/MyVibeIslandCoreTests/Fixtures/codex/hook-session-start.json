@@ -1,0 +1,8 @@
+{
+  "cwd": "/tmp/codex",
+  "hook_event_name": "SessionStart",
+  "model": "gpt-5",
+  "permission_mode": "plan",
+  "session_id": "codex-session",
+  "transcript_path": null
+}

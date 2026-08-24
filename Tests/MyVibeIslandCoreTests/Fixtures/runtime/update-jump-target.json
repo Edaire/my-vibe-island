@@ -1,0 +1,10 @@
+{
+  "sessionId": "jump-session-1",
+  "jumpInput": {
+    "bundleId": "com.googlecode.iterm2",
+    "cwd": "/tmp/jump-project",
+    "itermSessionId": "w0t1p2"
+  },
+  "confidence": "exact",
+  "source": "manual"
+}

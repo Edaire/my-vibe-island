@@ -1,0 +1,32 @@
+{
+  "rows": [
+    {
+      "id": "manual-check-disables-automatic-install",
+      "action": "startManualCheck",
+      "requestKind": "manual",
+      "currentVersion": "1.0.0",
+      "automaticInstallAllowed": false
+    },
+    {
+      "id": "background-check-disabled",
+      "action": "skipBackgroundCheck",
+      "requestKind": null,
+      "currentVersion": null,
+      "automaticInstallAllowed": null
+    },
+    {
+      "id": "background-check-enabled-manual-install",
+      "action": "startBackgroundCheck",
+      "requestKind": "background",
+      "currentVersion": "1.0.0",
+      "automaticInstallAllowed": false
+    },
+    {
+      "id": "background-check-enabled-automatic-install",
+      "action": "startBackgroundCheck",
+      "requestKind": "background",
+      "currentVersion": "2.0.0",
+      "automaticInstallAllowed": true
+    }
+  ]
+}

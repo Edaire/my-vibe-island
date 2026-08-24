@@ -1,0 +1,88 @@
+{
+  "cases": [
+    {
+      "name": "launch",
+      "route": {
+        "commandLabels": [
+          "launch"
+        ]
+      }
+    },
+    {
+      "name": "reopen-island",
+      "route": {
+        "commandLabels": [
+          "reopen:island"
+        ]
+      }
+    },
+    {
+      "name": "reopen-settings",
+      "route": {
+        "commandLabels": [
+          "reopen:settings"
+        ]
+      }
+    },
+    {
+      "name": "reopen-ignored",
+      "route": {
+        "commandLabels": [],
+        "ignoredReason": "reopenIgnored"
+      }
+    },
+    {
+      "name": "will-terminate",
+      "route": {
+        "commandLabels": [
+          "terminate"
+        ]
+      }
+    },
+    {
+      "name": "disabled-menu-entry",
+      "route": {
+        "commandLabels": [],
+        "ignoredReason": "disabledMenuEntry"
+      }
+    },
+    {
+      "name": "commandless-menu-entry",
+      "route": {
+        "commandLabels": [],
+        "ignoredReason": "commandlessMenuEntry"
+      }
+    },
+    {
+      "name": "separator-menu-entry",
+      "route": {
+        "commandLabels": [],
+        "ignoredReason": "nonCommandMenuEntry"
+      }
+    },
+    {
+      "name": "direct-menu-command",
+      "route": {
+        "commandLabels": [
+          "menu:exportDiagnostics"
+        ]
+      }
+    },
+    {
+      "name": "overlay-gesture",
+      "route": {
+        "commandLabels": [
+          "overlay"
+        ]
+      }
+    },
+    {
+      "name": "placement-replacement",
+      "route": {
+        "commandLabels": [
+          "replacePlacement"
+        ]
+      }
+    }
+  ]
+}

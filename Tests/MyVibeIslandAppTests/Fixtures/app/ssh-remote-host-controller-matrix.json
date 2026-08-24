@@ -1,0 +1,43 @@
+{
+  "rows": [
+    {
+      "id": "upsert-sorts-hosts",
+      "actions": ["upsert:abox"],
+      "results": ["hosts=abox,zbox"],
+      "hosts": [
+        {"hostId": "abox", "displayName": "A Box", "activeRemoteSessions": []},
+        {"hostId": "zbox", "displayName": "Z Box", "activeRemoteSessions": []}
+      ],
+      "lastPublishedHosts": [
+        {"hostId": "abox", "displayName": "A Box", "activeRemoteSessions": []},
+        {"hostId": "zbox", "displayName": "Z Box", "activeRemoteSessions": []}
+      ],
+      "events": [[
+        {"hostId": "abox", "displayName": "A Box", "activeRemoteSessions": []},
+        {"hostId": "zbox", "displayName": "Z Box", "activeRemoteSessions": []}
+      ]]
+    },
+    {
+      "id": "upsert-replaces-host",
+      "actions": ["upsert:devbox"],
+      "results": ["hosts=devbox"],
+      "hosts": [
+        {"hostId": "devbox", "displayName": "Dev Box", "activeRemoteSessions": ["new"]}
+      ],
+      "lastPublishedHosts": [
+        {"hostId": "devbox", "displayName": "Dev Box", "activeRemoteSessions": ["new"]}
+      ],
+      "events": [[
+        {"hostId": "devbox", "displayName": "Dev Box", "activeRemoteSessions": ["new"]}
+      ]]
+    },
+    {
+      "id": "remove-existing-then-missing",
+      "actions": ["remove:devbox", "remove:missing"],
+      "results": ["removed=true", "removed=false"],
+      "hosts": [],
+      "lastPublishedHosts": [],
+      "events": [[]]
+    }
+  ]
+}

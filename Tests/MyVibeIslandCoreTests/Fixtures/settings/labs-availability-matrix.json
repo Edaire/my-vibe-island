@@ -1,0 +1,220 @@
+{
+  "rows": [
+    {
+      "id": "none-detected",
+      "availableToolIds": [],
+      "rows": [
+        {
+          "toolId": "claude",
+          "status": "unavailable",
+          "reason": "toolNotDetected",
+          "lastCheckedAt": null
+        },
+        {
+          "toolId": "codex",
+          "status": "unavailable",
+          "reason": "toolNotDetected",
+          "lastCheckedAt": null
+        },
+        {
+          "toolId": "cursor",
+          "status": "unavailable",
+          "reason": "toolNotDetected",
+          "lastCheckedAt": null
+        },
+        {
+          "toolId": "kiro",
+          "status": "unavailable",
+          "reason": "toolNotDetected",
+          "lastCheckedAt": null
+        }
+      ],
+      "gates": {
+        "autoPermissionBypass": false,
+        "codexExperimentalUsage": false,
+        "experimentalKiroSupport": false
+      },
+      "diagnosticSummary": {
+        "availableToolCount": 0,
+        "unavailableToolCount": 4,
+        "disabledGateCount": 0,
+        "includesCommunityRegistry": false
+      }
+    },
+    {
+      "id": "claude-and-cursor",
+      "availableToolIds": [
+        "claude",
+        "cursor"
+      ],
+      "rows": [
+        {
+          "toolId": "claude",
+          "status": "available",
+          "reason": null,
+          "lastCheckedAt": "2026-07-09T01:30:00Z"
+        },
+        {
+          "toolId": "codex",
+          "status": "unavailable",
+          "reason": "toolNotDetected",
+          "lastCheckedAt": "2026-07-09T01:30:00Z"
+        },
+        {
+          "toolId": "cursor",
+          "status": "available",
+          "reason": null,
+          "lastCheckedAt": "2026-07-09T01:30:00Z"
+        },
+        {
+          "toolId": "kiro",
+          "status": "unavailable",
+          "reason": "toolNotDetected",
+          "lastCheckedAt": "2026-07-09T01:30:00Z"
+        }
+      ],
+      "gates": {
+        "autoPermissionBypass": true,
+        "codexExperimentalUsage": false,
+        "experimentalKiroSupport": false
+      },
+      "diagnosticSummary": {
+        "availableToolCount": 2,
+        "unavailableToolCount": 2,
+        "disabledGateCount": 0,
+        "includesCommunityRegistry": false
+      }
+    },
+    {
+      "id": "codex-gate-available",
+      "availableToolIds": [
+        "codex"
+      ],
+      "rows": [
+        {
+          "toolId": "claude",
+          "status": "unavailable",
+          "reason": "toolNotDetected",
+          "lastCheckedAt": null
+        },
+        {
+          "toolId": "codex",
+          "status": "available",
+          "reason": null,
+          "lastCheckedAt": null
+        },
+        {
+          "toolId": "cursor",
+          "status": "unavailable",
+          "reason": "toolNotDetected",
+          "lastCheckedAt": null
+        },
+        {
+          "toolId": "kiro",
+          "status": "unavailable",
+          "reason": "toolNotDetected",
+          "lastCheckedAt": null
+        }
+      ],
+      "gates": {
+        "autoPermissionBypass": false,
+        "codexExperimentalUsage": true,
+        "experimentalKiroSupport": false
+      },
+      "diagnosticSummary": {
+        "availableToolCount": 1,
+        "unavailableToolCount": 3,
+        "disabledGateCount": 0,
+        "includesCommunityRegistry": false
+      }
+    },
+    {
+      "id": "disabled-claude-gate",
+      "availableToolIds": [
+        "claude",
+        "codex"
+      ],
+      "rows": [
+        {
+          "toolId": "claude",
+          "status": "available",
+          "reason": null,
+          "lastCheckedAt": null
+        },
+        {
+          "toolId": "codex",
+          "status": "available",
+          "reason": null,
+          "lastCheckedAt": null
+        },
+        {
+          "toolId": "cursor",
+          "status": "unavailable",
+          "reason": "toolNotDetected",
+          "lastCheckedAt": null
+        },
+        {
+          "toolId": "kiro",
+          "status": "unavailable",
+          "reason": "toolNotDetected",
+          "lastCheckedAt": null
+        }
+      ],
+      "gates": {
+        "autoPermissionBypass": false,
+        "codexExperimentalUsage": true,
+        "experimentalKiroSupport": false
+      },
+      "diagnosticSummary": {
+        "availableToolCount": 2,
+        "unavailableToolCount": 2,
+        "disabledGateCount": 1,
+        "includesCommunityRegistry": false
+      }
+    },
+    {
+      "id": "kiro-gate-enabled-but-tool-missing",
+      "availableToolIds": [
+        "claude",
+        "codex"
+      ],
+      "rows": [
+        {
+          "toolId": "claude",
+          "status": "available",
+          "reason": null,
+          "lastCheckedAt": null
+        },
+        {
+          "toolId": "codex",
+          "status": "available",
+          "reason": null,
+          "lastCheckedAt": null
+        },
+        {
+          "toolId": "cursor",
+          "status": "unavailable",
+          "reason": "toolNotDetected",
+          "lastCheckedAt": null
+        },
+        {
+          "toolId": "kiro",
+          "status": "unavailable",
+          "reason": "toolNotDetected",
+          "lastCheckedAt": null
+        }
+      ],
+      "gates": {
+        "autoPermissionBypass": true,
+        "codexExperimentalUsage": true,
+        "experimentalKiroSupport": false
+      },
+      "diagnosticSummary": {
+        "availableToolCount": 2,
+        "unavailableToolCount": 2,
+        "disabledGateCount": 0,
+        "includesCommunityRegistry": false
+      }
+    }
+  ]
+}

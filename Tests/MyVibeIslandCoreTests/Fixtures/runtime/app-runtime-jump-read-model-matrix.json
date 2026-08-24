@@ -1,0 +1,56 @@
+{
+  "rows": [
+    {
+      "id": "empty-runtime-status",
+      "isBridgeRunning": false,
+      "sessionCount": 0,
+      "planStatus": "unavailable",
+      "planHandlerId": null,
+      "planFailureReason": "missingSession",
+      "executionStatus": "unavailable",
+      "executionHandlerId": null,
+      "executionBlockReason": "unavailablePlan",
+      "actionKind": "unsupported",
+      "diagnosticSummary": "missing session"
+    },
+    {
+      "id": "tmux-planned-dry-run",
+      "isBridgeRunning": false,
+      "sessionCount": 1,
+      "planStatus": "planned",
+      "planHandlerId": "tmux",
+      "planFailureReason": null,
+      "executionStatus": "dryRun",
+      "executionHandlerId": "tmux",
+      "executionBlockReason": null,
+      "actionKind": "runCLI",
+      "diagnosticSummary": "dry run: tmux exactPane"
+    },
+    {
+      "id": "tmux-execute-blocked-without-runner",
+      "isBridgeRunning": false,
+      "sessionCount": 1,
+      "planStatus": "planned",
+      "planHandlerId": "tmux",
+      "planFailureReason": null,
+      "executionStatus": "blocked",
+      "executionHandlerId": "tmux",
+      "executionBlockReason": "executionNotImplemented",
+      "actionKind": "runCLI",
+      "diagnosticSummary": "execution not implemented: tmux"
+    },
+    {
+      "id": "workspace-execute-injected-runner",
+      "isBridgeRunning": false,
+      "sessionCount": 1,
+      "planStatus": "planned",
+      "planHandlerId": "workspace",
+      "planFailureReason": null,
+      "executionStatus": "executed",
+      "executionHandlerId": "workspace",
+      "executionBlockReason": null,
+      "actionKind": "openWorkspace",
+      "diagnosticSummary": "opened workspace"
+    }
+  ]
+}

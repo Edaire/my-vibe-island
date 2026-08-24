@@ -1,0 +1,61 @@
+{
+  "rows": [
+    {
+      "id": "task-upsert-keeps-order",
+      "taskIds": ["t1", "t2"],
+      "taskSubjects": ["Plan", "Implement"],
+      "taskStatuses": ["completed", "active"],
+      "todoIds": [],
+      "todoStatuses": [],
+      "teamRootSessionId": null,
+      "teamMemberSessionIds": [],
+      "teamChildToParent": {},
+      "teamParentToChildren": {}
+    },
+    {
+      "id": "todo-upsert-keeps-order",
+      "taskIds": [],
+      "taskSubjects": [],
+      "taskStatuses": [],
+      "todoIds": ["todo-1", "todo-2"],
+      "todoStatuses": ["completed", "active"],
+      "teamRootSessionId": null,
+      "teamMemberSessionIds": [],
+      "teamChildToParent": {},
+      "teamParentToChildren": {}
+    },
+    {
+      "id": "team-grouping-replacement",
+      "taskIds": [],
+      "taskSubjects": [],
+      "taskStatuses": [],
+      "todoIds": [],
+      "todoStatuses": [],
+      "teamRootSessionId": "root",
+      "teamMemberSessionIds": ["child-2", "root"],
+      "teamChildToParent": {
+        "child-2": "root"
+      },
+      "teamParentToChildren": {
+        "root": ["child-2"]
+      }
+    },
+    {
+      "id": "team-grouping-normalizes-duplicate-children",
+      "taskIds": [],
+      "taskSubjects": [],
+      "taskStatuses": [],
+      "todoIds": [],
+      "todoStatuses": [],
+      "teamRootSessionId": "root",
+      "teamMemberSessionIds": ["child-1", "child-2", "root"],
+      "teamChildToParent": {
+        "child-1": "root",
+        "child-2": "root"
+      },
+      "teamParentToChildren": {
+        "root": ["child-1", "child-2"]
+      }
+    }
+  ]
+}

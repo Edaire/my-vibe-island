@@ -1,0 +1,90 @@
+{
+  "rows": [
+    {
+      "id": "fresh-registration",
+      "registrationPlan": {
+        "registeredHotKeys": [
+          {
+            "id": "toggle",
+            "carbonId": 1,
+            "keyCombo": {
+              "keyCode": 49,
+              "characters": "K",
+              "modifiers": [
+                "command"
+              ]
+            },
+            "scope": "persistentGlobal",
+            "action": "toggleIsland"
+          },
+          {
+            "id": "jump",
+            "carbonId": 2,
+            "keyCombo": {
+              "keyCode": 37,
+              "characters": "L",
+              "modifiers": [
+                "command"
+              ]
+            },
+            "scope": "persistentGlobal",
+            "action": "jumpToTerminal"
+          }
+        ],
+        "failures": []
+      },
+      "unregistrationPlan": null
+    },
+    {
+      "id": "reuse-and-reject",
+      "registrationPlan": {
+        "registeredHotKeys": [
+          {
+            "id": "toggle",
+            "carbonId": 7,
+            "keyCombo": {
+              "keyCode": 49,
+              "characters": "Space",
+              "modifiers": [
+                "command"
+              ]
+            },
+            "scope": "persistentGlobal",
+            "action": "toggleIsland"
+          }
+        ],
+        "failures": [
+          {
+            "specId": "jump",
+            "reason": "registrationRejected"
+          }
+        ]
+      },
+      "unregistrationPlan": null
+    },
+    {
+      "id": "unregister-one",
+      "registrationPlan": null,
+      "unregistrationPlan": {
+        "removedHotKeyIds": [
+          "toggle"
+        ],
+        "remainingHotKeys": [
+          {
+            "id": "jump",
+            "carbonId": 2,
+            "keyCombo": {
+              "keyCode": 37,
+              "characters": "L",
+              "modifiers": [
+                "command"
+              ]
+            },
+            "scope": "persistentGlobal",
+            "action": "jumpToTerminal"
+          }
+        ]
+      }
+    }
+  ]
+}

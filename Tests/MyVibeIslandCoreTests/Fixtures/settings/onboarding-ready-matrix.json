@@ -1,0 +1,99 @@
+{
+  "rows": [
+    {
+      "id": "ready-start-using",
+      "readyWindowId": "readyWindow",
+      "readinessOutcome": "ready",
+      "nextActions": [
+        "startUsing",
+        "openSettings"
+      ],
+      "isPresented": true,
+      "restartVisible": false,
+      "restartSource": null,
+      "requiresRestart": false,
+      "firstInstallOnly": false,
+      "affectedIntegrations": []
+    },
+    {
+      "id": "ready-restart-first",
+      "readyWindowId": "readyWindow",
+      "readinessOutcome": "ready",
+      "nextActions": [
+        "restartApp",
+        "openSettings"
+      ],
+      "isPresented": true,
+      "restartVisible": true,
+      "restartSource": "firstInstall",
+      "requiresRestart": true,
+      "firstInstallOnly": true,
+      "affectedIntegrations": [
+        "iterm"
+      ]
+    },
+    {
+      "id": "partial-repair-and-demo",
+      "readyWindowId": "readyWindow",
+      "readinessOutcome": "partial",
+      "nextActions": [
+        "openSettings",
+        "startDemo"
+      ],
+      "isPresented": true,
+      "restartVisible": false,
+      "restartSource": null,
+      "requiresRestart": false,
+      "firstInstallOnly": false,
+      "affectedIntegrations": []
+    },
+    {
+      "id": "partial-restart-included",
+      "readyWindowId": "readyWindow",
+      "readinessOutcome": "partial",
+      "nextActions": [
+        "openSettings",
+        "restartApp",
+        "startDemo"
+      ],
+      "isPresented": true,
+      "restartVisible": true,
+      "restartSource": "managedHooks",
+      "requiresRestart": true,
+      "firstInstallOnly": false,
+      "affectedIntegrations": [
+        "claude"
+      ]
+    },
+    {
+      "id": "demo-only-demo-first",
+      "readyWindowId": "readyWindow",
+      "readinessOutcome": "demoOnly",
+      "nextActions": [
+        "startDemo",
+        "openSettings"
+      ],
+      "isPresented": true,
+      "restartVisible": false,
+      "restartSource": null,
+      "requiresRestart": false,
+      "firstInstallOnly": false,
+      "affectedIntegrations": []
+    },
+    {
+      "id": "blocked-settings-first",
+      "readyWindowId": "readyWindow",
+      "readinessOutcome": "blocked",
+      "nextActions": [
+        "openSettings",
+        "startDemo"
+      ],
+      "isPresented": true,
+      "restartVisible": false,
+      "restartSource": null,
+      "requiresRestart": false,
+      "firstInstallOnly": false,
+      "affectedIntegrations": []
+    }
+  ]
+}

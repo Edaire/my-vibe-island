@@ -1,0 +1,64 @@
+{
+  "rows": [
+    {
+      "id": "approve-codex-permission",
+      "responseOK": true,
+      "responseMessage": "action resolved locally",
+      "directiveBehavior": "allow",
+      "coordinatorPendingIds": [],
+      "storedPendingIds": [],
+      "questionSelections": {}
+    },
+    {
+      "id": "deny-codex-permission",
+      "responseOK": true,
+      "responseMessage": "action resolved locally",
+      "directiveBehavior": "deny",
+      "coordinatorPendingIds": [],
+      "storedPendingIds": [],
+      "questionSelections": {}
+    },
+    {
+      "id": "dismiss-codex-permission",
+      "responseOK": true,
+      "responseMessage": "action resolved locally",
+      "directiveBehavior": null,
+      "coordinatorPendingIds": [],
+      "storedPendingIds": [],
+      "questionSelections": {}
+    },
+    {
+      "id": "answer-codex-question",
+      "responseOK": true,
+      "responseMessage": "action resolved locally",
+      "directiveBehavior": null,
+      "coordinatorPendingIds": [],
+      "storedPendingIds": [],
+      "questionSelections": {
+        "r1": "yes"
+      }
+    },
+    {
+      "id": "invalid-action",
+      "responseOK": false,
+      "responseMessage": "invalid resolve action payload",
+      "directiveBehavior": null,
+      "coordinatorPendingIds": [
+        "r1"
+      ],
+      "storedPendingIds": [],
+      "questionSelections": {}
+    },
+    {
+      "id": "unknown-request",
+      "responseOK": false,
+      "responseMessage": "action request not found",
+      "directiveBehavior": null,
+      "coordinatorPendingIds": [
+        "r1"
+      ],
+      "storedPendingIds": [],
+      "questionSelections": {}
+    }
+  ]
+}

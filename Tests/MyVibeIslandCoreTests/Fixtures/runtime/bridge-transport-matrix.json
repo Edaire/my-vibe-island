@@ -1,0 +1,44 @@
+{
+  "rows": [
+    {
+      "id": "local-unix-domain-socket",
+      "kind": "unixDomainSocket",
+      "endpoint": "/tmp/my-vibe-island.sock",
+      "provenance": "localDesktop",
+      "remoteHostId": null,
+      "isPublicListener": false
+    },
+    {
+      "id": "in-memory-test-harness",
+      "kind": "inMemory",
+      "endpoint": "memory://bridge",
+      "provenance": "testHarness",
+      "remoteHostId": null,
+      "isPublicListener": false
+    },
+    {
+      "id": "remote-tcp-private-listener",
+      "kind": "remoteTCP",
+      "endpoint": "127.0.0.1:49221",
+      "provenance": "remoteForwardedSocket",
+      "remoteHostId": "devbox",
+      "isPublicListener": false
+    },
+    {
+      "id": "remote-ssh-forward",
+      "kind": "remoteSSHForward",
+      "endpoint": "localhost:49222",
+      "provenance": "remoteForwardedSocket",
+      "remoteHostId": "devbox",
+      "isPublicListener": false
+    },
+    {
+      "id": "explicit-public-tcp-listener",
+      "kind": "remoteTCP",
+      "endpoint": "0.0.0.0:49223",
+      "provenance": "remoteForwardedSocket",
+      "remoteHostId": "shared-host",
+      "isPublicListener": true
+    }
+  ]
+}

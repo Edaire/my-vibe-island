@@ -1,0 +1,68 @@
+[
+  {
+    "id": "claude",
+    "displayName": "Claude Code",
+    "relativePath": ".claude/settings.json",
+    "format": "json"
+  },
+  {
+    "id": "qwen",
+    "displayName": "Qwen Code",
+    "relativePath": ".qwen/settings.json",
+    "format": "json"
+  },
+  {
+    "id": "qoder",
+    "displayName": "Qoder",
+    "relativePath": ".qoder/settings.json",
+    "format": "json"
+  },
+  {
+    "id": "factory",
+    "displayName": "Factory",
+    "relativePath": ".factory/settings.json",
+    "format": "json"
+  },
+  {
+    "id": "codebuddy",
+    "displayName": "CodeBuddy",
+    "relativePath": ".codebuddy/settings.json",
+    "format": "json"
+  },
+  {
+    "id": "codex",
+    "displayName": "Codex CLI",
+    "relativePath": ".codex/hooks.json",
+    "format": "json"
+  },
+  {
+    "id": "cursor",
+    "displayName": "Cursor",
+    "relativePath": ".cursor/hooks.json",
+    "format": "json"
+  },
+  {
+    "id": "gemini",
+    "displayName": "Gemini CLI",
+    "relativePath": ".gemini/settings.json",
+    "format": "json"
+  },
+  {
+    "id": "kimi",
+    "displayName": "Kimi CLI",
+    "relativePath": ".kimi/config.toml",
+    "format": "toml"
+  },
+  {
+    "id": "opencode",
+    "displayName": "OpenCode plugin",
+    "relativePath": ".config/opencode/plugins/open-island.js",
+    "format": "pluginFile"
+  },
+  {
+    "id": "hermes",
+    "displayName": "Hermes Agent plugin",
+    "relativePath": ".hermes/plugins/vibe-island",
+    "format": "pluginDirectory"
+  }
+]

@@ -1,0 +1,66 @@
+{
+  "rows": [
+    {
+      "id": "hidden-placement",
+      "displayState": "hidden",
+      "displayReason": "fullscreenHide",
+      "interactionDisplayState": "closed",
+      "isMenuBarHovering": false,
+      "placementSummary": "0.0x0.0->0.0x0.0:fullscreenHidden",
+      "actionSummaries": [
+        "hidePanel:fullscreenHide",
+        "recordDisplayReason:fullscreenHide"
+      ]
+    },
+    {
+      "id": "visible-placement-expanded",
+      "displayState": "expanded",
+      "displayReason": "none",
+      "interactionDisplayState": "expanded",
+      "isMenuBarHovering": false,
+      "placementSummary": "680.0x580.0->680.0x580.0:visible",
+      "actionSummaries": [
+        "applyFrame:680.0x580.0",
+        "showPanel:expanded"
+      ]
+    },
+    {
+      "id": "interaction-hover-opening",
+      "displayState": "closed",
+      "displayReason": "none",
+      "interactionDisplayState": "closed",
+      "isMenuBarHovering": false,
+      "placementSummary": "680.0x580.0->680.0x580.0:visible",
+      "actionSummaries": [
+        "forwardInteraction:scheduleHoverReveal:0.25:1"
+      ]
+    },
+    {
+      "id": "outside-click-collapse",
+      "displayState": "closed",
+      "displayReason": "outsideClick",
+      "interactionDisplayState": "closed",
+      "isMenuBarHovering": false,
+      "placementSummary": "680.0x580.0->680.0x580.0:visible",
+      "actionSummaries": [
+        "forwardInteraction:setDisplayState:closed",
+        "forwardInteraction:collapsePanel:outsideClick",
+        "applyFrame:680.0x580.0",
+        "showPanel:closed",
+        "recordDisplayReason:outsideClick"
+      ]
+    },
+    {
+      "id": "replace-presentation",
+      "displayState": "switcher",
+      "displayReason": "none",
+      "interactionDisplayState": "switcher",
+      "isMenuBarHovering": false,
+      "placementSummary": "680.0x580.0->680.0x580.0:visible",
+      "actionSummaries": [
+        "applyFrame:680.0x580.0",
+        "showPanel:switcher"
+      ]
+    }
+  ]
+}

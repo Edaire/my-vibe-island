@@ -1,0 +1,80 @@
+{
+  "dockPlans": [
+    {
+      "action": "setRegularPolicy",
+      "nextState": {
+        "preferredDockVisible": true,
+        "currentPolicy": "regular",
+        "lastPolicyChangeReason": "userPreference",
+        "reopenBehavior": "showIsland"
+      }
+    },
+    {
+      "action": "noChange",
+      "nextState": {
+        "preferredDockVisible": true,
+        "currentPolicy": "regular",
+        "lastPolicyChangeReason": "userPreference",
+        "reopenBehavior": "showIsland"
+      }
+    },
+    {
+      "action": "setAccessoryPolicy",
+      "nextState": {
+        "preferredDockVisible": false,
+        "currentPolicy": "accessory",
+        "lastPolicyChangeReason": "restoredSettings",
+        "reopenBehavior": "showIsland"
+      }
+    }
+  ],
+  "launchAtLoginPlans": [
+    {
+      "action": "updateDesired",
+      "nextState": {
+        "desiredEnabled": true,
+        "observedEnabled": false,
+        "reconciliationResult": "pending"
+      }
+    },
+    {
+      "action": "stateMatched",
+      "nextState": {
+        "desiredEnabled": true,
+        "observedEnabled": true,
+        "reconciliationResult": "matched"
+      }
+    },
+    {
+      "action": "needsReconcile",
+      "nextState": {
+        "desiredEnabled": true,
+        "observedEnabled": false,
+        "reconciliationResult": "mismatched"
+      }
+    },
+    {
+      "action": "recordRepairHint",
+      "nextState": {
+        "desiredEnabled": true,
+        "observedEnabled": false,
+        "reconciliationResult": "failed",
+        "lastError": "registration denied"
+      }
+    }
+  ],
+  "safeDockMenuCommands": [
+    {
+      "openSettings": {}
+    },
+    {
+      "checkForUpdates": {}
+    },
+    {
+      "exportDiagnostics": {}
+    },
+    {
+      "quit": {}
+    }
+  ]
+}

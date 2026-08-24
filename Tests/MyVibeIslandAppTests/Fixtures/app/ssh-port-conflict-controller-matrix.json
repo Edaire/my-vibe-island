@@ -1,0 +1,68 @@
+{
+  "rows": [
+    {
+      "id": "record-cleanup-allowed",
+      "lastConflict": {
+        "hostId": "devbox",
+        "port": 42042,
+        "listenerOwners": [],
+        "sameUserSSHPids": [101],
+        "liveEstablishedPids": [],
+        "foreignOwners": [],
+        "checkedByLsof": true,
+        "checkedBySS": true,
+        "decision": "sameUserStaleSSHDCleanupAllowed"
+      },
+      "allowsAutomaticCleanup": true,
+      "failsClosed": false,
+      "events": [
+        {
+          "hostId": "devbox",
+          "port": 42042,
+          "listenerOwners": [],
+          "sameUserSSHPids": [101],
+          "liveEstablishedPids": [],
+          "foreignOwners": [],
+          "checkedByLsof": true,
+          "checkedBySS": true,
+          "decision": "sameUserStaleSSHDCleanupAllowed"
+        }
+      ]
+    },
+    {
+      "id": "record-unknown-fails-closed",
+      "lastConflict": {
+        "hostId": "devbox",
+        "port": 42042,
+        "listenerOwners": [],
+        "sameUserSSHPids": [],
+        "liveEstablishedPids": [],
+        "foreignOwners": [],
+        "checkedByLsof": true,
+        "checkedBySS": true,
+        "decision": "unknownFailClosed"
+      },
+      "allowsAutomaticCleanup": false,
+      "failsClosed": true,
+      "events": [
+        {
+          "hostId": "devbox",
+          "port": 42042,
+          "listenerOwners": [],
+          "sameUserSSHPids": [],
+          "liveEstablishedPids": [],
+          "foreignOwners": [],
+          "checkedByLsof": true,
+          "checkedBySS": true,
+          "decision": "unknownFailClosed"
+        }
+      ]
+    },
+    {
+      "id": "clear-without-publish",
+      "allowsAutomaticCleanup": false,
+      "failsClosed": false,
+      "events": []
+    }
+  ]
+}

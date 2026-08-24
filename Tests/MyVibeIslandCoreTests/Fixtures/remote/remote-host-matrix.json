@@ -1,0 +1,46 @@
+{
+  "rows": [
+    {
+      "id": "connected-uds-host",
+      "hostId": "devbox",
+      "displayName": "Dev Box",
+      "connectionState": "connected",
+      "activeRemoteSessions": [
+        "session-a",
+        "session-b"
+      ],
+      "lastHeartbeatAt": "2026-07-09T12:40:00Z",
+      "lastError": null,
+      "tunnelStatus": "connected",
+      "deployStatus": "deployed",
+      "hookVersion": "1.4.1",
+      "reconnectAttempt": 0
+    },
+    {
+      "id": "reconnecting-tcp-host",
+      "hostId": "labbox",
+      "displayName": "Lab Box",
+      "connectionState": "reconnecting",
+      "activeRemoteSessions": [],
+      "lastHeartbeatAt": "2026-07-09T12:38:00Z",
+      "lastError": "heartbeat timeout",
+      "tunnelStatus": "reconnecting",
+      "deployStatus": "deployed",
+      "hookVersion": "1.4.0",
+      "reconnectAttempt": 3
+    },
+    {
+      "id": "setup-required-host",
+      "hostId": "freshbox",
+      "displayName": "Fresh Box",
+      "connectionState": "setupRequired",
+      "activeRemoteSessions": [],
+      "lastHeartbeatAt": null,
+      "lastError": "helper missing",
+      "tunnelStatus": "disconnected",
+      "deployStatus": "notDeployed",
+      "hookVersion": null,
+      "reconnectAttempt": 0
+    }
+  ]
+}

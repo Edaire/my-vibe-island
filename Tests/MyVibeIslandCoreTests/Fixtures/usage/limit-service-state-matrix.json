@@ -1,0 +1,90 @@
+{
+  "rows": [
+    {
+      "id": "empty",
+      "cachedSnapshots": [],
+      "refreshStates": [],
+      "defaultCodexRefreshBackoff": 1,
+      "zaiQuotaConfigState": {
+        "configChecked": false,
+        "cachedConfigAvailability": "unknown"
+      }
+    },
+    {
+      "id": "provider-account-cache",
+      "cachedSnapshots": [
+        {
+          "providerId": "codexRateLimits",
+          "accountId": {
+            "rawValue": "account-a"
+          },
+          "usedPercent": 25
+        },
+        {
+          "providerId": "codexRateLimits",
+          "accountId": {
+            "rawValue": "account-b"
+          },
+          "usedPercent": 75
+        }
+      ],
+      "refreshStates": [
+        {
+          "providerId": "codexRateLimits",
+          "accountId": {
+            "rawValue": "account-b"
+          },
+          "lastFetchAttemptSeconds": 100,
+          "backoffMultiplier": 3
+        }
+      ],
+      "defaultCodexRefreshBackoff": 1,
+      "zaiQuotaConfigState": {
+        "configChecked": false,
+        "cachedConfigAvailability": "unknown"
+      }
+    },
+    {
+      "id": "replacement-preserves-order-boundary",
+      "cachedSnapshots": [
+        {
+          "providerId": "codexRateLimits",
+          "accountId": {
+            "rawValue": "account-a"
+          },
+          "usedPercent": 25
+        },
+        {
+          "providerId": "codexRateLimits",
+          "accountId": {
+            "rawValue": "account-b"
+          },
+          "usedPercent": 80
+        }
+      ],
+      "refreshStates": [],
+      "defaultCodexRefreshBackoff": 1,
+      "zaiQuotaConfigState": {
+        "configChecked": false,
+        "cachedConfigAvailability": "unknown"
+      }
+    },
+    {
+      "id": "zai-config-with-refresh",
+      "cachedSnapshots": [],
+      "refreshStates": [
+        {
+          "providerId": "zaiQuota",
+          "accountId": null,
+          "lastFetchAttemptSeconds": 200,
+          "backoffMultiplier": 1
+        }
+      ],
+      "defaultCodexRefreshBackoff": 1,
+      "zaiQuotaConfigState": {
+        "configChecked": true,
+        "cachedConfigAvailability": "available"
+      }
+    }
+  ]
+}

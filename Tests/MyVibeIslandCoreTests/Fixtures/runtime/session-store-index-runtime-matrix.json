@@ -1,0 +1,43 @@
+{
+  "rows": [
+    {
+      "id": "runtime-without-store-no-ops",
+      "activeSessionId": null,
+      "summarizedSessionIds": [],
+      "questionSelections": {},
+      "singleQuestionSelection": null
+    },
+    {
+      "id": "runtime-stores-active-session-id",
+      "activeSessionId": "active-session",
+      "summarizedSessionIds": [],
+      "questionSelections": {},
+      "singleQuestionSelection": null
+    },
+    {
+      "id": "runtime-normalizes-summarized-session-ids",
+      "activeSessionId": null,
+      "summarizedSessionIds": ["a", "b"],
+      "questionSelections": {},
+      "singleQuestionSelection": null
+    },
+    {
+      "id": "runtime-overwrites-question-selection",
+      "activeSessionId": null,
+      "summarizedSessionIds": [],
+      "questionSelections": {
+        "request-1": "deny"
+      },
+      "singleQuestionSelection": "deny"
+    },
+    {
+      "id": "default-json-runtime-persists-indexes",
+      "activeSessionId": "active",
+      "summarizedSessionIds": ["summary"],
+      "questionSelections": {
+        "request-1": "approve"
+      },
+      "singleQuestionSelection": "approve"
+    }
+  ]
+}

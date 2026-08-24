@@ -1,0 +1,54 @@
+{
+  "rows": [
+    {
+      "id": "decode-envelope-trims-line",
+      "decodedCommand": "hookEvent",
+      "decodedSource": "codex",
+      "decodedResponseOK": null,
+      "decodedResponseMessage": null,
+      "encodedTrailingNewlineCount": null,
+      "encodedDecodesBack": null,
+      "encodedContainsSourceDirective": null
+    },
+    {
+      "id": "encode-envelope-single-newline",
+      "decodedCommand": null,
+      "decodedSource": null,
+      "decodedResponseOK": null,
+      "decodedResponseMessage": null,
+      "encodedTrailingNewlineCount": 1,
+      "encodedDecodesBack": true,
+      "encodedContainsSourceDirective": null
+    },
+    {
+      "id": "encode-ok-response-single-newline",
+      "decodedCommand": null,
+      "decodedSource": null,
+      "decodedResponseOK": null,
+      "decodedResponseMessage": null,
+      "encodedTrailingNewlineCount": 1,
+      "encodedDecodesBack": true,
+      "encodedContainsSourceDirective": false
+    },
+    {
+      "id": "encode-failure-response-source-directive",
+      "decodedCommand": null,
+      "decodedSource": null,
+      "decodedResponseOK": null,
+      "decodedResponseMessage": null,
+      "encodedTrailingNewlineCount": 1,
+      "encodedDecodesBack": true,
+      "encodedContainsSourceDirective": true
+    },
+    {
+      "id": "decode-response-trims-line",
+      "decodedCommand": null,
+      "decodedSource": null,
+      "decodedResponseOK": false,
+      "decodedResponseMessage": "blocked",
+      "encodedTrailingNewlineCount": null,
+      "encodedDecodesBack": null,
+      "encodedContainsSourceDirective": null
+    }
+  ]
+}

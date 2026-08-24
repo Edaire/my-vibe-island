@@ -1,0 +1,32 @@
+{
+  "rows" : [
+    {
+      "events" : [
+        "activate"
+      ],
+      "id" : "show-island"
+    },
+    {
+      "events" : [
+        "window:settings:integrations:codex"
+      ],
+      "id" : "settings-deep-link"
+    },
+    {
+      "events" : [
+        "window:settings:general"
+      ],
+      "id" : "settings-default"
+    },
+    {
+      "events" : [],
+      "id" : "onboarding"
+    },
+    {
+      "events" : [
+        "quit"
+      ],
+      "id" : "quit"
+    }
+  ]
+}

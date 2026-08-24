@@ -1,0 +1,194 @@
+{
+  "rows" : [
+    {
+      "agentEventKinds" : [
+        "sessionStarted",
+        "taskUpdated",
+        "todoUpdated"
+      ],
+      "id" : "generic-normalized-content",
+      "rawEventName" : "SessionStart",
+      "sessionId" : "session-normalized",
+      "source" : "codex",
+      "taskIds" : [
+        "task-1"
+      ],
+      "taskOwners" : [
+        "codex"
+      ],
+      "taskStatuses" : [
+        "active"
+      ],
+      "taskSubjects" : [
+        "Implement normalized content"
+      ],
+      "todoContents" : [
+        "Write RED tests"
+      ],
+      "todoIds" : [
+        "todo-1"
+      ],
+      "todoStatuses" : [
+        "pending"
+      ]
+    },
+    {
+      "agentEventKinds" : [
+        "sessionStarted",
+        "taskUpdated",
+        "todoUpdated"
+      ],
+      "id" : "codex-normalized-content",
+      "rawEventName" : "SessionStart",
+      "sessionId" : "codex-session-normalized",
+      "source" : "codex",
+      "taskIds" : [
+        "task-1"
+      ],
+      "taskOwners" : [
+        "codex"
+      ],
+      "taskStatuses" : [
+        "active"
+      ],
+      "taskSubjects" : [
+        "Implement normalized content"
+      ],
+      "todoContents" : [
+        "Write RED tests"
+      ],
+      "todoIds" : [
+        "todo-1"
+      ],
+      "todoStatuses" : [
+        "pending"
+      ]
+    },
+    {
+      "agentEventKinds" : [
+        "sessionStarted",
+        "taskUpdated",
+        "todoUpdated"
+      ],
+      "id" : "claude-compatible-normalized-content",
+      "rawEventName" : "SessionStart",
+      "sessionId" : "session-normalized",
+      "source" : "claude",
+      "taskIds" : [
+        "task-1"
+      ],
+      "taskOwners" : [
+        "codex"
+      ],
+      "taskStatuses" : [
+        "active"
+      ],
+      "taskSubjects" : [
+        "Implement normalized content"
+      ],
+      "todoContents" : [
+        "Write RED tests"
+      ],
+      "todoIds" : [
+        "todo-1"
+      ],
+      "todoStatuses" : [
+        "pending"
+      ]
+    },
+    {
+      "agentEventKinds" : [
+        "sessionStarted",
+        "taskUpdated",
+        "todoUpdated"
+      ],
+      "id" : "invalid-items-filtered",
+      "rawEventName" : "SessionStart",
+      "sessionId" : "session-normalized",
+      "source" : "codex",
+      "taskIds" : [
+        "task-1"
+      ],
+      "taskOwners" : [
+        "codex"
+      ],
+      "taskStatuses" : [
+        "active"
+      ],
+      "taskSubjects" : [
+        "Implement normalized content"
+      ],
+      "todoContents" : [
+        "Write RED tests"
+      ],
+      "todoIds" : [
+        "todo-1"
+      ],
+      "todoStatuses" : [
+        "pending"
+      ]
+    },
+    {
+      "agentEventKinds" : [
+        "sessionStarted",
+        "taskUpdated",
+        "todoUpdated"
+      ],
+      "id" : "unknown-statuses-normalized",
+      "rawEventName" : "SessionStart",
+      "sessionId" : "session-normalized",
+      "source" : "codex",
+      "taskIds" : [
+        "task-unknown"
+      ],
+      "taskOwners" : [
+        null
+      ],
+      "taskStatuses" : [
+        "unknown"
+      ],
+      "taskSubjects" : [
+        "Unknown task status"
+      ],
+      "todoContents" : [
+        "Unknown todo status"
+      ],
+      "todoIds" : [
+        "todo-unknown"
+      ],
+      "todoStatuses" : [
+        "unknown"
+      ]
+    },
+    {
+      "agentEventKinds" : [
+        "sessionStarted"
+      ],
+      "id" : "missing-arrays-empty",
+      "rawEventName" : "SessionStart",
+      "sessionId" : "session-normalized",
+      "source" : "codex",
+      "taskIds" : [
+
+      ],
+      "taskOwners" : [
+
+      ],
+      "taskStatuses" : [
+
+      ],
+      "taskSubjects" : [
+
+      ],
+      "todoContents" : [
+
+      ],
+      "todoIds" : [
+
+      ],
+      "todoStatuses" : [
+
+      ]
+    }
+  ]
+}

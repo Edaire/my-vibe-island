@@ -1,0 +1,89 @@
+{
+  "initialRows": [
+    {
+      "sourceId": "codex",
+      "displayName": "Codex CLI",
+      "supportLevel": "supported",
+      "installState": "notInstalled",
+      "healthState": "unknown",
+      "repairAction": null,
+      "diagnostics": []
+    },
+    {
+      "sourceId": "kimi",
+      "displayName": "Kimi CLI",
+      "supportLevel": "planned",
+      "installState": "unsupported",
+      "healthState": "unknown",
+      "repairAction": null,
+      "diagnostics": []
+    },
+    {
+      "sourceId": "opencode",
+      "displayName": "OpenCode",
+      "supportLevel": "supported",
+      "installState": "notInstalled",
+      "healthState": "unknown",
+      "repairAction": null,
+      "diagnostics": []
+    }
+  ],
+  "initialLastCheckedAt": "2026-07-09T02:00:00Z",
+  "plans": [
+    {
+      "id": "refresh",
+      "action": "refresh",
+      "sourceId": null,
+      "nextLastCheckedAt": "2026-07-09T02:05:00Z",
+      "nextSourceIds": [
+        "codex",
+        "kimi",
+        "opencode"
+      ]
+    },
+    {
+      "id": "install-codex",
+      "action": "install",
+      "sourceId": "codex",
+      "nextLastCheckedAt": "2026-07-09T02:00:00Z",
+      "nextSourceIds": [
+        "codex",
+        "kimi",
+        "opencode"
+      ]
+    },
+    {
+      "id": "repair-opencode",
+      "action": "repair",
+      "sourceId": "opencode",
+      "nextLastCheckedAt": "2026-07-09T02:00:00Z",
+      "nextSourceIds": [
+        "codex",
+        "kimi",
+        "opencode"
+      ]
+    },
+    {
+      "id": "uninstall-codex",
+      "action": "uninstall",
+      "sourceId": "codex",
+      "nextLastCheckedAt": "2026-07-09T02:00:00Z",
+      "nextSourceIds": [
+        "codex",
+        "kimi",
+        "opencode"
+      ]
+    },
+    {
+      "id": "unknown-repair",
+      "action": "ignoreUnknownSource",
+      "sourceId": null,
+      "nextLastCheckedAt": "2026-07-09T02:00:00Z",
+      "nextSourceIds": [
+        "codex",
+        "kimi",
+        "opencode"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "hook_event_name": "beforeSubmitPrompt",
+  "conversation_id": "cursor-conversation-prompt",
+  "generation_id": "cursor-generation-prompt",
+  "workspace_roots": ["/tmp/cursor-project"],
+  "prompt": "Implement the bridge review fixes"
+}

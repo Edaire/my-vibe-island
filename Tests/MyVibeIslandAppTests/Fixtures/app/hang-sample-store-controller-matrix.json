@@ -1,0 +1,162 @@
+{
+  "rows": [
+    {
+      "id": "single-append",
+      "appendedSamples": [
+        {
+          "detectedAt": "first",
+          "durationMilliseconds": 900,
+          "peakLagMilliseconds": 900,
+          "redactedStackAvailable": true
+        }
+      ],
+      "stores": [
+        {
+          "capacity": 2,
+          "samples": [
+            {
+              "detectedAt": "first",
+              "durationMilliseconds": 900,
+              "peakLagMilliseconds": 900,
+              "redactedStackAvailable": true
+            }
+          ]
+        }
+      ],
+      "finalStore": {
+        "capacity": 2,
+        "samples": [
+          {
+            "detectedAt": "first",
+            "durationMilliseconds": 900,
+            "peakLagMilliseconds": 900,
+            "redactedStackAvailable": true
+          }
+        ]
+      },
+      "lastPublishedStore": {
+        "capacity": 2,
+        "samples": [
+          {
+            "detectedAt": "first",
+            "durationMilliseconds": 900,
+            "peakLagMilliseconds": 900,
+            "redactedStackAvailable": true
+          }
+        ]
+      },
+      "events": [
+        "first"
+      ]
+    },
+    {
+      "id": "capacity-trims-oldest",
+      "appendedSamples": [
+        {
+          "detectedAt": "first",
+          "durationMilliseconds": 900,
+          "peakLagMilliseconds": 900,
+          "redactedStackAvailable": true
+        },
+        {
+          "detectedAt": "second",
+          "durationMilliseconds": 1200,
+          "peakLagMilliseconds": 1200,
+          "redactedStackAvailable": true
+        },
+        {
+          "detectedAt": "third",
+          "durationMilliseconds": 1500,
+          "peakLagMilliseconds": 1500,
+          "redactedStackAvailable": true
+        }
+      ],
+      "stores": [
+        {
+          "capacity": 2,
+          "samples": [
+            {
+              "detectedAt": "first",
+              "durationMilliseconds": 900,
+              "peakLagMilliseconds": 900,
+              "redactedStackAvailable": true
+            }
+          ]
+        },
+        {
+          "capacity": 2,
+          "samples": [
+            {
+              "detectedAt": "first",
+              "durationMilliseconds": 900,
+              "peakLagMilliseconds": 900,
+              "redactedStackAvailable": true
+            },
+            {
+              "detectedAt": "second",
+              "durationMilliseconds": 1200,
+              "peakLagMilliseconds": 1200,
+              "redactedStackAvailable": true
+            }
+          ]
+        },
+        {
+          "capacity": 2,
+          "samples": [
+            {
+              "detectedAt": "second",
+              "durationMilliseconds": 1200,
+              "peakLagMilliseconds": 1200,
+              "redactedStackAvailable": true
+            },
+            {
+              "detectedAt": "third",
+              "durationMilliseconds": 1500,
+              "peakLagMilliseconds": 1500,
+              "redactedStackAvailable": true
+            }
+          ]
+        }
+      ],
+      "finalStore": {
+        "capacity": 2,
+        "samples": [
+          {
+            "detectedAt": "second",
+            "durationMilliseconds": 1200,
+            "peakLagMilliseconds": 1200,
+            "redactedStackAvailable": true
+          },
+          {
+            "detectedAt": "third",
+            "durationMilliseconds": 1500,
+            "peakLagMilliseconds": 1500,
+            "redactedStackAvailable": true
+          }
+        ]
+      },
+      "lastPublishedStore": {
+        "capacity": 2,
+        "samples": [
+          {
+            "detectedAt": "second",
+            "durationMilliseconds": 1200,
+            "peakLagMilliseconds": 1200,
+            "redactedStackAvailable": true
+          },
+          {
+            "detectedAt": "third",
+            "durationMilliseconds": 1500,
+            "peakLagMilliseconds": 1500,
+            "redactedStackAvailable": true
+          }
+        ]
+      },
+      "events": [
+        "first",
+        "first,second",
+        "second,third"
+      ]
+    }
+  ]
+}

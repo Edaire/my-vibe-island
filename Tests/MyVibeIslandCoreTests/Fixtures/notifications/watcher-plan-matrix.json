@@ -1,0 +1,129 @@
+{
+  "rows": [
+    {
+      "id": "start-not-determined",
+      "nextState": {
+        "authorizationStatus": "notDetermined",
+        "isObserving": false,
+        "pendingPeekIds": []
+      },
+      "actions": [
+        {
+          "kind": "requestAuthorization",
+          "notificationId": null,
+          "category": null,
+          "eventId": null,
+          "suppressionReason": null
+        }
+      ]
+    },
+    {
+      "id": "start-authorized",
+      "nextState": {
+        "authorizationStatus": "authorized",
+        "isObserving": true,
+        "pendingPeekIds": []
+      },
+      "actions": [
+        {
+          "kind": "registerObserver",
+          "notificationId": null,
+          "category": null,
+          "eventId": null,
+          "suppressionReason": null
+        }
+      ]
+    },
+    {
+      "id": "start-already-observing",
+      "nextState": {
+        "authorizationStatus": "authorized",
+        "isObserving": true,
+        "pendingPeekIds": []
+      },
+      "actions": []
+    },
+    {
+      "id": "authorization-denied-stops-observing",
+      "nextState": {
+        "authorizationStatus": "denied",
+        "isObserving": false,
+        "pendingPeekIds": []
+      },
+      "actions": []
+    },
+    {
+      "id": "receive-authorized-observing",
+      "nextState": {
+        "authorizationStatus": "authorized",
+        "isObserving": true,
+        "pendingPeekIds": [
+          "existing",
+          "permission-1"
+        ]
+      },
+      "actions": [
+        {
+          "kind": "publishPeek",
+          "notificationId": "permission-1",
+          "category": "permissionRequested",
+          "eventId": null,
+          "suppressionReason": null
+        }
+      ]
+    },
+    {
+      "id": "receive-not-authorized",
+      "nextState": {
+        "authorizationStatus": "denied",
+        "isObserving": false,
+        "pendingPeekIds": []
+      },
+      "actions": [
+        {
+          "kind": "suppress",
+          "notificationId": null,
+          "category": null,
+          "eventId": "permission-1",
+          "suppressionReason": "notAuthorized"
+        }
+      ]
+    },
+    {
+      "id": "receive-not-observing",
+      "nextState": {
+        "authorizationStatus": "authorized",
+        "isObserving": false,
+        "pendingPeekIds": []
+      },
+      "actions": [
+        {
+          "kind": "suppress",
+          "notificationId": null,
+          "category": null,
+          "eventId": "permission-1",
+          "suppressionReason": "notObserving"
+        }
+      ]
+    },
+    {
+      "id": "stop-observing",
+      "nextState": {
+        "authorizationStatus": "authorized",
+        "isObserving": false,
+        "pendingPeekIds": [
+          "permission-1"
+        ]
+      },
+      "actions": [
+        {
+          "kind": "unregisterObserver",
+          "notificationId": null,
+          "category": null,
+          "eventId": null,
+          "suppressionReason": null
+        }
+      ]
+    }
+  ]
+}

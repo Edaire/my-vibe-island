@@ -1,0 +1,18 @@
+{
+  "errors": [
+    "cannotCreateArchive",
+    "sectionGenerationFailed",
+    "redactionFailed",
+    "permissionDenied",
+    "crashReportCollectionFailed",
+    "hangSampleReadFailed"
+  ],
+  "rawValues": [
+    "cannotCreateArchive",
+    "sectionGenerationFailed",
+    "redactionFailed",
+    "permissionDenied",
+    "crashReportCollectionFailed",
+    "hangSampleReadFailed"
+  ]
+}

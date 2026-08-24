@@ -1,0 +1,192 @@
+{
+  "cases": [
+    {
+      "name": "built-in-notch-prefers-notched-display",
+      "plan": {
+        "nextSnapshot": {
+          "mode": "builtInNotchDisplay",
+          "availableScreens": [
+            {
+              "identifier": "external",
+              "displayName": "Studio Display",
+              "isBuiltIn": false,
+              "hasNotch": false,
+              "isMain": true
+            },
+            {
+              "identifier": "built-in",
+              "displayName": "MacBook",
+              "isBuiltIn": true,
+              "hasNotch": true,
+              "isMain": false
+            }
+          ],
+          "target": {
+            "identifier": "built-in",
+            "displayName": "MacBook",
+            "isBuiltIn": true,
+            "isMain": false
+          },
+          "switchTipDismissed": false
+        },
+        "targetDidChange": true
+      }
+    },
+    {
+      "name": "main-display-mode-selects-main",
+      "plan": {
+        "nextSnapshot": {
+          "mode": "mainDisplay",
+          "availableScreens": [
+            {
+              "identifier": "main",
+              "displayName": "Main",
+              "isBuiltIn": true,
+              "hasNotch": false,
+              "isMain": true
+            },
+            {
+              "identifier": "side",
+              "displayName": "Side",
+              "isBuiltIn": false,
+              "hasNotch": false,
+              "isMain": false
+            }
+          ],
+          "target": {
+            "identifier": "main",
+            "displayName": "Main",
+            "isBuiltIn": true,
+            "isMain": true
+          },
+          "switchTipDismissed": false
+        },
+        "targetDidChange": true
+      }
+    },
+    {
+      "name": "follow-focus-known-display",
+      "plan": {
+        "nextSnapshot": {
+          "mode": "followKeyboardFocus",
+          "availableScreens": [
+            {
+              "identifier": "main",
+              "displayName": "Main",
+              "isBuiltIn": true,
+              "hasNotch": false,
+              "isMain": true
+            },
+            {
+              "identifier": "side",
+              "displayName": "Side",
+              "isBuiltIn": false,
+              "hasNotch": false,
+              "isMain": false
+            }
+          ],
+          "target": {
+            "identifier": "side",
+            "displayName": "Side",
+            "isBuiltIn": false,
+            "isMain": false
+          },
+          "focusedScreenIdentifier": "side",
+          "switchTipDismissed": false
+        },
+        "targetDidChange": true
+      }
+    },
+    {
+      "name": "manual-display-survives-reconnect",
+      "plan": {
+        "nextSnapshot": {
+          "mode": "manualDisplay",
+          "availableScreens": [
+            {
+              "identifier": "side",
+              "displayName": "Side",
+              "isBuiltIn": false,
+              "hasNotch": false,
+              "isMain": false
+            },
+            {
+              "identifier": "main",
+              "displayName": "Main",
+              "isBuiltIn": true,
+              "hasNotch": false,
+              "isMain": true
+            }
+          ],
+          "target": {
+            "identifier": "side",
+            "displayName": "Side",
+            "isBuiltIn": false,
+            "isMain": false
+          },
+          "manualScreenIdentifier": "side",
+          "switchTipDismissed": false
+        },
+        "targetDidChange": false
+      }
+    },
+    {
+      "name": "manual-display-falls-back-when-missing",
+      "plan": {
+        "nextSnapshot": {
+          "mode": "manualDisplay",
+          "availableScreens": [
+            {
+              "identifier": "main",
+              "displayName": "Main",
+              "isBuiltIn": true,
+              "hasNotch": false,
+              "isMain": true
+            }
+          ],
+          "target": {
+            "identifier": "main",
+            "displayName": "Main",
+            "isBuiltIn": true,
+            "isMain": true
+          },
+          "manualScreenIdentifier": "side",
+          "switchTipDismissed": false
+        },
+        "targetDidChange": true
+      }
+    },
+    {
+      "name": "dismiss-switch-tip-keeps-target",
+      "plan": {
+        "nextSnapshot": {
+          "mode": "builtInNotchDisplay",
+          "availableScreens": [
+            {
+              "identifier": "main",
+              "displayName": "Main",
+              "isBuiltIn": true,
+              "hasNotch": false,
+              "isMain": true
+            },
+            {
+              "identifier": "side",
+              "displayName": "Side",
+              "isBuiltIn": false,
+              "hasNotch": false,
+              "isMain": false
+            }
+          ],
+          "target": {
+            "identifier": "main",
+            "displayName": "Main",
+            "isBuiltIn": true,
+            "isMain": true
+          },
+          "switchTipDismissed": true
+        },
+        "targetDidChange": false
+      }
+    }
+  ]
+}

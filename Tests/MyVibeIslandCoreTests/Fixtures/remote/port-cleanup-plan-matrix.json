@@ -1,0 +1,61 @@
+{
+  "rows": [
+    {
+      "id": "free-port",
+      "hostId": "freebox",
+      "port": 42042,
+      "action": "noCleanupNeeded",
+      "pidsEligibleForCleanup": [],
+      "requiresManualCleanup": false,
+      "diagnosticSummary": "freebox port 42042 is free"
+    },
+    {
+      "id": "same-user-stale-sorted-pids",
+      "hostId": "devbox",
+      "port": 42042,
+      "action": "cleanupSameUserStaleSSHD",
+      "pidsEligibleForCleanup": [
+        101,
+        102
+      ],
+      "requiresManualCleanup": false,
+      "diagnosticSummary": "devbox port 42042 cleanup limited to same-user stale sshd"
+    },
+    {
+      "id": "same-user-stale-missing-ss-evidence",
+      "hostId": "partialbox",
+      "port": 42042,
+      "action": "failClosed",
+      "pidsEligibleForCleanup": [],
+      "requiresManualCleanup": true,
+      "diagnosticSummary": "partialbox port 42042 cleanup requires manual review"
+    },
+    {
+      "id": "same-user-stale-live-established",
+      "hostId": "livebox",
+      "port": 42042,
+      "action": "failClosed",
+      "pidsEligibleForCleanup": [],
+      "requiresManualCleanup": true,
+      "diagnosticSummary": "livebox port 42042 cleanup requires manual review"
+    },
+    {
+      "id": "foreign-owner-fail-closed",
+      "hostId": "foreignbox",
+      "port": 42042,
+      "action": "failClosed",
+      "pidsEligibleForCleanup": [],
+      "requiresManualCleanup": true,
+      "diagnosticSummary": "foreignbox port 42042 cleanup requires manual review"
+    },
+    {
+      "id": "unknown-fail-closed",
+      "hostId": "unknownbox",
+      "port": 42042,
+      "action": "failClosed",
+      "pidsEligibleForCleanup": [],
+      "requiresManualCleanup": true,
+      "diagnosticSummary": "unknownbox port 42042 cleanup requires manual review"
+    }
+  ]
+}

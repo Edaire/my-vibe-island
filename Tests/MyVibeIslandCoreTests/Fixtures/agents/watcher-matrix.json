@@ -1,0 +1,66 @@
+{
+  "cases": [
+    {
+      "name": "state-normalizes-and-round-trips",
+      "projection": {
+        "action": null,
+        "watchedSourceIds": ["codex"],
+        "isRunning": true,
+        "pendingEventIds": ["queued"],
+        "lastScanAt": "2026-07-08T18:58:00Z",
+        "emittedEventIds": [],
+        "emittedSourceIds": []
+      }
+    },
+    {
+      "name": "start-watches-configured-sources",
+      "projection": {
+        "action": "start",
+        "watchedSourceIds": ["codex", "opencode"],
+        "isRunning": true,
+        "pendingEventIds": [],
+        "lastScanAt": null,
+        "emittedEventIds": [],
+        "emittedSourceIds": []
+      }
+    },
+    {
+      "name": "rescan-emits-event-without-queueing",
+      "projection": {
+        "action": "rescan",
+        "watchedSourceIds": ["codex", "opencode"],
+        "isRunning": true,
+        "pendingEventIds": [],
+        "lastScanAt": "2026-07-08T19:01:00Z",
+        "emittedEventIds": [
+          "rescan:codex:2026-07-08T19:01:00Z"
+        ],
+        "emittedSourceIds": ["codex"]
+      }
+    },
+    {
+      "name": "unknown-source-rescan-is-ignored",
+      "projection": {
+        "action": "ignoreUnknownSource",
+        "watchedSourceIds": ["codex"],
+        "isRunning": true,
+        "pendingEventIds": ["queued"],
+        "lastScanAt": "2026-07-08T18:58:00Z",
+        "emittedEventIds": [],
+        "emittedSourceIds": []
+      }
+    },
+    {
+      "name": "stop-clears-pending-events",
+      "projection": {
+        "action": "stop",
+        "watchedSourceIds": ["codex"],
+        "isRunning": false,
+        "pendingEventIds": [],
+        "lastScanAt": "2026-07-08T18:58:00Z",
+        "emittedEventIds": [],
+        "emittedSourceIds": []
+      }
+    }
+  ]
+}

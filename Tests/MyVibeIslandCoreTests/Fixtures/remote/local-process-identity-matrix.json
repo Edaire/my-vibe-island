@@ -1,0 +1,70 @@
+{
+  "rows": [
+    {
+      "id": "terminal-forwarded-socket",
+      "processPid": 4242,
+      "processTTY": "ttys003",
+      "processCommand": "ssh",
+      "processArguments": [
+        "-R",
+        "<redacted>",
+        "devbox"
+      ],
+      "identityBundleIdentifier": "com.apple.Terminal",
+      "identityPid": 4242,
+      "identityTTY": "ttys003",
+      "identityResolution": "processScan",
+      "identityCommandLineRedacted": "ssh -R <redacted> devbox",
+      "identityHostAlias": "devbox",
+      "identityRemoteForwardSpec": "<redacted>"
+    },
+    {
+      "id": "iterm-tcp-forward",
+      "processPid": 5252,
+      "processTTY": "ttys007",
+      "processCommand": "ssh",
+      "processArguments": [
+        "-L",
+        "127.0.0.1:47240:127.0.0.1:47240",
+        "lab"
+      ],
+      "identityBundleIdentifier": "com.googlecode.iterm2",
+      "identityPid": 5252,
+      "identityTTY": "ttys007",
+      "identityResolution": "windowOwner",
+      "identityCommandLineRedacted": "ssh -L 127.0.0.1:47240:127.0.0.1:47240 lab",
+      "identityHostAlias": "lab",
+      "identityRemoteForwardSpec": null
+    },
+    {
+      "id": "vscode-integrated-terminal",
+      "processPid": 6262,
+      "processTTY": null,
+      "processCommand": "ssh",
+      "processArguments": [
+        "devcontainer"
+      ],
+      "identityBundleIdentifier": "com.microsoft.VSCode",
+      "identityPid": 6262,
+      "identityTTY": null,
+      "identityResolution": "frontmostApplication",
+      "identityCommandLineRedacted": "ssh devcontainer",
+      "identityHostAlias": "devcontainer",
+      "identityRemoteForwardSpec": null
+    },
+    {
+      "id": "unknown-client-no-command-line",
+      "processPid": 7272,
+      "processTTY": null,
+      "processCommand": "ssh",
+      "processArguments": [],
+      "identityBundleIdentifier": null,
+      "identityPid": 7272,
+      "identityTTY": null,
+      "identityResolution": "unresolved",
+      "identityCommandLineRedacted": null,
+      "identityHostAlias": null,
+      "identityRemoteForwardSpec": null
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "envelopes": [
+    {
+      "id": "hook-event-command",
+      "schemaVersion": 1,
+      "clientRole": "hook",
+      "source": "codex",
+      "requestId": "req-1",
+      "command": "hookEvent",
+      "payloadKeys": [
+        "rawEventName"
+      ],
+      "supportedCommandCount": 0,
+      "metadataKeys": [],
+      "environment": null
+    },
+    {
+      "id": "hello-structured-payload",
+      "schemaVersion": 1,
+      "clientRole": "agent",
+      "source": "codex",
+      "requestId": "req-2",
+      "command": "hello",
+      "payloadKeys": [
+        "metadata",
+        "supportedCommands"
+      ],
+      "supportedCommandCount": 2,
+      "metadataKeys": [
+        "agentSpecific"
+      ],
+      "environment": null
+    },
+    {
+      "id": "hook-environment-fields",
+      "schemaVersion": 1,
+      "clientRole": "hook",
+      "source": "codex",
+      "requestId": "req-3",
+      "command": "hookEvent",
+      "payloadKeys": [
+        "rawEventName"
+      ],
+      "supportedCommandCount": 0,
+      "metadataKeys": [],
+      "environment": {
+        "cwd": "/tmp/project",
+        "shell": "zsh",
+        "terminal": "iTerm.app",
+        "pid": 42,
+        "user": "fixture-user",
+        "termProgram": "iTerm.app",
+        "tmuxPane": "%2",
+        "weztermPane": "pane-1",
+        "sshTTY": "/dev/ttys001"
+      }
+    }
+  ],
+  "responses": [
+    {
+      "id": "ok-message",
+      "ok": true,
+      "message": "reachable",
+      "hasSourceDirective": false,
+      "sourceDirectiveKeys": []
+    },
+    {
+      "id": "failure-source-directive",
+      "ok": false,
+      "message": "blocked",
+      "hasSourceDirective": true,
+      "sourceDirectiveKeys": [
+        "type"
+      ]
+    }
+  ]
+}

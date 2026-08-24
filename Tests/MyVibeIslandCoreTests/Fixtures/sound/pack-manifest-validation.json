@@ -1,0 +1,62 @@
+{
+  "categoryEntries": [
+    {
+      "category": "permission",
+      "sounds": [
+        {
+          "id": "permission.soft",
+          "category": "permission",
+          "file": "permission-soft.aiff",
+          "label": "Permission Soft",
+          "durationMs": 900,
+          "loudness": "normal"
+        }
+      ]
+    },
+    {
+      "category": "completion",
+      "sounds": [
+        {
+          "id": "completion.soft",
+          "category": "completion",
+          "file": "completion-soft.aiff",
+          "label": "Completion Soft",
+          "durationMs": 700,
+          "loudness": "quiet"
+        }
+      ]
+    }
+  ],
+  "permissionSoundIds": [
+    "permission.soft"
+  ],
+  "usageSoundIds": [],
+  "validationReport": {
+    "issues": [
+      {
+        "kind": "missingPackId",
+        "soundId": null
+      },
+      {
+        "kind": "missingAuthorName",
+        "soundId": null
+      },
+      {
+        "kind": "soundCategoryNotListed",
+        "soundId": "usage.soft"
+      },
+      {
+        "kind": "missingSoundFile",
+        "soundId": "usage.soft"
+      },
+      {
+        "kind": "missingSoundLabel",
+        "soundId": "usage.soft"
+      },
+      {
+        "kind": "invalidDuration",
+        "soundId": "usage.soft"
+      }
+    ]
+  }
+}

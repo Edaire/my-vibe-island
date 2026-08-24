@@ -1,0 +1,52 @@
+{
+  "rows" : [
+    {
+      "dispatchedCommands" : [
+        "openSettings"
+      ],
+      "id" : "open-settings",
+      "identifier" : "openSettings",
+      "lastCommand" : "openSettings"
+    },
+    {
+      "dispatchedCommands" : [
+        "toggleDockIcon"
+      ],
+      "id" : "toggle-dock",
+      "identifier" : "toggleDockIcon",
+      "lastCommand" : "toggleDockIcon"
+    },
+    {
+      "dispatchedCommands" : [
+        "selectScreenMode:manualDisplay"
+      ],
+      "id" : "screen-manual",
+      "identifier" : "selectScreenMode.manualDisplay",
+      "lastCommand" : "selectScreenMode:manualDisplay"
+    },
+    {
+      "dispatchedCommands" : [
+
+      ],
+      "id" : "screen-invalid",
+      "identifier" : "selectScreenMode.unknown",
+      "lastCommand" : null
+    },
+    {
+      "dispatchedCommands" : [
+
+      ],
+      "id" : "unknown",
+      "identifier" : "unknown",
+      "lastCommand" : null
+    },
+    {
+      "dispatchedCommands" : [
+
+      ],
+      "id" : "missing",
+      "identifier" : null,
+      "lastCommand" : null
+    }
+  ]
+}

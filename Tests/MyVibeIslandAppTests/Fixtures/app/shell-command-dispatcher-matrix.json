@@ -1,0 +1,95 @@
+{
+  "rows" : [
+    {
+      "commandSummaries" : [
+        "menu:openSettings"
+      ],
+      "events" : [
+        "overlay:routeAction",
+        "settings:none"
+      ],
+      "executedIntentCount" : 2,
+      "id" : "menu-open-settings",
+      "updatedLastResult" : true
+    },
+    {
+      "commandSummaries" : [
+        "menu:openSettings"
+      ],
+      "events" : [
+        "overlay:routeAction",
+        "settings:none"
+      ],
+      "executedIntentCount" : 2,
+      "id" : "overlay-open-settings",
+      "updatedLastResult" : true
+    },
+    {
+      "commandSummaries" : [
+        "menu:checkForUpdates"
+      ],
+      "events" : [
+        "overlay:routeAction",
+        "updates"
+      ],
+      "executedIntentCount" : 2,
+      "id" : "overlay-check-for-updates",
+      "updatedLastResult" : true
+    },
+    {
+      "commandSummaries" : [
+        "menu:selectScreenMode:mainDisplay"
+      ],
+      "events" : [
+        "screen:main"
+      ],
+      "executedIntentCount" : 1,
+      "id" : "menu-screen-mode",
+      "updatedLastResult" : true
+    },
+    {
+      "commandSummaries" : [
+
+      ],
+      "events" : [
+        "select:session-1"
+      ],
+      "executedIntentCount" : 0,
+      "id" : "overlay-select-session",
+      "updatedLastResult" : true
+    },
+    {
+      "commandSummaries" : [
+
+      ],
+      "events" : [
+        "jump:session-1"
+      ],
+      "executedIntentCount" : 0,
+      "id" : "overlay-jump-session",
+      "updatedLastResult" : true
+    },
+    {
+      "commandSummaries" : [
+
+      ],
+      "events" : [
+        "resolve:request-1:session-1"
+      ],
+      "executedIntentCount" : 0,
+      "id" : "overlay-resolve-action",
+      "updatedLastResult" : true
+    },
+    {
+      "commandSummaries" : [
+
+      ],
+      "events" : [
+        "answer:request-1:session-1"
+      ],
+      "executedIntentCount" : 0,
+      "id" : "overlay-answer-question",
+      "updatedLastResult" : true
+    }
+  ]
+}

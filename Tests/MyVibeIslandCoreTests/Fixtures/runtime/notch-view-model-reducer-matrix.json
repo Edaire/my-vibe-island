@@ -1,0 +1,116 @@
+{
+  "rows": [
+    {
+      "id": "replace-session-previews",
+      "sessionIds": [
+        "session-1",
+        "session-2"
+      ],
+      "notificationPreviewIds": [],
+      "focusedSessionId": "session-1",
+      "displayState": "closed",
+      "visualState": "waiting",
+      "activeCount": 1,
+      "waitingCount": 1,
+      "usagePrimaryText": null,
+      "rightSlotSummary": "waitingAction:1",
+      "onboardingStep": null,
+      "onboardingActive": false,
+      "questionSelectionCount": 0,
+      "lastRouteSummary": null,
+      "actionSummaries": [
+        "overlay:renderPresentation",
+        "overlay:renderIslandSurface"
+      ]
+    },
+    {
+      "id": "apply-usage-presentation",
+      "sessionIds": [
+        "session-1"
+      ],
+      "notificationPreviewIds": [],
+      "focusedSessionId": null,
+      "displayState": "closed",
+      "visualState": "idle",
+      "activeCount": 0,
+      "waitingCount": 0,
+      "usagePrimaryText": "73% used",
+      "rightSlotSummary": "usageRing:Codex:73",
+      "onboardingStep": null,
+      "onboardingActive": false,
+      "questionSelectionCount": 0,
+      "lastRouteSummary": null,
+      "actionSummaries": [
+        "refreshUsageDisplay",
+        "overlay:renderPresentation",
+        "overlay:renderIslandSurface"
+      ]
+    },
+    {
+      "id": "show-notification-peek",
+      "sessionIds": [
+        "session-1"
+      ],
+      "notificationPreviewIds": [
+        "done"
+      ],
+      "focusedSessionId": null,
+      "displayState": "notificationPeek",
+      "visualState": "active",
+      "activeCount": 1,
+      "waitingCount": 0,
+      "usagePrimaryText": null,
+      "rightSlotSummary": "none",
+      "onboardingStep": null,
+      "onboardingActive": false,
+      "questionSelectionCount": 0,
+      "lastRouteSummary": null,
+      "actionSummaries": [
+        "showNotificationPeek:done",
+        "overlay:renderPresentation",
+        "overlay:renderIslandSurface"
+      ]
+    },
+    {
+      "id": "apply-onboarding-state",
+      "sessionIds": [],
+      "notificationPreviewIds": [],
+      "focusedSessionId": null,
+      "displayState": "onboarding",
+      "visualState": "hidden",
+      "activeCount": 0,
+      "waitingCount": 0,
+      "usagePrimaryText": null,
+      "rightSlotSummary": "none",
+      "onboardingStep": "demo",
+      "onboardingActive": true,
+      "questionSelectionCount": 0,
+      "lastRouteSummary": null,
+      "actionSummaries": [
+        "overlay:renderPresentation",
+        "overlay:renderIslandSurface"
+      ]
+    },
+    {
+      "id": "record-question-selection",
+      "sessionIds": [],
+      "notificationPreviewIds": [],
+      "focusedSessionId": null,
+      "displayState": "closed",
+      "visualState": "hidden",
+      "activeCount": 0,
+      "waitingCount": 0,
+      "usagePrimaryText": null,
+      "rightSlotSummary": "none",
+      "onboardingStep": null,
+      "onboardingActive": false,
+      "questionSelectionCount": 1,
+      "lastRouteSummary": "answerQuestion:request-1:session-1",
+      "actionSummaries": [
+        "storeQuestionSelection:request-1:approve",
+        "overlay:renderIslandSurface",
+        "overlay:routeAction:answerQuestion:request-1:session-1"
+      ]
+    }
+  ]
+}

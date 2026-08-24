@@ -1,0 +1,177 @@
+{
+  "cases": [
+    {
+      "name": "default-app-shell-owner-order",
+      "projection": {
+        "ownerCount": 19,
+        "enabledOwnerCount": 19,
+        "runningOwnerCount": 0,
+        "disabledOwners": [],
+        "stoppedOwnerCount": 19,
+        "firstOwner": "bridgeServer",
+        "lastOwner": "whatsNewStore",
+        "actionCount": 0,
+        "firstActions": [],
+        "lastActions": []
+      }
+    },
+    {
+      "name": "start-all-starts-enabled-owners-in-order",
+      "projection": {
+        "ownerCount": 19,
+        "enabledOwnerCount": 19,
+        "runningOwnerCount": 0,
+        "disabledOwners": [],
+        "stoppedOwnerCount": 19,
+        "firstOwner": "bridgeServer",
+        "lastOwner": "whatsNewStore",
+        "actionCount": 19,
+        "firstActions": [
+          "start:bridgeServer",
+          "start:sessionCoordinator",
+          "start:notchViewModel",
+          "start:overlayController"
+        ],
+        "lastActions": [
+          "start:launchAtLoginService",
+          "start:updateCoordinator",
+          "start:screenSelectionCoordinator",
+          "start:whatsNewStore"
+        ]
+      }
+    },
+    {
+      "name": "start-all-is-idempotent-when-running",
+      "projection": {
+        "ownerCount": 19,
+        "enabledOwnerCount": 19,
+        "runningOwnerCount": 19,
+        "disabledOwners": [],
+        "stoppedOwnerCount": 0,
+        "firstOwner": "bridgeServer",
+        "lastOwner": "whatsNewStore",
+        "actionCount": 0,
+        "firstActions": [],
+        "lastActions": []
+      }
+    },
+    {
+      "name": "stop-all-stops-running-owners-in-reverse-order",
+      "projection": {
+        "ownerCount": 19,
+        "enabledOwnerCount": 19,
+        "runningOwnerCount": 19,
+        "disabledOwners": [],
+        "stoppedOwnerCount": 0,
+        "firstOwner": "bridgeServer",
+        "lastOwner": "whatsNewStore",
+        "actionCount": 19,
+        "firstActions": [
+          "stop:whatsNewStore",
+          "stop:screenSelectionCoordinator",
+          "stop:updateCoordinator",
+          "stop:launchAtLoginService"
+        ],
+        "lastActions": [
+          "stop:overlayController",
+          "stop:notchViewModel",
+          "stop:sessionCoordinator",
+          "stop:bridgeServer"
+        ]
+      }
+    },
+    {
+      "name": "stop-all-is-idempotent-when-stopped",
+      "projection": {
+        "ownerCount": 19,
+        "enabledOwnerCount": 19,
+        "runningOwnerCount": 0,
+        "disabledOwners": [],
+        "stoppedOwnerCount": 19,
+        "firstOwner": "bridgeServer",
+        "lastOwner": "whatsNewStore",
+        "actionCount": 0,
+        "firstActions": [],
+        "lastActions": []
+      }
+    },
+    {
+      "name": "disable-running-owner-stops-only-that-owner",
+      "projection": {
+        "ownerCount": 19,
+        "enabledOwnerCount": 18,
+        "runningOwnerCount": 19,
+        "disabledOwners": [
+          "updateCoordinator"
+        ],
+        "stoppedOwnerCount": 0,
+        "firstOwner": "bridgeServer",
+        "lastOwner": "whatsNewStore",
+        "actionCount": 1,
+        "firstActions": [
+          "stop:updateCoordinator"
+        ],
+        "lastActions": [
+          "stop:updateCoordinator"
+        ]
+      }
+    },
+    {
+      "name": "disable-running-owner-is-idempotent",
+      "projection": {
+        "ownerCount": 19,
+        "enabledOwnerCount": 18,
+        "runningOwnerCount": 18,
+        "disabledOwners": [
+          "updateCoordinator"
+        ],
+        "stoppedOwnerCount": 1,
+        "firstOwner": "bridgeServer",
+        "lastOwner": "whatsNewStore",
+        "actionCount": 0,
+        "firstActions": [],
+        "lastActions": []
+      }
+    },
+    {
+      "name": "enable-owner-does-not-start-it",
+      "projection": {
+        "ownerCount": 19,
+        "enabledOwnerCount": 19,
+        "runningOwnerCount": 0,
+        "disabledOwners": [],
+        "stoppedOwnerCount": 19,
+        "firstOwner": "bridgeServer",
+        "lastOwner": "whatsNewStore",
+        "actionCount": 0,
+        "firstActions": [],
+        "lastActions": []
+      }
+    },
+    {
+      "name": "start-all-after-enable-starts-owner",
+      "projection": {
+        "ownerCount": 19,
+        "enabledOwnerCount": 19,
+        "runningOwnerCount": 0,
+        "disabledOwners": [],
+        "stoppedOwnerCount": 19,
+        "firstOwner": "bridgeServer",
+        "lastOwner": "whatsNewStore",
+        "actionCount": 19,
+        "firstActions": [
+          "start:bridgeServer",
+          "start:sessionCoordinator",
+          "start:notchViewModel",
+          "start:overlayController"
+        ],
+        "lastActions": [
+          "start:launchAtLoginService",
+          "start:updateCoordinator",
+          "start:screenSelectionCoordinator",
+          "start:whatsNewStore"
+        ]
+      }
+    }
+  ]
+}

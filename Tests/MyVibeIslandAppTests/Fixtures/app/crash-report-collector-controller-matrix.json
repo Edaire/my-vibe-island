@@ -1,0 +1,52 @@
+{
+  "rows": [
+    {
+      "id": "opted-in-filters-other-app",
+      "plan": {
+        "isIncluded": true,
+        "reports": [{
+          "reportIDHash": "hash-this-app",
+          "processName": "MyVibeIsland",
+          "occurredAt": "2026-07-08T12:30:00Z"
+        }],
+        "excludedReportCount": 1
+      },
+      "lastPlan": {
+        "isIncluded": true,
+        "reports": [{
+          "reportIDHash": "hash-this-app",
+          "processName": "MyVibeIsland",
+          "occurredAt": "2026-07-08T12:30:00Z"
+        }],
+        "excludedReportCount": 1
+      },
+      "events": [{
+        "isIncluded": true,
+        "reports": [{
+          "reportIDHash": "hash-this-app",
+          "processName": "MyVibeIsland",
+          "occurredAt": "2026-07-08T12:30:00Z"
+        }],
+        "excludedReportCount": 1
+      }]
+    },
+    {
+      "id": "opted-out-excludes-all",
+      "plan": {
+        "isIncluded": false,
+        "reports": [],
+        "excludedReportCount": 1
+      },
+      "lastPlan": {
+        "isIncluded": false,
+        "reports": [],
+        "excludedReportCount": 1
+      },
+      "events": [{
+        "isIncluded": false,
+        "reports": [],
+        "excludedReportCount": 1
+      }]
+    }
+  ]
+}

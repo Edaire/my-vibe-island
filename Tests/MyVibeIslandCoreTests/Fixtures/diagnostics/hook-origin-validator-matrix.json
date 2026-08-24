@@ -1,0 +1,96 @@
+{
+  "probes": [
+    {
+      "key": "codex:PreToolUse",
+      "hookBinaryPath": "/Applications/MyVibeIsland.app/Contents/MacOS/my-vibe-island-hooks",
+      "expectedBinaryPath": "/Applications/MyVibeIsland.app/Contents/MacOS/my-vibe-island-hooks",
+      "sourceConfigPath": "~/.codex/config.toml",
+      "currentHookCommandHash": "sha256:trusted",
+      "eventName": "PreToolUse",
+      "cwd": "/Users/admin/code/project",
+      "sourcePath": "~/.codex/config.toml",
+      "processBundleIdentifier": "com.apple.Terminal",
+      "origin": "managed",
+      "status": "trusted"
+    },
+    {
+      "key": "codex:SessionStart",
+      "hookBinaryPath": null,
+      "expectedBinaryPath": null,
+      "sourceConfigPath": null,
+      "currentHookCommandHash": null,
+      "eventName": "SessionStart",
+      "cwd": null,
+      "sourcePath": null,
+      "processBundleIdentifier": null,
+      "origin": "unknown",
+      "status": "unknown"
+    },
+    {
+      "key": "claude:PermissionRequest",
+      "hookBinaryPath": "/usr/local/bin/older-hook",
+      "expectedBinaryPath": "/Applications/MyVibeIsland.app/Contents/MacOS/my-vibe-island-hooks",
+      "sourceConfigPath": "~/.claude/settings.json",
+      "currentHookCommandHash": "sha256:mismatch",
+      "eventName": "PermissionRequest",
+      "cwd": null,
+      "sourcePath": "~/.claude/settings.json",
+      "processBundleIdentifier": null,
+      "origin": "managed",
+      "status": "mismatched"
+    },
+    {
+      "key": "opencode:UserPromptSubmit",
+      "hookBinaryPath": null,
+      "expectedBinaryPath": null,
+      "sourceConfigPath": "~/.config/opencode/config.json",
+      "currentHookCommandHash": "sha256:user",
+      "eventName": "UserPromptSubmit",
+      "cwd": null,
+      "sourcePath": null,
+      "processBundleIdentifier": null,
+      "origin": "userAuthored",
+      "status": "unmanaged"
+    },
+    {
+      "key": "codex:Stop",
+      "hookBinaryPath": null,
+      "expectedBinaryPath": null,
+      "sourceConfigPath": "~/.codex/config.toml",
+      "currentHookCommandHash": null,
+      "eventName": "Stop",
+      "cwd": null,
+      "sourcePath": null,
+      "processBundleIdentifier": null,
+      "origin": "disabled",
+      "status": "blocked"
+    }
+  ],
+  "repairableProbeKeys": [
+    "claude:PermissionRequest",
+    "codex:Stop"
+  ],
+  "repairableProbeCount": 2,
+  "statusCounts": [
+    {
+      "status": "trusted",
+      "count": 1
+    },
+    {
+      "status": "unknown",
+      "count": 1
+    },
+    {
+      "status": "mismatched",
+      "count": 1
+    },
+    {
+      "status": "unmanaged",
+      "count": 1
+    },
+    {
+      "status": "blocked",
+      "count": 1
+    }
+  ]
+}

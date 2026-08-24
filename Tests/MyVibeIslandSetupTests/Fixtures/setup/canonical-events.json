@@ -1,0 +1,13 @@
+{
+  "claude": ["Notification", "PermissionDenied", "PermissionRequest", "PostToolUse", "PostToolUseFailure", "PreCompact", "PreToolUse", "SessionEnd", "SessionStart", "Stop", "StopFailure", "SubagentStart", "SubagentStop", "UserPromptSubmit"],
+  "qwen": ["Notification", "PermissionDenied", "PermissionRequest", "PostToolUse", "PostToolUseFailure", "PreCompact", "PreToolUse", "SessionEnd", "SessionStart", "Stop", "StopFailure", "SubagentStart", "SubagentStop", "UserPromptSubmit"],
+  "qoder": ["Notification", "PermissionDenied", "PermissionRequest", "PostToolUse", "PostToolUseFailure", "PreCompact", "PreToolUse", "SessionEnd", "SessionStart", "Stop", "StopFailure", "SubagentStart", "SubagentStop", "UserPromptSubmit"],
+  "factory": ["Notification", "PermissionDenied", "PermissionRequest", "PostToolUse", "PostToolUseFailure", "PreCompact", "PreToolUse", "SessionEnd", "SessionStart", "Stop", "StopFailure", "SubagentStart", "SubagentStop", "UserPromptSubmit"],
+  "codebuddy": ["Notification", "PermissionDenied", "PermissionRequest", "PostToolUse", "PostToolUseFailure", "PreCompact", "PreToolUse", "SessionEnd", "SessionStart", "Stop", "StopFailure", "SubagentStart", "SubagentStop", "UserPromptSubmit"],
+  "codex": ["PermissionRequest", "PostToolUse", "SessionEnd", "SessionStart", "Stop", "SubagentStop", "UserPromptSubmit"],
+  "cursor": ["afterFileEdit", "beforeMCPExecution", "beforeReadFile", "beforeShellExecution", "beforeSubmitPrompt", "stop"],
+  "gemini": ["AfterAgent", "BeforeAgent", "Notification", "SessionEnd", "SessionStart"],
+  "kimi": ["Notification", "PostToolUse", "PreToolUse", "SessionEnd", "SessionStart", "Stop", "UserPromptSubmit"],
+  "opencode": ["permission.asked", "question.asked"],
+  "hermes": ["on_session_end", "on_session_finalize", "on_session_start", "post_llm_call", "post_tool_call", "pre_llm_call", "pre_tool_call"]
+}

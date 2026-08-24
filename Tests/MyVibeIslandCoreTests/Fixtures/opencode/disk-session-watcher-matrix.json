@@ -1,0 +1,52 @@
+{
+  "rows": [
+    {
+      "id": "sorted-json-snapshots-ignore-non-json",
+      "resultFileNames": ["a.json", "b.json"],
+      "snapshotDirectories": ["/tmp/a", "/tmp/b"],
+      "failedResultCount": 0,
+      "eventSummaries": [
+        "sessionStarted:opencode:/tmp/a:/tmp/a",
+        "sessionStarted:opencode:/tmp/b:/tmp/b"
+      ],
+      "rootDirectoryExistsAfterScan": true,
+      "coordinatorSessionId": null,
+      "coordinatorParentId": null
+    },
+    {
+      "id": "broken-json-keeps-valid-events",
+      "resultFileNames": ["broken.json", "valid.json"],
+      "snapshotDirectories": ["/tmp/valid"],
+      "failedResultCount": 1,
+      "eventSummaries": [
+        "sessionStarted:opencode:/tmp/valid:/tmp/valid"
+      ],
+      "rootDirectoryExistsAfterScan": true,
+      "coordinatorSessionId": null,
+      "coordinatorParentId": null
+    },
+    {
+      "id": "missing-root-empty-no-create",
+      "resultFileNames": [],
+      "snapshotDirectories": [],
+      "failedResultCount": 0,
+      "eventSummaries": [],
+      "rootDirectoryExistsAfterScan": false,
+      "coordinatorSessionId": null,
+      "coordinatorParentId": null
+    },
+    {
+      "id": "parent-grouping-events-apply-to-coordinator",
+      "resultFileNames": ["child.json"],
+      "snapshotDirectories": ["/tmp/open-code-child"],
+      "failedResultCount": 0,
+      "eventSummaries": [
+        "sessionStarted:opencode:/tmp/open-code-child:/tmp/open-code-child",
+        "teamGroupingUpdated:opencode:/tmp/open-code-child:parent-session"
+      ],
+      "rootDirectoryExistsAfterScan": true,
+      "coordinatorSessionId": "/tmp/open-code-child",
+      "coordinatorParentId": "parent-session"
+    }
+  ]
+}

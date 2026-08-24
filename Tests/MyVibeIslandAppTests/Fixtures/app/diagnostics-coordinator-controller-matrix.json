@@ -1,0 +1,78 @@
+{
+  "rows": [
+    {
+      "id": "export-plan",
+      "exportPlan": {
+        "status": "ready",
+        "entries": [
+          {
+            "sectionName": "system-info.txt",
+            "path": "system-info.txt",
+            "redactionLevel": "redacted",
+            "fields": {
+              "cwd": "/Users/<user>/project"
+            }
+          }
+        ],
+        "failures": []
+      },
+      "lastExportPlan": {
+        "status": "ready",
+        "entries": [
+          {
+            "sectionName": "system-info.txt",
+            "path": "system-info.txt",
+            "redactionLevel": "redacted",
+            "fields": {
+              "cwd": "/Users/<user>/project"
+            }
+          }
+        ],
+        "failures": []
+      },
+      "events": [
+        "export:ready:1:0"
+      ]
+    },
+    {
+      "id": "partial-readiness-with-repair-hint",
+      "readinessSummary": {
+        "outcome": "partial",
+        "repairHints": [
+          {
+            "source": "codex",
+            "repairability": "userActionRequired",
+            "severity": "repairable"
+          }
+        ]
+      },
+      "lastReadinessSummary": {
+        "outcome": "partial",
+        "repairHints": [
+          {
+            "source": "codex",
+            "repairability": "userActionRequired",
+            "severity": "repairable"
+          }
+        ]
+      },
+      "events": [
+        "readiness:partial:1"
+      ]
+    },
+    {
+      "id": "demo-only-readiness-without-agent",
+      "readinessSummary": {
+        "outcome": "demoOnly",
+        "repairHints": []
+      },
+      "lastReadinessSummary": {
+        "outcome": "demoOnly",
+        "repairHints": []
+      },
+      "events": [
+        "readiness:demoOnly:0"
+      ]
+    }
+  ]
+}

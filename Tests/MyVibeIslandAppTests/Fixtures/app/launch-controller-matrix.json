@@ -1,0 +1,25 @@
+{
+  "rows": [
+    {
+      "id": "default-injected-launch",
+      "runIntents": ["setActivationPolicy:accessory", "installDelegate", "runApplication"],
+      "platformIntentCount": 36,
+      "platformSummary": {
+        "intentCount": 36,
+        "lifecycleIntentCount": 10,
+        "runtimeStartIntentCount": 19,
+        "notchWindowIntentCount": 5,
+        "statusItemMenuEntryCount": 14,
+        "routeIntentCount": 1
+      },
+      "events": [
+        "policy:accessory",
+        "delegate:notLaunched",
+        "run",
+        "platform:createRuntime",
+        "platform:statusMenu:14",
+        "platform:showIsland"
+      ]
+    }
+  ]
+}

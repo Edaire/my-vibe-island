@@ -1,0 +1,79 @@
+{
+  "cases": [
+    {
+      "name": "visible-when-setting-disabled",
+      "input": {
+        "hideInFullscreen": false,
+        "activeAppIsFullscreen": true,
+        "blockingActionVisible": false,
+        "onboardingFullscreenActive": false,
+        "fullscreenCheckGeneration": 7
+      },
+      "decision": {
+        "isVisible": true,
+        "reason": "visible",
+        "fullscreenCheckGeneration": 7
+      }
+    },
+    {
+      "name": "hidden-when-fullscreen-setting-enabled",
+      "input": {
+        "hideInFullscreen": true,
+        "activeAppIsFullscreen": true,
+        "blockingActionVisible": false,
+        "onboardingFullscreenActive": false,
+        "fullscreenCheckGeneration": 8
+      },
+      "decision": {
+        "isVisible": false,
+        "reason": "fullscreenHidden",
+        "fullscreenCheckGeneration": 8
+      }
+    },
+    {
+      "name": "visible-when-active-app-not-fullscreen",
+      "input": {
+        "hideInFullscreen": true,
+        "activeAppIsFullscreen": false,
+        "blockingActionVisible": false,
+        "onboardingFullscreenActive": false,
+        "fullscreenCheckGeneration": 9
+      },
+      "decision": {
+        "isVisible": true,
+        "reason": "visible",
+        "fullscreenCheckGeneration": 9
+      }
+    },
+    {
+      "name": "blocking-action-overrides-fullscreen-hidden",
+      "input": {
+        "hideInFullscreen": true,
+        "activeAppIsFullscreen": true,
+        "blockingActionVisible": true,
+        "onboardingFullscreenActive": false,
+        "fullscreenCheckGeneration": 10
+      },
+      "decision": {
+        "isVisible": true,
+        "reason": "blockingActionVisible",
+        "fullscreenCheckGeneration": 10
+      }
+    },
+    {
+      "name": "onboarding-fullscreen-owns-visibility",
+      "input": {
+        "hideInFullscreen": false,
+        "activeAppIsFullscreen": false,
+        "blockingActionVisible": true,
+        "onboardingFullscreenActive": true,
+        "fullscreenCheckGeneration": 11
+      },
+      "decision": {
+        "isVisible": false,
+        "reason": "onboardingFullscreen",
+        "fullscreenCheckGeneration": 11
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "defaultPathSuffix": "$HOME/Library/Application Support/MyVibeIsland/sessions.json",
+  "defaultDirectoryExistsAfterPathCalculation": false,
+  "restoredSessionIds": [
+    "restored"
+  ],
+  "restoredCwd": "/tmp/restored",
+  "jumpStatus": "executed",
+  "jumpDiagnosticSummary": "runner executed",
+  "runnerActionKinds": [
+    "openWorkspace"
+  ]
+}

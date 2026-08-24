@@ -1,0 +1,36 @@
+{
+  "rows": [
+    {
+      "id": "start-stop-sequence",
+      "actions": [
+        "start:bridgeServer",
+        "start:sessionCoordinator",
+        "stop:bridgeServer"
+      ],
+      "runningOwners": [
+        "sessionCoordinator"
+      ],
+      "lastAction": "stop:bridgeServer",
+      "events": [
+        "start:bridgeServer",
+        "start:sessionCoordinator",
+        "stop:bridgeServer"
+      ]
+    },
+    {
+      "id": "duplicate-start-and-missing-stop",
+      "actions": [
+        "start:usageCoordinator",
+        "start:usageCoordinator",
+        "stop:diagnosticsCoordinator"
+      ],
+      "runningOwners": [
+        "usageCoordinator"
+      ],
+      "lastAction": "start:usageCoordinator",
+      "events": [
+        "start:usageCoordinator"
+      ]
+    }
+  ]
+}

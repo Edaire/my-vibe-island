@@ -1,0 +1,58 @@
+{
+  "rows": [
+    {
+      "id": "default-empty-state",
+      "pendingParseRequestIds": [],
+      "parseDebounceDelayMillis": 0,
+      "refreshingSessionIds": [],
+      "refreshingCodexTitleSessionIds": [],
+      "summary": {
+        "hasConfiguredGhosttyEnv": false,
+        "hasConfiguredCmuxSocket": false,
+        "pendingParseRequestCount": 0,
+        "hasParseDebounceTask": false,
+        "parseDebounceDelayMillis": 0,
+        "hasMetadataWriteTask": false,
+        "refreshingSessionCount": 0,
+        "refreshingCodexTitleSessionCount": 0
+      },
+      "diagnosticSummaryLeaksSensitiveTokens": false
+    },
+    {
+      "id": "scheduled-refresh-state-redacts-identifiers",
+      "pendingParseRequestIds": ["parse-a", "parse-b"],
+      "parseDebounceDelayMillis": 250,
+      "refreshingSessionIds": ["session-1", "session-3"],
+      "refreshingCodexTitleSessionIds": ["session-2"],
+      "summary": {
+        "hasConfiguredGhosttyEnv": true,
+        "hasConfiguredCmuxSocket": true,
+        "pendingParseRequestCount": 2,
+        "hasParseDebounceTask": true,
+        "parseDebounceDelayMillis": 250,
+        "hasMetadataWriteTask": true,
+        "refreshingSessionCount": 2,
+        "refreshingCodexTitleSessionCount": 1
+      },
+      "diagnosticSummaryLeaksSensitiveTokens": false
+    },
+    {
+      "id": "negative-delay-is-clamped",
+      "pendingParseRequestIds": ["parse-a", "parse-b"],
+      "parseDebounceDelayMillis": 0,
+      "refreshingSessionIds": ["session-1", "session-3"],
+      "refreshingCodexTitleSessionIds": ["session-2"],
+      "summary": {
+        "hasConfiguredGhosttyEnv": true,
+        "hasConfiguredCmuxSocket": true,
+        "pendingParseRequestCount": 2,
+        "hasParseDebounceTask": true,
+        "parseDebounceDelayMillis": 0,
+        "hasMetadataWriteTask": true,
+        "refreshingSessionCount": 2,
+        "refreshingCodexTitleSessionCount": 1
+      },
+      "diagnosticSummaryLeaksSensitiveTokens": false
+    }
+  ]
+}

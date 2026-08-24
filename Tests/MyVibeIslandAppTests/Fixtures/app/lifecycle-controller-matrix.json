@@ -1,0 +1,70 @@
+{
+  "rows": [
+    {
+      "id": "startup-sequence",
+      "actions": [
+        "apply:createRuntime",
+        "apply:loadSettings",
+        "apply:startBridge",
+        "apply:showIsland"
+      ],
+      "appliedSteps": [
+        "createRuntime",
+        "loadSettings",
+        "startBridge",
+        "showIsland"
+      ],
+      "ignoredMenuCommands": [],
+      "lastAction": "apply:showIsland",
+      "events": [
+        "step:createRuntime",
+        "step:loadSettings",
+        "step:startBridge",
+        "step:showIsland"
+      ]
+    },
+    {
+      "id": "ignored-disabled-maintenance-menu",
+      "actions": [
+        "ignore:checkForUpdates",
+        "ignore:exportDiagnostics"
+      ],
+      "appliedSteps": [],
+      "ignoredMenuCommands": [
+        "checkForUpdates",
+        "exportDiagnostics"
+      ],
+      "lastAction": "ignore:exportDiagnostics",
+      "events": [
+        "ignored:checkForUpdates",
+        "ignored:exportDiagnostics"
+      ]
+    },
+    {
+      "id": "termination-sequence",
+      "actions": [
+        "apply:persistSettingsAndSessions",
+        "apply:unregisterShortcuts",
+        "apply:closeWindows",
+        "apply:stopBridge",
+        "apply:flushDiagnostics"
+      ],
+      "appliedSteps": [
+        "persistSettingsAndSessions",
+        "unregisterShortcuts",
+        "closeWindows",
+        "stopBridge",
+        "flushDiagnostics"
+      ],
+      "ignoredMenuCommands": [],
+      "lastAction": "apply:flushDiagnostics",
+      "events": [
+        "step:persistSettingsAndSessions",
+        "step:unregisterShortcuts",
+        "step:closeWindows",
+        "step:stopBridge",
+        "step:flushDiagnostics"
+      ]
+    }
+  ]
+}

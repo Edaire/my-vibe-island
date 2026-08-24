@@ -1,0 +1,106 @@
+{
+  "rows": [
+    {
+      "id": "full-coding-usage",
+      "freshness": "fresh",
+      "primaryWindow": {
+        "id": "total-quota",
+        "label": "Kimi total quota",
+        "kind": "totalQuota",
+        "usedValue": 250,
+        "limitValue": 1000,
+        "remainingValue": 750,
+        "usedPercent": 25,
+        "resetAt": "2026-08-01T00:00:00Z"
+      },
+      "secondaryWindow": {
+        "id": "parallel",
+        "label": "Kimi parallel quota",
+        "kind": "parallelQuota",
+        "usedValue": 1,
+        "limitValue": 4,
+        "remainingValue": 3,
+        "usedPercent": 25,
+        "resetAt": null
+      },
+      "extraWindows": [
+        {
+          "id": "limit-0",
+          "label": "Kimi 1 day limit",
+          "kind": "daily",
+          "usedValue": 40,
+          "limitValue": 100,
+          "remainingValue": 60,
+          "usedPercent": 40,
+          "resetAt": "2026-07-09T00:00:00Z"
+        },
+        {
+          "id": "limit-1",
+          "label": "Kimi 7 day limit",
+          "kind": "sevenDay",
+          "usedValue": 140,
+          "limitValue": 700,
+          "remainingValue": 560,
+          "usedPercent": 20,
+          "resetAt": null
+        }
+      ],
+      "extraUsage": [
+        "subType:coding",
+        "authentication:provider-owned"
+      ],
+      "failure": null
+    },
+    {
+      "id": "provider-specific-window",
+      "freshness": "fresh",
+      "primaryWindow": null,
+      "secondaryWindow": null,
+      "extraWindows": [
+        {
+          "id": "limit-0",
+          "label": "Kimi 30 day limit",
+          "kind": "providerSpecific",
+          "usedValue": 125,
+          "limitValue": 500,
+          "remainingValue": 375,
+          "usedPercent": 25,
+          "resetAt": null
+        }
+      ],
+      "extraUsage": [
+        "subType:coding"
+      ],
+      "failure": null
+    },
+    {
+      "id": "parallel-only",
+      "freshness": "fresh",
+      "primaryWindow": null,
+      "secondaryWindow": {
+        "id": "parallel",
+        "label": "Kimi parallel quota",
+        "kind": "parallelQuota",
+        "usedValue": 2,
+        "limitValue": 8,
+        "remainingValue": 6,
+        "usedPercent": 25,
+        "resetAt": "2026-07-09T00:00:00Z"
+      },
+      "extraWindows": [],
+      "extraUsage": [],
+      "failure": null
+    },
+    {
+      "id": "missing-windows",
+      "freshness": "unavailable",
+      "primaryWindow": null,
+      "secondaryWindow": null,
+      "extraWindows": [],
+      "extraUsage": [
+        "subType:coding"
+      ],
+      "failure": "noUsageWindows"
+    }
+  ]
+}

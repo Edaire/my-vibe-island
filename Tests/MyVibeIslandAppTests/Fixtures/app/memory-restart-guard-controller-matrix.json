@@ -1,0 +1,94 @@
+{
+  "rows": [
+    {
+      "id": "restart-eligible-publishes-decision",
+      "actions": [
+        "evaluate:physical=1500:idle=true:active=false:pending=false"
+      ],
+      "outcomes": [
+        {
+          "kind": "decision",
+          "decision": {
+            "action": "restartEligible",
+            "reason": "eligible",
+            "isRestartEligible": true
+          }
+        }
+      ],
+      "finalState": {
+        "restartCount": 0
+      },
+      "lastDecision": {
+        "action": "restartEligible",
+        "reason": "eligible",
+        "isRestartEligible": true
+      },
+      "events": [
+        "restartEligible:eligible"
+      ]
+    },
+    {
+      "id": "labs-disabled-warns-without-state-mutation",
+      "actions": [
+        "evaluate:physical=1500:idle=true:active=false:pending=false"
+      ],
+      "outcomes": [
+        {
+          "kind": "decision",
+          "decision": {
+            "action": "warnOnly",
+            "reason": "labsOptInDisabled",
+            "isRestartEligible": false
+          }
+        }
+      ],
+      "finalState": {
+        "restartCount": 0
+      },
+      "lastDecision": {
+        "action": "warnOnly",
+        "reason": "labsOptInDisabled",
+        "isRestartEligible": false
+      },
+      "events": [
+        "warnOnly:labsOptInDisabled"
+      ]
+    },
+    {
+      "id": "record-restart-attempt-after-eligible-decision",
+      "actions": [
+        "evaluate:physical=1500:idle=true:active=false:pending=false",
+        "recordRestartAttempt:2026-07-08T10:00:00Z"
+      ],
+      "outcomes": [
+        {
+          "kind": "decision",
+          "decision": {
+            "action": "restartEligible",
+            "reason": "eligible",
+            "isRestartEligible": true
+          }
+        },
+        {
+          "kind": "state",
+          "state": {
+            "restartCount": 1,
+            "lastRestartAt": "2026-07-08T10:00:00Z"
+          }
+        }
+      ],
+      "finalState": {
+        "restartCount": 1,
+        "lastRestartAt": "2026-07-08T10:00:00Z"
+      },
+      "lastDecision": {
+        "action": "restartEligible",
+        "reason": "eligible",
+        "isRestartEligible": true
+      },
+      "events": [
+        "restartEligible:eligible"
+      ]
+    }
+  ]
+}

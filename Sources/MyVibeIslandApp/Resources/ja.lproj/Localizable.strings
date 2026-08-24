@@ -1,0 +1,16 @@
+"content.session" = "セッション";
+"content.sessions" = "セッション";
+"status.compacting" = "圧縮中";
+"tool.allowPrefix" = "%@ を許可";
+"tool.editing" = "編集中";
+"tool.fetching" = "取得中";
+"tool.finding" = "探索中";
+"tool.reading" = "読み取り中";
+"tool.running" = "実行中";
+"tool.runningSkill" = "スキル実行中";
+"tool.searching" = "検索中";
+"tool.tasking" = "タスク実行中";
+"tool.thinkingDetail" = "思考中：%@";
+"tool.thinkingEllipsis" = "思考中...";
+"tool.workingEllipsis" = "作業中...";
+"tool.writing" = "書き込み中";

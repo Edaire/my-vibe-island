@@ -1,0 +1,136 @@
+{
+  "rows" : [
+    {
+      "bundleIdentifier" : "com.googlecode.iterm2",
+      "canCreateSessionWithoutCorrelation" : false,
+      "command" : "codex --ask",
+      "confidence" : 0.75,
+      "correlationHints" : [
+        {
+          "kind" : "bundleIdentifier",
+          "value" : "com.googlecode.iterm2"
+        },
+        {
+          "kind" : "cwd",
+          "value" : "/tmp/project"
+        },
+        {
+          "kind" : "pid",
+          "value" : "4242"
+        },
+        {
+          "kind" : "sessionId",
+          "value" : "session-1"
+        },
+        {
+          "kind" : "source",
+          "value" : "codex"
+        },
+        {
+          "kind" : "tty",
+          "value" : "/dev/ttys001"
+        }
+      ],
+      "cwd" : "/tmp/project",
+      "detectedAgentKind" : "codex-cli",
+      "executablePath" : "/opt/homebrew/bin/codex",
+      "id" : "observed-design-fields",
+      "isDetectedOnly" : true,
+      "observedAt" : "2026-07-08T20:00:00Z",
+      "pid" : 4242,
+      "processName" : "codex",
+      "sessionId" : "session-1",
+      "source" : "codex",
+      "tty" : "/dev/ttys001"
+    },
+    {
+      "bundleIdentifier" : null,
+      "canCreateSessionWithoutCorrelation" : false,
+      "command" : null,
+      "confidence" : 0,
+      "correlationHints" : [
+        {
+          "kind" : "pid",
+          "value" : "1"
+        },
+        {
+          "kind" : "source",
+          "value" : "codex"
+        }
+      ],
+      "cwd" : null,
+      "detectedAgentKind" : null,
+      "executablePath" : null,
+      "id" : "confidence-low-clamped",
+      "isDetectedOnly" : true,
+      "observedAt" : null,
+      "pid" : 1,
+      "processName" : null,
+      "sessionId" : null,
+      "source" : "codex",
+      "tty" : null
+    },
+    {
+      "bundleIdentifier" : null,
+      "canCreateSessionWithoutCorrelation" : false,
+      "command" : null,
+      "confidence" : 1,
+      "correlationHints" : [
+        {
+          "kind" : "pid",
+          "value" : "2"
+        },
+        {
+          "kind" : "source",
+          "value" : "codex"
+        }
+      ],
+      "cwd" : null,
+      "detectedAgentKind" : null,
+      "executablePath" : null,
+      "id" : "confidence-high-clamped",
+      "isDetectedOnly" : true,
+      "observedAt" : null,
+      "pid" : 2,
+      "processName" : null,
+      "sessionId" : null,
+      "source" : "codex",
+      "tty" : null
+    },
+    {
+      "bundleIdentifier" : null,
+      "canCreateSessionWithoutCorrelation" : false,
+      "command" : null,
+      "confidence" : 0.5,
+      "correlationHints" : [
+        {
+          "kind" : "pid",
+          "value" : "4242"
+        },
+        {
+          "kind" : "sessionId",
+          "value" : "session-1"
+        },
+        {
+          "kind" : "source",
+          "value" : "codex"
+        },
+        {
+          "kind" : "tty",
+          "value" : "/dev/ttys001"
+        }
+      ],
+      "cwd" : null,
+      "detectedAgentKind" : null,
+      "executablePath" : null,
+      "id" : "detected-only-minimal",
+      "isDetectedOnly" : true,
+      "observedAt" : null,
+      "pid" : 4242,
+      "processName" : null,
+      "sessionId" : "session-1",
+      "source" : "codex",
+      "tty" : "/dev/ttys001"
+    }
+  ]
+}

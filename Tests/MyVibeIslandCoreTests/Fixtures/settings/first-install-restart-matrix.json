@@ -1,0 +1,122 @@
+{
+  "states": [
+    {
+      "name": "fresh-install-current-version",
+      "state": {
+        "hasCompletedOnboarding": false,
+        "onboardingVersion": 0,
+        "isFirstInstall": true,
+        "forceReplayOnboarding": false,
+        "showFirstInstallRestartBanner": true
+      },
+      "shouldPresentOnboarding": true,
+      "completedState": {
+        "hasCompletedOnboarding": true,
+        "onboardingVersion": 3,
+        "isFirstInstall": false,
+        "forceReplayOnboarding": false,
+        "showFirstInstallRestartBanner": false
+      }
+    },
+    {
+      "name": "completed-current-version",
+      "state": {
+        "hasCompletedOnboarding": true,
+        "onboardingVersion": 3,
+        "isFirstInstall": false,
+        "forceReplayOnboarding": false,
+        "showFirstInstallRestartBanner": false
+      },
+      "shouldPresentOnboarding": false,
+      "completedState": {
+        "hasCompletedOnboarding": true,
+        "onboardingVersion": 3,
+        "isFirstInstall": false,
+        "forceReplayOnboarding": false,
+        "showFirstInstallRestartBanner": false
+      }
+    },
+    {
+      "name": "completed-old-version",
+      "state": {
+        "hasCompletedOnboarding": true,
+        "onboardingVersion": 2,
+        "isFirstInstall": false,
+        "forceReplayOnboarding": false,
+        "showFirstInstallRestartBanner": false
+      },
+      "shouldPresentOnboarding": true,
+      "completedState": {
+        "hasCompletedOnboarding": true,
+        "onboardingVersion": 3,
+        "isFirstInstall": false,
+        "forceReplayOnboarding": false,
+        "showFirstInstallRestartBanner": false
+      }
+    },
+    {
+      "name": "forced-replay",
+      "state": {
+        "hasCompletedOnboarding": true,
+        "onboardingVersion": 3,
+        "isFirstInstall": false,
+        "forceReplayOnboarding": true,
+        "showFirstInstallRestartBanner": false
+      },
+      "shouldPresentOnboarding": true,
+      "completedState": {
+        "hasCompletedOnboarding": true,
+        "onboardingVersion": 3,
+        "isFirstInstall": false,
+        "forceReplayOnboarding": false,
+        "showFirstInstallRestartBanner": false
+      }
+    }
+  ],
+  "banners": [
+    {
+      "name": "hidden-without-affected-integrations",
+      "state": {
+        "visible": false,
+        "requiresRestart": false,
+        "firstInstallOnly": false,
+        "affectedIntegrations": []
+      }
+    },
+    {
+      "name": "visible-first-install-restart",
+      "state": {
+        "visible": true,
+        "source": "firstInstall",
+        "requiresRestart": true,
+        "shownAt": "2026-07-08T17:00:00Z",
+        "firstInstallOnly": true,
+        "affectedIntegrations": [
+          "managed hooks",
+          "terminal config"
+        ]
+      },
+      "dismissedState": {
+        "visible": false,
+        "source": "firstInstall",
+        "requiresRestart": true,
+        "shownAt": "2026-07-08T17:00:00Z",
+        "dismissedAt": "2026-07-08T17:01:00Z",
+        "firstInstallOnly": true,
+        "affectedIntegrations": [
+          "managed hooks",
+          "terminal config"
+        ]
+      }
+    },
+    {
+      "name": "hidden-when-banner-flag-disabled",
+      "state": {
+        "visible": false,
+        "requiresRestart": false,
+        "firstInstallOnly": false,
+        "affectedIntegrations": []
+      }
+    }
+  ]
+}

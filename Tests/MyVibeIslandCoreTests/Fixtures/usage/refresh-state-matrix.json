@@ -1,0 +1,83 @@
+{
+  "rows": [
+    {
+      "id": "initial",
+      "state": {
+        "lastFetchAttemptSeconds": null,
+        "lastSuccessfulFetchSeconds": null,
+        "backoffMultiplier": 1,
+        "backoffUntilSeconds": null,
+        "isRefreshing": false
+      },
+      "nowSeconds": 100,
+      "minimumRefreshIntervalSeconds": 60,
+      "decision": {
+        "allowed": {}
+      }
+    },
+    {
+      "id": "minimum-interval",
+      "state": {
+        "lastFetchAttemptSeconds": 100,
+        "lastSuccessfulFetchSeconds": null,
+        "backoffMultiplier": 1,
+        "backoffUntilSeconds": null,
+        "isRefreshing": false
+      },
+      "nowSeconds": 120,
+      "minimumRefreshIntervalSeconds": 60,
+      "decision": {
+        "minimumIntervalActive": {
+          "remainingSeconds": 40
+        }
+      }
+    },
+    {
+      "id": "refresh-in-progress",
+      "state": {
+        "lastFetchAttemptSeconds": null,
+        "lastSuccessfulFetchSeconds": null,
+        "backoffMultiplier": 1,
+        "backoffUntilSeconds": null,
+        "isRefreshing": true
+      },
+      "nowSeconds": 100,
+      "minimumRefreshIntervalSeconds": 60,
+      "decision": {
+        "refreshInProgress": {}
+      }
+    },
+    {
+      "id": "failure-backoff",
+      "state": {
+        "lastFetchAttemptSeconds": 100,
+        "lastSuccessfulFetchSeconds": null,
+        "backoffMultiplier": 8,
+        "backoffUntilSeconds": 340,
+        "isRefreshing": false
+      },
+      "nowSeconds": 200,
+      "minimumRefreshIntervalSeconds": 0,
+      "decision": {
+        "backoffActive": {
+          "remainingSeconds": 140
+        }
+      }
+    },
+    {
+      "id": "success-reset",
+      "state": {
+        "lastFetchAttemptSeconds": 200,
+        "lastSuccessfulFetchSeconds": 200,
+        "backoffMultiplier": 1,
+        "backoffUntilSeconds": null,
+        "isRefreshing": false
+      },
+      "nowSeconds": 261,
+      "minimumRefreshIntervalSeconds": 60,
+      "decision": {
+        "allowed": {}
+      }
+    }
+  ]
+}

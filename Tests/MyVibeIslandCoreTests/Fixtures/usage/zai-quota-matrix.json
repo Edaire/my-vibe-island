@@ -1,0 +1,101 @@
+{
+  "rows": [
+    {
+      "id": "daily-monthly-metadata",
+      "freshness": "fresh",
+      "primaryWindow": {
+        "id": "daily",
+        "label": "Z.ai daily quota",
+        "kind": "daily",
+        "usedValue": 420,
+        "usedUnit": "requests",
+        "limitValue": 1000,
+        "limitUnit": "requests",
+        "remainingValue": 575,
+        "remainingUnit": "requests",
+        "usedPercent": 42.5,
+        "resetAt": "2026-07-09T00:00:00Z"
+      },
+      "extraWindows": [
+        {
+          "id": "monthly",
+          "label": "Z.ai monthly quota",
+          "kind": "monthly",
+          "usedValue": 50,
+          "usedUnit": "credits",
+          "limitValue": 500,
+          "limitUnit": "credits",
+          "remainingValue": 450,
+          "remainingUnit": "credits",
+          "usedPercent": 10,
+          "resetAt": "2026-08-01T00:00:00Z"
+        }
+      ],
+      "extraUsage": [
+        "planName:provider-plan",
+        "code:200",
+        "success:true"
+      ],
+      "failure": null
+    },
+    {
+      "id": "total-quota-kind",
+      "freshness": "fresh",
+      "primaryWindow": {
+        "id": "total_quota",
+        "label": "Z.ai total_quota quota",
+        "kind": "totalQuota",
+        "usedValue": 250,
+        "usedUnit": "credits",
+        "limitValue": 1000,
+        "limitUnit": "credits",
+        "remainingValue": 750,
+        "remainingUnit": "credits",
+        "usedPercent": 25,
+        "resetAt": null
+      },
+      "extraWindows": [],
+      "extraUsage": [
+        "code:200",
+        "success:true"
+      ],
+      "failure": null
+    },
+    {
+      "id": "unknown-type-default-unit",
+      "freshness": "fresh",
+      "primaryWindow": {
+        "id": "burst",
+        "label": "Z.ai burst quota",
+        "kind": "providerSpecific",
+        "usedValue": 7,
+        "usedUnit": "units",
+        "limitValue": 10,
+        "limitUnit": "units",
+        "remainingValue": 3,
+        "remainingUnit": "units",
+        "usedPercent": null,
+        "resetAt": null
+      },
+      "extraWindows": [],
+      "extraUsage": [
+        "planName:provider-burst",
+        "code:200",
+        "success:false"
+      ],
+      "failure": null
+    },
+    {
+      "id": "missing-limits",
+      "freshness": "unavailable",
+      "primaryWindow": null,
+      "extraWindows": [],
+      "extraUsage": [
+        "planName:provider-empty",
+        "code:204",
+        "success:true"
+      ],
+      "failure": "noUsageWindows"
+    }
+  ]
+}

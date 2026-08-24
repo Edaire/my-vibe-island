@@ -1,0 +1,35 @@
+{
+  "rows" : [
+    {
+      "eventCount" : 1,
+      "events" : [
+        "create"
+      ],
+      "hasControllerItem" : true,
+      "id" : "first-install",
+      "itemMenuTitle" : "First",
+      "lastAction" : "installMenu:First"
+    },
+    {
+      "eventCount" : 1,
+      "events" : [
+        "create"
+      ],
+      "hasControllerItem" : true,
+      "id" : "second-install",
+      "itemMenuTitle" : "Second",
+      "lastAction" : "installMenu:Second"
+    },
+    {
+      "eventCount" : 2,
+      "events" : [
+        "create",
+        "remove:nil"
+      ],
+      "hasControllerItem" : false,
+      "id" : "remove",
+      "itemMenuTitle" : null,
+      "lastAction" : "removeStatusItem"
+    }
+  ]
+}

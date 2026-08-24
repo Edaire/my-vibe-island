@@ -1,0 +1,72 @@
+{
+  "plan": {
+    "reservedIdPrefix": "demo-onboarding-",
+    "demoCwd": "/tmp/my-vibe-island-demo",
+    "demoSource": "onboarding",
+    "sessionIds": [
+      "demo-onboarding-permission",
+      "demo-onboarding-question",
+      "demo-onboarding-completion",
+      "demo-onboarding-notification"
+    ],
+    "sessionTitles": [
+      "Permission",
+      "Question",
+      "Completion",
+      "Notification"
+    ],
+    "allSynthetic": true,
+    "allSkippedFromHistory": true,
+    "previewCompletionSessionId": "demo-onboarding-completion"
+  },
+  "rows": [
+    {
+      "id": "start-clamps-fd-and-activates-first-session",
+      "decision": "started",
+      "state": {
+        "socketPath": "/tmp/my-vibe-island-demo/socket",
+        "defaultCwd": "/tmp/my-vibe-island-demo",
+        "persistentFd": 0,
+        "sortedEnv": [
+          "MY_VIBE_ISLAND_DEMO=1",
+          "TERM=xterm-256color"
+        ],
+        "demoSessionIds": [
+          "demo-onboarding-permission",
+          "demo-onboarding-question",
+          "demo-onboarding-completion",
+          "demo-onboarding-notification"
+        ],
+        "activeSessionIds": [
+          "demo-onboarding-permission"
+        ],
+        "previewCompletionSessionId": "demo-onboarding-completion",
+        "startedAt": "2026-07-08T17:02:00Z",
+        "isRunning": true
+      }
+    },
+    {
+      "id": "finish-clears-active-sessions",
+      "decision": "finished",
+      "state": {
+        "socketPath": "/tmp/my-vibe-island-demo/socket",
+        "defaultCwd": "/tmp/my-vibe-island-demo",
+        "persistentFd": 0,
+        "sortedEnv": [
+          "MY_VIBE_ISLAND_DEMO=1",
+          "TERM=xterm-256color"
+        ],
+        "demoSessionIds": [
+          "demo-onboarding-permission",
+          "demo-onboarding-question",
+          "demo-onboarding-completion",
+          "demo-onboarding-notification"
+        ],
+        "activeSessionIds": [],
+        "previewCompletionSessionId": "demo-onboarding-completion",
+        "startedAt": "2026-07-08T17:02:00Z",
+        "isRunning": false
+      }
+    }
+  ]
+}

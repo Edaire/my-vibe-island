@@ -1,0 +1,315 @@
+[
+  {
+    "name": "custom-url",
+    "handlerId": "custom-url",
+    "precision": "exactPane",
+    "input": {
+      "sessionId": "s-custom-url",
+      "source": "codex",
+      "customJumpURL": "codex://threads/custom"
+    },
+    "expectedAction": {
+      "kind": "openURL",
+      "summary": "open URL",
+      "target": "codex://threads/custom",
+      "handlerId": "custom-url",
+      "arguments": []
+    }
+  },
+  {
+    "name": "codex-deeplink",
+    "handlerId": "codex-deeplink",
+    "precision": "exactPane",
+    "input": {
+      "sessionId": "s-codex-deeplink",
+      "source": "codex",
+      "codexThreadId": "thread-1"
+    },
+    "expectedAction": {
+      "kind": "openURL",
+      "summary": "open URL",
+      "target": "codex://threads/thread-1",
+      "handlerId": "codex-deeplink",
+      "arguments": []
+    }
+  },
+  {
+    "name": "workspace",
+    "handlerId": "workspace",
+    "precision": "workspace",
+    "input": {
+      "sessionId": "s-workspace",
+      "source": "codex",
+      "cwd": "/tmp/project"
+    },
+    "expectedAction": {
+      "kind": "openWorkspace",
+      "summary": "open workspace",
+      "target": "/tmp/project",
+      "handlerId": "workspace",
+      "arguments": []
+    }
+  },
+  {
+    "name": "cursor-workspace",
+    "handlerId": "cursor-workspace",
+    "precision": "workspace",
+    "input": {
+      "sessionId": "s-cursor",
+      "source": "codex",
+      "bundleId": "com.todesktop.230313mzl4w4u92",
+      "cwd": "/tmp/cursor-project"
+    },
+    "expectedAction": {
+      "kind": "openWorkspace",
+      "summary": "open workspace",
+      "target": "/tmp/cursor-project",
+      "handlerId": "cursor-workspace",
+      "arguments": []
+    }
+  },
+  {
+    "name": "application",
+    "handlerId": "application",
+    "precision": "application",
+    "input": {
+      "sessionId": "s-application",
+      "source": "codex",
+      "bundleId": "com.apple.Terminal"
+    },
+    "expectedAction": {
+      "kind": "activateApplication",
+      "summary": "activate application",
+      "target": "com.apple.Terminal",
+      "handlerId": "application",
+      "arguments": []
+    }
+  },
+  {
+    "name": "tmux-socket-pane",
+    "handlerId": "tmux",
+    "precision": "exactPane",
+    "input": {
+      "sessionId": "s-tmux",
+      "source": "codex",
+      "tmuxPane": "%7",
+      "tmuxSocketPath": "/tmp/tmux-501/default"
+    },
+    "expectedAction": {
+      "kind": "runCLI",
+      "summary": "run CLI handler",
+      "target": "tmux",
+      "handlerId": "tmux",
+      "arguments": ["-S", "/tmp/tmux-501/default", "select-pane", "-t", "%7"]
+    }
+  },
+  {
+    "name": "zellij-session-pane",
+    "handlerId": "zellij",
+    "precision": "exactPane",
+    "input": {
+      "sessionId": "s-zellij",
+      "source": "codex",
+      "zellijSessionName": "work",
+      "zellijPaneId": "pane-7"
+    },
+    "expectedAction": {
+      "kind": "runCLI",
+      "summary": "run CLI handler",
+      "target": "zellij",
+      "handlerId": "zellij",
+      "arguments": ["--session", "work", "action", "focus-pane", "pane-7"]
+    }
+  },
+  {
+    "name": "wezterm-socket-pane",
+    "handlerId": "wezterm",
+    "precision": "exactPane",
+    "input": {
+      "sessionId": "s-wezterm",
+      "source": "codex",
+      "weztermSocket": "/tmp/wezterm.sock",
+      "weztermPane": "42"
+    },
+    "expectedAction": {
+      "kind": "runCLI",
+      "summary": "run CLI handler",
+      "target": "wezterm",
+      "handlerId": "wezterm",
+      "arguments": ["cli", "--socket", "/tmp/wezterm.sock", "activate-pane", "--pane-id", "42"]
+    }
+  },
+  {
+    "name": "kitty-listen-window",
+    "handlerId": "kitty",
+    "precision": "exactWindow",
+    "input": {
+      "sessionId": "s-kitty",
+      "source": "codex",
+      "kittyWindowId": "13",
+      "kittyListenOn": "unix:/tmp/kitty.sock"
+    },
+    "expectedAction": {
+      "kind": "runCLI",
+      "summary": "run CLI handler",
+      "target": "kitty",
+      "handlerId": "kitty",
+      "arguments": ["@", "--to", "unix:/tmp/kitty.sock", "focus-window", "--match", "id:13"]
+    }
+  },
+  {
+    "name": "cmux-socket-surface",
+    "handlerId": "cmux",
+    "precision": "exactPane",
+    "input": {
+      "sessionId": "s-cmux",
+      "source": "cmux",
+      "cmuxSurfaceId": "surface-7",
+      "cmuxSocketPath": "/tmp/cmux.sock"
+    },
+    "expectedAction": {
+      "kind": "sendSocketRequest",
+      "summary": "send socket request",
+      "target": "cmux",
+      "handlerId": "cmux",
+      "arguments": ["--socket", "/tmp/cmux.sock", "surface.focus", "surface-7"]
+    }
+  },
+  {
+    "name": "otty-socket-pane",
+    "handlerId": "otty",
+    "precision": "exactPane",
+    "input": {
+      "sessionId": "s-otty",
+      "source": "codex",
+      "ottySocket": "/tmp/otty.sock",
+      "ottyPaneId": "pane-7"
+    },
+    "expectedAction": {
+      "kind": "sendSocketRequest",
+      "summary": "send socket request",
+      "target": "otty",
+      "handlerId": "otty",
+      "arguments": ["--socket", "/tmp/otty.sock", "focus-pane", "pane-7"]
+    }
+  },
+  {
+    "name": "supacode-socket-surface",
+    "handlerId": "supacode",
+    "precision": "exactPane",
+    "input": {
+      "sessionId": "s-supacode",
+      "source": "supacode",
+      "supacodeWorktreeId": "worktree-1",
+      "supacodeTabId": "tab-2",
+      "supacodeSurfaceId": "surface-3",
+      "supacodeSocketPath": "/tmp/supacode.sock"
+    },
+    "expectedAction": {
+      "kind": "sendSocketRequest",
+      "summary": "send socket request",
+      "target": "supacode",
+      "handlerId": "supacode",
+      "arguments": ["--socket", "/tmp/supacode.sock", "surface.focus", "surface-3"]
+    }
+  },
+  {
+    "name": "ghostty-session",
+    "handlerId": "ghostty",
+    "precision": "exactWindow",
+    "input": {
+      "sessionId": "s-ghostty",
+      "source": "codex",
+      "bundleId": "com.mitchellh.ghostty",
+      "isGhosttyFamilyHost": true,
+      "termSessionId": "ghostty-session"
+    },
+    "expectedAction": {
+      "kind": "runAutomation",
+      "summary": "run automation",
+      "target": "com.mitchellh.ghostty",
+      "handlerId": "ghostty",
+      "arguments": [
+        "tell application id \"com.mitchellh.ghostty\"",
+        "activate",
+        "repeat with candidateWindow in windows",
+        "set candidateWindowId to id of candidateWindow as text",
+        "set candidateWindowName to name of candidateWindow as text",
+        "if candidateWindowId is \"ghostty-session\" or candidateWindowName is \"ghostty-session\" then",
+        "set index of candidateWindow to 1",
+        "return",
+        "end if",
+        "end repeat",
+        "error \"Ghostty window not found for session ghostty-session\"",
+        "end tell"
+      ]
+    }
+  },
+  {
+    "name": "iterm-session",
+    "handlerId": "iterm",
+    "precision": "exactPane",
+    "input": {
+      "sessionId": "s-iterm",
+      "source": "codex",
+      "bundleId": "com.googlecode.iterm2",
+      "itermSessionId": "session-1"
+    },
+    "expectedAction": {
+      "kind": "runAutomation",
+      "summary": "run automation",
+      "target": "com.googlecode.iterm2",
+      "handlerId": "iterm",
+      "arguments": [
+        "tell application id \"com.googlecode.iterm2\"",
+        "activate",
+        "repeat with candidateWindow in windows",
+        "repeat with candidateTab in tabs of candidateWindow",
+        "repeat with candidateSession in sessions of candidateTab",
+        "if id of candidateSession is \"session-1\" then",
+        "select candidateWindow",
+        "select candidateTab",
+        "select candidateSession",
+        "return",
+        "end if",
+        "end repeat",
+        "end repeat",
+        "end repeat",
+        "error \"iTerm session not found for id session-1\"",
+        "end tell"
+      ]
+    }
+  },
+  {
+    "name": "terminal-tty",
+    "handlerId": "terminal-tty",
+    "precision": "exactWindow",
+    "input": {
+      "sessionId": "s-terminal",
+      "source": "codex",
+      "bundleId": "com.apple.Terminal",
+      "tty": "/dev/ttys001"
+    },
+    "expectedAction": {
+      "kind": "runAutomation",
+      "summary": "run automation",
+      "target": "com.apple.Terminal",
+      "handlerId": "terminal-tty",
+      "arguments": [
+        "tell application id \"com.apple.Terminal\"",
+        "activate",
+        "repeat with candidateWindow in windows",
+        "repeat with candidateTab in tabs of candidateWindow",
+        "if tty of candidateTab is \"/dev/ttys001\" then",
+        "set selected tab of candidateWindow to candidateTab",
+        "set index of candidateWindow to 1",
+        "return",
+        "end if",
+        "end repeat",
+        "end repeat",
+        "error \"Terminal tab not found for tty /dev/ttys001\"",
+        "end tell"
+      ]
+    }
+  }
+]

@@ -1,0 +1,47 @@
+{
+  "sections": [
+    {
+      "name": "system-info.txt",
+      "producer": "system",
+      "allowedFields": [
+        "appVersion",
+        "macOSVersion"
+      ],
+      "forbiddenFields": [
+        "homePath"
+      ],
+      "redactionLevel": "redacted",
+      "isRequired": true,
+      "fields": {
+        "appVersion": "1.0.0",
+        "macOSVersion": "15.5"
+      }
+    },
+    {
+      "name": "logs/",
+      "producer": "logger",
+      "allowedFields": [
+        "lineCount",
+        "latestTimestamp"
+      ],
+      "forbiddenFields": [
+        "rawLine",
+        "latestTimestamp"
+      ],
+      "redactionLevel": "localOnly",
+      "isRequired": true,
+      "fields": {
+        "lineCount": "3"
+      }
+    },
+    {
+      "name": "hang-samples/",
+      "producer": "missing",
+      "allowedFields": [],
+      "forbiddenFields": [],
+      "redactionLevel": "sensitive",
+      "isRequired": false,
+      "fields": {}
+    }
+  ]
+}

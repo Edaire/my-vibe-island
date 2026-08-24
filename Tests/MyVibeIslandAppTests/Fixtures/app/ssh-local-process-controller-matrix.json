@@ -1,0 +1,47 @@
+{
+  "rows": [
+    {
+      "id": "resolve-ssh-identity",
+      "rows": [{
+        "pid": 42,
+        "command": "ssh",
+        "arguments": ["-R", "<redacted>", "devbox"]
+      }],
+      "result": [{
+        "pid": 42,
+        "resolution": "processScan",
+        "hostAlias": "devbox",
+        "commandLineRedacted": "ssh -R <redacted> devbox"
+      }],
+      "identities": [{
+        "pid": 42,
+        "resolution": "processScan",
+        "hostAlias": "devbox",
+        "commandLineRedacted": "ssh -R <redacted> devbox"
+      }],
+      "lastPublishedIdentities": [{
+        "pid": 42,
+        "resolution": "processScan",
+        "hostAlias": "devbox",
+        "commandLineRedacted": "ssh -R <redacted> devbox"
+      }],
+      "events": [[{
+        "pid": 42,
+        "resolution": "processScan",
+        "hostAlias": "devbox",
+        "commandLineRedacted": "ssh -R <redacted> devbox"
+      }]]
+    },
+    {
+      "id": "filter-unresolved-row",
+      "rows": [
+        {"pid": 1, "command": "ssh", "arguments": []},
+        {"pid": 2, "command": "zsh", "arguments": []}
+      ],
+      "result": [{"pid": 1, "resolution": "processScan"}],
+      "identities": [{"pid": 1, "resolution": "processScan"}],
+      "lastPublishedIdentities": [{"pid": 1, "resolution": "processScan"}],
+      "events": [[{"pid": 1, "resolution": "processScan"}]]
+    }
+  ]
+}

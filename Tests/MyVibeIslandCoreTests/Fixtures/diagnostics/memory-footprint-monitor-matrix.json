@@ -1,0 +1,59 @@
+{
+  "rows": [
+    {
+      "id": "unknown-with-error",
+      "warningThresholdBytes": 512,
+      "criticalThresholdBytes": 1024,
+      "sampleCount": 0,
+      "latestPhysicalFootprintBytes": null,
+      "latestVirtualBytes": null,
+      "latestResidentBytes": null,
+      "lastSampleError": "sample failed",
+      "pressure": "unknown"
+    },
+    {
+      "id": "normal-latest-sample",
+      "warningThresholdBytes": 512,
+      "criticalThresholdBytes": 1024,
+      "sampleCount": 1,
+      "latestPhysicalFootprintBytes": 256,
+      "latestVirtualBytes": 512,
+      "latestResidentBytes": 256,
+      "lastSampleError": null,
+      "pressure": "normal"
+    },
+    {
+      "id": "elevated-latest-sample",
+      "warningThresholdBytes": 512,
+      "criticalThresholdBytes": 1024,
+      "sampleCount": 2,
+      "latestPhysicalFootprintBytes": 768,
+      "latestVirtualBytes": 1536,
+      "latestResidentBytes": 768,
+      "lastSampleError": null,
+      "pressure": "elevated"
+    },
+    {
+      "id": "critical-latest-sample",
+      "warningThresholdBytes": 512,
+      "criticalThresholdBytes": 1024,
+      "sampleCount": 1,
+      "latestPhysicalFootprintBytes": 1500,
+      "latestVirtualBytes": 3000,
+      "latestResidentBytes": 1500,
+      "lastSampleError": null,
+      "pressure": "critical"
+    },
+    {
+      "id": "critical-threshold-clamped-to-warning",
+      "warningThresholdBytes": 1024,
+      "criticalThresholdBytes": 1024,
+      "sampleCount": 1,
+      "latestPhysicalFootprintBytes": 1024,
+      "latestVirtualBytes": 2048,
+      "latestResidentBytes": 1024,
+      "lastSampleError": null,
+      "pressure": "critical"
+    }
+  ]
+}

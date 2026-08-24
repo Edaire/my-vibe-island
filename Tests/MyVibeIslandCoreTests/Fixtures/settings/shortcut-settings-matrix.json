@@ -1,0 +1,106 @@
+{
+  "combos": [
+    {
+      "id": "negative-cmd-shift",
+      "keyCode": 0,
+      "characters": "K",
+      "modifiers": [
+        "command",
+        "shift"
+      ],
+      "carbonModifiers": 768,
+      "displayText": "Cmd-Shift-K"
+    },
+    {
+      "id": "control-tab",
+      "keyCode": 48,
+      "characters": "Tab",
+      "modifiers": [
+        "control"
+      ],
+      "carbonModifiers": 4096,
+      "displayText": "Ctrl-Tab"
+    },
+    {
+      "id": "duplicate-modifiers",
+      "keyCode": 36,
+      "characters": "Return",
+      "modifiers": [
+        "option",
+        "command"
+      ],
+      "carbonModifiers": 2304,
+      "displayText": "Opt-Cmd-Return"
+    }
+  ],
+  "plans": [
+    {
+      "id": "active-persistent",
+      "activeScopes": [
+        "persistentGlobal"
+      ],
+      "registrationIds": [
+        "toggle-island"
+      ],
+      "skipped": [
+        {
+          "specId": "disabled-toggle",
+          "reason": "mappingDisabled"
+        },
+        {
+          "specId": "collapse",
+          "reason": "scopeInactive"
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "shortcuts-disabled",
+      "activeScopes": [
+        "expandedPanel",
+        "persistentGlobal"
+      ],
+      "registrationIds": [],
+      "skipped": [
+        {
+          "specId": "toggle-island",
+          "reason": "shortcutsDisabled"
+        },
+        {
+          "specId": "collapse",
+          "reason": "shortcutsDisabled"
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "conflict-and-allowed-duplicate",
+      "activeScopes": [
+        "persistentGlobal"
+      ],
+      "registrationIds": [
+        "focus-active",
+        "navigate-sessions"
+      ],
+      "skipped": [],
+      "conflicts": [
+        {
+          "specId": "jump-terminal",
+          "conflictingSpecId": "focus-active",
+          "displayText": "Cmd-K"
+        }
+      ]
+    }
+  ],
+  "persistedGroups": {
+    "persistentHotKeyIds": [
+      "toggle-island"
+    ],
+    "expandedHotKeyIds": [
+      "collapse"
+    ],
+    "switcherHotKeyIds": [
+      "navigate-sessions"
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "reconnectPolicies": [
+    "manualOnly",
+    "promptBeforeReconnect",
+    "automaticForKnownHost"
+  ],
+  "processes": [
+    {
+      "id": "uds-piggyback-process",
+      "processId": 5150,
+      "hostId": "devbox",
+      "tunnelKind": "uds",
+      "hasSocketPaths": true,
+      "localPort": null,
+      "remotePort": null,
+      "startedAt": "2026-07-09T05:00:00Z",
+      "lastStatus": "connected",
+      "generation": 7,
+      "hasControlPath": true,
+      "isPiggybackMode": true
+    },
+    {
+      "id": "tcp-port-process",
+      "processId": 6161,
+      "hostId": "labbox",
+      "tunnelKind": "tcp",
+      "hasSocketPaths": false,
+      "localPort": 49221,
+      "remotePort": 49222,
+      "startedAt": "2026-07-09T05:01:00Z",
+      "lastStatus": "reconnecting",
+      "generation": 2,
+      "hasControlPath": false,
+      "isPiggybackMode": false
+    }
+  ]
+}

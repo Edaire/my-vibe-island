@@ -1,0 +1,76 @@
+{
+  "rows": [
+    {
+      "id": "child-thread-with-metadata",
+      "state": {
+        "id": "child-thread",
+        "source": "codex",
+        "parentSessionId": "session-1",
+        "parentThreadId": "thread-parent",
+        "threadId": "child-thread",
+        "kind": "reviewer",
+        "nickname": "Metadata Reviewer",
+        "role": "metadata-review",
+        "status": null,
+        "sourceDetailId": "detail-1"
+      },
+      "hierarchyNode": {
+        "id": "child-thread",
+        "parentThreadId": "thread-parent",
+        "threadId": "child-thread",
+        "kind": "reviewer",
+        "firstSeenAt": "2026-07-08T20:35:00Z",
+        "lastSeenAt": "2026-07-08T20:35:00Z",
+        "diagnosticReason": null
+      }
+    },
+    {
+      "id": "source-detail-without-metadata",
+      "state": {
+        "id": "child-from-source",
+        "source": "codex",
+        "parentSessionId": "session-1",
+        "parentThreadId": "thread-parent",
+        "threadId": "child-from-source",
+        "kind": "source-reviewer",
+        "nickname": null,
+        "role": null,
+        "status": null,
+        "sourceDetailId": "detail-1"
+      },
+      "hierarchyNode": {
+        "id": "child-from-source",
+        "parentThreadId": "thread-parent",
+        "threadId": "child-from-source",
+        "kind": "source-reviewer",
+        "firstSeenAt": "2026-07-08T20:40:00Z",
+        "lastSeenAt": "2026-07-08T20:40:00Z",
+        "diagnosticReason": null
+      }
+    },
+    {
+      "id": "weak-fallback-detached",
+      "state": {
+        "id": "weak:agentNickname=Detached|agentRole=research|spawnKind=subagent",
+        "source": "codex",
+        "parentSessionId": "session-1",
+        "parentThreadId": null,
+        "threadId": null,
+        "kind": "subagent",
+        "nickname": "Detached",
+        "role": "research",
+        "status": null,
+        "sourceDetailId": null
+      },
+      "hierarchyNode": {
+        "id": "weak:agentNickname=Detached|agentRole=research|spawnKind=subagent",
+        "parentThreadId": null,
+        "threadId": null,
+        "kind": "subagent",
+        "firstSeenAt": "2026-07-08T20:45:00Z",
+        "lastSeenAt": "2026-07-08T20:45:00Z",
+        "diagnosticReason": "missingParentThreadId"
+      }
+    }
+  ]
+}

@@ -1,0 +1,242 @@
+{
+  "rows" : [
+    {
+      "activeSessionId" : null,
+      "exportedCwds" : [
+        "/tmp/alpha",
+        "/tmp/beta"
+      ],
+      "exportedPendingRequestIds" : [
+        [
+
+        ],
+        [
+
+        ]
+      ],
+      "exportedRedactionLevels" : [
+        "metadataOnly",
+        "metadataOnly"
+      ],
+      "exportedSessionIds" : [
+        "a",
+        "b"
+      ],
+      "exportedSources" : [
+        "claude",
+        "codex"
+      ],
+      "exportedTaskCounts" : [
+        1,
+        0
+      ],
+      "exportedTodoCounts" : [
+        1,
+        0
+      ],
+      "id" : "export-sorts-safe-sessions",
+      "questionSelectionCount" : 0,
+      "stateActionableRequestIds" : [
+        [
+          "request-1"
+        ],
+        [
+
+        ]
+      ],
+      "stateNeedsAttentionFlags" : [
+        true,
+        false
+      ],
+      "stateRestoredFlags" : [
+        false,
+        false
+      ],
+      "stateSessionIds" : [
+        "a",
+        "b"
+      ],
+      "summarizedSessionIds" : [
+
+      ]
+    },
+    {
+      "activeSessionId" : null,
+      "exportedCwds" : [
+        "/tmp/restored"
+      ],
+      "exportedPendingRequestIds" : [
+        [
+
+        ]
+      ],
+      "exportedRedactionLevels" : [
+        "metadataOnly"
+      ],
+      "exportedSessionIds" : [
+        "restored"
+      ],
+      "exportedSources" : [
+        "codex"
+      ],
+      "exportedTaskCounts" : [
+        1
+      ],
+      "exportedTodoCounts" : [
+        1
+      ],
+      "id" : "restore-marks-sessions-restored",
+      "questionSelectionCount" : 0,
+      "stateActionableRequestIds" : [
+        [
+
+        ]
+      ],
+      "stateNeedsAttentionFlags" : [
+        false
+      ],
+      "stateRestoredFlags" : [
+        true
+      ],
+      "stateSessionIds" : [
+        "restored"
+      ],
+      "summarizedSessionIds" : [
+
+      ]
+    },
+    {
+      "activeSessionId" : null,
+      "exportedCwds" : [
+        "/tmp/new"
+      ],
+      "exportedPendingRequestIds" : [
+        [
+
+        ]
+      ],
+      "exportedRedactionLevels" : [
+        "metadataOnly"
+      ],
+      "exportedSessionIds" : [
+        "new"
+      ],
+      "exportedSources" : [
+        "claude"
+      ],
+      "exportedTaskCounts" : [
+        0
+      ],
+      "exportedTodoCounts" : [
+        0
+      ],
+      "id" : "restore-replaces-existing-sessions",
+      "questionSelectionCount" : 0,
+      "stateActionableRequestIds" : [
+        [
+
+        ]
+      ],
+      "stateNeedsAttentionFlags" : [
+        false
+      ],
+      "stateRestoredFlags" : [
+        true
+      ],
+      "stateSessionIds" : [
+        "new"
+      ],
+      "summarizedSessionIds" : [
+
+      ]
+    },
+    {
+      "activeSessionId" : null,
+      "exportedCwds" : [
+        "/tmp/new"
+      ],
+      "exportedPendingRequestIds" : [
+        [
+
+        ]
+      ],
+      "exportedRedactionLevels" : [
+        "metadataOnly"
+      ],
+      "exportedSessionIds" : [
+        "new"
+      ],
+      "exportedSources" : [
+        "claude"
+      ],
+      "exportedTaskCounts" : [
+        0
+      ],
+      "exportedTodoCounts" : [
+        0
+      ],
+      "id" : "save-replaces-store-snapshot",
+      "questionSelectionCount" : 0,
+      "stateActionableRequestIds" : [
+
+      ],
+      "stateNeedsAttentionFlags" : [
+
+      ],
+      "stateRestoredFlags" : [
+
+      ],
+      "stateSessionIds" : [
+
+      ],
+      "summarizedSessionIds" : [
+
+      ]
+    },
+    {
+      "activeSessionId" : null,
+      "exportedCwds" : [
+        "/tmp/stored"
+      ],
+      "exportedPendingRequestIds" : [
+        [
+
+        ]
+      ],
+      "exportedRedactionLevels" : [
+        "metadataOnly"
+      ],
+      "exportedSessionIds" : [
+        "stored"
+      ],
+      "exportedSources" : [
+        "codex"
+      ],
+      "exportedTaskCounts" : [
+        0
+      ],
+      "exportedTodoCounts" : [
+        0
+      ],
+      "id" : "restore-from-store-loads-snapshot",
+      "questionSelectionCount" : 0,
+      "stateActionableRequestIds" : [
+        [
+
+        ]
+      ],
+      "stateNeedsAttentionFlags" : [
+        false
+      ],
+      "stateRestoredFlags" : [
+        true
+      ],
+      "stateSessionIds" : [
+        "stored"
+      ],
+      "summarizedSessionIds" : [
+
+      ]
+    }
+  ]
+}

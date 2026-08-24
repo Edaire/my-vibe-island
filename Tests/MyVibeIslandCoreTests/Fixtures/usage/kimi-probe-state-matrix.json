@@ -1,0 +1,36 @@
+{
+  "rows": [
+    {
+      "id": "default",
+      "isProbing": false,
+      "hasCachedResult": false,
+      "cachedUsed": null,
+      "cachedTotalLimit": null,
+      "cachedSubType": null
+    },
+    {
+      "id": "cache-update-preserves-probing",
+      "isProbing": true,
+      "hasCachedResult": true,
+      "cachedUsed": 40,
+      "cachedTotalLimit": 1000,
+      "cachedSubType": "coding"
+    },
+    {
+      "id": "probe-update-preserves-cache",
+      "isProbing": true,
+      "hasCachedResult": true,
+      "cachedUsed": 40,
+      "cachedTotalLimit": 1000,
+      "cachedSubType": "coding"
+    },
+    {
+      "id": "clear-cache-preserves-probing",
+      "isProbing": true,
+      "hasCachedResult": false,
+      "cachedUsed": null,
+      "cachedTotalLimit": null,
+      "cachedSubType": null
+    }
+  ]
+}

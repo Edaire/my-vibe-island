@@ -1,0 +1,7 @@
+{
+  "event": "permission",
+  "id": "perm-fixture-1",
+  "sessionID": "opencode-session",
+  "cwd": "/tmp/opencode",
+  "permission": "bash"
+}

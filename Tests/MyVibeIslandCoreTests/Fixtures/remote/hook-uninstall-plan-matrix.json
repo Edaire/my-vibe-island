@@ -1,0 +1,61 @@
+{
+  "rows": [
+    {
+      "id": "mixed-origins-managed-tunnel",
+      "hostId": "devbox",
+      "managedHookKeysToRemove": [
+        "a-managed-stop",
+        "z-managed-stop"
+      ],
+      "userAuthoredHookKeysToPreserve": [
+        "codex-user"
+      ],
+      "unknownHookKeysToPreserve": [
+        "claude-disabled",
+        "codex-unknown"
+      ],
+      "configPathsToEdit": [
+        "~/.claude/settings.json",
+        "~/.codex/config.toml"
+      ],
+      "filesToDelete": [],
+      "stopTunnelProcessIds": [
+        1234
+      ],
+      "preservesUserAuthoredHooks": true,
+      "preservesUnrelatedRemoteFiles": true
+    },
+    {
+      "id": "piggyback-tunnel-preserved",
+      "hostId": "devbox",
+      "managedHookKeysToRemove": [
+        "managed-only"
+      ],
+      "userAuthoredHookKeysToPreserve": [],
+      "unknownHookKeysToPreserve": [],
+      "configPathsToEdit": [
+        "~/.codex/config.toml"
+      ],
+      "filesToDelete": [],
+      "stopTunnelProcessIds": [],
+      "preservesUserAuthoredHooks": true,
+      "preservesUnrelatedRemoteFiles": true
+    },
+    {
+      "id": "foreign-tunnel-preserved",
+      "hostId": "devbox",
+      "managedHookKeysToRemove": [
+        "managed-only"
+      ],
+      "userAuthoredHookKeysToPreserve": [],
+      "unknownHookKeysToPreserve": [],
+      "configPathsToEdit": [
+        "~/.codex/config.toml"
+      ],
+      "filesToDelete": [],
+      "stopTunnelProcessIds": [],
+      "preservesUserAuthoredHooks": true,
+      "preservesUnrelatedRemoteFiles": true
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "rows": [
+    {
+      "id": "empty-app-shell",
+      "mode": "appShell",
+      "remainingArguments": [],
+      "diagnostic": null
+    },
+    {
+      "id": "app-flag",
+      "mode": "appShell",
+      "remainingArguments": [],
+      "diagnostic": null
+    },
+    {
+      "id": "app-alias-with-remaining",
+      "mode": "appShell",
+      "remainingArguments": [
+        "--screen",
+        "main"
+      ],
+      "diagnostic": null
+    },
+    {
+      "id": "launch-app-alias",
+      "mode": "appShell",
+      "remainingArguments": [],
+      "diagnostic": null
+    },
+    {
+      "id": "help-long",
+      "mode": "help",
+      "remainingArguments": [],
+      "diagnostic": null
+    },
+    {
+      "id": "help-short",
+      "mode": "help",
+      "remainingArguments": [],
+      "diagnostic": null
+    },
+    {
+      "id": "double-dash-cli",
+      "mode": "cli",
+      "remainingArguments": [
+        "--app",
+        "status"
+      ],
+      "diagnostic": null
+    },
+    {
+      "id": "known-status-cli",
+      "mode": "cli",
+      "remainingArguments": [
+        "status"
+      ],
+      "diagnostic": null
+    },
+    {
+      "id": "known-jump-cli",
+      "mode": "cli",
+      "remainingArguments": [
+        "jump",
+        "session-1"
+      ],
+      "diagnostic": null
+    },
+    {
+      "id": "known-bridge-smoke-cli",
+      "mode": "cli",
+      "remainingArguments": [
+        "bridge-smoke"
+      ],
+      "diagnostic": null
+    },
+    {
+      "id": "unknown-word-cli",
+      "mode": "cli",
+      "remainingArguments": [
+        "inspect"
+      ],
+      "diagnostic": null
+    },
+    {
+      "id": "unknown-switch-invalid",
+      "mode": "invalid",
+      "remainingArguments": [
+        "--unknown"
+      ],
+      "diagnostic": "unknown top-level option: --unknown"
+    }
+  ]
+}

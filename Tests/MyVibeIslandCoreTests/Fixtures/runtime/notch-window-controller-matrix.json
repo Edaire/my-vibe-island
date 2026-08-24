@@ -1,0 +1,108 @@
+{
+  "rows": [
+    {
+      "id": "create-visible",
+      "hasPanel": true,
+      "monitorsInstalled": true,
+      "targetScreenId": "main",
+      "visibility": "visible",
+      "hiddenReason": null,
+      "isDeferringHiddenFade": false,
+      "placementSummary": "220.0x36.0->640.0x420.0:visible",
+      "actionSummaries": [
+        "createPanel",
+        "installEventMonitors",
+        "applyTargetScreen:main",
+        "applyPlacement:220.0x36.0->640.0x420.0:visible",
+        "showPanel"
+      ]
+    },
+    {
+      "id": "apply-hidden-fullscreen",
+      "hasPanel": true,
+      "monitorsInstalled": true,
+      "targetScreenId": "main",
+      "visibility": "hidden",
+      "hiddenReason": "fullscreenHidden",
+      "isDeferringHiddenFade": false,
+      "placementSummary": "0.0x0.0->0.0x0.0:fullscreenHidden",
+      "actionSummaries": [
+        "applyPlacement:0.0x0.0->0.0x0.0:fullscreenHidden",
+        "hidePanel"
+      ]
+    },
+    {
+      "id": "target-unchanged",
+      "hasPanel": true,
+      "monitorsInstalled": true,
+      "targetScreenId": "main",
+      "visibility": "visible",
+      "hiddenReason": null,
+      "isDeferringHiddenFade": false,
+      "placementSummary": "220.0x36.0->640.0x420.0:visible",
+      "actionSummaries": []
+    },
+    {
+      "id": "target-changed",
+      "hasPanel": true,
+      "monitorsInstalled": true,
+      "targetScreenId": "side",
+      "visibility": "visible",
+      "hiddenReason": null,
+      "isDeferringHiddenFade": false,
+      "placementSummary": "220.0x36.0->640.0x420.0:visible",
+      "actionSummaries": [
+        "applyTargetScreen:side"
+      ]
+    },
+    {
+      "id": "hide-visible",
+      "hasPanel": true,
+      "monitorsInstalled": true,
+      "targetScreenId": "main",
+      "visibility": "hidden",
+      "hiddenReason": null,
+      "isDeferringHiddenFade": false,
+      "placementSummary": "220.0x36.0->640.0x420.0:visible",
+      "actionSummaries": [
+        "hidePanel"
+      ]
+    },
+    {
+      "id": "repeated-hide",
+      "hasPanel": true,
+      "monitorsInstalled": true,
+      "targetScreenId": "main",
+      "visibility": "hidden",
+      "hiddenReason": "fullscreenHidden",
+      "isDeferringHiddenFade": false,
+      "placementSummary": "0.0x0.0->0.0x0.0:fullscreenHidden",
+      "actionSummaries": []
+    },
+    {
+      "id": "defer-hidden-fade",
+      "hasPanel": true,
+      "monitorsInstalled": true,
+      "targetScreenId": "main",
+      "visibility": "hidden",
+      "hiddenReason": "fullscreenHidden",
+      "isDeferringHiddenFade": true,
+      "placementSummary": "0.0x0.0->0.0x0.0:fullscreenHidden",
+      "actionSummaries": []
+    },
+    {
+      "id": "teardown-created",
+      "hasPanel": false,
+      "monitorsInstalled": false,
+      "targetScreenId": "main",
+      "visibility": "closed",
+      "hiddenReason": null,
+      "isDeferringHiddenFade": false,
+      "placementSummary": "220.0x36.0->640.0x420.0:visible",
+      "actionSummaries": [
+        "removeEventMonitors",
+        "closePanel"
+      ]
+    }
+  ]
+}

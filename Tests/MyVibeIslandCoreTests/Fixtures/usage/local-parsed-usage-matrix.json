@@ -1,0 +1,84 @@
+{
+  "rows": [
+    {
+      "id": "primary-window-with-source",
+      "accountId": {
+        "rawValue": "local-cache"
+      },
+      "collectedAt": "2026-07-08T12:30:00Z",
+      "freshness": "fresh",
+      "primaryWindow": {
+        "id": "context",
+        "label": "Parsed context",
+        "kind": "providerSpecific",
+        "usedValue": 25,
+        "usedUnit": "tokens",
+        "limitValue": 100,
+        "limitUnit": "tokens",
+        "remainingValue": 75,
+        "remainingUnit": "tokens",
+        "usedPercent": 25,
+        "resetAt": null
+      },
+      "secondaryWindow": null,
+      "extraWindows": [],
+      "extraUsage": [
+        "sourceName:fixture-cache"
+      ],
+      "failure": null
+    },
+    {
+      "id": "secondary-and-extra-windows",
+      "accountId": {
+        "rawValue": "statusline-local"
+      },
+      "collectedAt": "2026-07-08T12:31:00Z",
+      "freshness": "fresh",
+      "primaryWindow": null,
+      "secondaryWindow": {
+        "id": "parallel",
+        "label": "Parsed parallel",
+        "kind": "parallelQuota",
+        "usedValue": 1,
+        "usedUnit": "slots",
+        "limitValue": 4,
+        "limitUnit": "slots",
+        "remainingValue": 3,
+        "remainingUnit": "slots",
+        "usedPercent": 25,
+        "resetAt": null
+      },
+      "extraWindows": [
+        {
+          "id": "daily",
+          "label": "Parsed daily",
+          "kind": "daily",
+          "usedValue": 40,
+          "usedUnit": "requests",
+          "limitValue": 100,
+          "limitUnit": "requests",
+          "remainingValue": 60,
+          "remainingUnit": "requests",
+          "usedPercent": 40,
+          "resetAt": "2026-07-09T00:00:00Z"
+        }
+      ],
+      "extraUsage": [
+        "origin:statusline",
+        "sourceName:statusline-cache"
+      ],
+      "failure": null
+    },
+    {
+      "id": "missing-windows",
+      "accountId": null,
+      "collectedAt": "2026-07-08T12:30:00Z",
+      "freshness": "unavailable",
+      "primaryWindow": null,
+      "secondaryWindow": null,
+      "extraWindows": [],
+      "extraUsage": [],
+      "failure": "noUsageWindows"
+    }
+  ]
+}

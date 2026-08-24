@@ -1,0 +1,41 @@
+{
+  "rows": [
+    {
+      "id": "first-pass",
+      "unrevealedKeys": [
+        "usageThreshold:codexRateLimits:primary:80",
+        "usageLimit:codexRateLimits:primary"
+      ],
+      "revealedKeys": {
+        "usageThreshold:codexRateLimits:primary:80": true,
+        "usageLimit:codexRateLimits:primary": true
+      }
+    },
+    {
+      "id": "repeated-pass",
+      "unrevealedKeys": [],
+      "revealedKeys": {
+        "usageThreshold:codexRateLimits:primary:80": true
+      }
+    },
+    {
+      "id": "later-batch",
+      "unrevealedKeys": [
+        "usageReset:codexRateLimits:2026-07-08T13:00:00Z"
+      ],
+      "revealedKeys": {
+        "usageThreshold:codexRateLimits:primary:80": true,
+        "usageReset:codexRateLimits:2026-07-08T13:00:00Z": true
+      }
+    },
+    {
+      "id": "settings-reset",
+      "unrevealedKeys": [
+        "usageThreshold:codexRateLimits:primary:80"
+      ],
+      "revealedKeys": {
+        "usageThreshold:codexRateLimits:primary:80": true
+      }
+    }
+  ]
+}

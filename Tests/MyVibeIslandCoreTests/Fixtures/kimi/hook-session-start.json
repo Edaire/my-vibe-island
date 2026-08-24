@@ -1,0 +1,6 @@
+{
+  "cwd": "/tmp/kimi-project",
+  "hook_event_name": "SessionStart",
+  "session_id": "kimi-session-1",
+  "model": "kimi-for-coding"
+}

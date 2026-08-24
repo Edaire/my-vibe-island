@@ -1,0 +1,26 @@
+{
+  "rows": [
+    {
+      "id": "first-launch",
+      "plan": {
+        "lifecycle": "launched",
+        "hasLaunchPlan": true,
+        "intentCount": 36,
+        "firstIntentIsCreateRuntime": true,
+        "lastIntentIsShowIsland": true,
+        "platformIntentCount": 36
+      }
+    },
+    {
+      "id": "repeated-launch",
+      "plan": {
+        "lifecycle": "launched",
+        "hasLaunchPlan": true,
+        "intentCount": 0,
+        "firstIntentIsCreateRuntime": false,
+        "lastIntentIsShowIsland": false,
+        "platformIntentCount": 36
+      }
+    }
+  ]
+}

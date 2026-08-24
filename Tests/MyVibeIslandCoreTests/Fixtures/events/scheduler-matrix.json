@@ -1,0 +1,164 @@
+{
+  "cases": [
+    {
+      "name": "reschedule-debounce-cancels-existing-key",
+      "plan": {
+        "nextState": {
+          "pendingTasks": [
+            {
+              "id": "cleanup:old-session:1000",
+              "key": "old-session",
+              "kind": "cleanup",
+              "dueAtMillis": 1000,
+              "sourceId": "codex",
+              "sessionId": "old-session"
+            },
+            {
+              "id": "debounce:codex:file-delta:1350",
+              "key": "codex:file-delta",
+              "kind": "debounce",
+              "dueAtMillis": 1350,
+              "sourceId": "codex"
+            },
+            {
+              "id": "throttle:screen-focus:1400",
+              "key": "screen-focus",
+              "kind": "throttle",
+              "dueAtMillis": 1400
+            }
+          ]
+        },
+        "emittedTasks": [],
+        "canceledTaskIds": [
+          "debounce:codex:file-delta:1250"
+        ]
+      }
+    },
+    {
+      "name": "schedule-blocking-timeout-keeps-existing-tasks",
+      "plan": {
+        "nextState": {
+          "pendingTasks": [
+            {
+              "id": "cleanup:old-session:1000",
+              "key": "old-session",
+              "kind": "cleanup",
+              "dueAtMillis": 1000,
+              "sourceId": "codex",
+              "sessionId": "old-session"
+            },
+            {
+              "id": "debounce:codex:file-delta:1250",
+              "key": "codex:file-delta",
+              "kind": "debounce",
+              "dueAtMillis": 1250,
+              "sourceId": "codex"
+            },
+            {
+              "id": "throttle:screen-focus:1400",
+              "key": "screen-focus",
+              "kind": "throttle",
+              "dueAtMillis": 1400
+            },
+            {
+              "id": "timeout:req-1:32000",
+              "key": "req-1",
+              "kind": "timeout",
+              "dueAtMillis": 32000,
+              "sourceId": "opencode",
+              "requestId": "req-1"
+            }
+          ]
+        },
+        "emittedTasks": [],
+        "canceledTaskIds": []
+      }
+    },
+    {
+      "name": "active-throttle-window-suppresses-duplicate",
+      "plan": {
+        "nextState": {
+          "pendingTasks": [
+            {
+              "id": "cleanup:old-session:1000",
+              "key": "old-session",
+              "kind": "cleanup",
+              "dueAtMillis": 1000,
+              "sourceId": "codex",
+              "sessionId": "old-session"
+            },
+            {
+              "id": "debounce:codex:file-delta:1250",
+              "key": "codex:file-delta",
+              "kind": "debounce",
+              "dueAtMillis": 1250,
+              "sourceId": "codex"
+            },
+            {
+              "id": "throttle:screen-focus:1400",
+              "key": "screen-focus",
+              "kind": "throttle",
+              "dueAtMillis": 1400
+            }
+          ]
+        },
+        "emittedTasks": [],
+        "canceledTaskIds": []
+      }
+    },
+    {
+      "name": "collect-due-emits-non-throttle-only",
+      "plan": {
+        "nextState": {
+          "pendingTasks": []
+        },
+        "emittedTasks": [
+          {
+            "id": "cleanup:old-session:1000",
+            "key": "old-session",
+            "kind": "cleanup",
+            "dueAtMillis": 1000,
+            "sourceId": "codex",
+            "sessionId": "old-session"
+          },
+          {
+            "id": "debounce:codex:file-delta:1250",
+            "key": "codex:file-delta",
+            "kind": "debounce",
+            "dueAtMillis": 1250,
+            "sourceId": "codex"
+          }
+        ],
+        "canceledTaskIds": []
+      }
+    },
+    {
+      "name": "cancel-removes-all-tasks-for-key",
+      "plan": {
+        "nextState": {
+          "pendingTasks": [
+            {
+              "id": "cleanup:old-session:1000",
+              "key": "old-session",
+              "kind": "cleanup",
+              "dueAtMillis": 1000,
+              "sourceId": "codex",
+              "sessionId": "old-session"
+            },
+            {
+              "id": "debounce:codex:file-delta:1250",
+              "key": "codex:file-delta",
+              "kind": "debounce",
+              "dueAtMillis": 1250,
+              "sourceId": "codex"
+            }
+          ]
+        },
+        "emittedTasks": [],
+        "canceledTaskIds": [
+          "throttle:screen-focus:1400"
+        ]
+      }
+    }
+  ]
+}

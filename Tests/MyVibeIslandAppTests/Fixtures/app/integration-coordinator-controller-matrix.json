@@ -1,0 +1,41 @@
+{
+  "rows": [
+    {
+      "id": "known-source-full-flow",
+      "actions": [
+        "refresh:2026-07-08T20:00:00Z",
+        "install:codex",
+        "repair:codex",
+        "uninstall:codex"
+      ],
+      "outcomes": ["refresh:none", "install:codex", "repair:codex", "uninstall:codex"],
+      "state": {
+        "sourceIds": ["codex"],
+        "installStates": ["needsRepair"],
+        "healthStates": ["warning"],
+        "lastCheckedAt": "2026-07-08T20:00:00Z"
+      },
+      "lastPlanAction": "uninstall",
+      "lastRepairOperation": "uninstall",
+      "lastRepairOutcome": "succeeded",
+      "events": [
+        "refresh:2026-07-08T20:00:00Z:1",
+        "install:codex",
+        "repair:codex",
+        "uninstall:codex"
+      ]
+    },
+    {
+      "id": "unknown-source-ignored",
+      "actions": ["repair:unknown"],
+      "outcomes": ["ignoreUnknownSource:none"],
+      "state": {
+        "sourceIds": ["codex"],
+        "installStates": ["needsRepair"],
+        "healthStates": ["warning"]
+      },
+      "lastPlanAction": "ignoreUnknownSource",
+      "events": []
+    }
+  ]
+}

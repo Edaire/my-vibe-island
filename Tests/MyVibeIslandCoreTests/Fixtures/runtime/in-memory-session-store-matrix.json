@@ -1,0 +1,64 @@
+{
+  "rows": [
+    {
+      "id": "empty-store",
+      "schemaVersion": 1,
+      "sessionIds": [],
+      "safeTitles": [],
+      "activeSessionId": null,
+      "summarizedSessionIds": [],
+      "questionSelections": {}
+    },
+    {
+      "id": "upsert-replaces-by-id",
+      "schemaVersion": 1,
+      "sessionIds": ["b"],
+      "safeTitles": ["Updated"],
+      "activeSessionId": null,
+      "summarizedSessionIds": [],
+      "questionSelections": {}
+    },
+    {
+      "id": "snapshot-sessions-sorted-by-id",
+      "schemaVersion": 1,
+      "sessionIds": ["a", "b", "c"],
+      "safeTitles": [null, null, null],
+      "activeSessionId": null,
+      "summarizedSessionIds": [],
+      "questionSelections": {}
+    },
+    {
+      "id": "remove-clears-active-and-summarized-indexes",
+      "schemaVersion": 1,
+      "sessionIds": ["b"],
+      "safeTitles": [null],
+      "activeSessionId": null,
+      "summarizedSessionIds": ["b"],
+      "questionSelections": {
+        "request-1": "approve"
+      }
+    },
+    {
+      "id": "replace-snapshot-normalizes-state",
+      "schemaVersion": 3,
+      "sessionIds": ["a", "b"],
+      "safeTitles": [null, null],
+      "activeSessionId": "b",
+      "summarizedSessionIds": ["a", "b"],
+      "questionSelections": {
+        "request-1": "approve"
+      }
+    },
+    {
+      "id": "question-selection-overwrites-by-request-id",
+      "schemaVersion": 1,
+      "sessionIds": [],
+      "safeTitles": [],
+      "activeSessionId": null,
+      "summarizedSessionIds": [],
+      "questionSelections": {
+        "request-1": "deny"
+      }
+    }
+  ]
+}

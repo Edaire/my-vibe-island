@@ -1,0 +1,65 @@
+{
+  "rows": [
+    {
+      "id": "version-change-shows-sanitized-content",
+      "initialState": {
+        "lastLaunchedVersion": "1.0.0"
+      },
+      "commands": [
+        "recordLaunch:1.1.0:<h1 onclick=\"run()\">News</h1><script>alert(\"x\")</script><p>Done</p>"
+      ],
+      "planActions": [
+        "showWhatsNew"
+      ],
+      "finalState": {
+        "pendingHTML": "<h1>News</h1><p>Done</p>",
+        "pendingVersion": "1.1.0",
+        "pendingPreviousVersion": "1.0.0",
+        "lastLaunchedVersion": "1.1.0"
+      },
+      "lastPlanAction": "showWhatsNew",
+      "events": [
+        "present:1.1.0:<h1>News</h1><p>Done</p>"
+      ]
+    },
+    {
+      "id": "unchanged-version-keeps-state",
+      "initialState": {
+        "lastLaunchedVersion": "1.1.0"
+      },
+      "commands": [
+        "recordLaunch:1.1.0:<p>Same</p>"
+      ],
+      "planActions": [
+        "noChange"
+      ],
+      "finalState": {
+        "lastLaunchedVersion": "1.1.0"
+      },
+      "lastPlanAction": "noChange",
+      "events": []
+    },
+    {
+      "id": "dismiss-existing-pending-content",
+      "initialState": {
+        "pendingHTML": "<p>Pending</p>",
+        "pendingVersion": "1.2.0",
+        "pendingPreviousVersion": "1.1.0",
+        "lastLaunchedVersion": "1.2.0"
+      },
+      "commands": [
+        "dismissPending"
+      ],
+      "planActions": [
+        "dismissWhatsNew"
+      ],
+      "finalState": {
+        "lastLaunchedVersion": "1.2.0"
+      },
+      "lastPlanAction": "dismissWhatsNew",
+      "events": [
+        "dismiss"
+      ]
+    }
+  ]
+}

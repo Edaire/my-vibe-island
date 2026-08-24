@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "soundSourceSelections.v1",
+  "selections": [
+    {
+      "category": "permission",
+      "sourceKind": "builtin8bit",
+      "sourceId": null,
+      "soundId": "builtin8bit.permission",
+      "fallbackSourceId": null,
+      "isEnabled": true,
+      "volume": 1,
+      "cooldownSeconds": 0,
+      "outputRouteBehavior": "default"
+    },
+    {
+      "category": "question",
+      "sourceKind": "builtin8bit",
+      "sourceId": null,
+      "soundId": "builtin8bit.question",
+      "fallbackSourceId": null,
+      "isEnabled": true,
+      "volume": 1,
+      "cooldownSeconds": 0,
+      "outputRouteBehavior": "default"
+    },
+    {
+      "category": "completion",
+      "sourceKind": "appleSystem",
+      "sourceId": null,
+      "soundId": null,
+      "fallbackSourceId": null,
+      "isEnabled": true,
+      "volume": 1,
+      "cooldownSeconds": 0,
+      "outputRouteBehavior": "default"
+    },
+    {
+      "category": "failure",
+      "sourceKind": "builtin8bit",
+      "sourceId": null,
+      "soundId": "builtin8bit.failure",
+      "fallbackSourceId": null,
+      "isEnabled": true,
+      "volume": 1,
+      "cooldownSeconds": 0,
+      "outputRouteBehavior": "default"
+    },
+    {
+      "category": "warning",
+      "sourceKind": "off",
+      "sourceId": null,
+      "soundId": null,
+      "fallbackSourceId": null,
+      "isEnabled": false,
+      "volume": 0,
+      "cooldownSeconds": 5,
+      "outputRouteBehavior": "default"
+    },
+    {
+      "category": "usage",
+      "sourceKind": "off",
+      "sourceId": null,
+      "soundId": null,
+      "fallbackSourceId": null,
+      "isEnabled": false,
+      "volume": 0,
+      "cooldownSeconds": 5,
+      "outputRouteBehavior": "default"
+    },
+    {
+      "category": "remote",
+      "sourceKind": "custom",
+      "sourceId": "custom.remote",
+      "soundId": "remote.soft",
+      "fallbackSourceId": "builtin8bit.remote",
+      "isEnabled": true,
+      "volume": 0.5,
+      "cooldownSeconds": 4,
+      "outputRouteBehavior": "selectedOutput"
+    }
+  ]
+}

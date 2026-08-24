@@ -1,0 +1,83 @@
+{
+  "rows": [
+    {
+      "id": "downloaded-critical-update-remind-later",
+      "phase": "idle",
+      "newVersion": "2.0.0",
+      "skippedVersion": null,
+      "errorHint": null,
+      "releaseNotesCount": 1,
+      "lastPresentedAction": "dismissUpdateWindow",
+      "presentations": [
+        {
+          "phase": "checking",
+          "primaryAction": "none",
+          "secondaryActions": [],
+          "pillVisible": false,
+          "pillLabel": "",
+          "pillInstallReady": false,
+          "critical": false,
+          "informationOnly": false,
+          "majorUpgrade": false,
+          "errorHint": null
+        },
+        {
+          "phase": "readyToInstall",
+          "primaryAction": "installAndRelaunch",
+          "secondaryActions": ["remindLater"],
+          "pillVisible": true,
+          "pillLabel": "Update 2.0.0",
+          "pillInstallReady": true,
+          "critical": true,
+          "informationOnly": true,
+          "majorUpgrade": true,
+          "errorHint": null
+        }
+      ],
+      "events": [
+        "present:checking:none",
+        "present:readyToInstall:installAndRelaunch",
+        "dismiss"
+      ]
+    },
+    {
+      "id": "manual-check-failure",
+      "phase": "failed",
+      "newVersion": null,
+      "skippedVersion": null,
+      "errorHint": "network unavailable",
+      "releaseNotesCount": 0,
+      "lastPresentedAction": "none",
+      "presentations": [
+        {
+          "phase": "checking",
+          "primaryAction": "none",
+          "secondaryActions": [],
+          "pillVisible": false,
+          "pillLabel": "",
+          "pillInstallReady": false,
+          "critical": false,
+          "informationOnly": false,
+          "majorUpgrade": false,
+          "errorHint": null
+        },
+        {
+          "phase": "failed",
+          "primaryAction": "checkAgain",
+          "secondaryActions": [],
+          "pillVisible": false,
+          "pillLabel": "",
+          "pillInstallReady": false,
+          "critical": false,
+          "informationOnly": false,
+          "majorUpgrade": false,
+          "errorHint": "network unavailable"
+        }
+      ],
+      "events": [
+        "present:checking:none",
+        "present:failed:checkAgain"
+      ]
+    }
+  ]
+}

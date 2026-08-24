@@ -1,0 +1,114 @@
+{
+  "cases": [
+    {
+      "name": "default-launch-plan-summary",
+      "projection": {
+        "intentCount": 36,
+        "lifecycleIntentCount": 10,
+        "runtimeStartIntentCount": 19,
+        "notchWindowIntentCount": 5,
+        "statusItemMenuEntryCount": 14,
+        "routeIntentCount": 1,
+        "intentGroupDescription": "lifecycle, runtime, notch, statusMenu, route",
+        "firstIntents": [
+          "lifecycle:createRuntime",
+          "lifecycle:loadSettings",
+          "lifecycle:configureDockPolicy",
+          "lifecycle:createScreenSelection",
+          "lifecycle:createIslandWindow",
+          "lifecycle:startBridge"
+        ],
+        "lastIntents": [
+          "installNotchEventMonitors",
+          "applyTargetScreen:main",
+          "applyNotchPlacement:416.0,402.0,680.0x580.0",
+          "showNotchPanel",
+          "applyStatusItemMenu:14",
+          "showIsland"
+        ],
+        "allIntents": []
+      }
+    },
+    {
+      "name": "runtime-and-notch-event-actions",
+      "projection": {
+        "intentCount": 4,
+        "lifecycleIntentCount": 0,
+        "runtimeStartIntentCount": 0,
+        "notchWindowIntentCount": 1,
+        "statusItemMenuEntryCount": 0,
+        "routeIntentCount": 1,
+        "intentGroupDescription": "notch, route",
+        "firstIntents": [
+          "overlay:routeAction:appCommand:openSettings",
+          "openSettings:default",
+          "applyNotchPlacement:10.0,20.0,220.0x36.0",
+          "quitApplication"
+        ],
+        "lastIntents": [
+          "overlay:routeAction:appCommand:openSettings",
+          "openSettings:default",
+          "applyNotchPlacement:10.0,20.0,220.0x36.0",
+          "quitApplication"
+        ],
+        "allIntents": [
+          "overlay:routeAction:appCommand:openSettings",
+          "openSettings:default",
+          "applyNotchPlacement:10.0,20.0,220.0x36.0",
+          "quitApplication"
+        ]
+      }
+    },
+    {
+      "name": "preference-and-maintenance-actions",
+      "projection": {
+        "intentCount": 4,
+        "lifecycleIntentCount": 0,
+        "runtimeStartIntentCount": 0,
+        "notchWindowIntentCount": 0,
+        "statusItemMenuEntryCount": 0,
+        "routeIntentCount": 0,
+        "intentGroupDescription": "none",
+        "firstIntents": [
+          "setDockIconVisible:true",
+          "setLaunchAtLoginEnabled:false",
+          "checkForUpdates",
+          "exportDiagnostics"
+        ],
+        "lastIntents": [
+          "setDockIconVisible:true",
+          "setLaunchAtLoginEnabled:false",
+          "checkForUpdates",
+          "exportDiagnostics"
+        ],
+        "allIntents": [
+          "setDockIconVisible:true",
+          "setLaunchAtLoginEnabled:false",
+          "checkForUpdates",
+          "exportDiagnostics"
+        ]
+      }
+    },
+    {
+      "name": "menu-snapshot-action-without-status-menu-is-skipped",
+      "projection": {
+        "intentCount": 1,
+        "lifecycleIntentCount": 0,
+        "runtimeStartIntentCount": 0,
+        "notchWindowIntentCount": 0,
+        "statusItemMenuEntryCount": 0,
+        "routeIntentCount": 1,
+        "intentGroupDescription": "route",
+        "firstIntents": [
+          "showIsland"
+        ],
+        "lastIntents": [
+          "showIsland"
+        ],
+        "allIntents": [
+          "showIsland"
+        ]
+      }
+    }
+  ]
+}

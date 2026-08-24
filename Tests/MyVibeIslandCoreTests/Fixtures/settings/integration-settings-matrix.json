@@ -1,0 +1,110 @@
+{
+  "rows": [
+    {
+      "sourceId": "codex",
+      "displayName": "Codex",
+      "supportLevel": "supported",
+      "hookStatus": "installed",
+      "watcherStatus": "healthy",
+      "localTrustStatus": "unknown",
+      "terminalExtensionStatus": "unknown",
+      "statusSummary": "ready",
+      "canRepair": false,
+      "lastCheckedAt": "2026-07-08T12:00:00Z"
+    },
+    {
+      "sourceId": "future-agent",
+      "displayName": "Future Agent",
+      "supportLevel": "planned",
+      "hookStatus": "unsupported",
+      "watcherStatus": "unknown",
+      "localTrustStatus": "unknown",
+      "terminalExtensionStatus": "unknown",
+      "statusSummary": "unsupported",
+      "canRepair": false,
+      "lastCheckedAt": "2026-07-08T12:00:00Z"
+    },
+    {
+      "sourceId": "opencode",
+      "displayName": "OpenCode",
+      "supportLevel": "experimental",
+      "hookStatus": "needsRepair",
+      "watcherStatus": "warning",
+      "localTrustStatus": "unknown",
+      "terminalExtensionStatus": "unknown",
+      "statusSummary": "needsRepair",
+      "canRepair": true,
+      "lastCheckedAt": "2026-07-08T12:00:00Z"
+    }
+  ],
+  "customPaths": [
+    {
+      "id": "managed-copy",
+      "sourceId": "codex",
+      "displayPath": "~/project/.codex/config.toml",
+      "kind": "project",
+      "exists": true,
+      "duplicateStatus": "duplicateOf:managed-codex",
+      "canSave": false,
+      "lastCheckedAt": "2026-07-08T11:00:00Z"
+    },
+    {
+      "id": "a",
+      "sourceId": "fork",
+      "displayPath": "/tmp/a",
+      "kind": "global",
+      "exists": true,
+      "duplicateStatus": "unique",
+      "canSave": true,
+      "lastCheckedAt": null
+    },
+    {
+      "id": "b",
+      "sourceId": "fork",
+      "displayPath": "/tmp/b",
+      "kind": "global",
+      "exists": false,
+      "duplicateStatus": "unique",
+      "canSave": false,
+      "lastCheckedAt": null
+    }
+  ],
+  "repairResults": [
+    {
+      "id": "successful-repair-requires-restart",
+      "integrationId": "codex",
+      "operation": "repair",
+      "outcome": "succeeded",
+      "message": "Updated hook block",
+      "configPath": "~/project/.codex/config.toml",
+      "changedPaths": [
+        "~/project/.codex/config.toml"
+      ],
+      "statusSummary": "needsRestart",
+      "isSuccessful": true,
+      "requiresTerminalRestart": true,
+      "diagnosticNotes": [
+        "restart terminal"
+      ]
+    },
+    {
+      "id": "failed-install-sorts-changed-paths",
+      "integrationId": "opencode",
+      "operation": "install",
+      "outcome": "failed",
+      "message": "Config block mismatch",
+      "configPath": null,
+      "changedPaths": [
+        "/tmp/a",
+        "/tmp/b"
+      ],
+      "statusSummary": "failed",
+      "isSuccessful": false,
+      "requiresTerminalRestart": false,
+      "diagnosticNotes": [
+        "manual review"
+      ]
+    }
+  ],
+  "lastCheckedAt": "2026-07-08T12:00:00Z"
+}

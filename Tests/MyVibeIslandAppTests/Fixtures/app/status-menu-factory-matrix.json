@@ -1,0 +1,47 @@
+{
+  "rows" : [
+    {
+      "id" : "hidden-menu",
+      "itemCount" : 0,
+      "items" : [
+
+      ],
+      "menuTitle" : null
+    },
+    {
+      "id" : "visible-menu",
+      "itemCount" : 4,
+      "items" : [
+        {
+          "identifier" : "openSettings",
+          "isEnabled" : true,
+          "isSeparator" : false,
+          "state" : "off",
+          "title" : "Open Settings"
+        },
+        {
+          "identifier" : null,
+          "isEnabled" : false,
+          "isSeparator" : true,
+          "state" : "off",
+          "title" : ""
+        },
+        {
+          "identifier" : "selectScreenMode.manualDisplay",
+          "isEnabled" : true,
+          "isSeparator" : false,
+          "state" : "on",
+          "title" : "Manual Display"
+        },
+        {
+          "identifier" : "exportDiagnostics",
+          "isEnabled" : false,
+          "isSeparator" : false,
+          "state" : "off",
+          "title" : "Export Diagnostics"
+        }
+      ],
+      "menuTitle" : "My Vibe Island Menu"
+    }
+  ]
+}

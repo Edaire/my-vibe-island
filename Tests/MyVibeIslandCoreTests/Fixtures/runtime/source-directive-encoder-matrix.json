@@ -1,0 +1,70 @@
+{
+  "rows": [
+    {
+      "id": "codex-permission-approve",
+      "source": "codex",
+      "requestKind": "permission",
+      "resolutionKind": "approve",
+      "directiveKind": "json",
+      "directiveType": null,
+      "decisionBehavior": "allow",
+      "answerText": null,
+      "blockingTimeoutSeconds": 7200
+    },
+    {
+      "id": "codex-permission-deny",
+      "source": "codex",
+      "requestKind": "permission",
+      "resolutionKind": "deny",
+      "directiveKind": "json",
+      "directiveType": null,
+      "decisionBehavior": "deny",
+      "answerText": null,
+      "blockingTimeoutSeconds": 7200
+    },
+    {
+      "id": "claude-permission-approve",
+      "source": "claude",
+      "requestKind": "permission",
+      "resolutionKind": "approve",
+      "directiveKind": "json",
+      "directiveType": null,
+      "decisionBehavior": "allow",
+      "answerText": null,
+      "blockingTimeoutSeconds": 86400
+    },
+    {
+      "id": "opencode-question-answer",
+      "source": "opencode",
+      "requestKind": "question",
+      "resolutionKind": "answer",
+      "directiveKind": "json",
+      "directiveType": null,
+      "decisionBehavior": "allow",
+      "answerText": null,
+      "blockingTimeoutSeconds": 3600
+    },
+    {
+      "id": "opencode-question-empty-answer",
+      "source": "opencode",
+      "requestKind": "question",
+      "resolutionKind": "answer",
+      "directiveKind": "none",
+      "directiveType": null,
+      "decisionBehavior": null,
+      "answerText": null,
+      "blockingTimeoutSeconds": 3600
+    },
+    {
+      "id": "unknown-permission-approve",
+      "source": "unknown-agent",
+      "requestKind": "permission",
+      "resolutionKind": "approve",
+      "directiveKind": "none",
+      "directiveType": null,
+      "decisionBehavior": null,
+      "answerText": null,
+      "blockingTimeoutSeconds": null
+    }
+  ]
+}

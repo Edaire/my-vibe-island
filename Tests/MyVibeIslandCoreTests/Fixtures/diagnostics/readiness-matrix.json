@@ -1,0 +1,40 @@
+{
+  "rows": [
+    {
+      "id": "ready-detected-agent",
+      "outcome": "ready",
+      "repairHintCount": 0,
+      "firstRepairHintSource": null,
+      "firstRepairHintMessage": null,
+      "firstRepairHintRepairability": null,
+      "firstRepairHintSeverity": null
+    },
+    {
+      "id": "partial-repairable-hint",
+      "outcome": "partial",
+      "repairHintCount": 1,
+      "firstRepairHintSource": "codex",
+      "firstRepairHintMessage": "Restart the agent",
+      "firstRepairHintRepairability": "userActionRequired",
+      "firstRepairHintSeverity": "repairable"
+    },
+    {
+      "id": "blocked-manual-permission",
+      "outcome": "blocked",
+      "repairHintCount": 1,
+      "firstRepairHintSource": "terminal",
+      "firstRepairHintMessage": "Required permission is missing",
+      "firstRepairHintRepairability": "manualOnly",
+      "firstRepairHintSeverity": "blocking"
+    },
+    {
+      "id": "demo-only-without-detected-agent",
+      "outcome": "demoOnly",
+      "repairHintCount": 0,
+      "firstRepairHintSource": null,
+      "firstRepairHintMessage": null,
+      "firstRepairHintRepairability": null,
+      "firstRepairHintSeverity": null
+    }
+  ]
+}

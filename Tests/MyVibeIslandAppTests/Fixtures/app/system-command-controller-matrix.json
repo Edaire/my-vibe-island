@@ -1,0 +1,64 @@
+{
+  "rows": [
+    {
+      "id": "enable-preferences",
+      "initialDockIconVisible": false,
+      "initialLaunchAtLoginEnabled": false,
+      "initialMaintenanceCommands": [],
+      "commands": [
+        "setDockIconVisible:true",
+        "setLaunchAtLoginEnabled:true"
+      ],
+      "dockIconVisible": true,
+      "launchAtLoginEnabled": true,
+      "maintenanceCommands": [],
+      "lastCommand": "toggleLaunchAtLogin",
+      "events": [
+        "dock:true",
+        "login:true"
+      ]
+    },
+    {
+      "id": "disable-preferences",
+      "initialDockIconVisible": true,
+      "initialLaunchAtLoginEnabled": true,
+      "initialMaintenanceCommands": [],
+      "commands": [
+        "setDockIconVisible:false",
+        "setLaunchAtLoginEnabled:false"
+      ],
+      "dockIconVisible": false,
+      "launchAtLoginEnabled": false,
+      "maintenanceCommands": [],
+      "lastCommand": "toggleLaunchAtLogin",
+      "events": [
+        "dock:false",
+        "login:false"
+      ]
+    },
+    {
+      "id": "maintenance-commands",
+      "initialDockIconVisible": true,
+      "initialLaunchAtLoginEnabled": false,
+      "initialMaintenanceCommands": [
+        "checkForUpdates"
+      ],
+      "commands": [
+        "checkForUpdates",
+        "exportDiagnostics"
+      ],
+      "dockIconVisible": true,
+      "launchAtLoginEnabled": false,
+      "maintenanceCommands": [
+        "checkForUpdates",
+        "checkForUpdates",
+        "exportDiagnostics"
+      ],
+      "lastCommand": "exportDiagnostics",
+      "events": [
+        "updates",
+        "diagnostics"
+      ]
+    }
+  ]
+}

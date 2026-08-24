@@ -1,0 +1,76 @@
+{
+  "rows": [
+    {
+      "id": "allowlisted-terminal-host-environment",
+      "environment": {
+        "cwd": "/tmp/project",
+        "shell": "/bin/zsh",
+        "terminal": "iTerm.app",
+        "pid": 1234,
+        "user": "fixture-user",
+        "termProgram": "iTerm.app",
+        "itermSessionId": "iterm-1",
+        "termSessionId": "term-1",
+        "warpSessionId": "warp-session",
+        "warpTerminalSessionUUID": "warp-pane",
+        "warpFocusURL": "warp://focus",
+        "tmux": "/tmp/tmux.sock,1,0",
+        "tmuxPane": "%3",
+        "kittyWindowId": "kitty-window",
+        "kittyListenOn": "unix:/tmp/kitty",
+        "zellijSessionName": "zellij-main",
+        "zellijPaneId": "7",
+        "cfBundleIdentifier": "com.apple.Terminal",
+        "cursorTraceId": "cursor-trace",
+        "conductorWorkspaceName": "conductor-workspace",
+        "conductorPort": "4567",
+        "cmuxWorkspaceId": "cmux-workspace",
+        "cmuxSurfaceId": "cmux-surface",
+        "cmuxSocketPath": "/tmp/cmux.sock",
+        "supacodeWorktreeId": "supacode-worktree",
+        "supacodeTabId": "supacode-tab",
+        "supacodeSurfaceId": "supacode-surface",
+        "supacodeSocketPath": "/tmp/supacode.sock",
+        "weztermSocket": "/tmp/wezterm.sock",
+        "weztermPane": "wezterm-pane",
+        "ottySocket": "/tmp/otty.sock",
+        "ottyPaneId": "otty-pane",
+        "sshConnection": "client 1 server 2",
+        "sshTTY": "/dev/ttys001"
+      },
+      "diagnosticSummary": {
+        "hasCwd": true,
+        "hasShell": true,
+        "hasTerminal": true,
+        "hasProcessIdentifier": true,
+        "hasUser": true,
+        "hasTerminalSession": true,
+        "hasMultiplexer": true,
+        "hasEditorTrace": true,
+        "hasRemoteSSH": true,
+        "capturedFieldCount": 34
+      }
+    },
+    {
+      "id": "empty-values-fallback-and-secret-omission",
+      "environment": {
+        "cwd": "/fallback/cwd",
+        "pid": 4321,
+        "user": "fixture-user",
+        "tmuxPane": "%1"
+      },
+      "diagnosticSummary": {
+        "hasCwd": true,
+        "hasShell": false,
+        "hasTerminal": false,
+        "hasProcessIdentifier": true,
+        "hasUser": true,
+        "hasTerminalSession": false,
+        "hasMultiplexer": true,
+        "hasEditorTrace": false,
+        "hasRemoteSSH": false,
+        "capturedFieldCount": 4
+      }
+    }
+  ]
+}

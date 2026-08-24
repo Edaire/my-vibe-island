@@ -1,0 +1,24 @@
+{
+  "includedSections": [
+    "system-info.txt",
+    "config-snapshot.txt",
+    "hooks-dump.txt",
+    "environment-snapshot.txt",
+    "codex-rollout-inventory.txt",
+    "sessions-snapshot.txt",
+    "logs/",
+    "hang-samples/",
+    "crash-reports/",
+    "README-privacy.txt"
+  ],
+  "excludedData": [
+    "prompts",
+    "transcripts",
+    "sourceCode",
+    "toolInput",
+    "providerTokens",
+    "environmentValues",
+    "commercialState"
+  ],
+  "redactionLevel": "redacted"
+}

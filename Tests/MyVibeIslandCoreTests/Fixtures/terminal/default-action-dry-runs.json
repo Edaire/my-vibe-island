@@ -1,0 +1,311 @@
+[
+  {
+    "handlerId": "custom-url",
+    "precision": "exactPane",
+    "expectedAction": {
+      "kind": "openURL",
+      "summary": "open URL",
+      "target": null,
+      "handlerId": "custom-url",
+      "arguments": []
+    }
+  },
+  {
+    "handlerId": "codex-deeplink",
+    "precision": "exactPane",
+    "expectedAction": {
+      "kind": "openURL",
+      "summary": "open URL",
+      "target": null,
+      "handlerId": "codex-deeplink",
+      "arguments": []
+    }
+  },
+  {
+    "handlerId": "supacode",
+    "precision": "exactPane",
+    "expectedAction": {
+      "kind": "sendSocketRequest",
+      "summary": "send socket request",
+      "target": "supacode",
+      "handlerId": "supacode",
+      "arguments": []
+    }
+  },
+  {
+    "handlerId": "cmux",
+    "precision": "exactPane",
+    "expectedAction": {
+      "kind": "sendSocketRequest",
+      "summary": "send socket request",
+      "target": "cmux",
+      "handlerId": "cmux",
+      "arguments": []
+    }
+  },
+  {
+    "handlerId": "tmux",
+    "precision": "exactPane",
+    "expectedAction": {
+      "kind": "runCLI",
+      "summary": "run CLI handler",
+      "target": "tmux",
+      "handlerId": "tmux",
+      "arguments": []
+    }
+  },
+  {
+    "handlerId": "zellij",
+    "precision": "exactPane",
+    "expectedAction": {
+      "kind": "runCLI",
+      "summary": "run CLI handler",
+      "target": "zellij",
+      "handlerId": "zellij",
+      "arguments": []
+    }
+  },
+  {
+    "handlerId": "wezterm",
+    "precision": "exactPane",
+    "expectedAction": {
+      "kind": "runCLI",
+      "summary": "run CLI handler",
+      "target": "wezterm",
+      "handlerId": "wezterm",
+      "arguments": []
+    }
+  },
+  {
+    "handlerId": "kaku",
+    "precision": "exactPane",
+    "expectedAction": {
+      "kind": "runCLI",
+      "summary": "run CLI handler",
+      "target": "kaku",
+      "handlerId": "kaku",
+      "arguments": []
+    }
+  },
+  {
+    "handlerId": "otty",
+    "precision": "exactPane",
+    "expectedAction": {
+      "kind": "sendSocketRequest",
+      "summary": "send socket request",
+      "target": "otty",
+      "handlerId": "otty",
+      "arguments": []
+    }
+  },
+  {
+    "handlerId": "kitty",
+    "precision": "exactWindow",
+    "expectedAction": {
+      "kind": "runCLI",
+      "summary": "run CLI handler",
+      "target": "kitty",
+      "handlerId": "kitty",
+      "arguments": []
+    }
+  },
+  {
+    "handlerId": "ghostty",
+    "precision": "exactWindow",
+    "expectedAction": {
+      "kind": "runAutomation",
+      "summary": "run automation",
+      "target": "com.mitchellh.ghostty",
+      "handlerId": "ghostty",
+      "arguments": [
+        "tell application id \"com.mitchellh.ghostty\"",
+        "activate",
+        "end tell"
+      ]
+    }
+  },
+  {
+    "handlerId": "warp",
+    "precision": "exactWindow",
+    "expectedAction": {
+      "kind": "openURL",
+      "summary": "open URL",
+      "target": null,
+      "handlerId": "warp",
+      "arguments": []
+    }
+  },
+  {
+    "handlerId": "iterm",
+    "precision": "exactPane",
+    "expectedAction": {
+      "kind": "runAutomation",
+      "summary": "run automation",
+      "target": "com.googlecode.iterm2",
+      "handlerId": "iterm",
+      "arguments": [
+        "tell application id \"com.googlecode.iterm2\"",
+        "activate",
+        "end tell"
+      ]
+    }
+  },
+  {
+    "handlerId": "terminal-tty",
+    "precision": "exactWindow",
+    "expectedAction": {
+      "kind": "runAutomation",
+      "summary": "run automation",
+      "target": "com.apple.Terminal",
+      "handlerId": "terminal-tty",
+      "arguments": [
+        "tell application id \"com.apple.Terminal\"",
+        "activate",
+        "end tell"
+      ]
+    }
+  },
+  {
+    "handlerId": "vscode-workspace",
+    "precision": "workspace",
+    "expectedAction": {
+      "kind": "openWorkspace",
+      "summary": "open workspace",
+      "target": null,
+      "handlerId": "vscode-workspace",
+      "arguments": []
+    }
+  },
+  {
+    "handlerId": "vscode-insiders-workspace",
+    "precision": "workspace",
+    "expectedAction": {
+      "kind": "openWorkspace",
+      "summary": "open workspace",
+      "target": null,
+      "handlerId": "vscode-insiders-workspace",
+      "arguments": []
+    }
+  },
+  {
+    "handlerId": "cursor-workspace",
+    "precision": "workspace",
+    "expectedAction": {
+      "kind": "openWorkspace",
+      "summary": "open workspace",
+      "target": null,
+      "handlerId": "cursor-workspace",
+      "arguments": []
+    }
+  },
+  {
+    "handlerId": "windsurf-workspace",
+    "precision": "workspace",
+    "expectedAction": {
+      "kind": "openWorkspace",
+      "summary": "open workspace",
+      "target": null,
+      "handlerId": "windsurf-workspace",
+      "arguments": []
+    }
+  },
+  {
+    "handlerId": "trae-workspace",
+    "precision": "workspace",
+    "expectedAction": {
+      "kind": "openWorkspace",
+      "summary": "open workspace",
+      "target": null,
+      "handlerId": "trae-workspace",
+      "arguments": []
+    }
+  },
+  {
+    "handlerId": "qoder-workspace",
+    "precision": "workspace",
+    "expectedAction": {
+      "kind": "openWorkspace",
+      "summary": "open workspace",
+      "target": null,
+      "handlerId": "qoder-workspace",
+      "arguments": []
+    }
+  },
+  {
+    "handlerId": "jetbrains-workspace",
+    "precision": "workspace",
+    "expectedAction": {
+      "kind": "openWorkspace",
+      "summary": "open workspace",
+      "target": null,
+      "handlerId": "jetbrains-workspace",
+      "arguments": []
+    }
+  },
+  {
+    "handlerId": "ide-workspace",
+    "precision": "workspace",
+    "expectedAction": {
+      "kind": "openWorkspace",
+      "summary": "open workspace",
+      "target": null,
+      "handlerId": "ide-workspace",
+      "arguments": []
+    }
+  },
+  {
+    "handlerId": "workspace",
+    "precision": "workspace",
+    "expectedAction": {
+      "kind": "openWorkspace",
+      "summary": "open workspace",
+      "target": null,
+      "handlerId": "workspace",
+      "arguments": []
+    }
+  },
+  {
+    "handlerId": "claude-desktop-code",
+    "precision": "application",
+    "expectedAction": {
+      "kind": "activateApplication",
+      "summary": "activate application",
+      "target": null,
+      "handlerId": "claude-desktop-code",
+      "arguments": []
+    }
+  },
+  {
+    "handlerId": "application",
+    "precision": "application",
+    "expectedAction": {
+      "kind": "activateApplication",
+      "summary": "activate application",
+      "target": null,
+      "handlerId": "application",
+      "arguments": []
+    }
+  },
+  {
+    "handlerId": "remote-hint",
+    "precision": "remoteHint",
+    "expectedAction": {
+      "kind": "unsupported",
+      "summary": "unsupported",
+      "target": "remote-hint",
+      "handlerId": "remote-hint",
+      "arguments": []
+    }
+  },
+  {
+    "handlerId": "unsupported",
+    "precision": "unsupported",
+    "expectedAction": {
+      "kind": "unsupported",
+      "summary": "unsupported",
+      "target": "unsupported",
+      "handlerId": "unsupported",
+      "arguments": []
+    }
+  }
+]

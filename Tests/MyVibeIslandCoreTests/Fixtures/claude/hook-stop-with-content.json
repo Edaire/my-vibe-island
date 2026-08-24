@@ -1,0 +1,27 @@
+{
+  "cwd": "/tmp/claude",
+  "hook_event_name": "Stop",
+  "session_id": "claude-session",
+  "transcript_path": "/tmp/claude/transcript.jsonl",
+  "permission_mode": "default",
+  "model": "claude-sonnet-4-5",
+  "last_assistant_message": "Implemented parser coverage",
+  "tasks": [
+    {
+      "id": "task-claude-1",
+      "subject": "Add Claude fixture",
+      "description": "Cover Stop payload content",
+      "status": "completed",
+      "activeForm": "Adding fixture",
+      "owner": "claude"
+    }
+  ],
+  "todos": [
+    {
+      "id": "todo-claude-1",
+      "content": "Run fixture tests",
+      "status": "completed",
+      "activeForm": "Verifying"
+    }
+  ]
+}

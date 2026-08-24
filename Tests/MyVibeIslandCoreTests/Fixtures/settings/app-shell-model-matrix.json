@@ -1,0 +1,230 @@
+{
+  "cases": [
+    {
+      "name": "launch-starts-runtime-window-menu-and-island-route",
+      "projection": {
+        "route": "island",
+        "isTerminated": false,
+        "runningOwnerCount": 0,
+        "windowVisibility": "visible",
+        "menuEnabledCommands": ["openSettings", "toggleDockIcon", "quit"],
+        "dockIconVisible": false,
+        "launchAtLoginEnabled": false,
+        "lastRoutedAction": null,
+        "actionCount": 36,
+        "firstActions": [
+          "lifecycle:createRuntime",
+          "lifecycle:loadSettings",
+          "lifecycle:configureDockPolicy",
+          "lifecycle:createScreenSelection",
+          "lifecycle:createIslandWindow",
+          "lifecycle:startBridge"
+        ],
+        "lastActions": [
+          "notchWindow:installEventMonitors",
+          "notchWindow:applyTargetScreen:main",
+          "notchWindow:applyPlacement:100.0,20.0,220.0x36.0",
+          "notchWindow:showPanel",
+          "applyMenuSnapshot",
+          "showIsland"
+        ],
+        "allActions": []
+      }
+    },
+    {
+      "name": "reopen-settings-keeps-runtime-state",
+      "projection": {
+        "route": "settings",
+        "isTerminated": false,
+        "runningOwnerCount": 0,
+        "windowVisibility": "visible",
+        "menuEnabledCommands": ["openSettings", "toggleDockIcon", "quit"],
+        "dockIconVisible": false,
+        "launchAtLoginEnabled": false,
+        "lastRoutedAction": null,
+        "actionCount": 2,
+        "firstActions": [
+          "lifecycle:showSettingsWindow",
+          "openSettings:deepLink"
+        ],
+        "lastActions": [
+          "lifecycle:showSettingsWindow",
+          "openSettings:deepLink"
+        ],
+        "allActions": [
+          "lifecycle:showSettingsWindow",
+          "openSettings:deepLink"
+        ]
+      }
+    },
+    {
+      "name": "terminate-closes-window-and-stops-runtime",
+      "projection": {
+        "route": "none",
+        "isTerminated": true,
+        "runningOwnerCount": 0,
+        "windowVisibility": "closed",
+        "menuEnabledCommands": ["openSettings", "toggleDockIcon", "quit"],
+        "dockIconVisible": false,
+        "launchAtLoginEnabled": false,
+        "lastRoutedAction": null,
+        "actionCount": 7,
+        "firstActions": [
+          "lifecycle:persistSettingsAndSessions",
+          "lifecycle:unregisterShortcuts",
+          "lifecycle:closeWindows",
+          "lifecycle:stopBridge",
+          "lifecycle:flushDiagnostics",
+          "notchWindow:removeEventMonitors"
+        ],
+        "lastActions": [
+          "lifecycle:unregisterShortcuts",
+          "lifecycle:closeWindows",
+          "lifecycle:stopBridge",
+          "lifecycle:flushDiagnostics",
+          "notchWindow:removeEventMonitors",
+          "notchWindow:closePanel"
+        ],
+        "allActions": [
+          "lifecycle:persistSettingsAndSessions",
+          "lifecycle:unregisterShortcuts",
+          "lifecycle:closeWindows",
+          "lifecycle:stopBridge",
+          "lifecycle:flushDiagnostics",
+          "notchWindow:removeEventMonitors",
+          "notchWindow:closePanel"
+        ]
+      }
+    },
+    {
+      "name": "overlay-jump-routes-through-overlay",
+      "projection": {
+        "route": "island",
+        "isTerminated": false,
+        "runningOwnerCount": 0,
+        "windowVisibility": "visible",
+        "menuEnabledCommands": ["openSettings", "toggleDockIcon", "quit"],
+        "dockIconVisible": false,
+        "launchAtLoginEnabled": false,
+        "lastRoutedAction": "jumpToSession:session-1",
+        "actionCount": 1,
+        "firstActions": [
+          "overlay:routeAction:jumpToSession:session-1"
+        ],
+        "lastActions": [
+          "overlay:routeAction:jumpToSession:session-1"
+        ],
+        "allActions": [
+          "overlay:routeAction:jumpToSession:session-1"
+        ]
+      }
+    },
+    {
+      "name": "menu-open-settings-routes-overlay-and-platform",
+      "projection": {
+        "route": "island",
+        "isTerminated": false,
+        "runningOwnerCount": 0,
+        "windowVisibility": "visible",
+        "menuEnabledCommands": ["openSettings", "toggleDockIcon", "quit"],
+        "dockIconVisible": false,
+        "launchAtLoginEnabled": false,
+        "lastRoutedAction": "appCommand:openSettings",
+        "actionCount": 2,
+        "firstActions": [
+          "overlay:routeAction:appCommand:openSettings",
+          "openSettings:default"
+        ],
+        "lastActions": [
+          "overlay:routeAction:appCommand:openSettings",
+          "openSettings:default"
+        ],
+        "allActions": [
+          "overlay:routeAction:appCommand:openSettings",
+          "openSettings:default"
+        ]
+      }
+    },
+    {
+      "name": "menu-toggle-dock-routes-preference-state",
+      "projection": {
+        "route": "none",
+        "isTerminated": false,
+        "runningOwnerCount": 0,
+        "windowVisibility": "closed",
+        "menuEnabledCommands": ["checkForUpdates", "exportDiagnostics", "toggleDockIcon", "toggleLaunchAtLogin"],
+        "dockIconVisible": true,
+        "launchAtLoginEnabled": false,
+        "lastRoutedAction": "appCommand:toggleDockIcon",
+        "actionCount": 2,
+        "firstActions": [
+          "overlay:routeAction:appCommand:toggleDockIcon",
+          "setDockIconVisible:true"
+        ],
+        "lastActions": [
+          "overlay:routeAction:appCommand:toggleDockIcon",
+          "setDockIconVisible:true"
+        ],
+        "allActions": [
+          "overlay:routeAction:appCommand:toggleDockIcon",
+          "setDockIconVisible:true"
+        ]
+      }
+    },
+    {
+      "name": "disabled-menu-command-is-ignored",
+      "projection": {
+        "route": "none",
+        "isTerminated": false,
+        "runningOwnerCount": 0,
+        "windowVisibility": "closed",
+        "menuEnabledCommands": ["openSettings"],
+        "dockIconVisible": false,
+        "launchAtLoginEnabled": false,
+        "lastRoutedAction": null,
+        "actionCount": 1,
+        "firstActions": [
+          "ignoredMenuCommand:exportDiagnostics"
+        ],
+        "lastActions": [
+          "ignoredMenuCommand:exportDiagnostics"
+        ],
+        "allActions": [
+          "ignoredMenuCommand:exportDiagnostics"
+        ]
+      }
+    },
+    {
+      "name": "hidden-placement-updates-window-and-overlay",
+      "projection": {
+        "route": "island",
+        "isTerminated": false,
+        "runningOwnerCount": 0,
+        "windowVisibility": "hidden",
+        "menuEnabledCommands": ["openSettings", "toggleDockIcon", "quit"],
+        "dockIconVisible": false,
+        "launchAtLoginEnabled": false,
+        "lastRoutedAction": null,
+        "actionCount": 4,
+        "firstActions": [
+          "notchWindow:applyPlacement:0.0,0.0,0.0x0.0",
+          "notchWindow:hidePanel",
+          "overlay:applyPanelPlan:hidePanel:fullscreenHide,recordDisplayReason:fullscreenHide",
+          "overlay:recordDisplayReason:fullscreenHide"
+        ],
+        "lastActions": [
+          "notchWindow:applyPlacement:0.0,0.0,0.0x0.0",
+          "notchWindow:hidePanel",
+          "overlay:applyPanelPlan:hidePanel:fullscreenHide,recordDisplayReason:fullscreenHide",
+          "overlay:recordDisplayReason:fullscreenHide"
+        ],
+        "allActions": [
+          "notchWindow:applyPlacement:0.0,0.0,0.0x0.0",
+          "notchWindow:hidePanel",
+          "overlay:applyPanelPlan:hidePanel:fullscreenHide,recordDisplayReason:fullscreenHide",
+          "overlay:recordDisplayReason:fullscreenHide"
+        ]
+      }
+    }
+  ]
+}

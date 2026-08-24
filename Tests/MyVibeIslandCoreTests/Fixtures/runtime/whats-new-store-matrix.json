@@ -1,0 +1,36 @@
+{
+  "rows": [
+    {
+      "id": "unchanged-launch",
+      "action": "noChange",
+      "pendingHTML": null,
+      "pendingVersion": null,
+      "pendingPreviousVersion": null,
+      "lastLaunchedVersion": "1.0.0"
+    },
+    {
+      "id": "changed-launch-sanitized",
+      "action": "showWhatsNew",
+      "pendingHTML": "<h1>News</h1><p>Done</p>",
+      "pendingVersion": "2.0.0",
+      "pendingPreviousVersion": "1.0.0",
+      "lastLaunchedVersion": "2.0.0"
+    },
+    {
+      "id": "changed-launch-empty-content",
+      "action": "showWhatsNew",
+      "pendingHTML": null,
+      "pendingVersion": "1.1.0",
+      "pendingPreviousVersion": "1.0.0",
+      "lastLaunchedVersion": "1.1.0"
+    },
+    {
+      "id": "dismiss-pending",
+      "action": "dismissWhatsNew",
+      "pendingHTML": null,
+      "pendingVersion": null,
+      "pendingPreviousVersion": null,
+      "lastLaunchedVersion": "2.0.0"
+    }
+  ]
+}

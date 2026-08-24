@@ -1,0 +1,62 @@
+{
+  "builtinPermission": {
+    "action": "playBuiltin8bit",
+    "category": "permission",
+    "sourceKind": "builtin8bit",
+    "soundId": "builtin8bit.permission",
+    "effectiveVolume": 0.4,
+    "cooldownSeconds": 1,
+    "suppressedReason": null,
+    "matchedFilterRuleId": null
+  },
+  "appleSystemQuestion": {
+    "action": "playAppleSystem",
+    "category": "question",
+    "sourceKind": "appleSystem",
+    "soundId": "Ping",
+    "effectiveVolume": 0.6000000000000001,
+    "cooldownSeconds": 2,
+    "suppressedReason": null,
+    "matchedFilterRuleId": null
+  },
+  "sourceOffCompletion": {
+    "action": "suppressSound",
+    "category": "completion",
+    "sourceKind": "off",
+    "soundId": null,
+    "effectiveVolume": 0,
+    "cooldownSeconds": 0,
+    "suppressedReason": "sourceOff",
+    "matchedFilterRuleId": null
+  },
+  "customFailure": {
+    "action": "playCustomSound",
+    "category": "failure",
+    "sourceKind": "custom",
+    "soundId": "custom.permission",
+    "effectiveVolume": 0.32000000000000006,
+    "cooldownSeconds": 3,
+    "suppressedReason": null,
+    "matchedFilterRuleId": null
+  },
+  "missingCustomWarning": {
+    "action": "fallbackToSystemSound",
+    "category": "warning",
+    "sourceKind": "custom",
+    "soundId": "missing.custom",
+    "effectiveVolume": 0.8,
+    "cooldownSeconds": 4,
+    "suppressedReason": "missingCustomSound",
+    "matchedFilterRuleId": null
+  },
+  "quietPermission": {
+    "action": "suppressSound",
+    "category": "permission",
+    "sourceKind": null,
+    "soundId": null,
+    "effectiveVolume": 0,
+    "cooldownSeconds": 0,
+    "suppressedReason": "quietHours",
+    "matchedFilterRuleId": null
+  }
+}

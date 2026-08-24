@@ -1,0 +1,34 @@
+{
+  "rows": [
+    {
+      "id": "matching-account",
+      "status": "available",
+      "cachedProviderId": "kimiUsage",
+      "refreshedProviderId": "kimiUsage",
+      "diagnosticSummary": {
+        "providerId": "kimiUsage",
+        "availability": "available",
+        "freshness": "fresh",
+        "windowCount": 1,
+        "failure": null,
+        "redactedDetail": "normalized snapshot"
+      },
+      "refreshFailedWithAccountMismatch": false
+    },
+    {
+      "id": "mismatched-account",
+      "status": "unavailable",
+      "cachedProviderId": null,
+      "refreshedProviderId": null,
+      "diagnosticSummary": {
+        "providerId": "kimiUsage",
+        "availability": "unavailable",
+        "freshness": "unavailable",
+        "windowCount": 0,
+        "failure": "providerUnavailable",
+        "redactedDetail": "normalized snapshot account mismatch"
+      },
+      "refreshFailedWithAccountMismatch": true
+    }
+  ]
+}

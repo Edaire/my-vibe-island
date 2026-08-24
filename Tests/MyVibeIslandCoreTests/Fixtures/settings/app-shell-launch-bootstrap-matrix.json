@@ -1,0 +1,58 @@
+{
+  "cases": [
+    {
+      "name": "default-launch-plan",
+      "projection": {
+        "target": {
+          "identifier": "main",
+          "displayName": "Built-in Display",
+          "isBuiltIn": true,
+          "isMain": true
+        },
+        "context": {
+          "isFirstLaunch": false,
+          "hasPendingOnboarding": false,
+          "hasPendingUpdateNotes": false
+        },
+        "closedFrame": {
+          "x": 416,
+          "y": 402,
+          "width": 680,
+          "height": 580
+        },
+        "route": "island",
+        "runtimeOwnerStartCount": 19,
+        "actionCount": 36,
+        "statusItemMenuEntryCount": 14,
+        "firstStatusItemCommand": "openSettings"
+      }
+    },
+    {
+      "name": "first-launch-onboarding-context",
+      "projection": {
+        "target": {
+          "identifier": "side",
+          "displayName": "Studio Display",
+          "isBuiltIn": false,
+          "isMain": false
+        },
+        "context": {
+          "isFirstLaunch": true,
+          "hasPendingOnboarding": true,
+          "hasPendingUpdateNotes": false
+        },
+        "closedFrame": {
+          "x": 210,
+          "y": 170,
+          "width": 680,
+          "height": 580
+        },
+        "route": "onboarding",
+        "runtimeOwnerStartCount": 19,
+        "actionCount": 36,
+        "statusItemMenuEntryCount": 14,
+        "firstStatusItemCommand": "openSettings"
+      }
+    }
+  ]
+}

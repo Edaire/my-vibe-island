@@ -1,0 +1,80 @@
+{
+  "rows": [
+    {
+      "id": "registered-descriptor",
+      "descriptorIds": [
+        "codexRateLimits"
+      ],
+      "descriptorId": "codexRateLimits",
+      "refreshedProviderId": null,
+      "refreshedFreshness": null,
+      "refreshedError": null,
+      "cachedProviderId": null,
+      "cachedUsedPercent": null,
+      "diagnosticProviderId": null,
+      "diagnosticAvailability": null,
+      "diagnosticFailure": null,
+      "diagnosticRedactedDetail": null
+    },
+    {
+      "id": "refresh-caches-snapshot",
+      "descriptorIds": [
+        "codexRateLimits"
+      ],
+      "descriptorId": null,
+      "refreshedProviderId": "codexRateLimits",
+      "refreshedFreshness": "fresh",
+      "refreshedError": null,
+      "cachedProviderId": "codexRateLimits",
+      "cachedUsedPercent": 25,
+      "diagnosticProviderId": null,
+      "diagnosticAvailability": null,
+      "diagnosticFailure": null,
+      "diagnosticRedactedDetail": null
+    },
+    {
+      "id": "missing-provider-refresh",
+      "descriptorIds": [],
+      "descriptorId": null,
+      "refreshedProviderId": "kimiUsage",
+      "refreshedFreshness": "unavailable",
+      "refreshedError": "providerUnavailable",
+      "cachedProviderId": null,
+      "cachedUsedPercent": null,
+      "diagnosticProviderId": null,
+      "diagnosticAvailability": null,
+      "diagnosticFailure": null,
+      "diagnosticRedactedDetail": null
+    },
+    {
+      "id": "provider-diagnostic",
+      "descriptorIds": [
+        "localParsedUsage"
+      ],
+      "descriptorId": null,
+      "refreshedProviderId": null,
+      "refreshedFreshness": null,
+      "refreshedError": null,
+      "cachedProviderId": null,
+      "cachedUsedPercent": null,
+      "diagnosticProviderId": "localParsedUsage",
+      "diagnosticAvailability": "available",
+      "diagnosticFailure": null,
+      "diagnosticRedactedDetail": "fake provider"
+    },
+    {
+      "id": "missing-provider-diagnostic",
+      "descriptorIds": [],
+      "descriptorId": null,
+      "refreshedProviderId": null,
+      "refreshedFreshness": null,
+      "refreshedError": null,
+      "cachedProviderId": null,
+      "cachedUsedPercent": null,
+      "diagnosticProviderId": "zaiQuota",
+      "diagnosticAvailability": "unavailable",
+      "diagnosticFailure": "providerUnavailable",
+      "diagnosticRedactedDetail": null
+    }
+  ]
+}

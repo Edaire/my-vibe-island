@@ -1,0 +1,22 @@
+{
+  "rows": [
+    {
+      "id": "play-builtin-sound",
+      "planAction": "playBuiltin8bit",
+      "category": "permission",
+      "soundId": "builtin8bit.permission",
+      "effectiveVolume": 0.8,
+      "lastAction": "play",
+      "events": ["play:playBuiltin8bit:builtin8bit.permission"]
+    },
+    {
+      "id": "suppress-quiet-hours",
+      "planAction": "suppressSound",
+      "category": "question",
+      "effectiveVolume": 0,
+      "suppressedReason": "quietHours",
+      "lastAction": "suppress",
+      "events": ["suppress:quietHours"]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "rows": [
+    {
+      "id": "present-both-guides",
+      "finalSidecar": {
+        "hostId": "devbox",
+        "containerPlatform": "docker",
+        "sidecarCommand": "docker run my-vibe-island-sidecar",
+        "persistenceHint": "mount config",
+        "rerunHint": "rerun after restart"
+      },
+      "finalManual": {
+        "platform": "linux-arm64",
+        "localBinaryPath": "/Applications/My Vibe Island.app/Contents/Resources/remote-hook",
+        "remoteDestination": "~/.local/bin/my-vibe-island-hook",
+        "transportInstructions": [
+          "copy the helper"
+        ],
+        "remoteCommands": [
+          "chmod +x ~/.local/bin/my-vibe-island-hook"
+        ],
+        "deployVerificationCommand": "~/.local/bin/my-vibe-island-hook --version"
+      },
+      "requiresUserRunCommand": true,
+      "instructionsAreCopyable": true,
+      "sidecarEvents": [
+        {
+          "hostId": "devbox",
+          "containerPlatform": "docker",
+          "sidecarCommand": "docker run my-vibe-island-sidecar",
+          "persistenceHint": "mount config",
+          "rerunHint": "rerun after restart"
+        }
+      ],
+      "manualEvents": [
+        {
+          "platform": "linux-arm64",
+          "localBinaryPath": "/Applications/My Vibe Island.app/Contents/Resources/remote-hook",
+          "remoteDestination": "~/.local/bin/my-vibe-island-hook",
+          "transportInstructions": [
+            "copy the helper"
+          ],
+          "remoteCommands": [
+            "chmod +x ~/.local/bin/my-vibe-island-hook"
+          ],
+          "deployVerificationCommand": "~/.local/bin/my-vibe-island-hook --version"
+        }
+      ]
+    },
+    {
+      "id": "clear-existing-guides",
+      "requiresUserRunCommand": false,
+      "instructionsAreCopyable": false,
+      "sidecarEvents": [],
+      "manualEvents": []
+    }
+  ]
+}

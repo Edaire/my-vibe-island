@@ -1,0 +1,7 @@
+{
+  "cwd": "/tmp/gemini-project",
+  "hook_event_name": "SessionStart",
+  "session_id": "gemini-session-1",
+  "transcript_path": "/tmp/gemini-session-1.json",
+  "source": "startup"
+}

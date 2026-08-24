@@ -1,0 +1,82 @@
+{
+  "rows": [
+    {
+      "id": "record-elevated-sample",
+      "actions": [
+        "recordSample:768"
+      ],
+      "summaries": [
+        {
+          "sampleCount": 1,
+          "pressure": "elevated",
+          "latestPhysicalFootprintBytes": 768
+        }
+      ],
+      "finalState": {
+        "sampleCount": 1,
+        "latestPhysicalFootprintBytes": 768
+      },
+      "lastSummary": {
+        "sampleCount": 1,
+        "pressure": "elevated",
+        "latestPhysicalFootprintBytes": 768
+      },
+      "events": [
+        "elevated:1:none"
+      ]
+    },
+    {
+      "id": "record-sample-error-without-samples",
+      "actions": [
+        "recordError:sample failed"
+      ],
+      "summaries": [
+        {
+          "sampleCount": 0,
+          "lastSampleError": "sample failed",
+          "pressure": "unknown"
+        }
+      ],
+      "finalState": {
+        "sampleCount": 0,
+        "lastSampleError": "sample failed"
+      },
+      "lastSummary": {
+        "sampleCount": 0,
+        "lastSampleError": "sample failed",
+        "pressure": "unknown"
+      },
+      "events": [
+        "unknown:0:sample failed"
+      ]
+    },
+    {
+      "id": "record-error-preserves-existing-sample",
+      "actions": [
+        "recordError:sample failed"
+      ],
+      "summaries": [
+        {
+          "sampleCount": 1,
+          "lastSampleError": "sample failed",
+          "pressure": "normal",
+          "latestPhysicalFootprintBytes": 256
+        }
+      ],
+      "finalState": {
+        "sampleCount": 1,
+        "lastSampleError": "sample failed",
+        "latestPhysicalFootprintBytes": 256
+      },
+      "lastSummary": {
+        "sampleCount": 1,
+        "lastSampleError": "sample failed",
+        "pressure": "normal",
+        "latestPhysicalFootprintBytes": 256
+      },
+      "events": [
+        "normal:1:sample failed"
+      ]
+    }
+  ]
+}

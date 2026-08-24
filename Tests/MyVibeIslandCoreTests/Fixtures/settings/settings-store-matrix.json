@@ -1,0 +1,96 @@
+{
+  "snapshots": [
+    {
+      "id": "missing-file-default",
+      "schemaVersion": 1,
+      "behaviour": {
+        "showSubagents": true,
+        "hoverToExpandEnabled": true,
+        "hoverExpandDelay": 0.15,
+        "transientRevealDwellSeconds": 5.0,
+        "autoExpandOnTaskComplete": true,
+        "autoExpandOnAgentTeamComplete": false,
+        "disableClickToJump": false
+      },
+      "shortcuts": {
+        "keyboardShortcutsEnabled": true,
+        "persistentHotKeyIds": [],
+        "switcherDisplayText": null
+      },
+      "usage": {
+        "preferredProviderId": null,
+        "displayStyle": "hidden",
+        "valueMode": "used",
+        "thresholdPeeksEnabled": false,
+        "thresholdPercent": 80,
+        "usageNotificationsEnabled": true,
+        "usageSoundEnabled": false,
+        "labsProviderIds": []
+      },
+      "labs": {
+        "availableToolIds": [],
+        "disabledGateCount": 0,
+        "codexUsageGateAvailable": false,
+        "kiroSupportGateAvailable": false,
+        "lastCheckedAt": null
+      }
+    },
+    {
+      "id": "custom-persisted-reload",
+      "schemaVersion": 1,
+      "behaviour": {
+        "showSubagents": false,
+        "hoverToExpandEnabled": false,
+        "hoverExpandDelay": 5.0,
+        "transientRevealDwellSeconds": 0.0,
+        "autoExpandOnTaskComplete": false,
+        "autoExpandOnAgentTeamComplete": false,
+        "disableClickToJump": true
+      },
+      "shortcuts": {
+        "keyboardShortcutsEnabled": false,
+        "persistentHotKeyIds": [
+          "toggle",
+          "focus"
+        ],
+        "switcherDisplayText": "Cmd-Shift-Space"
+      },
+      "usage": {
+        "preferredProviderId": "codexRateLimits",
+        "displayStyle": "ringBadge",
+        "valueMode": "remaining",
+        "thresholdPeeksEnabled": true,
+        "thresholdPercent": 100,
+        "usageNotificationsEnabled": false,
+        "usageSoundEnabled": true,
+        "labsProviderIds": [
+          "localParsedUsage",
+          "zaiQuota"
+        ]
+      },
+      "labs": {
+        "availableToolIds": [
+          "claude",
+          "codex"
+        ],
+        "disabledGateCount": 1,
+        "codexUsageGateAvailable": true,
+        "kiroSupportGateAvailable": false,
+        "lastCheckedAt": "2026-07-08T17:20:00Z"
+      }
+    }
+  ],
+  "storeRows": [
+    {
+      "id": "missing-file",
+      "fileExistsAfterLoad": false,
+      "hasLastError": false
+    },
+    {
+      "id": "persisted-reload",
+      "fileExistsAfterLoad": true,
+      "hasLastError": false
+    }
+  ],
+  "defaultPath": "/Users/example/Library/Application Support/MyVibeIsland/settings.json"
+}

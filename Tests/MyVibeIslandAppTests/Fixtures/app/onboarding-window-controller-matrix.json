@@ -1,0 +1,73 @@
+{
+  "rows": [
+    {
+      "id": "show-advance-close",
+      "decision": "advanced",
+      "currentStep": "localPrivacy",
+      "completedSteps": ["welcome"],
+      "skippedSteps": [],
+      "canContinue": true,
+      "blockingIssue": null,
+      "readinessOutcome": null,
+      "descriptors": [
+        {
+          "currentStep": "welcome",
+          "currentStepTitle": "Welcome",
+          "completedCount": 0,
+          "totalCount": 9,
+          "completedStepIds": [],
+          "skippedStepIds": [],
+          "canContinue": true,
+          "blockingIssue": null,
+          "readinessOutcome": null
+        },
+        {
+          "currentStep": "localPrivacy",
+          "currentStepTitle": "Local Privacy",
+          "completedCount": 1,
+          "totalCount": 9,
+          "completedStepIds": ["welcome"],
+          "skippedStepIds": [],
+          "canContinue": true,
+          "blockingIssue": null,
+          "readinessOutcome": null
+        }
+      ],
+      "events": [
+        "publish:welcome",
+        "present:welcome",
+        "publish:localPrivacy",
+        "present:localPrivacy",
+        "close"
+      ]
+    },
+    {
+      "id": "blocked-advance-does-not-present",
+      "decision": "blocked",
+      "currentStep": "permissions",
+      "completedSteps": ["welcome", "localPrivacy"],
+      "skippedSteps": ["environmentScan"],
+      "canContinue": false,
+      "blockingIssue": "automation permission denied",
+      "readinessOutcome": "blocked",
+      "descriptors": [
+        {
+          "currentStep": "permissions",
+          "currentStepTitle": "Permissions",
+          "completedCount": 2,
+          "totalCount": 9,
+          "completedStepIds": ["welcome", "localPrivacy"],
+          "skippedStepIds": ["environmentScan"],
+          "canContinue": false,
+          "blockingIssue": "automation permission denied",
+          "readinessOutcome": "blocked"
+        }
+      ],
+      "events": [
+        "publish:permissions",
+        "present:permissions",
+        "close"
+      ]
+    }
+  ]
+}

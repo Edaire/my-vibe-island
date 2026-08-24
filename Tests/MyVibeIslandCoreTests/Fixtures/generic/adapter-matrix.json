@@ -1,0 +1,69 @@
+{
+  "rows": [
+    {
+      "id": "permission",
+      "rawEventName": "PermissionRequest",
+      "source": "gemini",
+      "sessionId": "generic-session",
+      "requestId": "generic-permission-1",
+      "cwd": "/tmp/generic-agent",
+      "toolName": "Shell",
+      "message": "Allow shell command?",
+      "hasEnvironment": false,
+      "taskCount": 0,
+      "todoCount": 0
+    },
+    {
+      "id": "question",
+      "rawEventName": "QuestionRequest",
+      "source": "gemini",
+      "sessionId": "generic-session",
+      "requestId": "generic-question-1",
+      "cwd": "/tmp/generic-agent",
+      "toolName": "Question",
+      "message": "Which implementation path should be used?",
+      "hasEnvironment": false,
+      "taskCount": 0,
+      "todoCount": 0
+    },
+    {
+      "id": "stop-content",
+      "rawEventName": "Stop",
+      "source": "gemini",
+      "sessionId": "generic-session",
+      "requestId": null,
+      "cwd": "/tmp/generic-agent",
+      "toolName": null,
+      "message": "Generic agent completed the task",
+      "hasEnvironment": false,
+      "taskCount": 1,
+      "todoCount": 1
+    },
+    {
+      "id": "envelope-request-id",
+      "rawEventName": "PermissionRequest",
+      "source": "gemini",
+      "sessionId": "generic-session",
+      "requestId": "req-envelope",
+      "cwd": "/tmp/generic-agent",
+      "toolName": "Shell",
+      "message": "Allow shell command?",
+      "hasEnvironment": false,
+      "taskCount": 0,
+      "todoCount": 0
+    },
+    {
+      "id": "environment",
+      "rawEventName": "QuestionRequest",
+      "source": "gemini",
+      "sessionId": "generic-session",
+      "requestId": "generic-question-1",
+      "cwd": "/tmp/generic-agent",
+      "toolName": "Question",
+      "message": "Which implementation path should be used?",
+      "hasEnvironment": true,
+      "taskCount": 0,
+      "todoCount": 0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "rows": [
+    {
+      "id": "selected-connected-host",
+      "isEnabled": true,
+      "hostIds": [
+        "host-alpha",
+        "host-beta"
+      ],
+      "selectedHostId": "host-alpha",
+      "selectedTunnelStatus": "connected",
+      "selectedReconnectPolicy": "manualOnly",
+      "selectedReconnectAction": "suppressedByPolicy",
+      "healthCheckFailureCount": 4,
+      "heartbeatStatus": "healthy",
+      "forwardedSocketStatus": "missingRemoteSocket",
+      "redactedDeployStep": "deploy token=<redacted>",
+      "redactedStdoutTail": "ok token=<redacted>",
+      "showsHookUpdateBanner": true,
+      "showsPortConflictBanner": true,
+      "showsDockerSidecarCommands": true,
+      "showsManualInstallCommands": true,
+      "canAttemptExactJump": true,
+      "allowsAutomaticReconnectOnJump": false
+    },
+    {
+      "id": "fallback-metadata-only",
+      "isEnabled": true,
+      "hostIds": [
+        "metadata-only"
+      ],
+      "selectedHostId": "metadata-only",
+      "selectedTunnelStatus": "disconnected",
+      "selectedReconnectPolicy": "manualOnly",
+      "selectedReconnectAction": "observe",
+      "healthCheckFailureCount": 0,
+      "heartbeatStatus": null,
+      "forwardedSocketStatus": "tunnelDisconnected",
+      "redactedDeployStep": null,
+      "redactedStdoutTail": "",
+      "showsHookUpdateBanner": false,
+      "showsPortConflictBanner": false,
+      "showsDockerSidecarCommands": false,
+      "showsManualInstallCommands": false,
+      "canAttemptExactJump": false,
+      "allowsAutomaticReconnectOnJump": true
+    },
+    {
+      "id": "disabled-user-disconnected",
+      "isEnabled": false,
+      "hostIds": [
+        "host-alpha",
+        "host-beta"
+      ],
+      "selectedHostId": "host-beta",
+      "selectedTunnelStatus": "disconnected",
+      "selectedReconnectPolicy": "automaticForKnownHost",
+      "selectedReconnectAction": "suppressedByUserDisconnect",
+      "healthCheckFailureCount": 3,
+      "heartbeatStatus": "suspended",
+      "forwardedSocketStatus": "tunnelDisconnected",
+      "redactedDeployStep": null,
+      "redactedStdoutTail": "",
+      "showsHookUpdateBanner": false,
+      "showsPortConflictBanner": false,
+      "showsDockerSidecarCommands": false,
+      "showsManualInstallCommands": false,
+      "canAttemptExactJump": false,
+      "allowsAutomaticReconnectOnJump": true
+    }
+  ]
+}

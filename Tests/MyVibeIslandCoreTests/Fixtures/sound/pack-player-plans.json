@@ -1,0 +1,59 @@
+{
+  "firstPermission": {
+    "outcome": "play",
+    "packId": "builtin.clean",
+    "entry": {
+      "id": "permission.clean",
+      "category": "permission",
+      "file": "permission-clean.aiff",
+      "label": "Permission Clean",
+      "durationMs": 900,
+      "loudness": "normal"
+    },
+    "failureKind": null
+  },
+  "explicitCompletion": {
+    "outcome": "play",
+    "packId": "builtin.clean",
+    "entry": {
+      "id": "completion.clean",
+      "category": "completion",
+      "file": "completion-clean.aiff",
+      "label": "Completion Clean",
+      "durationMs": 700,
+      "loudness": "quiet"
+    },
+    "failureKind": null
+  },
+  "missingSelectedPack": {
+    "outcome": "fail",
+    "packId": null,
+    "entry": null,
+    "failureKind": "missingSelectedPack"
+  },
+  "missingCategorySound": {
+    "outcome": "fail",
+    "packId": "builtin.clean",
+    "entry": null,
+    "failureKind": "missingCategorySound"
+  },
+  "missingRequestedSound": {
+    "outcome": "fail",
+    "packId": "builtin.clean",
+    "entry": null,
+    "failureKind": "missingRequestedSound"
+  },
+  "invalidAssetReference": {
+    "outcome": "fail",
+    "packId": "builtin.invalid",
+    "entry": {
+      "id": "permission.invalid",
+      "category": "permission",
+      "file": "",
+      "label": "Permission Invalid",
+      "durationMs": 900,
+      "loudness": "normal"
+    },
+    "failureKind": "invalidAssetReference"
+  }
+}

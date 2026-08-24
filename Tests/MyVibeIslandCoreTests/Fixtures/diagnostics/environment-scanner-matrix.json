@@ -1,0 +1,63 @@
+{
+  "scannedAt": "2026-07-09T06:15:00Z",
+  "knownConfigPathCount": 3,
+  "knownCLICommandNames": [
+    "codex",
+    "claude",
+    "opencode"
+  ],
+  "appBundlePresent": true,
+  "hasHookBinaryPath": true,
+  "hookBinaryVersion": "1.4.1",
+  "onboardingContext": "first-launch",
+  "exportSections": [
+    "config-snapshot.txt",
+    "environment-snapshot.txt"
+  ],
+  "terminalRows": [
+    {
+      "name": "Terminal",
+      "activeContextCount": 2,
+      "isRunning": true,
+      "scanDetected": true
+    },
+    {
+      "name": "Ghostty",
+      "activeContextCount": 0,
+      "isRunning": false,
+      "scanDetected": false
+    }
+  ],
+  "agentRows": [
+    {
+      "id": "codex",
+      "isInstalled": true,
+      "isConfigured": true,
+      "hasVersionSummary": true,
+      "confidence": "high",
+      "repairHintPresent": false,
+      "scanDetected": true,
+      "repairability": "notNeeded"
+    },
+    {
+      "id": "opencode",
+      "isInstalled": true,
+      "isConfigured": false,
+      "hasVersionSummary": false,
+      "confidence": "medium",
+      "repairHintPresent": true,
+      "scanDetected": true,
+      "repairability": "repairable"
+    },
+    {
+      "id": "gemini",
+      "isInstalled": false,
+      "isConfigured": false,
+      "hasVersionSummary": false,
+      "confidence": "low",
+      "repairHintPresent": true,
+      "scanDetected": false,
+      "repairability": "repairable"
+    }
+  ]
+}

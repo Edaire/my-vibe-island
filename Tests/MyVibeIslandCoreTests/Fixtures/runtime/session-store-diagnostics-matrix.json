@@ -1,0 +1,36 @@
+{
+  "rows" : [
+    {
+      "filePathSuffix" : null,
+      "hasDiagnostics" : false,
+      "hasLastErrorDescription" : false,
+      "id" : "runtime-without-store",
+      "kind" : null,
+      "sessionCount" : null
+    },
+    {
+      "filePathSuffix" : "/Library/Application Support/MyVibeIsland/sessions.json",
+      "hasDiagnostics" : true,
+      "hasLastErrorDescription" : false,
+      "id" : "default-runtime-json-store",
+      "kind" : "json",
+      "sessionCount" : 0
+    },
+    {
+      "filePathSuffix" : "/Library/Application Support/MyVibeIsland/sessions.json",
+      "hasDiagnostics" : true,
+      "hasLastErrorDescription" : false,
+      "id" : "persisted-json-store-count",
+      "kind" : "json",
+      "sessionCount" : 2
+    },
+    {
+      "filePathSuffix" : "/Library/Application Support/MyVibeIsland/sessions.json",
+      "hasDiagnostics" : true,
+      "hasLastErrorDescription" : true,
+      "id" : "malformed-json-store-error",
+      "kind" : "json",
+      "sessionCount" : 0
+    }
+  ]
+}

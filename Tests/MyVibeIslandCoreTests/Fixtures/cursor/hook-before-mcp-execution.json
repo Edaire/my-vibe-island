@@ -1,0 +1,10 @@
+{
+  "hook_event_name": "beforeMCPExecution",
+  "conversation_id": "cursor-conversation-mcp",
+  "generation_id": "cursor-generation-mcp",
+  "workspace_roots": ["/tmp/cursor-project"],
+  "cwd": "/tmp/cursor-project",
+  "server": "filesystem",
+  "tool_name": "write_file",
+  "tool_input": "{\"path\":\"Package.swift\"}"
+}

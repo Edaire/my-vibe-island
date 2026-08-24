@@ -1,0 +1,7 @@
+{
+  "hook_event_name": "stop",
+  "conversation_id": "cursor-conversation-stop",
+  "generation_id": "cursor-generation-stop",
+  "workspace_roots": ["/tmp/cursor-project"],
+  "status": "completed"
+}

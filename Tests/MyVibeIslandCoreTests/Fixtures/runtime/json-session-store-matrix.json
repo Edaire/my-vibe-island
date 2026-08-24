@@ -1,0 +1,86 @@
+{
+  "rows": [
+    {
+      "id": "missing-file-loads-empty-without-creating-file",
+      "fileExists": false,
+      "hasLastError": false,
+      "diagnosticKind": "json",
+      "diagnosticSessionCount": 0,
+      "diagnosticHasLastErrorDescription": false,
+      "schemaVersion": 1,
+      "sessionIds": [],
+      "activeSessionId": null,
+      "summarizedSessionIds": [],
+      "questionSelections": {}
+    },
+    {
+      "id": "valid-json-loads-snapshot",
+      "fileExists": true,
+      "hasLastError": false,
+      "diagnosticKind": "json",
+      "diagnosticSessionCount": 1,
+      "diagnosticHasLastErrorDescription": false,
+      "schemaVersion": 2,
+      "sessionIds": ["stored"],
+      "activeSessionId": "stored",
+      "summarizedSessionIds": ["stored"],
+      "questionSelections": {
+        "request-1": "approve"
+      }
+    },
+    {
+      "id": "replace-snapshot-persists-normalized-json",
+      "fileExists": true,
+      "hasLastError": false,
+      "diagnosticKind": "json",
+      "diagnosticSessionCount": 2,
+      "diagnosticHasLastErrorDescription": false,
+      "schemaVersion": 1,
+      "sessionIds": ["a", "b"],
+      "activeSessionId": "a",
+      "summarizedSessionIds": ["a", "b"],
+      "questionSelections": {
+        "request-1": "deny"
+      }
+    },
+    {
+      "id": "upsert-creates-parent-directory-and-sorts",
+      "fileExists": true,
+      "hasLastError": false,
+      "diagnosticKind": "json",
+      "diagnosticSessionCount": 2,
+      "diagnosticHasLastErrorDescription": false,
+      "schemaVersion": 1,
+      "sessionIds": ["a", "b"],
+      "activeSessionId": null,
+      "summarizedSessionIds": [],
+      "questionSelections": {}
+    },
+    {
+      "id": "remove-persists-session-and-index-cleanup",
+      "fileExists": true,
+      "hasLastError": false,
+      "diagnosticKind": "json",
+      "diagnosticSessionCount": 1,
+      "diagnosticHasLastErrorDescription": false,
+      "schemaVersion": 1,
+      "sessionIds": ["b"],
+      "activeSessionId": null,
+      "summarizedSessionIds": ["b"],
+      "questionSelections": {}
+    },
+    {
+      "id": "malformed-json-loads-empty-and-records-error",
+      "fileExists": true,
+      "hasLastError": true,
+      "diagnosticKind": "json",
+      "diagnosticSessionCount": 0,
+      "diagnosticHasLastErrorDescription": true,
+      "schemaVersion": 1,
+      "sessionIds": [],
+      "activeSessionId": null,
+      "summarizedSessionIds": [],
+      "questionSelections": {}
+    }
+  ]
+}

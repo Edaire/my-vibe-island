@@ -1,0 +1,43 @@
+{
+  "rows": [
+    {
+      "id": "forwarded-unix-socket-minimal",
+      "connectionId": "connection-forwarded",
+      "hostId": "host-a",
+      "transportKind": "forwardedUnixSocket",
+      "connectedAt": "2026-07-09T12:00:00Z",
+      "lastMessageAt": null,
+      "localTunnelProcessId": null,
+      "remoteEnvironmentToken": null,
+      "heartbeatIntervalSeconds": null,
+      "heartbeatTimeout": null,
+      "didFireEarlyHeartbeat": false
+    },
+    {
+      "id": "uds-tunnel-with-heartbeat",
+      "connectionId": "connection-uds",
+      "hostId": "host-b",
+      "transportKind": "udsTunnel",
+      "connectedAt": "2026-07-09T12:01:00Z",
+      "lastMessageAt": "2026-07-09T12:01:10Z",
+      "localTunnelProcessId": 5150,
+      "remoteEnvironmentToken": "redacted-token",
+      "heartbeatIntervalSeconds": 15,
+      "heartbeatTimeout": 5,
+      "didFireEarlyHeartbeat": true
+    },
+    {
+      "id": "tcp-tunnel-with-process",
+      "connectionId": "connection-tcp",
+      "hostId": "host-c",
+      "transportKind": "tcpTunnel",
+      "connectedAt": "2026-07-09T12:02:00Z",
+      "lastMessageAt": null,
+      "localTunnelProcessId": 6161,
+      "remoteEnvironmentToken": null,
+      "heartbeatIntervalSeconds": 30,
+      "heartbeatTimeout": 10,
+      "didFireEarlyHeartbeat": false
+    }
+  ]
+}

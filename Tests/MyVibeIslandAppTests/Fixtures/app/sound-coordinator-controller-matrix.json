@@ -1,0 +1,21 @@
+{
+  "rows": [
+    {
+      "id": "permission-plays-sound",
+      "action": "playSound",
+      "soundCategory": "permission",
+      "soundId": "builtin8bit.permission",
+      "effectiveVolume": 1.0,
+      "lastPlanAction": "playSound",
+      "events": ["play:builtin8bit.permission:1.0"]
+    },
+    {
+      "id": "session-completed-plays-system-sound",
+      "action": "playSound",
+      "soundCategory": "completion",
+      "effectiveVolume": 1.0,
+      "lastPlanAction": "playSound",
+      "events": ["play:none:1.0"]
+    }
+  ]
+}

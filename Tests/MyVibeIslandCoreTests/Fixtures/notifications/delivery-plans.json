@@ -1,0 +1,90 @@
+{
+  "defaultPermission": {
+    "notification": {
+      "id": "permission-1",
+      "category": "permissionRequested",
+      "sessionId": "session-1",
+      "agent": "codex",
+      "title": "Title",
+      "body": "Body",
+      "severity": "warning",
+      "primaryAction": "jump",
+      "secondaryAction": null,
+      "createdAt": "2026-07-08T18:00:00Z",
+      "expiresAt": null,
+      "dwellSeconds": 6,
+      "dedupeKey": "permission:session-1",
+      "soundCategory": "permission",
+      "source": "runtime"
+    },
+    "decision": {
+      "route": "showPeek",
+      "shouldPlaySound": true,
+      "shouldMarkUnread": true,
+      "reason": "defaultPolicy"
+    },
+    "publishPeek": true,
+    "markUnread": true,
+    "soundRequest": {
+      "notificationId": "permission-1",
+      "category": "permission",
+      "source": "runtime"
+    }
+  },
+  "recentlyRevealedRepair": {
+    "notification": {
+      "id": "repair-1",
+      "category": "integrationRepairNeeded",
+      "sessionId": "session-1",
+      "agent": "codex",
+      "title": "Title",
+      "body": "Body",
+      "severity": "warning",
+      "primaryAction": "jump",
+      "secondaryAction": null,
+      "createdAt": "2026-07-08T18:00:00Z",
+      "expiresAt": null,
+      "dwellSeconds": 6,
+      "dedupeKey": "repair:codex",
+      "soundCategory": null,
+      "source": "runtime"
+    },
+    "decision": {
+      "route": "suppressEntirely",
+      "shouldPlaySound": false,
+      "shouldMarkUnread": false,
+      "reason": "recentlyRevealed"
+    },
+    "publishPeek": false,
+    "markUnread": false,
+    "soundRequest": null
+  },
+  "silenceRuleQuestion": {
+    "notification": {
+      "id": "question-1",
+      "category": "questionAsked",
+      "sessionId": "session-1",
+      "agent": "codex",
+      "title": "Title",
+      "body": "Body",
+      "severity": "warning",
+      "primaryAction": "jump",
+      "secondaryAction": null,
+      "createdAt": "2026-07-08T18:00:00Z",
+      "expiresAt": null,
+      "dwellSeconds": 6,
+      "dedupeKey": null,
+      "soundCategory": "question",
+      "source": "runtime"
+    },
+    "decision": {
+      "route": "updateUnreadOnly",
+      "shouldPlaySound": false,
+      "shouldMarkUnread": true,
+      "reason": "silenceRuleMatched"
+    },
+    "publishPeek": false,
+    "markUnread": true,
+    "soundRequest": null
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "cwd": "/tmp/codex",
+  "hook_event_name": "PermissionRequest",
+  "model": "gpt-5",
+  "permission_mode": "default",
+  "session_id": "codex-session",
+  "tool_name": "Shell",
+  "tool_input": {
+    "description": "Run test command"
+  },
+  "transcript_path": null,
+  "turn_id": "turn-1"
+}

@@ -1,0 +1,82 @@
+{
+  "rows": [
+    {
+      "id": "not-started",
+      "hostId": "coldbox",
+      "status": "notStarted",
+      "heartbeatIntervalSeconds": 15,
+      "heartbeatTimeoutSeconds": 5,
+      "heartbeatTimerActive": false,
+      "didFireEarlyHeartbeat": false,
+      "lastHeartbeatAt": null,
+      "failureCount": 0,
+      "failureKind": null,
+      "shouldShowReconnectWarning": false
+    },
+    {
+      "id": "healthy-success",
+      "hostId": "devbox",
+      "status": "healthy",
+      "heartbeatIntervalSeconds": 15,
+      "heartbeatTimeoutSeconds": 5,
+      "heartbeatTimerActive": true,
+      "didFireEarlyHeartbeat": true,
+      "lastHeartbeatAt": "2026-07-09T11:00:00Z",
+      "failureCount": 0,
+      "failureKind": null,
+      "shouldShowReconnectWarning": false
+    },
+    {
+      "id": "network-unsatisfied-warning",
+      "hostId": "netbox",
+      "status": "networkUnsatisfied",
+      "heartbeatIntervalSeconds": 15,
+      "heartbeatTimeoutSeconds": 5,
+      "heartbeatTimerActive": false,
+      "didFireEarlyHeartbeat": false,
+      "lastHeartbeatAt": null,
+      "failureCount": 1,
+      "failureKind": "hostUnreachable",
+      "shouldShowReconnectWarning": true
+    },
+    {
+      "id": "timeout-warning",
+      "hostId": "timeoutbox",
+      "status": "timeout",
+      "heartbeatIntervalSeconds": 15,
+      "heartbeatTimeoutSeconds": 5,
+      "heartbeatTimerActive": true,
+      "didFireEarlyHeartbeat": false,
+      "lastHeartbeatAt": "2026-07-09T10:55:00Z",
+      "failureCount": 3,
+      "failureKind": "heartbeatTimeout",
+      "shouldShowReconnectWarning": true
+    },
+    {
+      "id": "command-failed-warning",
+      "hostId": "cmdbox",
+      "status": "commandFailed",
+      "heartbeatIntervalSeconds": 15,
+      "heartbeatTimeoutSeconds": 5,
+      "heartbeatTimerActive": false,
+      "didFireEarlyHeartbeat": false,
+      "lastHeartbeatAt": null,
+      "failureCount": 2,
+      "failureKind": "commandFailed",
+      "shouldShowReconnectWarning": true
+    },
+    {
+      "id": "suspended-clears-failure",
+      "hostId": "sleepingbox",
+      "status": "suspended",
+      "heartbeatIntervalSeconds": 15,
+      "heartbeatTimeoutSeconds": 5,
+      "heartbeatTimerActive": false,
+      "didFireEarlyHeartbeat": false,
+      "lastHeartbeatAt": "2026-07-09T10:55:00Z",
+      "failureCount": 4,
+      "failureKind": null,
+      "shouldShowReconnectWarning": false
+    }
+  ]
+}

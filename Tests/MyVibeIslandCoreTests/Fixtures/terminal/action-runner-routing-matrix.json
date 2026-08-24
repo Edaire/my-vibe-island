@@ -1,0 +1,95 @@
+{
+  "rows": [
+    {
+      "id": "workspace-action",
+      "actionKind": "openWorkspace",
+      "status": "succeeded",
+      "failureReason": null,
+      "diagnosticSummary": "workspace opened",
+      "workspaceActionCount": 1,
+      "cliActionCount": 0,
+      "socketActionCount": 0,
+      "urlActionCount": 0,
+      "applicationActionCount": 0,
+      "automationActionCount": 0
+    },
+    {
+      "id": "cli-action",
+      "actionKind": "runCLI",
+      "status": "succeeded",
+      "failureReason": null,
+      "diagnosticSummary": "cli ran",
+      "workspaceActionCount": 0,
+      "cliActionCount": 1,
+      "socketActionCount": 0,
+      "urlActionCount": 0,
+      "applicationActionCount": 0,
+      "automationActionCount": 0
+    },
+    {
+      "id": "socket-action",
+      "actionKind": "sendSocketRequest",
+      "status": "succeeded",
+      "failureReason": null,
+      "diagnosticSummary": "socket sent",
+      "workspaceActionCount": 0,
+      "cliActionCount": 0,
+      "socketActionCount": 1,
+      "urlActionCount": 0,
+      "applicationActionCount": 0,
+      "automationActionCount": 0
+    },
+    {
+      "id": "url-action",
+      "actionKind": "openURL",
+      "status": "succeeded",
+      "failureReason": null,
+      "diagnosticSummary": "URL opened",
+      "workspaceActionCount": 0,
+      "cliActionCount": 0,
+      "socketActionCount": 0,
+      "urlActionCount": 1,
+      "applicationActionCount": 0,
+      "automationActionCount": 0
+    },
+    {
+      "id": "application-action",
+      "actionKind": "activateApplication",
+      "status": "succeeded",
+      "failureReason": null,
+      "diagnosticSummary": "application activated",
+      "workspaceActionCount": 0,
+      "cliActionCount": 0,
+      "socketActionCount": 0,
+      "urlActionCount": 0,
+      "applicationActionCount": 1,
+      "automationActionCount": 0
+    },
+    {
+      "id": "automation-action",
+      "actionKind": "runAutomation",
+      "status": "succeeded",
+      "failureReason": null,
+      "diagnosticSummary": "automation ran",
+      "workspaceActionCount": 0,
+      "cliActionCount": 0,
+      "socketActionCount": 0,
+      "urlActionCount": 0,
+      "applicationActionCount": 0,
+      "automationActionCount": 1
+    },
+    {
+      "id": "unsupported-repair-action",
+      "actionKind": "showRepair",
+      "status": "failed",
+      "failureReason": "unsupportedAction",
+      "diagnosticSummary": "terminal action runner unsupported action: showRepair",
+      "workspaceActionCount": 0,
+      "cliActionCount": 0,
+      "socketActionCount": 0,
+      "urlActionCount": 0,
+      "applicationActionCount": 0,
+      "automationActionCount": 0
+    }
+  ]
+}

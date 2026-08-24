@@ -1,0 +1,384 @@
+{
+  "cases": [
+    {
+      "name": "hidden-status-item-builds-no-rows",
+      "menu": {
+        "surface": "statusItem",
+        "isVisible": false,
+        "accessibilityLabel": "My Vibe Island Menu",
+        "entries": []
+      }
+    },
+    {
+      "name": "dock-menu-hidden-when-status-item-only",
+      "menu": {
+        "surface": "dock",
+        "isVisible": false,
+        "accessibilityLabel": "My Vibe Island Dock Menu",
+        "entries": []
+      }
+    },
+    {
+      "name": "full-status-item-menu",
+      "menu": {
+        "surface": "statusItem",
+        "isVisible": true,
+        "accessibilityLabel": "My Vibe Island Menu",
+        "entries": [
+          {
+            "kind": "command",
+            "title": "Open Settings",
+            "command": "openSettings",
+            "isEnabled": true,
+            "isChecked": false
+          },
+          {
+            "kind": "command",
+            "title": "Check for Updates",
+            "command": "checkForUpdates",
+            "isEnabled": true,
+            "isChecked": false
+          },
+          {
+            "kind": "separator",
+            "title": "",
+            "command": null,
+            "isEnabled": false,
+            "isChecked": false
+          },
+          {
+            "kind": "command",
+            "title": "Launch at Login",
+            "command": "toggleLaunchAtLogin",
+            "isEnabled": true,
+            "isChecked": true
+          },
+          {
+            "kind": "command",
+            "title": "Show Dock Icon",
+            "command": "toggleDockIcon",
+            "isEnabled": true,
+            "isChecked": true
+          },
+          {
+            "kind": "separator",
+            "title": "",
+            "command": null,
+            "isEnabled": false,
+            "isChecked": false
+          },
+          {
+            "kind": "command",
+            "title": "Built-in Notch Display",
+            "command": "selectScreenMode:builtInNotchDisplay",
+            "isEnabled": true,
+            "isChecked": false
+          },
+          {
+            "kind": "command",
+            "title": "Main Display",
+            "command": "selectScreenMode:mainDisplay",
+            "isEnabled": true,
+            "isChecked": false
+          },
+          {
+            "kind": "command",
+            "title": "Follow Keyboard Focus",
+            "command": "selectScreenMode:followKeyboardFocus",
+            "isEnabled": true,
+            "isChecked": true
+          },
+          {
+            "kind": "command",
+            "title": "Manual Display",
+            "command": "selectScreenMode:manualDisplay",
+            "isEnabled": true,
+            "isChecked": false
+          },
+          {
+            "kind": "separator",
+            "title": "",
+            "command": null,
+            "isEnabled": false,
+            "isChecked": false
+          },
+          {
+            "kind": "command",
+            "title": "Export Diagnostics",
+            "command": "exportDiagnostics",
+            "isEnabled": true,
+            "isChecked": false
+          },
+          {
+            "kind": "separator",
+            "title": "",
+            "command": null,
+            "isEnabled": false,
+            "isChecked": false
+          },
+          {
+            "kind": "command",
+            "title": "Quit My Vibe Island",
+            "command": "quit",
+            "isEnabled": true,
+            "isChecked": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "dock-menu-safe-command-subset",
+      "menu": {
+        "surface": "dock",
+        "isVisible": true,
+        "accessibilityLabel": "My Vibe Island Dock Menu",
+        "entries": [
+          {
+            "kind": "command",
+            "title": "Open Settings",
+            "command": "openSettings",
+            "isEnabled": true,
+            "isChecked": false
+          },
+          {
+            "kind": "command",
+            "title": "Check for Updates",
+            "command": "checkForUpdates",
+            "isEnabled": true,
+            "isChecked": false
+          },
+          {
+            "kind": "command",
+            "title": "Export Diagnostics",
+            "command": "exportDiagnostics",
+            "isEnabled": true,
+            "isChecked": false
+          },
+          {
+            "kind": "command",
+            "title": "Quit My Vibe Island",
+            "command": "quit",
+            "isEnabled": true,
+            "isChecked": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "disabled-availability-keeps-rows",
+      "menu": {
+        "surface": "statusItem",
+        "isVisible": true,
+        "accessibilityLabel": "My Vibe Island Menu",
+        "entries": [
+          {
+            "kind": "command",
+            "title": "Open Settings",
+            "command": "openSettings",
+            "isEnabled": true,
+            "isChecked": false
+          },
+          {
+            "kind": "command",
+            "title": "Checking for Updates",
+            "command": "checkForUpdates",
+            "isEnabled": false,
+            "isChecked": false
+          },
+          {
+            "kind": "separator",
+            "title": "",
+            "command": null,
+            "isEnabled": false,
+            "isChecked": false
+          },
+          {
+            "kind": "command",
+            "title": "Launch at Login",
+            "command": "toggleLaunchAtLogin",
+            "isEnabled": false,
+            "isChecked": false
+          },
+          {
+            "kind": "command",
+            "title": "Show Dock Icon",
+            "command": "toggleDockIcon",
+            "isEnabled": false,
+            "isChecked": false
+          },
+          {
+            "kind": "separator",
+            "title": "",
+            "command": null,
+            "isEnabled": false,
+            "isChecked": false
+          },
+          {
+            "kind": "command",
+            "title": "Built-in Notch Display",
+            "command": "selectScreenMode:builtInNotchDisplay",
+            "isEnabled": false,
+            "isChecked": true
+          },
+          {
+            "kind": "command",
+            "title": "Main Display",
+            "command": "selectScreenMode:mainDisplay",
+            "isEnabled": false,
+            "isChecked": false
+          },
+          {
+            "kind": "command",
+            "title": "Follow Keyboard Focus",
+            "command": "selectScreenMode:followKeyboardFocus",
+            "isEnabled": false,
+            "isChecked": false
+          },
+          {
+            "kind": "command",
+            "title": "Manual Display",
+            "command": "selectScreenMode:manualDisplay",
+            "isEnabled": false,
+            "isChecked": false
+          },
+          {
+            "kind": "separator",
+            "title": "",
+            "command": null,
+            "isEnabled": false,
+            "isChecked": false
+          },
+          {
+            "kind": "command",
+            "title": "Export Diagnostics",
+            "command": "exportDiagnostics",
+            "isEnabled": false,
+            "isChecked": false
+          },
+          {
+            "kind": "separator",
+            "title": "",
+            "command": null,
+            "isEnabled": false,
+            "isChecked": false
+          },
+          {
+            "kind": "command",
+            "title": "Quit My Vibe Island",
+            "command": "quit",
+            "isEnabled": true,
+            "isChecked": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "toggle-and-manual-selection-checkmarks",
+      "menu": {
+        "surface": "statusItem",
+        "isVisible": true,
+        "accessibilityLabel": "My Vibe Island Menu",
+        "entries": [
+          {
+            "kind": "command",
+            "title": "Open Settings",
+            "command": "openSettings",
+            "isEnabled": false,
+            "isChecked": false
+          },
+          {
+            "kind": "command",
+            "title": "Check for Updates",
+            "command": "checkForUpdates",
+            "isEnabled": false,
+            "isChecked": false
+          },
+          {
+            "kind": "separator",
+            "title": "",
+            "command": null,
+            "isEnabled": false,
+            "isChecked": false
+          },
+          {
+            "kind": "command",
+            "title": "Launch at Login",
+            "command": "toggleLaunchAtLogin",
+            "isEnabled": true,
+            "isChecked": true
+          },
+          {
+            "kind": "command",
+            "title": "Show Dock Icon",
+            "command": "toggleDockIcon",
+            "isEnabled": true,
+            "isChecked": false
+          },
+          {
+            "kind": "separator",
+            "title": "",
+            "command": null,
+            "isEnabled": false,
+            "isChecked": false
+          },
+          {
+            "kind": "command",
+            "title": "Built-in Notch Display",
+            "command": "selectScreenMode:builtInNotchDisplay",
+            "isEnabled": true,
+            "isChecked": false
+          },
+          {
+            "kind": "command",
+            "title": "Main Display",
+            "command": "selectScreenMode:mainDisplay",
+            "isEnabled": false,
+            "isChecked": false
+          },
+          {
+            "kind": "command",
+            "title": "Follow Keyboard Focus",
+            "command": "selectScreenMode:followKeyboardFocus",
+            "isEnabled": false,
+            "isChecked": false
+          },
+          {
+            "kind": "command",
+            "title": "Manual Display",
+            "command": "selectScreenMode:manualDisplay",
+            "isEnabled": true,
+            "isChecked": true
+          },
+          {
+            "kind": "separator",
+            "title": "",
+            "command": null,
+            "isEnabled": false,
+            "isChecked": false
+          },
+          {
+            "kind": "command",
+            "title": "Export Diagnostics",
+            "command": "exportDiagnostics",
+            "isEnabled": false,
+            "isChecked": false
+          },
+          {
+            "kind": "separator",
+            "title": "",
+            "command": null,
+            "isEnabled": false,
+            "isChecked": false
+          },
+          {
+            "kind": "command",
+            "title": "Quit My Vibe Island",
+            "command": "quit",
+            "isEnabled": false,
+            "isChecked": false
+          }
+        ]
+      }
+    }
+  ]
+}

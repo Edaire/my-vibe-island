@@ -1,0 +1,57 @@
+{
+  "rows": [
+    {
+      "id": "registry-available-with-selection",
+      "state": "registryAvailable",
+      "visibleSections": [
+        "discord",
+        "documentation",
+        "registry"
+      ],
+      "requiresRegistryFetch": false,
+      "documentationURL": "https://example.invalid/docs",
+      "supportURL": "https://example.invalid/support",
+      "discordTitle": "Community",
+      "discordInviteURL": "https://example.invalid/discord",
+      "discordMemberCount": 42,
+      "isDiscordVisible": true,
+      "registryEntryCount": 2,
+      "experimentalRegistryEntryCount": 1,
+      "selectedEntryId": "lab-kiro",
+      "registryRows": [
+        {
+          "id": "theme-8bit",
+          "displayName": "8 Bit Theme",
+          "authorDisplayName": "Contributor",
+          "category": "soundPack",
+          "sourceURL": "https://example.invalid/theme",
+          "isExperimental": false,
+          "isSelected": false
+        },
+        {
+          "id": "lab-kiro",
+          "displayName": "Kiro Lab",
+          "authorDisplayName": "Lab Contributor",
+          "category": "labsTool",
+          "isExperimental": true,
+          "isSelected": true
+        }
+      ]
+    },
+    {
+      "id": "loading-registry-local-links-only",
+      "state": "loadingRegistry",
+      "visibleSections": [
+        "documentation",
+        "registry"
+      ],
+      "requiresRegistryFetch": true,
+      "documentationURL": "https://example.invalid/docs",
+      "supportURL": "https://example.invalid/support",
+      "isDiscordVisible": false,
+      "registryEntryCount": 0,
+      "experimentalRegistryEntryCount": 0,
+      "registryRows": []
+    }
+  ]
+}

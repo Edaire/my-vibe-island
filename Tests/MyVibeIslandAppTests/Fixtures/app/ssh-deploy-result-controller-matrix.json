@@ -1,0 +1,128 @@
+{
+  "rows": [
+    {
+      "id": "record-success",
+      "records": [
+        {
+          "success": true,
+          "message": "setup complete",
+          "durationMs": 240,
+          "usedGoBinary": true,
+          "hostId": "devbox",
+          "step": "install-hook",
+          "remotePath": "/tmp/my-vibe-island",
+          "configPath": "~/.config/my-vibe-island",
+          "deployed": true,
+          "lastDeployedAt": "2026-07-09T10:10:00Z"
+        }
+      ],
+      "recorded": [
+        {
+          "success": true,
+          "message": "setup complete",
+          "durationMs": 240,
+          "usedGoBinary": true,
+          "hostId": "devbox",
+          "step": "install-hook",
+          "remotePath": "/tmp/my-vibe-island",
+          "configPath": "~/.config/my-vibe-island",
+          "deployed": true,
+          "lastDeployedAt": "2026-07-09T10:10:00Z"
+        }
+      ],
+      "clearAtEnd": false,
+      "finalResult": {
+        "success": true,
+        "message": "setup complete",
+        "durationMs": 240,
+        "usedGoBinary": true,
+        "hostId": "devbox",
+        "step": "install-hook",
+        "remotePath": "/tmp/my-vibe-island",
+        "configPath": "~/.config/my-vibe-island",
+        "deployed": true,
+        "lastDeployedAt": "2026-07-09T10:10:00Z"
+      },
+      "isDeployed": true,
+      "events": [
+        {
+          "success": true,
+          "message": "setup complete",
+          "durationMs": 240,
+          "usedGoBinary": true,
+          "hostId": "devbox",
+          "step": "install-hook",
+          "remotePath": "/tmp/my-vibe-island",
+          "configPath": "~/.config/my-vibe-island",
+          "deployed": true,
+          "lastDeployedAt": "2026-07-09T10:10:00Z"
+        }
+      ]
+    },
+    {
+      "id": "replace-with-failure-and-clear",
+      "initialResult": {
+        "success": true,
+        "message": "setup complete",
+        "durationMs": 240,
+        "usedGoBinary": true,
+        "hostId": "devbox",
+        "step": "install-hook",
+        "remotePath": "/tmp/my-vibe-island",
+        "configPath": "~/.config/my-vibe-island",
+        "deployed": true,
+        "lastDeployedAt": "2026-07-09T10:10:00Z"
+      },
+      "records": [
+        {
+          "success": false,
+          "message": "setup failed",
+          "stderr": "setup error",
+          "durationMs": 240,
+          "usedGoBinary": true,
+          "hostId": "devbox",
+          "step": "install-hook",
+          "remotePath": "/tmp/my-vibe-island",
+          "configPath": "~/.config/my-vibe-island",
+          "repairCommand": "rerun setup",
+          "deployed": false,
+          "lastDeployError": "setup error"
+        }
+      ],
+      "recorded": [
+        {
+          "success": false,
+          "message": "setup failed",
+          "stderr": "setup error",
+          "durationMs": 240,
+          "usedGoBinary": true,
+          "hostId": "devbox",
+          "step": "install-hook",
+          "remotePath": "/tmp/my-vibe-island",
+          "configPath": "~/.config/my-vibe-island",
+          "repairCommand": "rerun setup",
+          "deployed": false,
+          "lastDeployError": "setup error"
+        }
+      ],
+      "clearAtEnd": true,
+      "isDeployed": false,
+      "events": [
+        {
+          "success": false,
+          "message": "setup failed",
+          "stderr": "setup error",
+          "durationMs": 240,
+          "usedGoBinary": true,
+          "hostId": "devbox",
+          "step": "install-hook",
+          "remotePath": "/tmp/my-vibe-island",
+          "configPath": "~/.config/my-vibe-island",
+          "repairCommand": "rerun setup",
+          "deployed": false,
+          "lastDeployError": "setup error"
+        }
+      ]
+    }
+  ]
+}

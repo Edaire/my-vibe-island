@@ -1,0 +1,47 @@
+{
+  "rows" : [
+    {
+      "accessibilityLabel" : "My Vibe Island Menu",
+      "id" : "hidden-status-item-menu",
+      "isVisible" : false,
+      "items" : [
+
+      ]
+    },
+    {
+      "accessibilityLabel" : "My Vibe Island Menu",
+      "id" : "visible-status-item-menu",
+      "isVisible" : true,
+      "items" : [
+        {
+          "command" : "openSettings",
+          "isEnabled" : true,
+          "kind" : "command",
+          "state" : "off",
+          "title" : "Open Settings"
+        },
+        {
+          "command" : null,
+          "isEnabled" : false,
+          "kind" : "separator",
+          "state" : "off",
+          "title" : ""
+        },
+        {
+          "command" : "toggleLaunchAtLogin",
+          "isEnabled" : true,
+          "kind" : "command",
+          "state" : "on",
+          "title" : "Launch at Login"
+        },
+        {
+          "command" : "exportDiagnostics",
+          "isEnabled" : false,
+          "kind" : "command",
+          "state" : "off",
+          "title" : "Export Diagnostics"
+        }
+      ]
+    }
+  ]
+}

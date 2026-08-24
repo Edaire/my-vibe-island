@@ -1,0 +1,26 @@
+{
+  "selectedManifestId": "builtin.arcade",
+  "cleanDisplayName": "Clean Pack",
+  "questionSoundIds": [
+    "question.arcade"
+  ],
+  "usageSoundIds": [],
+  "missingSelectedManifestId": null,
+  "missingSelectionPermissionSoundIds": [],
+  "validationReport": {
+    "issues": [
+      {
+        "kind": "duplicateManifestId",
+        "manifestId": "builtin.clean"
+      },
+      {
+        "kind": "missingSelectedManifest",
+        "manifestId": "missing-pack"
+      },
+      {
+        "kind": "invalidManifest",
+        "manifestId": "invalid-pack"
+      }
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "textCases": [
+    {
+      "name": "home-paths",
+      "input": "opened /Users/admin/project/file.swift from /Users/admin",
+      "output": "opened /Users/<user>/project/file.swift from /Users/<user>"
+    },
+    {
+      "name": "assignment-values",
+      "input": "provider credential=abc123 and session_token: xyz987",
+      "output": "provider credential=<redacted> and session_token: <redacted>"
+    },
+    {
+      "name": "comma-delimited-values",
+      "input": "token=first, secret:second; cwd=/Users/admin/project",
+      "output": "token=<redacted>, secret:<redacted>; cwd=/Users/<user>/project"
+    }
+  ],
+  "fieldCases": [
+    {
+      "name": "policy-and-forbidden-fields",
+      "forbiddenFields": [
+        "credential"
+      ],
+      "input": {
+        "cwd": "/Users/admin/project",
+        "credential": "abc123",
+        "apiKey": "fixture-value",
+        "count": "2"
+      },
+      "output": {
+        "cwd": "/Users/<user>/project",
+        "credential": "<redacted>",
+        "apiKey": "<redacted>",
+        "count": "2"
+      }
+    },
+    {
+      "name": "case-insensitive-forbidden-fields",
+      "forbiddenFields": [
+        "SESSION_TOKEN"
+      ],
+      "input": {
+        "session_token": "xyz987",
+        "path": "/Users/admin/.config/my-vibe-island"
+      },
+      "output": {
+        "session_token": "<redacted>",
+        "path": "/Users/<user>/.config/my-vibe-island"
+      }
+    }
+  ]
+}

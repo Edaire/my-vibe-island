@@ -1,0 +1,9 @@
+{
+  "cwd": "/tmp/claude",
+  "hook_event_name": "SessionStart",
+  "session_id": "claude-session",
+  "transcript_path": "/tmp/claude/transcript.jsonl",
+  "permission_mode": "default",
+  "model": "claude-sonnet-4-5",
+  "source": "startup"
+}

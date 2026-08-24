@@ -1,0 +1,54 @@
+{
+  "rows": [
+    {
+      "id": "matched-full-identity",
+      "tty": "/dev/ttys001",
+      "pid": 4242,
+      "terminalBundleId": "com.googlecode.iterm2",
+      "admissionDeniedAncestorBundleId": null,
+      "outcome": "matched",
+      "isAdmissionDenied": false,
+      "terminalIdentityKey": "pid=4242|terminalBundleId=com.googlecode.iterm2|tty=/dev/ttys001"
+    },
+    {
+      "id": "admission-denied-outcome",
+      "tty": null,
+      "pid": null,
+      "terminalBundleId": null,
+      "admissionDeniedAncestorBundleId": "com.example.denied",
+      "outcome": "admissionDenied",
+      "isAdmissionDenied": true,
+      "terminalIdentityKey": null
+    },
+    {
+      "id": "admission-denied-ancestor-only",
+      "tty": null,
+      "pid": null,
+      "terminalBundleId": null,
+      "admissionDeniedAncestorBundleId": "com.example.denied",
+      "outcome": "unknown",
+      "isAdmissionDenied": true,
+      "terminalIdentityKey": null
+    },
+    {
+      "id": "not-found-no-identity",
+      "tty": null,
+      "pid": null,
+      "terminalBundleId": null,
+      "admissionDeniedAncestorBundleId": null,
+      "outcome": "notFound",
+      "isAdmissionDenied": false,
+      "terminalIdentityKey": null
+    },
+    {
+      "id": "partial-terminal-identity",
+      "tty": "/dev/ttys002",
+      "pid": null,
+      "terminalBundleId": "com.apple.Terminal",
+      "admissionDeniedAncestorBundleId": null,
+      "outcome": "matched",
+      "isAdmissionDenied": false,
+      "terminalIdentityKey": "terminalBundleId=com.apple.Terminal|tty=/dev/ttys002"
+    }
+  ]
+}

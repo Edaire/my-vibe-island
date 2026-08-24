@@ -1,0 +1,82 @@
+{
+  "rows": [
+    {
+      "id": "default",
+      "arguments": [],
+      "firstLine": "My Vibe Island starting: runnable skeleton",
+      "lineCount": 2,
+      "containsRunnableSkeleton": true,
+      "containsBridgeSocketLine": true,
+      "containsAppShellDryRun": false,
+      "containsHelpUsage": false,
+      "containsRuntimeStatus": false
+    },
+    {
+      "id": "help",
+      "arguments": [
+        "--help"
+      ],
+      "firstLine": "My Vibe Island",
+      "lineCount": 6,
+      "containsRunnableSkeleton": false,
+      "containsBridgeSocketLine": false,
+      "containsAppShellDryRun": false,
+      "containsHelpUsage": true,
+      "containsRuntimeStatus": true
+    },
+    {
+      "id": "unknown-option",
+      "arguments": [
+        "--unknown"
+      ],
+      "firstLine": "unknown top-level option: --unknown",
+      "lineCount": 1,
+      "containsRunnableSkeleton": false,
+      "containsBridgeSocketLine": false,
+      "containsAppShellDryRun": false,
+      "containsHelpUsage": false,
+      "containsRuntimeStatus": false
+    },
+    {
+      "id": "double-dash-app",
+      "arguments": [
+        "--",
+        "--app"
+      ],
+      "firstLine": "My Vibe Island starting: runnable skeleton",
+      "lineCount": 2,
+      "containsRunnableSkeleton": true,
+      "containsBridgeSocketLine": true,
+      "containsAppShellDryRun": false,
+      "containsHelpUsage": false,
+      "containsRuntimeStatus": false
+    },
+    {
+      "id": "jump-missing-session",
+      "arguments": [
+        "jump"
+      ],
+      "firstLine": "Missing --session for jump",
+      "lineCount": 1,
+      "containsRunnableSkeleton": false,
+      "containsBridgeSocketLine": false,
+      "containsAppShellDryRun": false,
+      "containsHelpUsage": false,
+      "containsRuntimeStatus": false
+    },
+    {
+      "id": "status-missing-home",
+      "arguments": [
+        "status",
+        "--home"
+      ],
+      "firstLine": "Missing --home value",
+      "lineCount": 1,
+      "containsRunnableSkeleton": false,
+      "containsBridgeSocketLine": false,
+      "containsAppShellDryRun": false,
+      "containsHelpUsage": false,
+      "containsRuntimeStatus": false
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "rows": [
+    {
+      "id": "pre-sync-diagnostics-empty",
+      "resultFileNames": [],
+      "failedResultCount": 0,
+      "runtimeSessionIds": [],
+      "storeSessionIds": [],
+      "rootDirectoryExistsAfterSync": null,
+      "diagnostics": null
+    },
+    {
+      "id": "mixed-valid-and-broken-files",
+      "resultFileNames": ["broken.json", "valid.json"],
+      "failedResultCount": 1,
+      "runtimeSessionIds": ["/tmp/opencode-valid"],
+      "storeSessionIds": [],
+      "rootDirectoryExistsAfterSync": true,
+      "diagnostics": {
+        "rootPath": "$ROOT",
+        "attemptedFileCount": 2,
+        "successfulSnapshotCount": 1,
+        "failedSnapshotCount": 1,
+        "emittedEventCount": 1,
+        "rootMissing": false
+      }
+    },
+    {
+      "id": "persists-valid-session-to-injected-store",
+      "resultFileNames": ["session.json"],
+      "failedResultCount": 0,
+      "runtimeSessionIds": ["/tmp/opencode-persisted"],
+      "storeSessionIds": ["/tmp/opencode-persisted"],
+      "rootDirectoryExistsAfterSync": true,
+      "diagnostics": {
+        "rootPath": "$ROOT",
+        "attemptedFileCount": 1,
+        "successfulSnapshotCount": 1,
+        "failedSnapshotCount": 0,
+        "emittedEventCount": 1,
+        "rootMissing": false
+      }
+    },
+    {
+      "id": "missing-root-no-mutation",
+      "resultFileNames": [],
+      "failedResultCount": 0,
+      "runtimeSessionIds": [],
+      "storeSessionIds": [],
+      "rootDirectoryExistsAfterSync": false,
+      "diagnostics": {
+        "rootPath": "$ROOT",
+        "attemptedFileCount": 0,
+        "successfulSnapshotCount": 0,
+        "failedSnapshotCount": 0,
+        "emittedEventCount": 0,
+        "rootMissing": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "rows": [
+    {
+      "id": "expanded-peek",
+      "actions": [
+        "presentPeek:question-1:expanded"
+      ],
+      "actionResults": [
+        "presented:question-1:expanded:primaryAction"
+      ],
+      "presentedRows": [
+        {
+          "id": "question-1",
+          "title": "Title",
+          "body": "Body",
+          "severity": "warning",
+          "primaryAction": "jump",
+          "focusedField": "primaryAction"
+        }
+      ],
+      "lastAction": {
+        "kind": "presentPeek",
+        "notificationId": "question-1",
+        "presentation": "expanded"
+      },
+      "events": [
+        "peek:question-1:expanded"
+      ]
+    },
+    {
+      "id": "unread-then-sound",
+      "actions": [
+        "markUnread:permission-1",
+        "requestSound:permission-1:permission"
+      ],
+      "actionResults": [
+        "unread:permission-1",
+        "sound:permission-1:permission"
+      ],
+      "presentedRows": [],
+      "lastAction": {
+        "kind": "requestSound",
+        "notificationId": "permission-1",
+        "soundCategory": "permission"
+      },
+      "events": [
+        "unread:permission-1",
+        "sound:permission-1:permission"
+      ]
+    }
+  ]
+}

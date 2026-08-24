@@ -1,0 +1,67 @@
+{
+  "rows": [
+    {
+      "id": "docker-sidecar",
+      "canExecuteAutomatically": false,
+      "allRequireUserRun": true,
+      "steps": [
+        {
+          "kind": "sidecar",
+          "body": "docker run --rm -v ~/.config/my-vibe-island:/config my-vibe-island-sidecar",
+          "note": "docker sidecar for devbox",
+          "requiresUserRun": true
+        }
+      ]
+    },
+    {
+      "id": "podman-sidecar",
+      "canExecuteAutomatically": false,
+      "allRequireUserRun": true,
+      "steps": [
+        {
+          "kind": "sidecar",
+          "body": "podman run --rm my-vibe-island-sidecar",
+          "note": "podman sidecar for labbox",
+          "requiresUserRun": true
+        }
+      ]
+    },
+    {
+      "id": "manual-air-gapped-install",
+      "canExecuteAutomatically": false,
+      "allRequireUserRun": true,
+      "steps": [
+        {
+          "kind": "transport",
+          "body": "copy remote-hook to removable media",
+          "note": "transport linux-arm64 helper from /Applications/My Vibe Island.app/Contents/Resources/remote-hook",
+          "requiresUserRun": true
+        },
+        {
+          "kind": "transport",
+          "body": "move remote-hook from removable media to ~/.local/bin/my-vibe-island-hook",
+          "note": "transport linux-arm64 helper from /Applications/My Vibe Island.app/Contents/Resources/remote-hook",
+          "requiresUserRun": true
+        },
+        {
+          "kind": "remoteCommand",
+          "body": "mkdir -p ~/.local/bin",
+          "note": "run on remote host",
+          "requiresUserRun": true
+        },
+        {
+          "kind": "remoteCommand",
+          "body": "chmod +x ~/.local/bin/my-vibe-island-hook",
+          "note": "run on remote host",
+          "requiresUserRun": true
+        },
+        {
+          "kind": "verification",
+          "body": "~/.local/bin/my-vibe-island-hook --version",
+          "note": "verify ~/.local/bin/my-vibe-island-hook",
+          "requiresUserRun": true
+        }
+      ]
+    }
+  ]
+}

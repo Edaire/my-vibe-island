@@ -1,0 +1,24 @@
+{
+  "rows": [
+    {
+      "id": "active-hang-with-stack",
+      "detectedAt": "2026-07-09T09:10:00Z",
+      "durationMilliseconds": 1250,
+      "threadStateSummary": "main thread waiting in redacted frame",
+      "recentEventCount": 7,
+      "redactedStackAvailable": true,
+      "recoveredAt": null,
+      "peakLagMilliseconds": 1500
+    },
+    {
+      "id": "recovered-hang-without-stack",
+      "detectedAt": "2026-07-09T09:11:00Z",
+      "durationMilliseconds": 800,
+      "threadStateSummary": "main thread busy in redacted event loop",
+      "recentEventCount": 3,
+      "redactedStackAvailable": false,
+      "recoveredAt": "2026-07-09T09:11:02Z",
+      "peakLagMilliseconds": null
+    }
+  ]
+}

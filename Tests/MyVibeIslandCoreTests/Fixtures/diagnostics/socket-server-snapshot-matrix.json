@@ -1,0 +1,54 @@
+{
+  "rows": [
+    {
+      "id": "empty-snapshot",
+      "hasUnixServer": false,
+      "hasTCPServer": false,
+      "isTCPListenerActive": false,
+      "remoteConnectionCount": 0,
+      "activeLocalClientCount": 0,
+      "totalConnectionCount": 0,
+      "encodedSummaryContainsRawRemoteValues": false
+    },
+    {
+      "id": "local-and-remote-active",
+      "hasUnixServer": true,
+      "hasTCPServer": true,
+      "isTCPListenerActive": true,
+      "remoteConnectionCount": 1,
+      "activeLocalClientCount": 2,
+      "totalConnectionCount": 3,
+      "encodedSummaryContainsRawRemoteValues": false
+    },
+    {
+      "id": "tcp-listener-not-listening",
+      "hasUnixServer": false,
+      "hasTCPServer": true,
+      "isTCPListenerActive": false,
+      "remoteConnectionCount": 0,
+      "activeLocalClientCount": 1,
+      "totalConnectionCount": 1,
+      "encodedSummaryContainsRawRemoteValues": false
+    },
+    {
+      "id": "negative-local-count-clamped",
+      "hasUnixServer": true,
+      "hasTCPServer": false,
+      "isTCPListenerActive": false,
+      "remoteConnectionCount": 0,
+      "activeLocalClientCount": 0,
+      "totalConnectionCount": 0,
+      "encodedSummaryContainsRawRemoteValues": false
+    },
+    {
+      "id": "multiple-remote-connections-redacted",
+      "hasUnixServer": false,
+      "hasTCPServer": false,
+      "isTCPListenerActive": false,
+      "remoteConnectionCount": 2,
+      "activeLocalClientCount": 0,
+      "totalConnectionCount": 2,
+      "encodedSummaryContainsRawRemoteValues": false
+    }
+  ]
+}

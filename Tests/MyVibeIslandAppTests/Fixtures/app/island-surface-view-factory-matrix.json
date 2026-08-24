@@ -1,0 +1,55 @@
+{
+  "rows": [
+    {
+      "id": "visible-surface",
+      "width": 640,
+      "height": 420,
+      "isHidden": false,
+      "identifier": "my-vibe-island.surface",
+      "accessibilityLabel": "My Vibe Island surface",
+      "accessibilityValue": "3 sections",
+      "isAccessibilityElement": true,
+      "orientation": "vertical",
+      "sections": [
+        {
+          "identifier": "my-vibe-island.surface.section.compact-pill",
+          "orientation": "horizontal",
+          "accessibilityLabel": "Compact island",
+          "accessibilityValue": "1 session - Sessions: active",
+          "toolTip": "Toggle expanded panel",
+          "directTextValues": ["Compact island", "1 session"],
+          "badgeValues": ["active"]
+        },
+        {
+          "identifier": "my-vibe-island.surface.section.switcher",
+          "orientation": "vertical",
+          "accessibilityLabel": "Session switcher",
+          "accessibilityValue": "1 session - Sessions: active",
+          "toolTip": "Switch focused session",
+          "directTextValues": ["Session switcher", "1 session"],
+          "badgeValues": ["active"]
+        },
+        {
+          "identifier": "my-vibe-island.surface.section.usage-info",
+          "orientation": "vertical",
+          "accessibilityLabel": "Usage information",
+          "accessibilityValue": "Quota resets tomorrow",
+          "directTextValues": ["Usage information", "Quota resets tomorrow"],
+          "badgeValues": []
+        }
+      ]
+    },
+    {
+      "id": "hidden-surface",
+      "width": 320,
+      "height": 180,
+      "isHidden": true,
+      "identifier": "my-vibe-island.surface",
+      "accessibilityLabel": "My Vibe Island surface",
+      "accessibilityValue": "0 sections",
+      "isAccessibilityElement": false,
+      "orientation": "vertical",
+      "sections": []
+    }
+  ]
+}

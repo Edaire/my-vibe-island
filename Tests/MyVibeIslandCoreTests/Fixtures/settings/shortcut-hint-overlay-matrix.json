@@ -1,0 +1,45 @@
+{
+  "rows": [
+    {
+      "id": "collapsed-command",
+      "isVisible": false,
+      "modifierKey": "command",
+      "items": []
+    },
+    {
+      "id": "expanded-command",
+      "isVisible": true,
+      "modifierKey": "command",
+      "items": [
+        {
+          "action": "approvePermission",
+          "title": "Approve",
+          "displayText": "Cmd-Return"
+        },
+        {
+          "action": "alwaysAllow",
+          "title": "Always Allow",
+          "displayText": "Opt-Cmd-A"
+        }
+      ]
+    },
+    {
+      "id": "expanded-option",
+      "isVisible": true,
+      "modifierKey": "option",
+      "items": [
+        {
+          "action": "alwaysAllow",
+          "title": "Always Allow",
+          "displayText": "Opt-Cmd-A"
+        }
+      ]
+    },
+    {
+      "id": "expanded-shift-no-match",
+      "isVisible": false,
+      "modifierKey": "shift",
+      "items": []
+    }
+  ]
+}

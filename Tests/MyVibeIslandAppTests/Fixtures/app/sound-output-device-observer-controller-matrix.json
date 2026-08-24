@@ -1,0 +1,41 @@
+{
+  "rows": [
+    {
+      "id": "publish-first-device",
+      "changes": [{
+        "kind": "deviceSelected",
+        "current": {"id": "speaker-1", "name": "Internal Speakers", "outputVolume": 0.6, "observedAt": "2026-07-08T08:00:00Z"}
+      }],
+      "currentSnapshot": {"id": "speaker-1", "name": "Internal Speakers", "outputVolume": 0.6, "observedAt": "2026-07-08T08:00:00Z"},
+      "lastChange": {
+        "kind": "deviceSelected",
+        "current": {"id": "speaker-1", "name": "Internal Speakers", "outputVolume": 0.6, "observedAt": "2026-07-08T08:00:00Z"}
+      },
+      "events": [{
+        "kind": "deviceSelected",
+        "current": {"id": "speaker-1", "name": "Internal Speakers", "outputVolume": 0.6, "observedAt": "2026-07-08T08:00:00Z"}
+      }]
+    },
+    {
+      "id": "suppress-unchanged-device",
+      "changes": [null],
+      "currentSnapshot": {"id": "speaker-1", "name": "Internal Speakers", "outputVolume": 0.6, "observedAt": "2026-07-08T08:00:00Z"},
+      "events": []
+    },
+    {
+      "id": "publish-device-disappeared",
+      "changes": [{
+        "kind": "noDevice",
+        "previous": {"id": "speaker-1", "name": "Internal Speakers", "outputVolume": 0.6, "observedAt": "2026-07-08T08:00:00Z"}
+      }],
+      "lastChange": {
+        "kind": "noDevice",
+        "previous": {"id": "speaker-1", "name": "Internal Speakers", "outputVolume": 0.6, "observedAt": "2026-07-08T08:00:00Z"}
+      },
+      "events": [{
+        "kind": "noDevice",
+        "previous": {"id": "speaker-1", "name": "Internal Speakers", "outputVolume": 0.6, "observedAt": "2026-07-08T08:00:00Z"}
+      }]
+    }
+  ]
+}

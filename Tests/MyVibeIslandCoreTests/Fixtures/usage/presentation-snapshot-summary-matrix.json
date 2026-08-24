@@ -1,0 +1,51 @@
+{
+  "rows": [
+    {
+      "id": "no-provider",
+      "selectedProviderId": null,
+      "selectionReason": "none",
+      "displayStatus": "unavailable",
+      "displayStyle": "compactHint",
+      "primaryText": "Usage unavailable",
+      "cachedProviderId": null,
+      "cachedAccountId": null,
+      "peekKeys": [],
+      "notificationKeys": [],
+      "deliveryActions": [],
+      "resetScheduleActions": [
+        "cancel:usageReset:codexRateLimits:2026-07-08T13:00:00Z"
+      ],
+      "diagnosticProviderId": null,
+      "refreshDecision": null,
+      "accountDisplayLabel": null
+    },
+    {
+      "id": "available-with-peeks",
+      "selectedProviderId": "codexRateLimits",
+      "selectionReason": "preferred",
+      "displayStatus": "available",
+      "displayStyle": "ringBadge",
+      "primaryText": "85% used",
+      "cachedProviderId": "codexRateLimits",
+      "cachedAccountId": "primary",
+      "peekKeys": [
+        "usageThreshold:codexRateLimits:primary:80",
+        "usageReset:codexRateLimits:2026-07-08T13:00:00Z"
+      ],
+      "notificationKeys": [
+        "usageThreshold:codexRateLimits:primary:80",
+        "usageReset:codexRateLimits:2026-07-08T13:00:00Z"
+      ],
+      "deliveryActions": [
+        "suppress:usageThreshold:codexRateLimits:primary:80:alreadyDelivered",
+        "deliver:usageReset:codexRateLimits:2026-07-08T13:00:00Z"
+      ],
+      "resetScheduleActions": [
+        "schedule:usageReset:codexRateLimits:2026-07-08T13:00:00Z"
+      ],
+      "diagnosticProviderId": "codexRateLimits",
+      "refreshDecision": "allowed",
+      "accountDisplayLabel": "Primary Codex"
+    }
+  ]
+}

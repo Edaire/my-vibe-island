@@ -1,0 +1,99 @@
+{
+  "rows": [
+    {
+      "id": "default-field-policy",
+      "pathMode": "redactHomeDirectory",
+      "secretMode": "redactKnownSensitiveFields",
+      "sensitiveFieldNames": [
+        "apiKey",
+        "authorization",
+        "credential",
+        "password",
+        "refreshToken",
+        "secret",
+        "session_token",
+        "token",
+        "accessToken"
+      ],
+      "redactedText": null,
+      "redactedFields": {
+        "apiKey": "<redacted>",
+        "cwd": "/Users/<user>/project",
+        "sessionId": "session-1"
+      }
+    },
+    {
+      "id": "assignment-text-redaction",
+      "pathMode": "redactHomeDirectory",
+      "secretMode": "redactKnownSensitiveFields",
+      "sensitiveFieldNames": [
+        "apiKey",
+        "authorization",
+        "credential",
+        "password",
+        "refreshToken",
+        "secret",
+        "session_token",
+        "token",
+        "accessToken"
+      ],
+      "redactedText": "credential=<redacted> token:<redacted> secret=<redacted> cwd=/Users/<user>/project",
+      "redactedFields": null
+    },
+    {
+      "id": "strict-redacts-all-fields",
+      "pathMode": "redactHomeDirectory",
+      "secretMode": "redactAllValues",
+      "sensitiveFieldNames": [
+        "apiKey",
+        "authorization",
+        "credential",
+        "password",
+        "refreshToken",
+        "secret",
+        "session_token",
+        "token",
+        "accessToken"
+      ],
+      "redactedText": null,
+      "redactedFields": {
+        "cwd": "<redacted>",
+        "sessionId": "<redacted>"
+      }
+    },
+    {
+      "id": "forbidden-field-overrides-safe-name",
+      "pathMode": "redactHomeDirectory",
+      "secretMode": "redactKnownSensitiveFields",
+      "sensitiveFieldNames": [
+        "apiKey",
+        "authorization",
+        "credential",
+        "password",
+        "refreshToken",
+        "secret",
+        "session_token",
+        "token",
+        "accessToken"
+      ],
+      "redactedText": null,
+      "redactedFields": {
+        "cwd": "/Users/<user>/project",
+        "workspace": "<redacted>"
+      }
+    },
+    {
+      "id": "custom-sensitive-field",
+      "pathMode": "redactHomeDirectory",
+      "secretMode": "redactKnownSensitiveFields",
+      "sensitiveFieldNames": [
+        "workspaceToken"
+      ],
+      "redactedText": null,
+      "redactedFields": {
+        "apiKey": "fixture-api-key",
+        "workspaceToken": "<redacted>"
+      }
+    }
+  ]
+}

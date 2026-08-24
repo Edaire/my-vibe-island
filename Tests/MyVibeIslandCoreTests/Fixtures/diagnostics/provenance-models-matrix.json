@@ -1,0 +1,97 @@
+{
+  "binarySnapshots": [
+    {
+      "integrityStatus": "trusted",
+      "executableLoadStatus": "loaded",
+      "externalHelperStatus": "managed",
+      "bundleIDMatchesOfficial": true,
+      "helperBinaryPresent": true,
+      "signingTeamMatchesOfficial": true,
+      "hardenedRuntimeEnabled": true,
+      "codeUniqueHash": "redacted-hash"
+    },
+    {
+      "integrityStatus": "mismatch",
+      "executableLoadStatus": "loaded",
+      "externalHelperStatus": "stale",
+      "bundleIDMatchesOfficial": false,
+      "helperBinaryPresent": true,
+      "signingTeamMatchesOfficial": false,
+      "hardenedRuntimeEnabled": true,
+      "codeUniqueHash": "redacted-stale-hash"
+    }
+  ],
+  "clientPayloads": [
+    {
+      "appVersion": "1.0.0",
+      "platform": "macOS",
+      "bundleId": "com.example.fixture",
+      "binary": "my-vibe-island"
+    },
+    {
+      "appVersion": "1.0.1",
+      "platform": "macOS",
+      "bundleId": "com.example.fixture.beta",
+      "binary": "my-vibe-island-beta"
+    }
+  ],
+  "assessments": [
+    {
+      "status": "trustedManaged",
+      "binarySnapshot": {
+        "integrityStatus": "trusted",
+        "executableLoadStatus": "loaded",
+        "externalHelperStatus": "managed",
+        "bundleIDMatchesOfficial": true,
+        "helperBinaryPresent": true,
+        "signingTeamMatchesOfficial": true,
+        "hardenedRuntimeEnabled": true,
+        "codeUniqueHash": "redacted-hash"
+      },
+      "clientPayload": {
+        "appVersion": "1.0.0",
+        "platform": "macOS",
+        "bundleId": "com.example.fixture",
+        "binary": "my-vibe-island"
+      },
+      "redactionLevel": "redacted",
+      "reason": "managed helper matched expected signature"
+    },
+    {
+      "status": "staleHelper",
+      "binarySnapshot": {
+        "integrityStatus": "mismatch",
+        "executableLoadStatus": "loaded",
+        "externalHelperStatus": "stale",
+        "bundleIDMatchesOfficial": false,
+        "helperBinaryPresent": true,
+        "signingTeamMatchesOfficial": false,
+        "hardenedRuntimeEnabled": true,
+        "codeUniqueHash": "redacted-stale-hash"
+      },
+      "clientPayload": {
+        "appVersion": "1.0.1",
+        "platform": "macOS",
+        "bundleId": "com.example.fixture.beta",
+        "binary": "my-vibe-island-beta"
+      },
+      "redactionLevel": "localOnly",
+      "reason": "managed helper version is behind app version"
+    },
+    {
+      "status": "unknown",
+      "redactionLevel": "redacted",
+      "reason": "no provenance payload supplied"
+    }
+  ],
+  "statuses": [
+    "trustedManaged",
+    "trustedUnmanaged",
+    "staleHelper",
+    "pathMismatch",
+    "hashMismatch",
+    "bundleMismatch",
+    "missingMarker",
+    "unknown"
+  ]
+}

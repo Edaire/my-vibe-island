@@ -1,0 +1,57 @@
+{
+  "rows": [
+    {
+      "id": "round-trip-denied",
+      "statuses": [
+        {
+          "hostId": "iterm",
+          "permissionType": "automation",
+          "state": "denied",
+          "repairAction": "Open Automation settings",
+          "lastCheckedAt": "2026-07-08T17:08:00Z"
+        }
+      ],
+      "needsRepairFlags": [
+        true
+      ]
+    },
+    {
+      "id": "terminal-granted-and-denied",
+      "statuses": [
+        {
+          "hostId": "iterm",
+          "permissionType": "automation",
+          "state": "granted",
+          "repairAction": null,
+          "lastCheckedAt": "2026-07-08T17:08:00Z"
+        },
+        {
+          "hostId": "iterm",
+          "permissionType": "accessibility",
+          "state": "denied",
+          "repairAction": "Grant Accessibility permission for iTerm",
+          "lastCheckedAt": "2026-07-08T17:08:00Z"
+        }
+      ],
+      "needsRepairFlags": [
+        false,
+        true
+      ]
+    },
+    {
+      "id": "no-permission-required",
+      "statuses": [
+        {
+          "hostId": "custom-url",
+          "permissionType": "none",
+          "state": "notRequired",
+          "repairAction": null,
+          "lastCheckedAt": null
+        }
+      ],
+      "needsRepairFlags": [
+        false
+      ]
+    }
+  ]
+}

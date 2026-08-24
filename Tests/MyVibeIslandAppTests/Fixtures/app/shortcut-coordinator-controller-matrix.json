@@ -1,0 +1,46 @@
+{
+  "rows": [
+    {
+      "id": "start-dispatch-stop",
+      "actions": ["start", "hotKey:toggle-island", "stop"],
+      "outcomes": [
+        "lifecycle:registerShortcuts",
+        "dispatch:dispatchAction:toggleIsland",
+        "lifecycle:unregisterShortcuts"
+      ],
+      "state": {
+        "activeScopes": [],
+        "registeredHotKeyIds": [],
+        "isStarted": false
+      },
+      "keyboardShortcutsEnabled": true,
+      "lastLifecycleAction": "unregisterShortcuts",
+      "events": [
+        "register:toggle-island",
+        "route:toggleIsland",
+        "unregister:toggle-island"
+      ]
+    },
+    {
+      "id": "expand-then-disable",
+      "actions": ["start", "enterScope:expandedPanel", "disableSettings"],
+      "outcomes": [
+        "lifecycle:registerShortcuts",
+        "lifecycle:registerShortcuts",
+        "lifecycle:unregisterShortcuts"
+      ],
+      "state": {
+        "activeScopes": ["persistentGlobal", "expandedPanel"],
+        "registeredHotKeyIds": [],
+        "isStarted": true
+      },
+      "keyboardShortcutsEnabled": false,
+      "lastLifecycleAction": "unregisterShortcuts",
+      "events": [
+        "register:toggle-island",
+        "register:toggle-island,collapse",
+        "unregister:collapse,toggle-island"
+      ]
+    }
+  ]
+}

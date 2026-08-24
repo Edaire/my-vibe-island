@@ -1,0 +1,77 @@
+{
+  "rows": [
+    {
+      "id": "disabled",
+      "intents": []
+    },
+    {
+      "id": "stale",
+      "intents": []
+    },
+    {
+      "id": "threshold",
+      "intents": [
+        {
+          "providerId": "codexRateLimits",
+          "accountId": null,
+          "windowId": "primary",
+          "kind": {
+            "thresholdReached": {
+              "thresholdPercent": 80
+            }
+          },
+          "title": "Usage threshold reached",
+          "message": "Primary reached 85% used",
+          "dedupeKey": "usageThreshold:codexRateLimits:primary:80"
+        }
+      ]
+    },
+    {
+      "id": "limit",
+      "intents": [
+        {
+          "providerId": "codexRateLimits",
+          "accountId": null,
+          "windowId": "primary",
+          "kind": {
+            "thresholdReached": {
+              "thresholdPercent": 80
+            }
+          },
+          "title": "Usage threshold reached",
+          "message": "Primary reached 100% used",
+          "dedupeKey": "usageThreshold:codexRateLimits:primary:80"
+        },
+        {
+          "providerId": "codexRateLimits",
+          "accountId": null,
+          "windowId": "primary",
+          "kind": {
+            "limitReached": {}
+          },
+          "title": "Usage limit reached",
+          "message": "Primary reached 100% used",
+          "dedupeKey": "usageLimit:codexRateLimits:primary"
+        }
+      ]
+    },
+    {
+      "id": "reset",
+      "intents": [
+        {
+          "providerId": "codexRateLimits",
+          "accountId": null,
+          "windowId": "primary",
+          "kind": {
+            "windowReset": {
+              "resetAt": "2026-07-08T13:00:00Z"
+            }
+          },
+          "title": "Usage window reset",
+          "message": "Primary resets at 2026-07-08T13:00:00Z",
+          "dedupeKey": "usageReset:codexRateLimits:2026-07-08T13:00:00Z"
+        }
+      ]
+    }
+  ]
+}

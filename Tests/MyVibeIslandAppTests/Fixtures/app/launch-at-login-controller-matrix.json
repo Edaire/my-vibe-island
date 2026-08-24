@@ -1,0 +1,61 @@
+{
+  "rows": [
+    {
+      "id": "enable-observed-mismatch-failure",
+      "initialState": {
+        "desiredEnabled": false,
+        "observedEnabled": false,
+        "reconciliationResult": "unknown",
+        "lastError": null
+      },
+      "commands": [
+        "setEnabled:true",
+        "observeEnabled:false",
+        "recordFailure:registration denied"
+      ],
+      "actions": [
+        "updateDesired",
+        "needsReconcile",
+        "recordRepairHint"
+      ],
+      "finalState": {
+        "desiredEnabled": true,
+        "observedEnabled": false,
+        "reconciliationResult": "failed",
+        "lastError": "registration denied"
+      },
+      "lastPlanAction": "recordRepairHint",
+      "events": [
+        "desired:true",
+        "repair:registration denied"
+      ]
+    },
+    {
+      "id": "disable-observed-match",
+      "initialState": {
+        "desiredEnabled": true,
+        "observedEnabled": true,
+        "reconciliationResult": "matched",
+        "lastError": null
+      },
+      "commands": [
+        "setEnabled:false",
+        "observeEnabled:false"
+      ],
+      "actions": [
+        "updateDesired",
+        "stateMatched"
+      ],
+      "finalState": {
+        "desiredEnabled": false,
+        "observedEnabled": false,
+        "reconciliationResult": "matched",
+        "lastError": null
+      },
+      "lastPlanAction": "stateMatched",
+      "events": [
+        "desired:false"
+      ]
+    }
+  ]
+}

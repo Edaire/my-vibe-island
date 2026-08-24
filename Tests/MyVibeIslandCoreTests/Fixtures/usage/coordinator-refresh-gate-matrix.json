@@ -1,0 +1,98 @@
+{
+  "rows": [
+    {
+      "id": "initial-refresh-success",
+      "providerId": "codexRateLimits",
+      "accountId": {
+        "rawValue": "local"
+      },
+      "stepResults": [
+        "refreshed:codexRateLimits:fresh:none"
+      ],
+      "refreshCount": 1,
+      "finalState": {
+        "lastFetchAttemptSeconds": 100,
+        "lastSuccessfulFetchSeconds": 100,
+        "backoffMultiplier": 1,
+        "backoffUntilSeconds": null,
+        "isRefreshing": false
+      },
+      "cachedProviderId": "codexRateLimits",
+      "cachedUsedPercent": 33
+    },
+    {
+      "id": "minimum-interval-skip",
+      "providerId": "codexRateLimits",
+      "accountId": null,
+      "stepResults": [
+        "refreshed:codexRateLimits:fresh:none",
+        "skipped:minimumIntervalActive:40"
+      ],
+      "refreshCount": 1,
+      "finalState": {
+        "lastFetchAttemptSeconds": 100,
+        "lastSuccessfulFetchSeconds": 100,
+        "backoffMultiplier": 1,
+        "backoffUntilSeconds": null,
+        "isRefreshing": false
+      },
+      "cachedProviderId": "codexRateLimits",
+      "cachedUsedPercent": 33
+    },
+    {
+      "id": "failure-records-backoff",
+      "providerId": "kimiUsage",
+      "accountId": null,
+      "stepResults": [
+        "threw:refreshFailed"
+      ],
+      "refreshCount": 1,
+      "finalState": {
+        "lastFetchAttemptSeconds": 100,
+        "lastSuccessfulFetchSeconds": null,
+        "backoffMultiplier": 2,
+        "backoffUntilSeconds": 160,
+        "isRefreshing": false
+      },
+      "cachedProviderId": null,
+      "cachedUsedPercent": null
+    },
+    {
+      "id": "backoff-skip",
+      "providerId": "kimiUsage",
+      "accountId": null,
+      "stepResults": [
+        "threw:refreshFailed",
+        "skipped:backoffActive:40"
+      ],
+      "refreshCount": 1,
+      "finalState": {
+        "lastFetchAttemptSeconds": 100,
+        "lastSuccessfulFetchSeconds": null,
+        "backoffMultiplier": 2,
+        "backoffUntilSeconds": 160,
+        "isRefreshing": false
+      },
+      "cachedProviderId": null,
+      "cachedUsedPercent": null
+    },
+    {
+      "id": "missing-provider-unavailable",
+      "providerId": "zaiQuota",
+      "accountId": null,
+      "stepResults": [
+        "refreshed:zaiQuota:unavailable:providerUnavailable"
+      ],
+      "refreshCount": 0,
+      "finalState": {
+        "lastFetchAttemptSeconds": 100,
+        "lastSuccessfulFetchSeconds": 100,
+        "backoffMultiplier": 1,
+        "backoffUntilSeconds": null,
+        "isRefreshing": false
+      },
+      "cachedProviderId": null,
+      "cachedUsedPercent": null
+    }
+  ]
+}

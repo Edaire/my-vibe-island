@@ -1,0 +1,6 @@
+{
+  "rawEventName": "SessionStart",
+  "sessionId": "generic-codex-session",
+  "cwd": "/tmp/generic-codex",
+  "model": "gpt-5"
+}

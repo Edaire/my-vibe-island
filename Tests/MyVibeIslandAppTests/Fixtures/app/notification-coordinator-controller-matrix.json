@@ -1,0 +1,78 @@
+{
+  "rows": [
+    {
+      "id": "permission-delivery",
+      "notificationId": "permission-1",
+      "plan": {
+        "notificationId": "permission-1",
+        "route": "showPeek",
+        "reason": "defaultPolicy",
+        "publishPeek": true,
+        "markUnread": true,
+        "soundCategory": "permission"
+      },
+      "lastPlan": {
+        "notificationId": "permission-1",
+        "route": "showPeek",
+        "reason": "defaultPolicy",
+        "publishPeek": true,
+        "markUnread": true,
+        "soundCategory": "permission"
+      },
+      "events": [
+        "peek:permission-1",
+        "unread:permission-1",
+        "sound:permission-1:permission"
+      ]
+    },
+    {
+      "id": "recent-reveal-suppresses",
+      "notificationId": "repair-1",
+      "plan": {
+        "notificationId": "repair-1",
+        "route": "suppressEntirely",
+        "reason": "recentlyRevealed",
+        "publishPeek": false,
+        "markUnread": false
+      },
+      "lastPlan": {
+        "notificationId": "repair-1",
+        "route": "suppressEntirely",
+        "reason": "recentlyRevealed",
+        "publishPeek": false,
+        "markUnread": false
+      },
+      "events": []
+    },
+    {
+      "id": "presentation-boundary-delivery",
+      "notificationId": "permission-2",
+      "plan": {
+        "notificationId": "permission-2",
+        "route": "showPeek",
+        "reason": "defaultPolicy",
+        "publishPeek": true,
+        "markUnread": true,
+        "soundCategory": "permission"
+      },
+      "lastPlan": {
+        "notificationId": "permission-2",
+        "route": "showPeek",
+        "reason": "defaultPolicy",
+        "publishPeek": true,
+        "markUnread": true,
+        "soundCategory": "permission"
+      },
+      "presentationLastAction": {
+        "kind": "requestSound",
+        "notificationId": "permission-2",
+        "soundCategory": "permission"
+      },
+      "events": [
+        "peek:permission-2:compact",
+        "unread:permission-2",
+        "sound:permission-2:permission"
+      ]
+    }
+  ]
+}

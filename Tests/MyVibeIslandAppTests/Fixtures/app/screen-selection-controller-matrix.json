@@ -1,0 +1,80 @@
+{
+  "rows": [
+    {
+      "id": "default-refresh-manual",
+      "initialSnapshot": {
+        "mode": "builtInNotchDisplay",
+        "availableScreenIdentifiers": [],
+        "targetIdentifier": null,
+        "manualScreenIdentifier": null,
+        "focusedScreenIdentifier": null,
+        "switchTipDismissed": false
+      },
+      "commands": [
+        "refresh:built-in,external",
+        "selectMode:builtInNotchDisplay",
+        "selectDisplay:external"
+      ],
+      "targetDidChange": [
+        true,
+        false,
+        true
+      ],
+      "finalSnapshot": {
+        "mode": "manualDisplay",
+        "availableScreenIdentifiers": [
+          "built-in",
+          "external"
+        ],
+        "targetIdentifier": "external",
+        "manualScreenIdentifier": "external",
+        "focusedScreenIdentifier": null,
+        "switchTipDismissed": false
+      },
+      "lastPlanTargetDidChange": true,
+      "events": [
+        "target:built-in",
+        "target:external"
+      ]
+    },
+    {
+      "id": "follow-focus-dismiss-tip",
+      "initialSnapshot": {
+        "mode": "followKeyboardFocus",
+        "availableScreenIdentifiers": [],
+        "targetIdentifier": null,
+        "manualScreenIdentifier": null,
+        "focusedScreenIdentifier": null,
+        "switchTipDismissed": false
+      },
+      "commands": [
+        "refresh:built-in,external",
+        "focusDisplay:external",
+        "focusDisplay:missing",
+        "dismissSwitchTip"
+      ],
+      "targetDidChange": [
+        true,
+        true,
+        false,
+        false
+      ],
+      "finalSnapshot": {
+        "mode": "followKeyboardFocus",
+        "availableScreenIdentifiers": [
+          "built-in",
+          "external"
+        ],
+        "targetIdentifier": "external",
+        "manualScreenIdentifier": null,
+        "focusedScreenIdentifier": "external",
+        "switchTipDismissed": true
+      },
+      "lastPlanTargetDidChange": false,
+      "events": [
+        "target:built-in",
+        "target:external"
+      ]
+    }
+  ]
+}

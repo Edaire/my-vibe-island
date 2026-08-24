@@ -1,0 +1,20 @@
+{
+  "normalized": {
+    "selectedPackId": "builtin.clean",
+    "isEnabled": true,
+    "volume": 1,
+    "quietHoursEnabled": true,
+    "quietHoursStartMinutes": 0,
+    "quietHoursEndMinutes": 1439,
+    "isCeremonyLoadInProgress": true,
+    "shouldAutoplayCeremonyWhenReady": false,
+    "ceremonyLoadGeneration": 0
+  },
+  "disabledAtTen": false,
+  "sameDayAtNoon": true,
+  "sameDayAtEvening": false,
+  "overnightAtLateNight": true,
+  "overnightAtEarlyMorning": true,
+  "overnightAtNoon": false,
+  "fullDayAtNoon": true
+}

@@ -1,0 +1,16 @@
+"content.session" = "세션";
+"content.sessions" = "세션";
+"status.compacting" = "압축 중";
+"tool.allowPrefix" = "%@ 허용";
+"tool.editing" = "편집 중";
+"tool.fetching" = "가져오기 중";
+"tool.finding" = "찾기 중";
+"tool.reading" = "읽기 중";
+"tool.running" = "실행 중";
+"tool.runningSkill" = "스킬 실행 중";
+"tool.searching" = "검색 중";
+"tool.tasking" = "작업 중";
+"tool.thinkingDetail" = "생각 중: %@";
+"tool.thinkingEllipsis" = "생각 중...";
+"tool.workingEllipsis" = "작업 중...";
+"tool.writing" = "쓰기 중";

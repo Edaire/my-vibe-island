@@ -1,0 +1,37 @@
+{
+  "rows": [
+    {
+      "id": "capture-shortcut",
+      "actions": ["begin:approve", "capture:Cmd-Delete"],
+      "outcomes": ["result:started", "result:captured"],
+      "state": {"displayText": ""},
+      "specs": [{"id": "approve", "isEnabled": true, "displayText": "Cmd-Delete"}],
+      "lastResultDecision": "captured",
+      "events": [
+        "render:approve:none:",
+        "save:approve:true:Cmd-Delete",
+        "render:none:none:"
+      ]
+    },
+    {
+      "id": "capture-conflict",
+      "actions": ["begin:approve", "capture:Cmd-Delete"],
+      "outcomes": ["result:started", "result:conflict"],
+      "state": {"activeSpecId": "approve", "displayText": "Cmd-Delete", "conflictingSpecId": "deny"},
+      "specs": [
+        {"id": "approve", "isEnabled": true, "displayText": "Cmd-Return"},
+        {"id": "deny", "isEnabled": true, "displayText": "Cmd-Delete"}
+      ],
+      "lastResultDecision": "conflict",
+      "events": ["render:approve:none:", "render:approve:deny:Cmd-Delete"]
+    },
+    {
+      "id": "disable-without-remapping",
+      "actions": ["setEnabled:approve:false"],
+      "outcomes": ["enabled:false"],
+      "state": {"displayText": ""},
+      "specs": [{"id": "approve", "isEnabled": false, "displayText": "Cmd-Return"}],
+      "events": ["save:approve:false:Cmd-Return"]
+    }
+  ]
+}

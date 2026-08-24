@@ -1,0 +1,63 @@
+{
+  "rows": [
+    {
+      "id": "append-keeps-most-recent",
+      "capacity": 2,
+      "sampleCount": 2,
+      "detectedAtValues": [
+        "second",
+        "third"
+      ],
+      "peakLagMilliseconds": [
+        1200,
+        1500
+      ],
+      "redactedStackAvailableValues": [
+        true,
+        true
+      ],
+      "recoveredAtValues": [
+        null,
+        null
+      ]
+    },
+    {
+      "id": "capacity-clamped-to-one",
+      "capacity": 1,
+      "sampleCount": 1,
+      "detectedAtValues": [
+        "latest"
+      ],
+      "peakLagMilliseconds": [
+        800
+      ],
+      "redactedStackAvailableValues": [
+        true
+      ],
+      "recoveredAtValues": [
+        null
+      ]
+    },
+    {
+      "id": "initializer-keeps-suffix",
+      "capacity": 2,
+      "sampleCount": 2,
+      "detectedAtValues": [
+        "middle",
+        "new"
+      ],
+      "peakLagMilliseconds": [
+        600,
+        700
+      ],
+      "redactedStackAvailableValues": [
+        true,
+        true
+      ],
+      "recoveredAtValues": [
+        null,
+        null
+      ]
+    }
+  ]
+}

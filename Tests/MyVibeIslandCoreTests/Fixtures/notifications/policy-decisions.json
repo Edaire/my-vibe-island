@@ -1,0 +1,44 @@
+{
+  "permissionDefault": {
+    "route": "showPeek",
+    "shouldPlaySound": true,
+    "shouldMarkUnread": true,
+    "reason": "defaultPolicy"
+  },
+  "completionDefault": {
+    "route": "showPeek",
+    "shouldPlaySound": true,
+    "shouldMarkUnread": true,
+    "reason": "defaultPolicy"
+  },
+  "activityDefault": {
+    "route": "suppressEntirely",
+    "shouldPlaySound": false,
+    "shouldMarkUnread": false,
+    "reason": "activityUpdateSuppressed"
+  },
+  "usageLimitDefault": {
+    "route": "showPeek",
+    "shouldPlaySound": false,
+    "shouldMarkUnread": false,
+    "reason": "defaultPolicy"
+  },
+  "recentlyRevealed": {
+    "route": "suppressEntirely",
+    "shouldPlaySound": false,
+    "shouldMarkUnread": false,
+    "reason": "recentlyRevealed"
+  },
+  "silencePeekAndSound": {
+    "route": "updateUnreadOnly",
+    "shouldPlaySound": false,
+    "shouldMarkUnread": true,
+    "reason": "silenceRuleMatched"
+  },
+  "silenceSoundOnly": {
+    "route": "showPeek",
+    "shouldPlaySound": false,
+    "shouldMarkUnread": true,
+    "reason": "silenceRuleMatched"
+  }
+}

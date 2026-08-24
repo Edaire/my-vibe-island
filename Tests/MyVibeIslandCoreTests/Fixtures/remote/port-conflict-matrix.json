@@ -1,0 +1,100 @@
+{
+  "rows": [
+    {
+      "id": "free",
+      "hostId": "devbox",
+      "port": 42042,
+      "listenerOwners": [],
+      "sameUserSSHPids": [],
+      "liveEstablishedPids": [],
+      "foreignOwners": [],
+      "checkedByLsof": true,
+      "checkedBySS": true,
+      "decision": "free",
+      "allowsAutomaticCleanup": false,
+      "failsClosed": false
+    },
+    {
+      "id": "same-user-stale-cleanup",
+      "hostId": "devbox",
+      "port": 42042,
+      "listenerOwners": [
+        "dev:sshd"
+      ],
+      "sameUserSSHPids": [
+        101
+      ],
+      "liveEstablishedPids": [],
+      "foreignOwners": [],
+      "checkedByLsof": true,
+      "checkedBySS": true,
+      "decision": "sameUserStaleSSHDCleanupAllowed",
+      "allowsAutomaticCleanup": true,
+      "failsClosed": false
+    },
+    {
+      "id": "foreign-occupied",
+      "hostId": "devbox",
+      "port": 42042,
+      "listenerOwners": [],
+      "sameUserSSHPids": [],
+      "liveEstablishedPids": [],
+      "foreignOwners": [
+        "root"
+      ],
+      "checkedByLsof": true,
+      "checkedBySS": true,
+      "decision": "foreignOccupied",
+      "allowsAutomaticCleanup": false,
+      "failsClosed": false
+    },
+    {
+      "id": "non-sshd-occupied",
+      "hostId": "devbox",
+      "port": 42042,
+      "listenerOwners": [
+        "dev:node"
+      ],
+      "sameUserSSHPids": [],
+      "liveEstablishedPids": [],
+      "foreignOwners": [],
+      "checkedByLsof": true,
+      "checkedBySS": true,
+      "decision": "nonSSHDOccupied",
+      "allowsAutomaticCleanup": false,
+      "failsClosed": false
+    },
+    {
+      "id": "live-tunnel-occupied",
+      "hostId": "devbox",
+      "port": 42042,
+      "listenerOwners": [],
+      "sameUserSSHPids": [
+        201
+      ],
+      "liveEstablishedPids": [
+        201
+      ],
+      "foreignOwners": [],
+      "checkedByLsof": true,
+      "checkedBySS": true,
+      "decision": "liveTunnelOccupied",
+      "allowsAutomaticCleanup": false,
+      "failsClosed": false
+    },
+    {
+      "id": "unknown-fail-closed",
+      "hostId": "devbox",
+      "port": 42042,
+      "listenerOwners": [],
+      "sameUserSSHPids": [],
+      "liveEstablishedPids": [],
+      "foreignOwners": [],
+      "checkedByLsof": false,
+      "checkedBySS": false,
+      "decision": "unknownFailClosed",
+      "allowsAutomaticCleanup": false,
+      "failsClosed": true
+    }
+  ]
+}

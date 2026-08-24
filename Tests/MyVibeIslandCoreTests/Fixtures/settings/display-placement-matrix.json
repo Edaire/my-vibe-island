@@ -1,0 +1,251 @@
+{
+  "cases": [
+    {
+      "name": "default-safe-area-centered",
+      "input": {
+        "screenFrame": {
+          "x": 0,
+          "y": 0,
+          "width": 1512,
+          "height": 982
+        },
+        "safeAreaTopInset": 24,
+        "closedSize": {
+          "width": 220,
+          "height": 36
+        },
+        "expandedSize": {
+          "width": 640,
+          "height": 420
+        },
+        "maximumExpandedSize": {
+          "width": 640,
+          "height": 560
+        },
+        "horizontalMargin": 16,
+        "verticalMargin": 16,
+        "hideInFullscreen": true,
+        "activeAppIsFullscreen": false,
+        "blockingActionVisible": false,
+        "onboardingFullscreenActive": false
+      },
+      "plan": {
+        "closedFrame": {
+          "x": 416,
+          "y": 402,
+          "width": 680,
+          "height": 580
+        },
+        "expandedFrame": {
+          "x": 416,
+          "y": 402,
+          "width": 680,
+          "height": 580
+        },
+        "anchor": {
+          "x": 756,
+          "y": 982
+        },
+        "safeAreaAdjustment": 24
+      }
+    },
+    {
+      "name": "clamped-expanded-panel",
+      "input": {
+        "screenFrame": {
+          "x": 100,
+          "y": 50,
+          "width": 500,
+          "height": 600
+        },
+        "safeAreaTopInset": 10,
+        "closedSize": {
+          "width": 180,
+          "height": 32
+        },
+        "expandedSize": {
+          "width": 900,
+          "height": 700
+        },
+        "maximumExpandedSize": {
+          "width": 720,
+          "height": 520
+        },
+        "horizontalMargin": 24,
+        "verticalMargin": 32,
+        "hideInFullscreen": true,
+        "activeAppIsFullscreen": false,
+        "blockingActionVisible": false,
+        "onboardingFullscreenActive": false
+      },
+      "plan": {
+        "closedFrame": {
+          "x": 10,
+          "y": 70,
+          "width": 680,
+          "height": 580
+        },
+        "expandedFrame": {
+          "x": 10,
+          "y": 70,
+          "width": 680,
+          "height": 580
+        },
+        "anchor": {
+          "x": 350,
+          "y": 650
+        },
+        "safeAreaAdjustment": 10
+      }
+    },
+    {
+      "name": "fullscreen-hidden",
+      "input": {
+        "screenFrame": {
+          "x": 0,
+          "y": 0,
+          "width": 1200,
+          "height": 800
+        },
+        "safeAreaTopInset": 0,
+        "closedSize": {
+          "width": 200,
+          "height": 36
+        },
+        "expandedSize": {
+          "width": 600,
+          "height": 400
+        },
+        "maximumExpandedSize": {
+          "width": 640,
+          "height": 560
+        },
+        "horizontalMargin": 16,
+        "verticalMargin": 16,
+        "hideInFullscreen": true,
+        "activeAppIsFullscreen": true,
+        "blockingActionVisible": false,
+        "onboardingFullscreenActive": false
+      },
+      "plan": {
+        "closedFrame": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "expandedFrame": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "anchor": {
+          "x": 600,
+          "y": 800
+        },
+        "safeAreaAdjustment": 0,
+        "collapseReason": "fullscreenHidden"
+      }
+    },
+    {
+      "name": "fullscreen-blocking-action-visible",
+      "input": {
+        "screenFrame": {
+          "x": 0,
+          "y": 0,
+          "width": 1200,
+          "height": 800
+        },
+        "safeAreaTopInset": 0,
+        "closedSize": {
+          "width": 200,
+          "height": 36
+        },
+        "expandedSize": {
+          "width": 600,
+          "height": 400
+        },
+        "maximumExpandedSize": {
+          "width": 640,
+          "height": 560
+        },
+        "horizontalMargin": 16,
+        "verticalMargin": 16,
+        "hideInFullscreen": true,
+        "activeAppIsFullscreen": true,
+        "blockingActionVisible": true,
+        "onboardingFullscreenActive": false
+      },
+      "plan": {
+        "closedFrame": {
+          "x": 260,
+          "y": 220,
+          "width": 680,
+          "height": 580
+        },
+        "expandedFrame": {
+          "x": 260,
+          "y": 220,
+          "width": 680,
+          "height": 580
+        },
+        "anchor": {
+          "x": 600,
+          "y": 800
+        },
+        "safeAreaAdjustment": 0
+      }
+    },
+    {
+      "name": "onboarding-fullscreen",
+      "input": {
+        "screenFrame": {
+          "x": 0,
+          "y": 0,
+          "width": 1200,
+          "height": 800
+        },
+        "safeAreaTopInset": 0,
+        "closedSize": {
+          "width": 200,
+          "height": 36
+        },
+        "expandedSize": {
+          "width": 600,
+          "height": 400
+        },
+        "maximumExpandedSize": {
+          "width": 640,
+          "height": 560
+        },
+        "horizontalMargin": 16,
+        "verticalMargin": 16,
+        "hideInFullscreen": true,
+        "activeAppIsFullscreen": false,
+        "blockingActionVisible": false,
+        "onboardingFullscreenActive": true
+      },
+      "plan": {
+        "closedFrame": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "expandedFrame": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "anchor": {
+          "x": 600,
+          "y": 800
+        },
+        "safeAreaAdjustment": 0,
+        "collapseReason": "onboardingFullscreen"
+      }
+    }
+  ]
+}

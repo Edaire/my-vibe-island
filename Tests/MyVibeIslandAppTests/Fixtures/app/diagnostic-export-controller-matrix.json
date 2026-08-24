@@ -1,0 +1,116 @@
+{
+  "rows": [
+    {
+      "id": "ready-redacted-export-plan",
+      "plan": {
+        "status": "ready",
+        "entries": [
+          {
+            "sectionName": "system-info.txt",
+            "path": "system-info.txt",
+            "redactionLevel": "redacted",
+            "fields": {
+              "appVersion": "1.0",
+              "cwd": "/Users/<user>/project"
+            }
+          },
+          {
+            "sectionName": "logs/",
+            "path": "logs/index.json",
+            "redactionLevel": "redacted",
+            "fields": {
+              "lineCount": "2"
+            }
+          }
+        ],
+        "failures": []
+      },
+      "descriptor": {
+        "status": "ready",
+        "entryCount": 2,
+        "failureCount": 0,
+        "canWriteArchive": true,
+        "entryRows": [
+          {
+            "sectionName": "system-info.txt",
+            "path": "system-info.txt",
+            "redactionLevel": "redacted",
+            "fieldCount": 2
+          },
+          {
+            "sectionName": "logs/",
+            "path": "logs/index.json",
+            "redactionLevel": "redacted",
+            "fieldCount": 1
+          }
+        ],
+        "failureRows": []
+      },
+      "lastPlan": {
+        "status": "ready",
+        "entries": [
+          {
+            "sectionName": "system-info.txt",
+            "path": "system-info.txt",
+            "redactionLevel": "redacted",
+            "fields": {
+              "appVersion": "1.0",
+              "cwd": "/Users/<user>/project"
+            }
+          },
+          {
+            "sectionName": "logs/",
+            "path": "logs/index.json",
+            "redactionLevel": "redacted",
+            "fields": {
+              "lineCount": "2"
+            }
+          }
+        ],
+        "failures": []
+      },
+      "events": [
+        "plan:ready:2:0"
+      ]
+    },
+    {
+      "id": "required-section-fails-closed",
+      "plan": {
+        "status": "failedClosed",
+        "entries": [],
+        "failures": [
+          {
+            "sectionName": "system-info.txt",
+            "error": "sectionGenerationFailed"
+          }
+        ]
+      },
+      "descriptor": {
+        "status": "failedClosed",
+        "entryCount": 0,
+        "failureCount": 1,
+        "canWriteArchive": false,
+        "entryRows": [],
+        "failureRows": [
+          {
+            "sectionName": "system-info.txt",
+            "error": "sectionGenerationFailed"
+          }
+        ]
+      },
+      "lastPlan": {
+        "status": "failedClosed",
+        "entries": [],
+        "failures": [
+          {
+            "sectionName": "system-info.txt",
+            "error": "sectionGenerationFailed"
+          }
+        ]
+      },
+      "events": [
+        "plan:failedClosed:0:1"
+      ]
+    }
+  ]
+}

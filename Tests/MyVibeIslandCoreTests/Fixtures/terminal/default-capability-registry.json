@@ -1,0 +1,298 @@
+{
+  "descriptors": [
+    {
+      "id": "custom-url",
+      "displayName": "Custom URL",
+      "category": "desktopApp",
+      "supportLevel": "supported",
+      "supportedPrecisions": ["exactPane"],
+      "bundleIdentifiers": [],
+      "cliCommands": [],
+      "permissionRequirements": ["urlScheme"]
+    },
+    {
+      "id": "codex-deeplink",
+      "displayName": "Codex Desktop App",
+      "category": "desktopApp",
+      "supportLevel": "experimental",
+      "supportedPrecisions": ["exactPane"],
+      "bundleIdentifiers": [],
+      "cliCommands": [],
+      "permissionRequirements": ["urlScheme"]
+    },
+    {
+      "id": "supacode",
+      "displayName": "Supacode",
+      "category": "terminal",
+      "supportLevel": "experimental",
+      "supportedPrecisions": ["exactPane"],
+      "bundleIdentifiers": [],
+      "cliCommands": [],
+      "permissionRequirements": ["socket"]
+    },
+    {
+      "id": "cmux",
+      "displayName": "cmux",
+      "category": "terminal",
+      "supportLevel": "experimental",
+      "supportedPrecisions": ["exactPane"],
+      "bundleIdentifiers": [],
+      "cliCommands": [],
+      "permissionRequirements": ["socket"]
+    },
+    {
+      "id": "tmux",
+      "displayName": "tmux",
+      "category": "multiplexer",
+      "supportLevel": "supported",
+      "supportedPrecisions": ["exactPane"],
+      "bundleIdentifiers": [],
+      "cliCommands": ["tmux"],
+      "permissionRequirements": ["cli", "automation"]
+    },
+    {
+      "id": "zellij",
+      "displayName": "Zellij",
+      "category": "multiplexer",
+      "supportLevel": "experimental",
+      "supportedPrecisions": ["exactPane"],
+      "bundleIdentifiers": [],
+      "cliCommands": ["zellij"],
+      "permissionRequirements": ["cli"]
+    },
+    {
+      "id": "wezterm",
+      "displayName": "WezTerm",
+      "category": "terminal",
+      "supportLevel": "supported",
+      "supportedPrecisions": ["exactPane"],
+      "bundleIdentifiers": [],
+      "cliCommands": ["wezterm"],
+      "permissionRequirements": ["cli"]
+    },
+    {
+      "id": "kaku",
+      "displayName": "Kaku",
+      "category": "terminal",
+      "supportLevel": "experimental",
+      "supportedPrecisions": ["exactPane"],
+      "bundleIdentifiers": [],
+      "cliCommands": ["kaku"],
+      "permissionRequirements": ["cli"]
+    },
+    {
+      "id": "otty",
+      "displayName": "Otty",
+      "category": "terminal",
+      "supportLevel": "experimental",
+      "supportedPrecisions": ["exactPane"],
+      "bundleIdentifiers": [],
+      "cliCommands": [],
+      "permissionRequirements": ["socket"]
+    },
+    {
+      "id": "kitty",
+      "displayName": "Kitty",
+      "category": "terminal",
+      "supportLevel": "experimental",
+      "supportedPrecisions": ["exactWindow"],
+      "bundleIdentifiers": [],
+      "cliCommands": ["kitty"],
+      "permissionRequirements": ["socket"]
+    },
+    {
+      "id": "ghostty",
+      "displayName": "Ghostty",
+      "category": "terminal",
+      "supportLevel": "supported",
+      "supportedPrecisions": ["exactWindow"],
+      "bundleIdentifiers": [
+        "com.mitchellh.ghostty",
+        "com.github.mitchellh.ghostty"
+      ],
+      "cliCommands": [],
+      "permissionRequirements": ["automation"]
+    },
+    {
+      "id": "warp",
+      "displayName": "Warp",
+      "category": "terminal",
+      "supportLevel": "experimental",
+      "supportedPrecisions": ["exactWindow"],
+      "bundleIdentifiers": ["dev.warp.Warp-Stable"],
+      "cliCommands": [],
+      "permissionRequirements": ["urlScheme", "accessibility"]
+    },
+    {
+      "id": "iterm",
+      "displayName": "iTerm2",
+      "category": "terminal",
+      "supportLevel": "supported",
+      "supportedPrecisions": ["exactPane"],
+      "bundleIdentifiers": ["com.googlecode.iterm2"],
+      "cliCommands": [],
+      "permissionRequirements": ["automation"]
+    },
+    {
+      "id": "terminal-tty",
+      "displayName": "Terminal.app",
+      "category": "terminal",
+      "supportLevel": "supported",
+      "supportedPrecisions": ["exactWindow"],
+      "bundleIdentifiers": ["com.apple.Terminal"],
+      "cliCommands": [],
+      "permissionRequirements": ["automation"]
+    },
+    {
+      "id": "vscode-workspace",
+      "displayName": "VS Code",
+      "category": "ide",
+      "supportLevel": "supported",
+      "supportedPrecisions": ["workspace"],
+      "bundleIdentifiers": ["com.microsoft.VSCode"],
+      "cliCommands": ["code"],
+      "permissionRequirements": ["cli"]
+    },
+    {
+      "id": "vscode-insiders-workspace",
+      "displayName": "VS Code Insiders",
+      "category": "ide",
+      "supportLevel": "supported",
+      "supportedPrecisions": ["workspace"],
+      "bundleIdentifiers": ["com.microsoft.VSCodeInsiders"],
+      "cliCommands": ["code-insiders"],
+      "permissionRequirements": ["cli"]
+    },
+    {
+      "id": "cursor-workspace",
+      "displayName": "Cursor",
+      "category": "ide",
+      "supportLevel": "supported",
+      "supportedPrecisions": ["workspace"],
+      "bundleIdentifiers": ["com.todesktop.230313mzl4w4u92"],
+      "cliCommands": ["cursor"],
+      "permissionRequirements": ["cli"]
+    },
+    {
+      "id": "windsurf-workspace",
+      "displayName": "Windsurf",
+      "category": "ide",
+      "supportLevel": "supported",
+      "supportedPrecisions": ["workspace"],
+      "bundleIdentifiers": ["com.exafunction.windsurf"],
+      "cliCommands": ["windsurf"],
+      "permissionRequirements": ["cli"]
+    },
+    {
+      "id": "trae-workspace",
+      "displayName": "Trae",
+      "category": "ide",
+      "supportLevel": "experimental",
+      "supportedPrecisions": ["workspace"],
+      "bundleIdentifiers": ["com.trae.app"],
+      "cliCommands": ["trae"],
+      "permissionRequirements": ["cli"]
+    },
+    {
+      "id": "qoder-workspace",
+      "displayName": "Qoder IDE",
+      "category": "ide",
+      "supportLevel": "experimental",
+      "supportedPrecisions": ["workspace"],
+      "bundleIdentifiers": [],
+      "cliCommands": ["qoder"],
+      "permissionRequirements": ["cli"]
+    },
+    {
+      "id": "jetbrains-workspace",
+      "displayName": "JetBrains IDEs",
+      "category": "ide",
+      "supportLevel": "supported",
+      "supportedPrecisions": ["workspace"],
+      "bundleIdentifiers": [
+        "com.jetbrains.intellij",
+        "com.jetbrains.intellij-EAP",
+        "com.jetbrains.WebStorm",
+        "com.jetbrains.PyCharm",
+        "com.jetbrains.goland",
+        "com.jetbrains.rider",
+        "com.jetbrains.CLion",
+        "com.jetbrains.PhpStorm",
+        "com.jetbrains.RubyMine",
+        "com.jetbrains.datagrip"
+      ],
+      "cliCommands": [
+        "idea",
+        "webstorm",
+        "pycharm",
+        "goland",
+        "rider",
+        "clion",
+        "phpstorm",
+        "rubymine",
+        "datagrip"
+      ],
+      "permissionRequirements": ["cli"]
+    },
+    {
+      "id": "ide-workspace",
+      "displayName": "IDE Workspace",
+      "category": "ide",
+      "supportLevel": "supported",
+      "supportedPrecisions": ["workspace"],
+      "bundleIdentifiers": [],
+      "cliCommands": [],
+      "permissionRequirements": ["cli"]
+    },
+    {
+      "id": "workspace",
+      "displayName": "Workspace",
+      "category": "fallback",
+      "supportLevel": "supported",
+      "supportedPrecisions": ["workspace"],
+      "bundleIdentifiers": [],
+      "cliCommands": [],
+      "permissionRequirements": ["none"]
+    },
+    {
+      "id": "claude-desktop-code",
+      "displayName": "Claude Desktop Code",
+      "category": "desktopApp",
+      "supportLevel": "detectedOnly",
+      "supportedPrecisions": ["application"],
+      "bundleIdentifiers": [],
+      "cliCommands": [],
+      "permissionRequirements": ["none"]
+    },
+    {
+      "id": "application",
+      "displayName": "Application",
+      "category": "fallback",
+      "supportLevel": "supported",
+      "supportedPrecisions": ["application"],
+      "bundleIdentifiers": [],
+      "cliCommands": [],
+      "permissionRequirements": ["none"]
+    },
+    {
+      "id": "remote-hint",
+      "displayName": "Remote Hint",
+      "category": "remote",
+      "supportLevel": "supported",
+      "supportedPrecisions": ["remoteHint"],
+      "bundleIdentifiers": [],
+      "cliCommands": [],
+      "permissionRequirements": ["none"]
+    },
+    {
+      "id": "unsupported",
+      "displayName": "Unsupported",
+      "category": "fallback",
+      "supportLevel": "detectedOnly",
+      "supportedPrecisions": ["unsupported"],
+      "bundleIdentifiers": [],
+      "cliCommands": [],
+      "permissionRequirements": ["none"]
+    }
+  ]
+}

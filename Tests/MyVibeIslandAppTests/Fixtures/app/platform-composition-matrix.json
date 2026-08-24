@@ -1,0 +1,42 @@
+{
+  "rows": [
+    {
+      "id": "injected-platform-routing",
+      "executedIntentCount": 25,
+      "lifecycleSteps": ["createRuntime"],
+      "ignoredCommands": ["exportDiagnostics"],
+      "runningOwners": ["sessionCoordinator"],
+      "targetScreenIdentifier": "built-in",
+      "hasPanel": false,
+      "panelVisible": false,
+      "dockIconVisible": true,
+      "launchAtLoginEnabled": true,
+      "maintenanceCommands": ["checkForUpdates", "exportDiagnostics"],
+      "hasLastOverlayRoute": true,
+      "events": [
+        "step:createRuntime",
+        "start:bridgeServer",
+        "start:sessionCoordinator",
+        "panel:create",
+        "panel:install",
+        "panel:show",
+        "activate",
+        "window:settings:integrations:codex",
+        "dock:true",
+        "login:true",
+        "updates",
+        "diagnostics",
+        "ignored:exportDiagnostics",
+        "select:session-1",
+        "jump:session-2",
+        "resolve:request-1:session-3",
+        "answer:request-2:session-4",
+        "stop:bridgeServer",
+        "panel:hide",
+        "panel:remove",
+        "panel:close",
+        "quit"
+      ]
+    }
+  ]
+}

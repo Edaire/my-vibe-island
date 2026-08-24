@@ -1,0 +1,104 @@
+{
+  "beginRows": [
+    {
+      "id": "idle-starts",
+      "decision": "started",
+      "nextState": {
+        "activeSpecId": "approve",
+        "pendingDisplayText": "",
+        "conflictSpecId": null
+      }
+    },
+    {
+      "id": "same-target-restarts",
+      "decision": "started",
+      "nextState": {
+        "activeSpecId": "approve",
+        "pendingDisplayText": "",
+        "conflictSpecId": null
+      }
+    },
+    {
+      "id": "different-target-blocked",
+      "decision": "alreadyRecording",
+      "nextState": {
+        "activeSpecId": "approve",
+        "pendingDisplayText": "",
+        "conflictSpecId": null
+      }
+    }
+  ],
+  "captureRows": [
+    {
+      "id": "inactive-target-ignored",
+      "decision": "ignored",
+      "nextState": {
+        "activeSpecId": "deny",
+        "pendingDisplayText": "",
+        "conflictSpecId": null
+      },
+      "updatedSpec": null
+    },
+    {
+      "id": "escape-cancels",
+      "decision": "cancelled",
+      "nextState": {
+        "activeSpecId": null,
+        "pendingDisplayText": "",
+        "conflictSpecId": null
+      },
+      "updatedSpec": null
+    },
+    {
+      "id": "duplicate-conflicts",
+      "decision": "conflict",
+      "nextState": {
+        "activeSpecId": "approve",
+        "pendingDisplayText": "Cmd-Delete",
+        "conflictSpecId": "deny"
+      },
+      "updatedSpec": null
+    },
+    {
+      "id": "new-combo-captured",
+      "decision": "captured",
+      "nextState": {
+        "activeSpecId": null,
+        "pendingDisplayText": "",
+        "conflictSpecId": null
+      },
+      "updatedSpec": {
+        "id": "approve",
+        "action": "approvePermission",
+        "displayText": "Cmd-Shift-K",
+        "scope": "expandedPanel",
+        "isEnabled": true,
+        "conflictPolicy": "reportConflict"
+      }
+    }
+  ],
+  "toggleRows": [
+    {
+      "id": "disable-preserves-combo",
+      "spec": {
+        "id": "approve",
+        "action": "approvePermission",
+        "displayText": "Cmd-Return",
+        "scope": "expandedPanel",
+        "isEnabled": false,
+        "conflictPolicy": "reportConflict"
+      }
+    },
+    {
+      "id": "enable-preserves-combo",
+      "spec": {
+        "id": "approve",
+        "action": "approvePermission",
+        "displayText": "Cmd-Return",
+        "scope": "expandedPanel",
+        "isEnabled": true,
+        "conflictPolicy": "reportConflict"
+      }
+    }
+  ]
+}

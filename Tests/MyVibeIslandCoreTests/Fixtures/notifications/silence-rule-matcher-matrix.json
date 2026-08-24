@@ -1,0 +1,91 @@
+{
+  "input": {
+    "category": "questionAsked",
+    "sessionId": "session-1",
+    "agent": "codex",
+    "workspace": "/Users/<user>/project",
+    "timeWindowKey": "weekday-morning",
+    "dedupeKey": null,
+    "recentRevealKeys": [],
+    "silenceRules": []
+  },
+  "rows": [
+    {
+      "id": "category-question",
+      "scope": "category",
+      "target": "questionAsked",
+      "enabled": true,
+      "matcherMatches": true,
+      "effectiveMatch": true,
+      "suppressesPeek": true,
+      "suppressesSound": false,
+      "expiresAt": null
+    },
+    {
+      "id": "agent-codex",
+      "scope": "agent",
+      "target": "codex",
+      "enabled": true,
+      "matcherMatches": true,
+      "effectiveMatch": true,
+      "suppressesPeek": true,
+      "suppressesSound": true,
+      "expiresAt": null
+    },
+    {
+      "id": "workspace-project",
+      "scope": "workspace",
+      "target": "/Users/<user>/project",
+      "enabled": true,
+      "matcherMatches": true,
+      "effectiveMatch": true,
+      "suppressesPeek": false,
+      "suppressesSound": true,
+      "expiresAt": null
+    },
+    {
+      "id": "session-one",
+      "scope": "session",
+      "target": "session-1",
+      "enabled": true,
+      "matcherMatches": true,
+      "effectiveMatch": true,
+      "suppressesPeek": true,
+      "suppressesSound": true,
+      "expiresAt": null
+    },
+    {
+      "id": "weekday-morning",
+      "scope": "timeWindow",
+      "target": "weekday-morning",
+      "enabled": true,
+      "matcherMatches": true,
+      "effectiveMatch": true,
+      "suppressesPeek": false,
+      "suppressesSound": true,
+      "expiresAt": "2026-07-08T12:00:00Z"
+    },
+    {
+      "id": "disabled-agent",
+      "scope": "agent",
+      "target": "codex",
+      "enabled": false,
+      "matcherMatches": true,
+      "effectiveMatch": false,
+      "suppressesPeek": true,
+      "suppressesSound": true,
+      "expiresAt": null
+    },
+    {
+      "id": "agent-claude",
+      "scope": "agent",
+      "target": "claude",
+      "enabled": true,
+      "matcherMatches": false,
+      "effectiveMatch": false,
+      "suppressesPeek": true,
+      "suppressesSound": true,
+      "expiresAt": null
+    }
+  ]
+}

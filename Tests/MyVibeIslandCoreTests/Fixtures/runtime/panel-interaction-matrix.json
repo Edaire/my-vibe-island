@@ -1,0 +1,117 @@
+{
+  "rows": [
+    {
+      "id": "menu-hover-open",
+      "displayState": "closed",
+      "isPinned": false,
+      "isHovering": true,
+      "isMouseInMenuBarZone": false,
+      "isMouseInExpandedPanel": false,
+      "needsKeyboardFocus": false,
+      "autoCollapseGeneration": 1,
+      "blockingKind": null,
+      "transientAutoRevealKind": null,
+      "hoverPolicyWhenEnabled": "enabled",
+      "actionSummaries": [
+        "scheduleHoverReveal:0.35:1"
+      ]
+    },
+    {
+      "id": "expanded-leave-auto-collapse",
+      "displayState": "expanded",
+      "isPinned": false,
+      "isHovering": false,
+      "isMouseInMenuBarZone": false,
+      "isMouseInExpandedPanel": false,
+      "needsKeyboardFocus": false,
+      "autoCollapseGeneration": 4,
+      "blockingKind": null,
+      "transientAutoRevealKind": null,
+      "hoverPolicyWhenEnabled": "enabled",
+      "actionSummaries": [
+        "scheduleMouseLeaveCollapse:0.25:1"
+      ]
+    },
+    {
+      "id": "transient-notification-reveal",
+      "displayState": "notificationPeek",
+      "isPinned": false,
+      "isHovering": false,
+      "isMouseInMenuBarZone": false,
+      "isMouseInExpandedPanel": false,
+      "needsKeyboardFocus": false,
+      "autoCollapseGeneration": 1,
+      "blockingKind": null,
+      "transientAutoRevealKind": "attentionReminder",
+      "hoverPolicyWhenEnabled": "enabled",
+      "actionSummaries": [
+        "cancelMouseLeaveCollapse",
+        "setDisplayState:notificationPeek",
+        "scheduleAutoCollapse:4.0:1"
+      ]
+    },
+    {
+      "id": "matching-auto-collapse-tick",
+      "displayState": "closed",
+      "isPinned": false,
+      "isHovering": false,
+      "isMouseInMenuBarZone": false,
+      "isMouseInExpandedPanel": false,
+      "needsKeyboardFocus": false,
+      "autoCollapseGeneration": 3,
+      "blockingKind": null,
+      "transientAutoRevealKind": null,
+      "hoverPolicyWhenEnabled": "enabled",
+      "actionSummaries": [
+        "setDisplayState:closed",
+        "collapsePanel:autoCollapse"
+      ]
+    },
+    {
+      "id": "pinned-outside-click-ignored",
+      "displayState": "expanded",
+      "isPinned": true,
+      "isHovering": false,
+      "isMouseInMenuBarZone": false,
+      "isMouseInExpandedPanel": false,
+      "needsKeyboardFocus": false,
+      "autoCollapseGeneration": 0,
+      "blockingKind": "pinned",
+      "transientAutoRevealKind": null,
+      "hoverPolicyWhenEnabled": "pinnedOpen",
+      "actionSummaries": []
+    },
+    {
+      "id": "keyboard-focus-request",
+      "displayState": "closed",
+      "isPinned": false,
+      "isHovering": false,
+      "isMouseInMenuBarZone": false,
+      "isMouseInExpandedPanel": false,
+      "needsKeyboardFocus": true,
+      "autoCollapseGeneration": 0,
+      "blockingKind": "keyboardFocus",
+      "transientAutoRevealKind": null,
+      "hoverPolicyWhenEnabled": "enabled",
+      "actionSummaries": [
+        "requestKeyboardFocus"
+      ]
+    },
+    {
+      "id": "onboarding-blocks-auto-collapse",
+      "displayState": "expanded",
+      "isPinned": false,
+      "isHovering": false,
+      "isMouseInMenuBarZone": false,
+      "isMouseInExpandedPanel": false,
+      "needsKeyboardFocus": false,
+      "autoCollapseGeneration": 0,
+      "blockingKind": "onboarding",
+      "transientAutoRevealKind": null,
+      "hoverPolicyWhenEnabled": "enabled",
+      "actionSummaries": [
+        "cancelMouseLeaveCollapse"
+      ]
+    }
+  ]
+}

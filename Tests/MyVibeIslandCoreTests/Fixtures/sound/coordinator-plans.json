@@ -1,0 +1,56 @@
+{
+  "permissionPlay": {
+    "action": "playSound",
+    "notificationDecision": {
+      "route": "showPeek",
+      "shouldPlaySound": true,
+      "shouldMarkUnread": true,
+      "reason": "defaultPolicy"
+    },
+    "soundCategory": "permission",
+    "playbackPlan": {
+      "action": "playBuiltin8bit",
+      "category": "permission",
+      "sourceKind": "builtin8bit",
+      "soundId": "builtin8bit.permission",
+      "effectiveVolume": 1,
+      "cooldownSeconds": 0,
+      "suppressedReason": null,
+      "matchedFilterRuleId": null
+    },
+    "skippedReason": null
+  },
+  "completionMuted": {
+    "action": "playSound",
+    "notificationDecision": {
+      "route": "showPeek",
+      "shouldPlaySound": true,
+      "shouldMarkUnread": true,
+      "reason": "defaultPolicy"
+    },
+    "soundCategory": "completion",
+    "playbackPlan": {
+      "action": "playAppleSystem",
+      "category": "completion",
+      "sourceKind": "appleSystem",
+      "soundId": null,
+      "effectiveVolume": 1,
+      "cooldownSeconds": 0,
+      "suppressedReason": null,
+      "matchedFilterRuleId": null
+    },
+    "skippedReason": null
+  },
+  "silenceRuleMuted": {
+    "action": "skipSound",
+    "notificationDecision": {
+      "route": "showPeek",
+      "shouldPlaySound": false,
+      "shouldMarkUnread": true,
+      "reason": "silenceRuleMatched"
+    },
+    "soundCategory": null,
+    "playbackPlan": null,
+    "skippedReason": "notificationPolicyMuted"
+  }
+}

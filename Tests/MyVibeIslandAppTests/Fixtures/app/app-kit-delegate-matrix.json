@@ -1,0 +1,24 @@
+{
+  "rows": [
+    {
+      "id": "first-notification",
+      "state": {
+        "lifecycle": "launched",
+        "hasLaunchPlan": true,
+        "lastPlanIntentCount": 36,
+        "firstIntentIsCreateRuntime": true,
+        "lastIntentIsShowIsland": true
+      }
+    },
+    {
+      "id": "repeated-notification",
+      "state": {
+        "lifecycle": "launched",
+        "hasLaunchPlan": true,
+        "lastPlanIntentCount": 0,
+        "firstIntentIsCreateRuntime": false,
+        "lastIntentIsShowIsland": false
+      }
+    }
+  ]
+}

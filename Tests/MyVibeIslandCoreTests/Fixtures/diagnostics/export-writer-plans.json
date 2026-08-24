@@ -1,0 +1,35 @@
+{
+  "ready": {
+    "status": "ready",
+    "entries": [
+      {
+        "sectionName": "system-info.txt",
+        "path": "system-info.txt",
+        "redactionLevel": "redacted",
+        "fields": {
+          "cwd": "/Users/<user>/project",
+          "token": "<redacted>"
+        }
+      },
+      {
+        "sectionName": "logs/",
+        "path": "logs/index.json",
+        "redactionLevel": "redacted",
+        "fields": {
+          "lineCount": "2"
+        }
+      }
+    ],
+    "failures": []
+  },
+  "failedClosed": {
+    "status": "failedClosed",
+    "entries": [],
+    "failures": [
+      {
+        "sectionName": "sessions-snapshot.txt",
+        "error": "sectionGenerationFailed"
+      }
+    ]
+  }
+}

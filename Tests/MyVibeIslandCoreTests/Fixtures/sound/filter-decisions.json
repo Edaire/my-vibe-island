@@ -1,0 +1,26 @@
+{
+  "highPrioritySourceSuppress": {
+    "isAllowed": false,
+    "category": "usage",
+    "matchedRuleId": "suppress-codex-usage",
+    "reason": "Codex usage is already visible"
+  },
+  "lowerPriorityCategoryAllow": {
+    "isAllowed": true,
+    "category": "usage",
+    "matchedRuleId": "allow-usage",
+    "reason": "Allow usage"
+  },
+  "lifecycleSubagentSuppress": {
+    "isAllowed": false,
+    "category": "permission",
+    "matchedRuleId": "suppress-waiting-blocked",
+    "reason": "Blocked permission request is already visible"
+  },
+  "noRuleAllow": {
+    "isAllowed": true,
+    "category": "remote",
+    "matchedRuleId": null,
+    "reason": null
+  }
+}

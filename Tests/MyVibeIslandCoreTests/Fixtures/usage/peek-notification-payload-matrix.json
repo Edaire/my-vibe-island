@@ -1,0 +1,86 @@
+{
+  "rows": [
+    {
+      "id": "silent",
+      "payloads": [
+        {
+          "id": "usageThreshold:codexRateLimits:primary:80",
+          "category": "usageThreshold",
+          "title": "Usage threshold reached",
+          "body": "Primary reached 85% used",
+          "severity": "warning",
+          "dedupeKey": "usageThreshold:codexRateLimits:primary:80",
+          "soundCategory": null,
+          "sourceProviderId": "codexRateLimits",
+          "windowId": "primary",
+          "unread": false
+        },
+        {
+          "id": "usageLimit:codexRateLimits:primary",
+          "category": "usageLimit",
+          "title": "Usage limit reached",
+          "body": "Primary reached 100% used",
+          "severity": "critical",
+          "dedupeKey": "usageLimit:codexRateLimits:primary",
+          "soundCategory": null,
+          "sourceProviderId": "codexRateLimits",
+          "windowId": "primary",
+          "unread": false
+        },
+        {
+          "id": "usageReset:codexRateLimits:2026-07-08T13:00:00Z",
+          "category": "usageReset",
+          "title": "Usage window reset",
+          "body": "Primary resets at 2026-07-08T13:00:00Z",
+          "severity": "info",
+          "dedupeKey": "usageReset:codexRateLimits:2026-07-08T13:00:00Z",
+          "soundCategory": null,
+          "sourceProviderId": "codexRateLimits",
+          "windowId": "primary",
+          "unread": false
+        }
+      ]
+    },
+    {
+      "id": "audible",
+      "payloads": [
+        {
+          "id": "usageThreshold:codexRateLimits:primary:80",
+          "category": "usageThreshold",
+          "title": "Usage threshold reached",
+          "body": "Primary reached 85% used",
+          "severity": "warning",
+          "dedupeKey": "usageThreshold:codexRateLimits:primary:80",
+          "soundCategory": "usage",
+          "sourceProviderId": "codexRateLimits",
+          "windowId": "primary",
+          "unread": false
+        },
+        {
+          "id": "usageLimit:codexRateLimits:primary",
+          "category": "usageLimit",
+          "title": "Usage limit reached",
+          "body": "Primary reached 100% used",
+          "severity": "critical",
+          "dedupeKey": "usageLimit:codexRateLimits:primary",
+          "soundCategory": "usage",
+          "sourceProviderId": "codexRateLimits",
+          "windowId": "primary",
+          "unread": false
+        },
+        {
+          "id": "usageReset:codexRateLimits:2026-07-08T13:00:00Z",
+          "category": "usageReset",
+          "title": "Usage window reset",
+          "body": "Primary resets at 2026-07-08T13:00:00Z",
+          "severity": "info",
+          "dedupeKey": "usageReset:codexRateLimits:2026-07-08T13:00:00Z",
+          "soundCategory": "usage",
+          "sourceProviderId": "codexRateLimits",
+          "windowId": "primary",
+          "unread": false
+        }
+      ]
+    }
+  ]
+}

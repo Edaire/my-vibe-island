@@ -1,0 +1,40 @@
+{
+  "cases": [
+    {
+      "name": "runtime-without-store-has-no-active-session",
+      "projection": {
+        "sessionIds": ["s1"],
+        "sources": ["codex"],
+        "activeFlags": [false],
+        "activeSessionId": null
+      }
+    },
+    {
+      "name": "runtime-marks-configured-active-session",
+      "projection": {
+        "sessionIds": ["s1", "s2"],
+        "sources": ["codex", "claude"],
+        "activeFlags": [false, true],
+        "activeSessionId": "s2"
+      }
+    },
+    {
+      "name": "missing-active-session-id-is-ignored",
+      "projection": {
+        "sessionIds": ["s1"],
+        "sources": ["codex"],
+        "activeFlags": [false],
+        "activeSessionId": null
+      }
+    },
+    {
+      "name": "default-json-runtime-restores-active-session",
+      "projection": {
+        "sessionIds": ["restored"],
+        "sources": ["codex"],
+        "activeFlags": [true],
+        "activeSessionId": "restored"
+      }
+    }
+  ]
+}

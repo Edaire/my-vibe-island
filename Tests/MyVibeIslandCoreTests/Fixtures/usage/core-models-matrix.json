@@ -1,0 +1,88 @@
+{
+  "amountRows": [
+    {
+      "id": "normal-percent",
+      "usedValue": 25,
+      "limitValue": 100,
+      "usedPercent": 25
+    },
+    {
+      "id": "zero-limit",
+      "usedValue": 25,
+      "limitValue": 0,
+      "usedPercent": null
+    },
+    {
+      "id": "over-limit",
+      "usedValue": 125,
+      "limitValue": 100,
+      "usedPercent": 125
+    },
+    {
+      "id": "missing-limit",
+      "usedValue": 25,
+      "limitValue": null,
+      "usedPercent": null
+    }
+  ],
+  "snapshotRows": [
+    {
+      "id": "provider-quota-full-projection",
+      "providerId": "zaiQuota",
+      "accountId": {
+        "rawValue": "zai-local"
+      },
+      "source": "providerReported",
+      "freshness": "stale",
+      "primaryWindowId": "daily",
+      "secondaryWindowId": "parallel",
+      "extraWindowIds": [
+        "provider-specific"
+      ],
+      "extraUsage": [
+        "plan:provider-plan"
+      ],
+      "bridgeHintTitle": "Provider quota stale",
+      "waitingHintText": "Refresh available soon",
+      "error": "staleResetTime",
+      "privacyLevel": "redacted"
+    },
+    {
+      "id": "provider-quota-failure-projection",
+      "providerId": "kimiUsage",
+      "accountId": null,
+      "source": "unknown",
+      "freshness": "unavailable",
+      "primaryWindowId": null,
+      "secondaryWindowId": null,
+      "extraWindowIds": [],
+      "extraUsage": [],
+      "bridgeHintTitle": null,
+      "waitingHintText": null,
+      "error": "credentialMissing",
+      "privacyLevel": "redacted"
+    }
+  ],
+  "waitingRows": [
+    {
+      "id": "structured-waiting-hint",
+      "providerId": "kimiUsage",
+      "reason": "minimumIntervalActive",
+      "severity": "warning",
+      "text": "Refresh available soon",
+      "retryAfterSeconds": 45,
+      "action": "retry",
+      "redactedDetail": "minimum interval active"
+    },
+    {
+      "id": "legacy-string-waiting-hint",
+      "providerId": "localParsedUsage",
+      "reason": "providerUnavailable",
+      "severity": "info",
+      "text": "Authorize provider",
+      "retryAfterSeconds": null,
+      "action": "none",
+      "redactedDetail": null
+    }
+  ]
+}

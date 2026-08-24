@@ -1,0 +1,57 @@
+{
+  "rows": [
+    {
+      "id": "store-by-provider-account",
+      "snapshots": [
+        {
+          "providerId": "codexRateLimits",
+          "accountId": "account-a",
+          "freshness": "fresh",
+          "usedPercent": 20
+        },
+        {
+          "providerId": "codexRateLimits",
+          "accountId": "account-b",
+          "freshness": "fresh",
+          "usedPercent": 80
+        },
+        null
+      ],
+      "removed": null,
+      "afterClearMissing": null
+    },
+    {
+      "id": "mark-stale",
+      "snapshots": [
+        {
+          "providerId": "localParsedUsage",
+          "accountId": "local",
+          "freshness": "stale",
+          "usedPercent": 55
+        },
+        {
+          "providerId": "localParsedUsage",
+          "accountId": "local",
+          "freshness": "stale",
+          "usedPercent": 55
+        }
+      ],
+      "removed": null,
+      "afterClearMissing": null
+    },
+    {
+      "id": "remove-and-clear",
+      "snapshots": [
+        null,
+        {
+          "providerId": "kimiUsage",
+          "accountId": "kimi",
+          "freshness": "fresh",
+          "usedPercent": 90
+        }
+      ],
+      "removed": true,
+      "afterClearMissing": true
+    }
+  ]
+}

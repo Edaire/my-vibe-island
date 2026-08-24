@@ -1,0 +1,37 @@
+{
+  "rows": [
+    {
+      "id": "default-accessory",
+      "activationPolicy": "accessory",
+      "intents": [
+        "setActivationPolicy:accessory",
+        "installDelegate",
+        "runApplication"
+      ],
+      "delegateLifecycle": "notLaunched",
+      "delegateHasLastPlan": false
+    },
+    {
+      "id": "regular-policy",
+      "activationPolicy": "regular",
+      "intents": [
+        "setActivationPolicy:regular",
+        "installDelegate",
+        "runApplication"
+      ],
+      "delegateLifecycle": "notLaunched",
+      "delegateHasLastPlan": false
+    },
+    {
+      "id": "prohibited-policy",
+      "activationPolicy": "prohibited",
+      "intents": [
+        "setActivationPolicy:prohibited",
+        "installDelegate",
+        "runApplication"
+      ],
+      "delegateLifecycle": "notLaunched",
+      "delegateHasLastPlan": false
+    }
+  ]
+}

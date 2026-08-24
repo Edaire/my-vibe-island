@@ -1,0 +1,60 @@
+{
+  "rows": [
+    {
+      "id": "default",
+      "settings": {
+        "showSubagents": true,
+        "hoverToExpandEnabled": true,
+        "hoverExpandDelay": 0.15,
+        "autoCollapseOnMouseLeave": true,
+        "transientRevealDwellSeconds": 5,
+        "dismissTransientRevealOnOutsideClick": false,
+        "autoExpandOnTaskComplete": true,
+        "autoExpandOnAgentTeamComplete": false,
+        "disableClickToJump": false
+      }
+    },
+    {
+      "id": "custom",
+      "settings": {
+        "showSubagents": true,
+        "hoverToExpandEnabled": true,
+        "hoverExpandDelay": 0.35,
+        "autoCollapseOnMouseLeave": true,
+        "transientRevealDwellSeconds": 4.5,
+        "dismissTransientRevealOnOutsideClick": true,
+        "autoExpandOnTaskComplete": true,
+        "autoExpandOnAgentTeamComplete": true,
+        "disableClickToJump": true
+      }
+    },
+    {
+      "id": "clamped",
+      "settings": {
+        "showSubagents": true,
+        "hoverToExpandEnabled": true,
+        "hoverExpandDelay": 0,
+        "autoCollapseOnMouseLeave": true,
+        "transientRevealDwellSeconds": 30,
+        "dismissTransientRevealOnOutsideClick": false,
+        "autoExpandOnTaskComplete": true,
+        "autoExpandOnAgentTeamComplete": false,
+        "disableClickToJump": false
+      }
+    },
+    {
+      "id": "automatic-reveals-disabled",
+      "settings": {
+        "showSubagents": true,
+        "hoverToExpandEnabled": true,
+        "hoverExpandDelay": 0.15,
+        "autoCollapseOnMouseLeave": true,
+        "transientRevealDwellSeconds": 5,
+        "dismissTransientRevealOnOutsideClick": false,
+        "autoExpandOnTaskComplete": false,
+        "autoExpandOnAgentTeamComplete": false,
+        "disableClickToJump": false
+      }
+    }
+  ]
+}

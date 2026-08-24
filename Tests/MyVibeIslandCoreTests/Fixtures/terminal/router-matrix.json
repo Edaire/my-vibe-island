@@ -1,0 +1,58 @@
+{
+  "rows": [
+    {
+      "id": "custom-url-priority",
+      "result": {
+        "precision": "exactPane",
+        "succeeded": true,
+        "handlerId": "custom-url",
+        "attemptedMechanism": "custom-url",
+        "diagnosticSummary": "custom-url: exactPane"
+      }
+    },
+    {
+      "id": "remote-requires-reconnect",
+      "result": {
+        "precision": "remoteHint",
+        "succeeded": false,
+        "handlerId": "remote-hint",
+        "attemptedMechanism": "remote-hint",
+        "failureReason": "remoteRequiresReconnect",
+        "repairAction": "Reconnect remote terminal before jumping",
+        "diagnosticSummary": "remote-hint: remoteRequiresReconnect"
+      }
+    },
+    {
+      "id": "remote-with-local-pane",
+      "result": {
+        "precision": "exactPane",
+        "succeeded": true,
+        "handlerId": "tmux",
+        "attemptedMechanism": "tmux",
+        "diagnosticSummary": "tmux: exactPane"
+      }
+    },
+    {
+      "id": "known-ide-workspace",
+      "result": {
+        "precision": "workspace",
+        "succeeded": true,
+        "handlerId": "ide-workspace",
+        "attemptedMechanism": "ide-workspace",
+        "diagnosticSummary": "ide-workspace: workspace"
+      }
+    },
+    {
+      "id": "missing-target",
+      "result": {
+        "precision": "unsupported",
+        "succeeded": false,
+        "handlerId": "unsupported",
+        "attemptedMechanism": "unsupported",
+        "failureReason": "missingTarget",
+        "repairAction": "Collect terminal context before jumping",
+        "diagnosticSummary": "unsupported: missingTarget"
+      }
+    }
+  ]
+}

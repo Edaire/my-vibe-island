@@ -1,0 +1,65 @@
+{
+  "rows": [
+    {
+      "id": "uds-uid-mismatch",
+      "hostId": "devbox",
+      "hostAlias": "devbox",
+      "tunnelKind": "uds",
+      "commandKinds": [
+        "sshConfigSnippet",
+        "socketCleanup",
+        "helperReinstall",
+        "hookStatus",
+        "tunnel"
+      ],
+      "commands": [
+        "sshConfigSnippet=Host devbox\n    HostName devbox.example.com\n    User dev\n    Port 22\n    RemoteForward /tmp/my-vibe-island-501.sock /tmp/my-vibe-island-502.sock\n    SetEnv MY_VIBE_ISLAND_SOCKET_PATH=/tmp/my-vibe-island-501.sock\n    SetEnv VIBE_ISLAND_SOCKET_PATH=/tmp/my-vibe-island-501.sock\n    StreamLocalBindUnlink yes",
+        "socketCleanup=rm -f /tmp/my-vibe-island-501.sock",
+        "helperReinstall=scp my-vibe-island-hooks devbox:~/.local/bin/my-vibe-island-hooks",
+        "hookStatus=~/.local/bin/my-vibe-island-hooks health",
+        "tunnel=ssh -N devbox"
+      ],
+      "allRequireUserRun": true
+    },
+    {
+      "id": "uds-same-uid-no-env",
+      "hostId": "sameuid",
+      "hostAlias": "sameuid",
+      "tunnelKind": "uds",
+      "commandKinds": [
+        "sshConfigSnippet",
+        "socketCleanup",
+        "helperReinstall",
+        "hookStatus",
+        "tunnel"
+      ],
+      "commands": [
+        "sshConfigSnippet=Host sameuid\n    HostName sameuid.example.com\n    User dev\n    Port 22\n    RemoteForward /tmp/my-vibe-island.sock /tmp/my-vibe-island.sock\n    StreamLocalBindUnlink yes",
+        "socketCleanup=rm -f /tmp/my-vibe-island.sock",
+        "helperReinstall=scp my-vibe-island-hooks sameuid:~/.local/bin/my-vibe-island-hooks",
+        "hookStatus=~/.local/bin/my-vibe-island-hooks health",
+        "tunnel=ssh -N sameuid"
+      ],
+      "allRequireUserRun": true
+    },
+    {
+      "id": "tcp-forwarding",
+      "hostId": "devbox",
+      "hostAlias": "devbox",
+      "tunnelKind": "tcp",
+      "commandKinds": [
+        "sshConfigSnippet",
+        "helperReinstall",
+        "hookStatus",
+        "tunnel"
+      ],
+      "commands": [
+        "sshConfigSnippet=Host devbox\n    HostName devbox.example.com\n    User dev\n    Port 2222\n    RemoteForward 49152 127.0.0.1:49152",
+        "helperReinstall=scp my-vibe-island-hooks devbox:~/.local/bin/my-vibe-island-hooks",
+        "hookStatus=~/.local/bin/my-vibe-island-hooks health",
+        "tunnel=ssh -N devbox"
+      ],
+      "allRequireUserRun": true
+    }
+  ]
+}

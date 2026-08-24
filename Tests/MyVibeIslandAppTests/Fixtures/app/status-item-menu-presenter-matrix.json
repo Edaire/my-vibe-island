@@ -1,0 +1,38 @@
+{
+  "rows" : [
+    {
+      "descriptorItemCount" : 3,
+      "descriptorVisible" : true,
+      "dispatchedCommands" : [
+        "openSettings"
+      ],
+      "id" : "visible-menu",
+      "installedMenuTitles" : [
+        "My Vibe Island Menu"
+      ],
+      "lastResultDescriptorItemCount" : 3,
+      "menuItemIdentifiers" : [
+        "openSettings",
+        null,
+        "checkForUpdates"
+      ],
+      "menuTitle" : "My Vibe Island Menu"
+    },
+    {
+      "descriptorItemCount" : 0,
+      "descriptorVisible" : false,
+      "dispatchedCommands" : [
+
+      ],
+      "id" : "hidden-menu",
+      "installedMenuTitles" : [
+        null
+      ],
+      "lastResultDescriptorItemCount" : 0,
+      "menuItemIdentifiers" : [
+
+      ],
+      "menuTitle" : null
+    }
+  ]
+}

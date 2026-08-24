@@ -1,0 +1,48 @@
+{
+  "rows" : [
+    {
+      "events" : [
+        "lifecycle:createRuntime",
+        "show-island",
+        "settings:integrations:codex",
+        "onboarding",
+        "overlay:routeAction",
+        "ignored:quit",
+        "quit"
+      ],
+      "executedIntentCount" : 7,
+      "id" : "lifecycle-route-and-overlay",
+      "inputIntentCount" : 7
+    },
+    {
+      "events" : [
+        "start:bridgeServer",
+        "start:sessionCoordinator",
+        "stop:bridgeServer",
+        "create-notch",
+        "install-monitors",
+        "screen:built-in",
+        "placement:180",
+        "show-notch",
+        "hide-notch",
+        "remove-monitors",
+        "close-notch"
+      ],
+      "executedIntentCount" : 11,
+      "id" : "runtime-and-notch-window",
+      "inputIntentCount" : 11
+    },
+    {
+      "events" : [
+        "menu:statusItem:1",
+        "dock:true",
+        "login:false",
+        "updates",
+        "diagnostics"
+      ],
+      "executedIntentCount" : 5,
+      "id" : "menu-preferences-and-maintenance",
+      "inputIntentCount" : 5
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "selected": {
+    "kind": "deviceSelected",
+    "previous": null,
+    "current": {
+      "id": "speaker-1",
+      "name": "Internal Speakers",
+      "outputVolume": 0.6,
+      "observedAt": "2026-07-08T08:00:00Z"
+    }
+  },
+  "labelChanged": {
+    "kind": "labelChanged",
+    "previous": {
+      "id": "speaker-1",
+      "name": "Internal Speakers",
+      "outputVolume": 0.6,
+      "observedAt": "2026-07-08T08:00:00Z"
+    },
+    "current": {
+      "id": "speaker-1",
+      "name": "Built-in Speakers",
+      "outputVolume": 0.6,
+      "observedAt": "2026-07-08T08:01:00Z"
+    }
+  },
+  "volumeChanged": {
+    "kind": "volumeChanged",
+    "previous": {
+      "id": "speaker-1",
+      "name": "Built-in Speakers",
+      "outputVolume": 0.6,
+      "observedAt": "2026-07-08T08:01:00Z"
+    },
+    "current": {
+      "id": "speaker-1",
+      "name": "Built-in Speakers",
+      "outputVolume": 0.25,
+      "observedAt": "2026-07-08T08:02:00Z"
+    }
+  },
+  "deviceChanged": {
+    "kind": "deviceChanged",
+    "previous": {
+      "id": "speaker-1",
+      "name": "Built-in Speakers",
+      "outputVolume": 0.25,
+      "observedAt": "2026-07-08T08:02:00Z"
+    },
+    "current": {
+      "id": "headphones-1",
+      "name": "USB Headphones",
+      "outputVolume": 0.4,
+      "observedAt": "2026-07-08T08:03:00Z"
+    }
+  },
+  "noDevice": {
+    "kind": "noDevice",
+    "previous": {
+      "id": "headphones-1",
+      "name": "USB Headphones",
+      "outputVolume": 0.4,
+      "observedAt": "2026-07-08T08:03:00Z"
+    },
+    "current": null
+  },
+  "unchanged": null
+}

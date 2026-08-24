@@ -1,0 +1,74 @@
+{
+  "rows": [
+    {
+      "id": "generic-workspace-opener",
+      "actionKind": "openWorkspace",
+      "handlerId": "workspace",
+      "status": "succeeded",
+      "failureReason": null,
+      "diagnosticSummary": "workspace opened",
+      "workspaceOpenPaths": ["/tmp/project"],
+      "ideOpenPaths": []
+    },
+    {
+      "id": "explicit-ide-workspace-opener",
+      "actionKind": "openWorkspace",
+      "handlerId": "ide-workspace",
+      "status": "succeeded",
+      "failureReason": null,
+      "diagnosticSummary": "ide opened",
+      "workspaceOpenPaths": [],
+      "ideOpenPaths": ["/tmp/project"]
+    },
+    {
+      "id": "registry-ide-workspace-opener",
+      "actionKind": "openWorkspace",
+      "handlerId": "cursor-workspace",
+      "status": "succeeded",
+      "failureReason": null,
+      "diagnosticSummary": "ide opened",
+      "workspaceOpenPaths": [],
+      "ideOpenPaths": ["/tmp/project"]
+    },
+    {
+      "id": "unsupported-action-no-open",
+      "actionKind": "openURL",
+      "handlerId": null,
+      "status": "failed",
+      "failureReason": "unsupportedAction",
+      "diagnosticSummary": "workspace runner unsupported action: openURL",
+      "workspaceOpenPaths": [],
+      "ideOpenPaths": []
+    },
+    {
+      "id": "missing-target-no-open",
+      "actionKind": "openWorkspace",
+      "handlerId": null,
+      "status": "failed",
+      "failureReason": "missingTarget",
+      "diagnosticSummary": "workspace runner missing target",
+      "workspaceOpenPaths": [],
+      "ideOpenPaths": []
+    },
+    {
+      "id": "workspace-missing-maps-to-missing-target",
+      "actionKind": "openWorkspace",
+      "handlerId": null,
+      "status": "failed",
+      "failureReason": "missingTarget",
+      "diagnosticSummary": "workspace missing: /tmp/missing",
+      "workspaceOpenPaths": ["/tmp/missing"],
+      "ideOpenPaths": []
+    },
+    {
+      "id": "ide-dependency-missing-maps-through",
+      "actionKind": "openWorkspace",
+      "handlerId": "ide-workspace",
+      "status": "failed",
+      "failureReason": "dependencyMissing",
+      "diagnosticSummary": "missing IDE CLI command: code",
+      "workspaceOpenPaths": [],
+      "ideOpenPaths": ["/tmp/project"]
+    }
+  ]
+}

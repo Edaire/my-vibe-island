@@ -1,0 +1,23 @@
+.build/
+
+# Local macOS and analysis artifacts.
+.DS_Store
+.ida-mcp/
+Reference/
+docs/research/runtime-captures/
+docs/research/
+docs/superpowers/
+docs/visual-bugs/
+docs/
+Xcode/VibeIsland/OriginalBundleManifest.json
+Scripts/capture-original-island-reference.sh
+Scripts/sync-original-bundle.sh
+Scripts/verify-runtime-capture-pair.swift
+docs/architecture/xcode-reconstruction.md
+Scripts/copy-bundle-payload.sh
+Scripts/sign-embedded-payload.sh
+Tests/Packaging/test_payload_copy_idempotence.sh
+Tests/Packaging/test_xcode_reconstruction.sh
+
+# Local reference payloads are never part of the public source tree.
+Vendor/VibeIslandBundle/

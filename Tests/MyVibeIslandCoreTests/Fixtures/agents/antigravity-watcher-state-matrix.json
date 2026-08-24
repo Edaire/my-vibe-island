@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "name": "empty-hidden-state",
+      "projection": {
+        "watcherIds": [],
+        "summary": {
+          "watcherCount": 0,
+          "activeWatcherCount": 0,
+          "pendingParentLinkCount": 0,
+          "visibility": "hidden",
+          "isRuntimeVisible": false
+        },
+        "encodedSummaryContainsRawIdentifiers": false
+      }
+    },
+    {
+      "name": "hidden-state-redacts-row-identifiers-from-summary",
+      "projection": {
+        "watcherIds": ["watcher-1"],
+        "summary": {
+          "watcherCount": 1,
+          "activeWatcherCount": 1,
+          "pendingParentLinkCount": 1,
+          "visibility": "hidden",
+          "isRuntimeVisible": false
+        },
+        "encodedSummaryContainsRawIdentifiers": false
+      }
+    },
+    {
+      "name": "labs-visible-state-counts-active-watchers",
+      "projection": {
+        "watcherIds": ["watcher-a", "watcher-b"],
+        "summary": {
+          "watcherCount": 2,
+          "activeWatcherCount": 1,
+          "pendingParentLinkCount": 2,
+          "visibility": "labsOnly",
+          "isRuntimeVisible": true
+        },
+        "encodedSummaryContainsRawIdentifiers": false
+      }
+    }
+  ]
+}

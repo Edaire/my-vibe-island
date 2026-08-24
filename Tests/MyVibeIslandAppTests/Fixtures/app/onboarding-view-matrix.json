@@ -1,0 +1,48 @@
+{
+  "cards": [
+    {
+      "bundleIdentifier": "com.mitchellh.ghostty",
+      "title": "vibe-island · Claude Code",
+      "symbol": null,
+      "body": "I'll add dark mode support to the app.\nRead(src/styles/theme.css)\nEdit(src/styles/theme.css)"
+    },
+    {
+      "bundleIdentifier": "com.openai.codex",
+      "title": "Fix checkout bug · my-store",
+      "symbol": "hexagon",
+      "body": "Choose \"Allow\" once macOS requests permission."
+    },
+    {
+      "bundleIdentifier": "com.todesktop.230313mzl4w4u92",
+      "title": "Package.swift — Cursor",
+      "symbol": "cursorarrow.rays",
+      "body": "Package.resolved"
+    }
+  ],
+  "captions": [
+    {
+      "time": 0.3,
+      "label": "1 / 4",
+      "main": "All your AI agents, one Dynamic Island.",
+      "sub": "Terminals, desktop apps, IDEs — every running session lives in the notch."
+    },
+    {
+      "time": 11.9,
+      "label": "2 / 4",
+      "main": "Approve without switching windows.",
+      "sub": "When an agent needs permission, it pops up right here. No context switching."
+    },
+    {
+      "time": 17.3,
+      "label": "3 / 4",
+      "main": "Know the moment it's done.",
+      "sub": "Finished tasks surface automatically — no hunting through terminal tabs."
+    }
+  ],
+  "eventTimes": [0.3, 1.0, 2.5, 4.0, 11.9, 17.3, 25.1],
+  "readyTitle": "Welcome aboard",
+  "restartHint": "Restart any running sessions, or start a new one.",
+  "ctaTitle": "Start Vibing",
+  "palettes": ["electric", "claude", "aurora", "royal", "noir"],
+  "commercialTermsPresent": false
+}

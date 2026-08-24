@@ -1,0 +1,40 @@
+{
+  "rows": [
+    {
+      "id": "default-empty-state",
+      "hasSilenceSnapshot": false,
+      "isPublishScheduled": false,
+      "summary": {
+        "hasSilenceSnapshot": false,
+        "isPublishScheduled": false,
+        "disabledBuiltInRuleCount": 0,
+        "customSilenceRuleCount": 0
+      },
+      "diagnosticSummaryLeaksSensitiveTokens": false
+    },
+    {
+      "id": "scheduled-without-silence-snapshot",
+      "hasSilenceSnapshot": false,
+      "isPublishScheduled": true,
+      "summary": {
+        "hasSilenceSnapshot": false,
+        "isPublishScheduled": true,
+        "disabledBuiltInRuleCount": 0,
+        "customSilenceRuleCount": 0
+      },
+      "diagnosticSummaryLeaksSensitiveTokens": false
+    },
+    {
+      "id": "scheduled-with-redacted-silence-summary",
+      "hasSilenceSnapshot": true,
+      "isPublishScheduled": true,
+      "summary": {
+        "hasSilenceSnapshot": true,
+        "isPublishScheduled": true,
+        "disabledBuiltInRuleCount": 2,
+        "customSilenceRuleCount": 2
+      },
+      "diagnosticSummaryLeaksSensitiveTokens": false
+    }
+  ]
+}

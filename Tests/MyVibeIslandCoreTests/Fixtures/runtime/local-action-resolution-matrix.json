@@ -1,0 +1,52 @@
+{
+  "rows": [
+    {
+      "id": "single-permission-approve",
+      "resolved": true,
+      "pendingRequestIds": [],
+      "actionableRequestIds": [],
+      "needsAttention": false,
+      "isRestored": false
+    },
+    {
+      "id": "multiple-permission-deny-one",
+      "resolved": true,
+      "pendingRequestIds": [
+        "r2"
+      ],
+      "actionableRequestIds": [
+        "r2"
+      ],
+      "needsAttention": true,
+      "isRestored": false
+    },
+    {
+      "id": "wrong-session-noop",
+      "resolved": false,
+      "pendingRequestIds": [
+        "r1"
+      ],
+      "actionableRequestIds": [
+        "r1"
+      ],
+      "needsAttention": true,
+      "isRestored": false
+    },
+    {
+      "id": "unknown-request-noop",
+      "resolved": false,
+      "pendingRequestIds": [],
+      "actionableRequestIds": [],
+      "needsAttention": false,
+      "isRestored": false
+    },
+    {
+      "id": "question-answer-clears-actionable",
+      "resolved": true,
+      "pendingRequestIds": [],
+      "actionableRequestIds": [],
+      "needsAttention": false,
+      "isRestored": false
+    }
+  ]
+}

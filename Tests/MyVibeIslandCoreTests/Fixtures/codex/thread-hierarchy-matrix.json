@@ -1,0 +1,60 @@
+{
+  "rows": [
+    {
+      "id": "normalized-children-and-state-sets",
+      "hierarchy": {
+        "rootSessionId": "session-1",
+        "rootThreadId": "root-thread",
+        "childNodes": [
+          {
+            "id": "early",
+            "parentThreadId": "root-thread",
+            "threadId": "thread-early",
+            "kind": "coder",
+            "firstSeenAt": "2026-07-08T20:01:00Z"
+          },
+          {
+            "id": "late",
+            "parentThreadId": "root-thread",
+            "threadId": "thread-late",
+            "kind": "reviewer-updated",
+            "firstSeenAt": "2026-07-08T20:02:00Z",
+            "lastSeenAt": "2026-07-08T20:04:00Z"
+          }
+        ],
+        "activeChildId": "late",
+        "completedChildIds": [
+          "done-1",
+          "done-2"
+        ],
+        "failedChildIds": [
+          "failed-1",
+          "failed-2"
+        ],
+        "detachedChildIds": []
+      }
+    },
+    {
+      "id": "detached-child",
+      "hierarchy": {
+        "rootSessionId": "session-2",
+        "rootThreadId": "root-thread",
+        "childNodes": [
+          {
+            "id": "detached",
+            "threadId": "thread-detached",
+            "kind": "reviewer",
+            "firstSeenAt": "2026-07-08T20:05:00Z",
+            "diagnosticReason": "missingParentThreadId"
+          }
+        ],
+        "completedChildIds": [],
+        "failedChildIds": [],
+        "detachedChildIds": [
+          "detached",
+          "manual-detached"
+        ]
+      }
+    }
+  ]
+}

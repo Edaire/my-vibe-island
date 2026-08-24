@@ -1,0 +1,68 @@
+[
+  {
+    "source": "codex",
+    "payloadFixture": "codex/hook-session-start",
+    "expectedRawEventName": "SessionStart",
+    "expectedSessionId": "codex-session"
+  },
+  {
+    "source": "opencode",
+    "payloadFixture": "opencode/hook-permission-request",
+    "expectedRawEventName": "PermissionRequest",
+    "expectedSessionId": "opencode-session"
+  },
+  {
+    "source": "claude",
+    "payloadFixture": "claude/hook-session-start",
+    "expectedRawEventName": "SessionStart",
+    "expectedSessionId": "claude-session"
+  },
+  {
+    "source": "qwen",
+    "payloadFixture": "claude/hook-session-start",
+    "expectedRawEventName": "SessionStart",
+    "expectedSessionId": "claude-session"
+  },
+  {
+    "source": "qoder",
+    "payloadFixture": "claude/hook-session-start",
+    "expectedRawEventName": "SessionStart",
+    "expectedSessionId": "claude-session"
+  },
+  {
+    "source": "factory",
+    "payloadFixture": "claude/hook-session-start",
+    "expectedRawEventName": "SessionStart",
+    "expectedSessionId": "claude-session"
+  },
+  {
+    "source": "codebuddy",
+    "payloadFixture": "claude/hook-session-start",
+    "expectedRawEventName": "SessionStart",
+    "expectedSessionId": "claude-session"
+  },
+  {
+    "source": "hermes",
+    "payloadFixture": "claude/hook-session-start",
+    "expectedRawEventName": "SessionStart",
+    "expectedSessionId": "claude-session"
+  },
+  {
+    "source": "gemini",
+    "payloadFixture": "gemini/hook-session-start",
+    "expectedRawEventName": "SessionStart",
+    "expectedSessionId": "gemini-session-1"
+  },
+  {
+    "source": "cursor",
+    "payloadFixture": "cursor/hook-before-shell-execution",
+    "expectedRawEventName": "PermissionRequest",
+    "expectedSessionId": "cursor-conversation-1"
+  },
+  {
+    "source": "kimi",
+    "payloadFixture": "kimi/hook-session-start",
+    "expectedRawEventName": "SessionStart",
+    "expectedSessionId": "kimi-session-1"
+  }
+]

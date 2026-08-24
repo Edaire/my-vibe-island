@@ -1,0 +1,34 @@
+{
+  "rows": [
+    {
+      "id": "reported-hook-version-outdated",
+      "isPresent": true,
+      "hostId": "devbox",
+      "hostAlias": "devbox",
+      "currentHookVersion": "1.0.0",
+      "supportedHookVersion": "1.2.0",
+      "repairAction": "redeployHelper",
+      "redeployCommandPreview": "scp my-vibe-island-hooks devbox:~/.local/bin/my-vibe-island-hooks"
+    },
+    {
+      "id": "fallback-last-setup-version",
+      "isPresent": true,
+      "hostId": "fallback",
+      "hostAlias": "fallback",
+      "currentHookVersion": "1.1.0",
+      "supportedHookVersion": "1.2.0",
+      "repairAction": "redeployHelper",
+      "redeployCommandPreview": "scp my-vibe-island-hooks fallback:~/.local/bin/my-vibe-island-hooks"
+    },
+    {
+      "id": "absent-when-no-update",
+      "isPresent": false,
+      "hostId": null,
+      "hostAlias": null,
+      "currentHookVersion": null,
+      "supportedHookVersion": null,
+      "repairAction": null,
+      "redeployCommandPreview": null
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "rows": [
+    {
+      "id": "active-display-low-memory",
+      "virtualBytes": 2048,
+      "residentBytes": 1024,
+      "physicalFootprintBytes": 768,
+      "compressedBytes": 128,
+      "reusableBytes": 64,
+      "isDisplayAsleep": false,
+      "lastWakeAt": "2026-07-09T08:00:00Z",
+      "displayStateDidChangeEventName": "displaySleepStateDidChange"
+    },
+    {
+      "id": "sleeping-display-high-memory",
+      "virtualBytes": 8192,
+      "residentBytes": 4096,
+      "physicalFootprintBytes": 3072,
+      "compressedBytes": 1024,
+      "reusableBytes": 512,
+      "isDisplayAsleep": true,
+      "lastWakeAt": null,
+      "displayStateDidChangeEventName": "displaySleepStateDidChange"
+    }
+  ]
+}

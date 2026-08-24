@@ -1,0 +1,107 @@
+{
+  "rows": [
+    {
+      "id": "upsert-replaces",
+      "accounts": [
+        {
+          "accountId": {
+            "rawValue": "codex"
+          },
+          "providerId": "codexRateLimits",
+          "category": "providerAccount",
+          "origin": "manual",
+          "displayLabel": "Updated",
+          "lastSelectedAt": null,
+          "lastSnapshotSummary": "85% used"
+        }
+      ],
+      "providerAccountIds": [
+        "codex"
+      ],
+      "selectedAccount": null,
+      "removed": null
+    },
+    {
+      "id": "filter-provider",
+      "accounts": [
+        {
+          "accountId": {
+            "rawValue": "codex"
+          },
+          "providerId": "codexRateLimits",
+          "category": "providerAccount",
+          "origin": "manual",
+          "displayLabel": "Account",
+          "lastSelectedAt": null,
+          "lastSnapshotSummary": null
+        },
+        {
+          "accountId": {
+            "rawValue": "kimi"
+          },
+          "providerId": "kimiUsage",
+          "category": "providerAccount",
+          "origin": "manual",
+          "displayLabel": "Account",
+          "lastSelectedAt": null,
+          "lastSnapshotSummary": null
+        }
+      ],
+      "providerAccountIds": [
+        "codex"
+      ],
+      "selectedAccount": null,
+      "removed": null
+    },
+    {
+      "id": "select-updates-timestamp",
+      "accounts": [
+        {
+          "accountId": {
+            "rawValue": "local"
+          },
+          "providerId": "localParsedUsage",
+          "category": "providerAccount",
+          "origin": "manual",
+          "displayLabel": "Account",
+          "lastSelectedAt": "2026-07-08T13:00:00Z",
+          "lastSnapshotSummary": null
+        }
+      ],
+      "providerAccountIds": [
+        "local"
+      ],
+      "selectedAccount": {
+        "accountId": {
+          "rawValue": "local"
+        },
+        "providerId": "localParsedUsage",
+        "category": "providerAccount",
+        "origin": "manual",
+        "displayLabel": "Account",
+        "lastSelectedAt": "2026-07-08T13:00:00Z",
+        "lastSnapshotSummary": null
+      },
+      "removed": null
+    },
+    {
+      "id": "remove-record",
+      "accounts": [
+        {
+          "accountId": {
+            "rawValue": "kimi"
+          },
+          "providerId": "kimiUsage",
+          "category": "providerAccount",
+          "origin": "manual",
+          "displayLabel": "Account",
+          "lastSelectedAt": null,
+          "lastSnapshotSummary": null
+        }
+      ],
+      "providerAccountIds": [],
+      "selectedAccount": null,
+      "removed": true
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "rows": [
+    {
+      "id": "hook-environment-mapping",
+      "sessionId": "session-1",
+      "source": "codex",
+      "bundleId": "com.googlecode.iterm2",
+      "cwd": "/tmp/project",
+      "cliSessionId": "term-1",
+      "pid": 42,
+      "isSSHRemote": true,
+      "sshLocalBundleIdentifier": "com.googlecode.iterm2",
+      "isInTmux": true,
+      "tmuxPane": "%1",
+      "tmuxSocketPath": "/tmp/tmux.sock",
+      "itermSessionId": "iterm-1",
+      "cmuxSurfaceId": "cmux-surface",
+      "supacodeSurfaceId": "supacode-surface",
+      "sshConnection": "client 1 server 2",
+      "sshTTY": "/dev/ttys002",
+      "createdAt": "2026-07-07T00:00:00Z",
+      "focusConfidence": "exact",
+      "focusSupacode": "supacode-surface",
+      "focusPaneId": "cmux-surface",
+      "focusExternalSessionId": "iterm-1",
+      "fingerprintSessionId": "session-1",
+      "fingerprintTmuxPane": "%1",
+      "fingerprintBundleId": "com.googlecode.iterm2",
+      "fingerprintSSHTTY": "/dev/ttys002"
+    },
+    {
+      "id": "empty-string-normalization",
+      "sessionId": "session-2",
+      "source": "codex"
+    },
+    {
+      "id": "weak-focus-from-cwd",
+      "sessionId": "session-3",
+      "source": "codex",
+      "cwd": "/tmp/project",
+      "isSSHRemote": false,
+      "isInTmux": false,
+      "focusConfidence": "weak",
+      "focusPaneId": null,
+      "focusExternalSessionId": null,
+      "fingerprintSessionId": "session-3"
+    },
+    {
+      "id": "unknown-focus-empty-environment",
+      "sessionId": "session-4",
+      "source": "codex",
+      "isSSHRemote": false,
+      "isInTmux": false,
+      "focusConfidence": "unknown",
+      "focusPaneId": null,
+      "focusExternalSessionId": null,
+      "fingerprintSessionId": "session-4"
+    }
+  ]
+}

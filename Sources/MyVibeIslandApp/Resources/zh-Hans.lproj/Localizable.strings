@@ -1,0 +1,16 @@
+"content.session" = "个会话";
+"content.sessions" = "个会话";
+"status.compacting" = "压缩中";
+"tool.allowPrefix" = "允许 %@";
+"tool.editing" = "编辑中";
+"tool.fetching" = "获取中";
+"tool.finding" = "查找中";
+"tool.reading" = "读取中";
+"tool.running" = "运行中";
+"tool.runningSkill" = "运行技能";
+"tool.searching" = "搜索中";
+"tool.tasking" = "任务中";
+"tool.thinkingDetail" = "思考中：%@";
+"tool.thinkingEllipsis" = "思考中…";
+"tool.workingEllipsis" = "工作中…";
+"tool.writing" = "写入中";

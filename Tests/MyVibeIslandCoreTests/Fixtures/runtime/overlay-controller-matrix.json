@@ -1,0 +1,74 @@
+{
+  "rows": [
+    {
+      "id": "replace-presentation",
+      "displayState": "expanded",
+      "focusedSessionId": "session-1",
+      "placementSummary": null,
+      "menuCommandIds": [],
+      "lastRouteSummary": null,
+      "actionSummaries": [
+        "renderPresentation"
+      ]
+    },
+    {
+      "id": "placement-changed",
+      "displayState": "expanded",
+      "focusedSessionId": null,
+      "placementSummary": "200.0x36.0->640.0x420.0",
+      "menuCommandIds": [],
+      "lastRouteSummary": null,
+      "actionSummaries": [
+        "applyPanelPlan:applyFrame:640.0x420.0,showPanel:expanded"
+      ]
+    },
+    {
+      "id": "interaction-hover",
+      "displayState": "closed",
+      "focusedSessionId": null,
+      "placementSummary": "200.0x36.0->640.0x420.0",
+      "menuCommandIds": [],
+      "lastRouteSummary": null,
+      "actionSummaries": [
+        "applyPanelPlan:forwardInteraction:scheduleHoverReveal:0.2:1",
+        "renderPresentation"
+      ]
+    },
+    {
+      "id": "session-jump-route",
+      "displayState": "expanded",
+      "focusedSessionId": null,
+      "placementSummary": null,
+      "menuCommandIds": [],
+      "lastRouteSummary": "jumpToSession:session-1",
+      "actionSummaries": [
+        "routeAction:jumpToSession:session-1"
+      ]
+    },
+    {
+      "id": "app-command-route",
+      "displayState": "closed",
+      "focusedSessionId": null,
+      "placementSummary": null,
+      "menuCommandIds": [
+        "openSettings",
+        "quit"
+      ],
+      "lastRouteSummary": "appCommand:openSettings",
+      "actionSummaries": [
+        "routeAction:appCommand:openSettings"
+      ]
+    },
+    {
+      "id": "clear-routed-action",
+      "displayState": "notificationPeek",
+      "focusedSessionId": null,
+      "placementSummary": "200.0x36.0->640.0x420.0",
+      "menuCommandIds": [
+        "quit"
+      ],
+      "lastRouteSummary": null,
+      "actionSummaries": []
+    }
+  ]
+}

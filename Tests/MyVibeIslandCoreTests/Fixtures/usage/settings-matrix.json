@@ -1,0 +1,79 @@
+{
+  "rows": [
+    {
+      "id": "default",
+      "preferredProviderId": null,
+      "displayStyle": "hidden",
+      "isUsageDisplayEnabled": false,
+      "valueMode": "used",
+      "thresholdPeeksEnabled": false,
+      "thresholdPercent": 80,
+      "usageNotificationsEnabled": true,
+      "usageSoundEnabled": false,
+      "labsProviderIds": [],
+      "kimiLabsEnabled": false,
+      "zaiLabsEnabled": false
+    },
+    {
+      "id": "enabled-ring-remaining",
+      "preferredProviderId": "codexRateLimits",
+      "displayStyle": "ringBadge",
+      "isUsageDisplayEnabled": true,
+      "valueMode": "remaining",
+      "thresholdPeeksEnabled": true,
+      "thresholdPercent": 75,
+      "usageNotificationsEnabled": false,
+      "usageSoundEnabled": true,
+      "labsProviderIds": [
+        "kimiUsage",
+        "zaiQuota"
+      ],
+      "kimiLabsEnabled": true,
+      "zaiLabsEnabled": true
+    },
+    {
+      "id": "threshold-low-clamp",
+      "preferredProviderId": null,
+      "displayStyle": "hidden",
+      "isUsageDisplayEnabled": false,
+      "valueMode": "used",
+      "thresholdPeeksEnabled": false,
+      "thresholdPercent": 0,
+      "usageNotificationsEnabled": true,
+      "usageSoundEnabled": false,
+      "labsProviderIds": [],
+      "kimiLabsEnabled": false,
+      "zaiLabsEnabled": false
+    },
+    {
+      "id": "threshold-high-clamp",
+      "preferredProviderId": null,
+      "displayStyle": "hidden",
+      "isUsageDisplayEnabled": false,
+      "valueMode": "used",
+      "thresholdPeeksEnabled": false,
+      "thresholdPercent": 100,
+      "usageNotificationsEnabled": true,
+      "usageSoundEnabled": false,
+      "labsProviderIds": [],
+      "kimiLabsEnabled": false,
+      "zaiLabsEnabled": false
+    },
+    {
+      "id": "labs-local",
+      "preferredProviderId": null,
+      "displayStyle": "hidden",
+      "isUsageDisplayEnabled": false,
+      "valueMode": "used",
+      "thresholdPeeksEnabled": false,
+      "thresholdPercent": 80,
+      "usageNotificationsEnabled": true,
+      "usageSoundEnabled": false,
+      "labsProviderIds": [
+        "kimiUsage"
+      ],
+      "kimiLabsEnabled": true,
+      "zaiLabsEnabled": false
+    }
+  ]
+}

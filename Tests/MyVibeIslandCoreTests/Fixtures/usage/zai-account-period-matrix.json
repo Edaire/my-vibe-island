@@ -1,0 +1,64 @@
+{
+  "rows": [
+    {
+      "id": "full-current-period",
+      "providerId": "zaiQuota",
+      "accountId": {
+        "rawValue": "zai-local"
+      },
+      "primaryWindowId": "monthly",
+      "freshness": "fresh",
+      "extraUsage": [
+        "planName:provider-plan",
+        "code:200",
+        "success:true",
+        "accountPeriodCode:0",
+        "accountPeriodSuccess:true",
+        "accountPeriodProductName:provider-period",
+        "accountPeriodNextTime:2026-08-01T00:00:00Z",
+        "accountPeriodCurrent:true"
+      ],
+      "failure": null,
+      "privacyLevel": "redacted"
+    },
+    {
+      "id": "multiple-partial-periods",
+      "providerId": "zaiQuota",
+      "accountId": {
+        "rawValue": "zai-local"
+      },
+      "primaryWindowId": "monthly",
+      "freshness": "fresh",
+      "extraUsage": [
+        "planName:provider-plan",
+        "code:200",
+        "success:true",
+        "accountPeriodCode:0",
+        "accountPeriodSuccess:true",
+        "accountPeriodProductName:provider-one",
+        "accountPeriodNextTime:2026-09-01T00:00:00Z",
+        "accountPeriodCurrent:false"
+      ],
+      "failure": null,
+      "privacyLevel": "redacted"
+    },
+    {
+      "id": "missing-period-data",
+      "providerId": "zaiQuota",
+      "accountId": {
+        "rawValue": "zai-local"
+      },
+      "primaryWindowId": "monthly",
+      "freshness": "fresh",
+      "extraUsage": [
+        "planName:provider-plan",
+        "code:200",
+        "success:true",
+        "accountPeriodCode:404",
+        "accountPeriodSuccess:false"
+      ],
+      "failure": null,
+      "privacyLevel": "redacted"
+    }
+  ]
+}

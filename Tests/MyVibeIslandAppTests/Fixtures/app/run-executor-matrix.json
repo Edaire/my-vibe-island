@@ -1,0 +1,42 @@
+{
+  "rows": [
+    {
+      "id": "full-launch",
+      "intents": [
+        "setActivationPolicy:accessory",
+        "installDelegate",
+        "runApplication"
+      ],
+      "events": [
+        "policy:accessory",
+        "delegate:expected",
+        "run"
+      ]
+    },
+    {
+      "id": "platform-preflight-only",
+      "intents": [
+        "setActivationPolicy:regular",
+        "installDelegate"
+      ],
+      "events": [
+        "policy:regular",
+        "delegate:expected"
+      ]
+    },
+    {
+      "id": "policy-only",
+      "intents": [
+        "setActivationPolicy:prohibited"
+      ],
+      "events": [
+        "policy:prohibited"
+      ]
+    },
+    {
+      "id": "empty-plan",
+      "intents": [],
+      "events": []
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+"content.session" = "session";
+"content.sessions" = "sessions";
+"status.compacting" = "Compacting";
+"tool.allowPrefix" = "Allow %@";
+"tool.editing" = "Editing";
+"tool.fetching" = "Fetching";
+"tool.finding" = "Finding";
+"tool.reading" = "Reading";
+"tool.running" = "Running";
+"tool.runningSkill" = "Running Skill";
+"tool.searching" = "Searching";
+"tool.tasking" = "Tasking";
+"tool.thinkingDetail" = "Thinking: %@";
+"tool.thinkingEllipsis" = "Thinking...";
+"tool.workingEllipsis" = "Working...";
+"tool.writing" = "Writing";

@@ -1,0 +1,80 @@
+[
+  {
+    "id": "claude",
+    "displayName": "Claude Code",
+    "supportLevel": "supported",
+    "defaultEventSources": ["hooks", "transcriptDiscovery", "statusLine"]
+  },
+  {
+    "id": "codex",
+    "displayName": "Codex CLI",
+    "supportLevel": "supported",
+    "defaultEventSources": ["hooks", "sessionFiles", "rateLimitMetadata"]
+  },
+  {
+    "id": "opencode",
+    "displayName": "OpenCode",
+    "supportLevel": "supported",
+    "defaultEventSources": ["jsPlugin", "sessionMetadata", "permissionEvents"]
+  },
+  {
+    "id": "gemini",
+    "displayName": "Gemini CLI",
+    "supportLevel": "supported",
+    "defaultEventSources": ["hooks"]
+  },
+  {
+    "id": "cursor",
+    "displayName": "Cursor",
+    "supportLevel": "supported",
+    "defaultEventSources": ["hooks", "transcriptMetadata", "workspaceJump"]
+  },
+  {
+    "id": "kimi",
+    "displayName": "Kimi CLI",
+    "supportLevel": "experimental",
+    "defaultEventSources": ["claudeCompatibleHooks", "providerUsage"]
+  },
+  {
+    "id": "claude-desktop",
+    "displayName": "Claude Desktop Code",
+    "supportLevel": "experimental",
+    "defaultEventSources": []
+  },
+  {
+    "id": "codex-desktop",
+    "displayName": "Codex Desktop App",
+    "supportLevel": "experimental",
+    "defaultEventSources": []
+  },
+  {
+    "id": "qwen",
+    "displayName": "Qwen Code",
+    "supportLevel": "supported",
+    "defaultEventSources": ["claudeCompatibleHooks"]
+  },
+  {
+    "id": "qoder",
+    "displayName": "Qoder",
+    "supportLevel": "supported",
+    "defaultEventSources": ["claudeCompatibleHooks"]
+  },
+  {
+    "id": "factory",
+    "displayName": "Factory",
+    "supportLevel": "supported",
+    "defaultEventSources": ["claudeCompatibleHooks"]
+  },
+  {
+    "id": "codebuddy",
+    "displayName": "CodeBuddy",
+    "supportLevel": "supported",
+    "defaultEventSources": ["claudeCompatibleHooks"]
+  },
+  {
+    "id": "hermes",
+    "displayName": "Hermes Agent",
+    "supportLevel": "supported",
+    "defaultEventSources": ["pluginLifecycleHooks"]
+  }
+]

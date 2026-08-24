@@ -1,0 +1,64 @@
+{
+  "snapshot": {
+    "capturedAt": "2026-07-08T11:00:00Z",
+    "environment": {
+      "scannedAt": "2026-07-08T10:59:00Z",
+      "agents": [],
+      "terminals": []
+    },
+    "provenance": {
+      "status": "trustedManaged",
+      "binarySnapshot": {
+        "integrityStatus": "valid",
+        "executableLoadStatus": "loaded",
+        "externalHelperStatus": "present",
+        "bundleIDMatchesOfficial": true,
+        "helperBinaryPresent": true,
+        "signingTeamMatchesOfficial": true,
+        "hardenedRuntimeEnabled": true,
+        "codeUniqueHash": "redacted-hash"
+      },
+      "redactionLevel": "redacted"
+    },
+    "memory": {
+      "virtualBytes": 4096,
+      "residentBytes": 2048,
+      "physicalFootprintBytes": 1536,
+      "compressedBytes": 512,
+      "reusableBytes": 256
+    },
+    "displaySleep": {
+      "isDisplayAsleep": false
+    },
+    "hangSamples": [
+      {
+        "detectedAt": "2026-07-08T10:58:00Z",
+        "durationMilliseconds": 1200,
+        "threadStateSummary": "redacted wait",
+        "recentEventCount": 3,
+        "redactedStackAvailable": true
+      }
+    ],
+    "logEntries": [
+      {
+        "eventID": "event-1",
+        "category": "diagnostics",
+        "severity": "info",
+        "source": "coordinator",
+        "redactedMessage": "snapshot collected",
+        "redactedMetadata": {},
+        "createdAt": "2026-07-08T11:00:00Z"
+      }
+    ]
+  },
+  "exportPlan": {
+    "status": "failedClosed",
+    "entries": [],
+    "failures": [
+      {
+        "sectionName": "sessions-snapshot.txt",
+        "error": "sectionGenerationFailed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "rows": [
+    {
+      "id": "start-dispatch-stop",
+      "actions": ["start", "hotKey:toggle-island", "stop"],
+      "outcomes": ["lifecycle:registerShortcuts", "dispatch:dispatchAction", "lifecycle:unregisterShortcuts"],
+      "state": {"activeScopes": [], "registeredHotKeyIds": [], "isStarted": false},
+      "carbonRefIds": [],
+      "registeredIds": ["toggle-island"],
+      "registrationFailures": [],
+      "removedIds": ["toggle-island"],
+      "events": [
+        "register:toggle-island:1",
+        "route:toggleIsland",
+        "unregister:toggle-island:1"
+      ]
+    },
+    {
+      "id": "registration-rejected",
+      "actions": ["start", "hotKey:toggle-island"],
+      "outcomes": ["lifecycle:registerShortcuts", "dispatch:ignore"],
+      "state": {
+        "activeScopes": ["persistentGlobal"],
+        "registeredHotKeyIds": ["toggle-island"],
+        "isStarted": true
+      },
+      "carbonRefIds": [],
+      "registeredIds": [],
+      "registrationFailures": ["toggle-island:registrationRejected"],
+      "events": ["register:toggle-island:1"]
+    },
+    {
+      "id": "scope-enter-exit",
+      "actions": ["start", "enterScope:expandedPanel", "exitScope:expandedPanel"],
+      "outcomes": ["lifecycle:registerShortcuts", "lifecycle:registerShortcuts", "lifecycle:unregisterShortcuts"],
+      "state": {
+        "activeScopes": ["persistentGlobal"],
+        "registeredHotKeyIds": ["toggle-island"],
+        "isStarted": true
+      },
+      "carbonRefIds": ["toggle-island"],
+      "registeredIds": ["toggle-island", "collapse"],
+      "registrationFailures": [],
+      "removedIds": ["collapse"],
+      "events": [
+        "register:toggle-island:1",
+        "register:collapse:2",
+        "unregister:collapse:2"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "hook_event_name": "afterFileEdit",
+  "conversation_id": "cursor-conversation-edit",
+  "generation_id": "cursor-generation-edit",
+  "workspace_roots": ["/tmp/cursor-project"],
+  "file_path": "/tmp/cursor-project/Package.swift",
+  "edits": [
+    {
+      "old_string": "old",
+      "new_string": "new"
+    }
+  ]
+}

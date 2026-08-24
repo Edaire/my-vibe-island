@@ -1,0 +1,43 @@
+{
+  "rows": [
+    {
+      "id": "upsert-sorts-processes",
+      "actions": ["upsert:abox:1"],
+      "results": ["pids=1,2"],
+      "processes": [
+        {"processId": 1, "hostId": "abox", "generation": 1, "status": "connected"},
+        {"processId": 2, "hostId": "zbox", "generation": 1, "status": "connected"}
+      ],
+      "lastPublishedProcesses": [
+        {"processId": 1, "hostId": "abox", "generation": 1, "status": "connected"},
+        {"processId": 2, "hostId": "zbox", "generation": 1, "status": "connected"}
+      ],
+      "events": [[
+        {"processId": 1, "hostId": "abox", "generation": 1, "status": "connected"},
+        {"processId": 2, "hostId": "zbox", "generation": 1, "status": "connected"}
+      ]]
+    },
+    {
+      "id": "upsert-replaces-generation",
+      "actions": ["upsert:devbox:3"],
+      "results": ["pids=2"],
+      "processes": [
+        {"processId": 2, "hostId": "devbox", "generation": 3, "status": "connected"}
+      ],
+      "lastPublishedProcesses": [
+        {"processId": 2, "hostId": "devbox", "generation": 3, "status": "connected"}
+      ],
+      "events": [[
+        {"processId": 2, "hostId": "devbox", "generation": 3, "status": "connected"}
+      ]]
+    },
+    {
+      "id": "remove-existing-then-missing",
+      "actions": ["remove:devbox:1", "remove:devbox:2"],
+      "results": ["removed=true", "removed=false"],
+      "processes": [],
+      "lastPublishedProcesses": [],
+      "events": [[]]
+    }
+  ]
+}

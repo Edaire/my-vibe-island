@@ -1,0 +1,63 @@
+{
+  "rows": [
+    {
+      "id": "empty",
+      "queues": {
+        "pendingCodexDeltas": [],
+        "pendingCodexDesktopHooks": []
+      },
+      "diagnosticSummary": {
+        "pendingDeltaCount": 0,
+        "pendingDesktopHookCount": 0,
+        "hasDeltaTimeout": false,
+        "hasDesktopHookTimeout": false,
+        "pendingTotalCount": 0
+      }
+    },
+    {
+      "id": "separate-delta-and-desktop-hook-queues",
+      "queues": {
+        "pendingCodexDeltas": [
+          {
+            "id": "delta-early",
+            "sessionId": "session-1",
+            "receivedAtMillis": 1000
+          },
+          {
+            "id": "delta-late",
+            "sessionId": "session-2",
+            "receivedAtMillis": 1100
+          }
+        ],
+        "pendingCodexDeltaTimeout": {
+          "id": "debounce:codex-delta:1250",
+          "key": "codex-delta",
+          "kind": "debounce",
+          "dueAtMillis": 1250,
+          "sourceId": "codex"
+        },
+        "pendingCodexDesktopHooks": [
+          {
+            "id": "hook-1",
+            "sessionId": "session-3",
+            "receivedAtMillis": 1050
+          }
+        ],
+        "pendingCodexDesktopHookTimeout": {
+          "id": "debounce:codex-desktop-hook:1350",
+          "key": "codex-desktop-hook",
+          "kind": "debounce",
+          "dueAtMillis": 1350,
+          "sourceId": "codex"
+        }
+      },
+      "diagnosticSummary": {
+        "pendingDeltaCount": 2,
+        "pendingDesktopHookCount": 1,
+        "hasDeltaTimeout": true,
+        "hasDesktopHookTimeout": true,
+        "pendingTotalCount": 3
+      }
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "rows" : [
+    {
+      "cwd" : "/tmp/project",
+      "diagnosticSummary" : null,
+      "eventKinds" : [
+        "sessionStarted",
+        "jumpTargetUpdated"
+      ],
+      "focusConfidence" : "strong",
+      "id" : "hook-environment-emits-jump-target",
+      "plannedHandlerId" : null,
+      "plannedPrecision" : null,
+      "remoteJumpFailureReason" : null,
+      "remoteRepairAction" : null,
+      "resolvedStrength" : null,
+      "sessionId" : "s1",
+      "source" : "codex",
+      "stateCwd" : null,
+      "stateIsRestored" : null,
+      "terminalFingerprintItermSessionId" : "iterm-1",
+      "tmuxPane" : "%1",
+      "tmuxSocketPath" : "/tmp/tmux.sock"
+    },
+    {
+      "cwd" : "/tmp/project",
+      "diagnosticSummary" : "tmux: exact",
+      "eventKinds" : [
+
+      ],
+      "focusConfidence" : "strong",
+      "id" : "coordinator-stores-hook-jump-target",
+      "plannedHandlerId" : "tmux",
+      "plannedPrecision" : "exactPane",
+      "remoteJumpFailureReason" : null,
+      "remoteRepairAction" : null,
+      "resolvedStrength" : 3,
+      "sessionId" : "s1",
+      "source" : "codex",
+      "stateCwd" : "/tmp/project",
+      "stateIsRestored" : false,
+      "terminalFingerprintItermSessionId" : "iterm-1",
+      "tmuxPane" : "%1",
+      "tmuxSocketPath" : "/tmp/tmux.sock"
+    },
+    {
+      "cwd" : null,
+      "diagnosticSummary" : "tmux: exact",
+      "eventKinds" : [
+
+      ],
+      "focusConfidence" : "exact",
+      "id" : "coordinator-preserves-stronger-target",
+      "plannedHandlerId" : "tmux",
+      "plannedPrecision" : "exactPane",
+      "remoteJumpFailureReason" : null,
+      "remoteRepairAction" : null,
+      "resolvedStrength" : 3,
+      "sessionId" : "s1",
+      "source" : "codex",
+      "stateCwd" : "",
+      "stateIsRestored" : false,
+      "terminalFingerprintItermSessionId" : null,
+      "tmuxPane" : "%1",
+      "tmuxSocketPath" : null
+    },
+    {
+      "cwd" : "/tmp/project",
+      "diagnosticSummary" : "tmux: exact",
+      "eventKinds" : [
+
+      ],
+      "focusConfidence" : "exact",
+      "id" : "jump-target-creates-placeholder-session",
+      "plannedHandlerId" : "tmux",
+      "plannedPrecision" : "exactPane",
+      "remoteJumpFailureReason" : null,
+      "remoteRepairAction" : null,
+      "resolvedStrength" : 3,
+      "sessionId" : "s1",
+      "source" : "codex",
+      "stateCwd" : "",
+      "stateIsRestored" : false,
+      "terminalFingerprintItermSessionId" : null,
+      "tmuxPane" : "%1",
+      "tmuxSocketPath" : null
+    },
+    {
+      "cwd" : "/tmp/project",
+      "diagnosticSummary" : "tmux: exact",
+      "eventKinds" : [
+
+      ],
+      "focusConfidence" : null,
+      "id" : "agent-session-round-trip-preserves-target",
+      "plannedHandlerId" : "tmux",
+      "plannedPrecision" : "exactPane",
+      "remoteJumpFailureReason" : null,
+      "remoteRepairAction" : null,
+      "resolvedStrength" : 3,
+      "sessionId" : "s1",
+      "source" : "codex",
+      "stateCwd" : "/tmp/project",
+      "stateIsRestored" : true,
+      "terminalFingerprintItermSessionId" : null,
+      "tmuxPane" : "%1",
+      "tmuxSocketPath" : null
+    },
+    {
+      "cwd" : "/Users/admin/project",
+      "diagnosticSummary" : "remote-hint: strong",
+      "eventKinds" : [
+
+      ],
+      "focusConfidence" : "strong",
+      "id" : "remote-metadata-target-produces-reconnect-hint",
+      "plannedHandlerId" : "remote-hint",
+      "plannedPrecision" : "remoteHint",
+      "remoteJumpFailureReason" : "remoteRequiresReconnect",
+      "remoteRepairAction" : "Reconnect remote terminal before jumping",
+      "resolvedStrength" : 2,
+      "sessionId" : "remote-1",
+      "source" : "codex",
+      "stateCwd" : null,
+      "stateIsRestored" : null,
+      "terminalFingerprintItermSessionId" : null,
+      "tmuxPane" : null,
+      "tmuxSocketPath" : null
+    }
+  ]
+}

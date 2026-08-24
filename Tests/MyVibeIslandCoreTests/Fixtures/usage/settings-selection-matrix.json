@@ -1,0 +1,52 @@
+{
+  "rows": [
+    {
+      "id": "preferred",
+      "selectedProviderId": "kimiUsage",
+      "reason": "preferred",
+      "rejectedHints": []
+    },
+    {
+      "id": "transient-over-preferred",
+      "selectedProviderId": "localParsedUsage",
+      "reason": "transient",
+      "rejectedHints": []
+    },
+    {
+      "id": "focused-without-preferred",
+      "selectedProviderId": "localParsedUsage",
+      "reason": "focused",
+      "rejectedHints": []
+    },
+    {
+      "id": "rejected-preferred-fallback",
+      "selectedProviderId": "codexRateLimits",
+      "reason": "fallback",
+      "rejectedHints": [
+        {
+          "providerId": "zaiQuota",
+          "source": "preferred",
+          "reason": "notRegistered"
+        }
+      ]
+    },
+    {
+      "id": "unavailable-transient-uses-preferred",
+      "selectedProviderId": "kimiUsage",
+      "reason": "preferred",
+      "rejectedHints": [
+        {
+          "providerId": "zaiQuota",
+          "source": "transient",
+          "reason": "unavailable"
+        }
+      ]
+    },
+    {
+      "id": "none",
+      "selectedProviderId": null,
+      "reason": "none",
+      "rejectedHints": []
+    }
+  ]
+}

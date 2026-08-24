@@ -1,0 +1,114 @@
+{
+  "rows" : [
+    {
+      "childToParent" : {
+        "child-1" : "root",
+        "child-2" : "root"
+      },
+      "confidence" : 0.85,
+      "createdAt" : "2026-07-08T18:30:00Z",
+      "displayName" : "Root task",
+      "groupId" : "team-root",
+      "id" : "provider-metadata-round-trip",
+      "memberSessionIds" : [
+        "child-1",
+        "child-2",
+        "root"
+      ],
+      "parentToChildren" : {
+        "root" : [
+          "child-1",
+          "child-2"
+        ]
+      },
+      "rootSessionId" : "root",
+      "source" : "providerSupplied",
+      "updatedAt" : "2026-07-08T18:31:00Z"
+    },
+    {
+      "childToParent" : {
+        "child" : "root"
+      },
+      "confidence" : 0.5,
+      "createdAt" : null,
+      "displayName" : null,
+      "groupId" : "root",
+      "id" : "default-workspace-derived-root",
+      "memberSessionIds" : [
+        "child",
+        "root"
+      ],
+      "parentToChildren" : {
+        "root" : [
+          "child"
+        ]
+      },
+      "rootSessionId" : "root",
+      "source" : "workspaceDerived",
+      "updatedAt" : null
+    },
+    {
+      "childToParent" : {
+
+      },
+      "confidence" : 0,
+      "createdAt" : null,
+      "displayName" : null,
+      "groupId" : "root",
+      "id" : "confidence-low-clamped",
+      "memberSessionIds" : [
+        "root"
+      ],
+      "parentToChildren" : {
+
+      },
+      "rootSessionId" : "root",
+      "source" : "workspaceDerived",
+      "updatedAt" : null
+    },
+    {
+      "childToParent" : {
+
+      },
+      "confidence" : 1,
+      "createdAt" : null,
+      "displayName" : null,
+      "groupId" : "root",
+      "id" : "confidence-high-clamped",
+      "memberSessionIds" : [
+        "root"
+      ],
+      "parentToChildren" : {
+
+      },
+      "rootSessionId" : "root",
+      "source" : "workspaceDerived",
+      "updatedAt" : null
+    },
+    {
+      "childToParent" : {
+        "child-1" : "root",
+        "child-2" : "root"
+      },
+      "confidence" : 0.5,
+      "createdAt" : null,
+      "displayName" : null,
+      "groupId" : "root",
+      "id" : "parent-child-normalization",
+      "memberSessionIds" : [
+        "child-1",
+        "child-2",
+        "root"
+      ],
+      "parentToChildren" : {
+        "root" : [
+          "child-1",
+          "child-2"
+        ]
+      },
+      "rootSessionId" : "root",
+      "source" : "workspaceDerived",
+      "updatedAt" : null
+    }
+  ]
+}

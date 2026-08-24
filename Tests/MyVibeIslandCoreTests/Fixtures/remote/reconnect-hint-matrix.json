@@ -1,0 +1,114 @@
+{
+  "rows": [
+    {
+      "failureKind": "hostUnreachable",
+      "blockReason": "hostUnreachable",
+      "repairAction": "reconnectHostTunnel",
+      "message": "remote host is unreachable",
+      "nextReconnectAt": null,
+      "failureCount": 0,
+      "reconnectAttempt": 0,
+      "requiresManualSetup": false,
+      "allowsReconnectAttempt": true
+    },
+    {
+      "failureKind": "authenticationFailed",
+      "blockReason": "authenticationFailed",
+      "repairAction": "inspectDiagnostics",
+      "message": "SSH authentication failed",
+      "nextReconnectAt": null,
+      "failureCount": 0,
+      "reconnectAttempt": 0,
+      "requiresManualSetup": true,
+      "allowsReconnectAttempt": false
+    },
+    {
+      "failureKind": "deployMissing",
+      "blockReason": "helperMissing",
+      "repairAction": "redeployHelper",
+      "message": "remote helper is missing",
+      "nextReconnectAt": null,
+      "failureCount": 0,
+      "reconnectAttempt": 0,
+      "requiresManualSetup": true,
+      "allowsReconnectAttempt": false
+    },
+    {
+      "failureKind": "hookOutdated",
+      "blockReason": "hookConfigMissing",
+      "repairAction": "installManagedHooks",
+      "message": "remote hook needs setup or repair",
+      "nextReconnectAt": null,
+      "failureCount": 0,
+      "reconnectAttempt": 0,
+      "requiresManualSetup": true,
+      "allowsReconnectAttempt": false
+    },
+    {
+      "failureKind": "portConflict",
+      "blockReason": "portConflict",
+      "repairAction": "chooseDifferentPort",
+      "message": "remote port is already in use",
+      "nextReconnectAt": null,
+      "failureCount": 0,
+      "reconnectAttempt": 0,
+      "requiresManualSetup": true,
+      "allowsReconnectAttempt": false
+    },
+    {
+      "failureKind": "staleListener",
+      "blockReason": "staleSocket",
+      "repairAction": "enableStreamLocalBindUnlinkOrRemoveSocket",
+      "message": "remote socket listener is stale",
+      "nextReconnectAt": null,
+      "failureCount": 0,
+      "reconnectAttempt": 0,
+      "requiresManualSetup": true,
+      "allowsReconnectAttempt": false
+    },
+    {
+      "failureKind": "foreignListener",
+      "blockReason": "foreignListener",
+      "repairAction": "chooseDifferentPort",
+      "message": "remote listener belongs to another owner",
+      "nextReconnectAt": null,
+      "failureCount": 0,
+      "reconnectAttempt": 0,
+      "requiresManualSetup": true,
+      "allowsReconnectAttempt": false
+    },
+    {
+      "failureKind": "heartbeatTimeout",
+      "blockReason": "heartbeatTimeout",
+      "repairAction": "reconnectHostTunnel",
+      "message": "remote heartbeat timed out",
+      "nextReconnectAt": "2026-07-09T09:00:00Z",
+      "failureCount": 2,
+      "reconnectAttempt": 1,
+      "requiresManualSetup": false,
+      "allowsReconnectAttempt": true
+    },
+    {
+      "failureKind": "commandFailed",
+      "blockReason": "commandFailed",
+      "repairAction": "inspectDiagnostics",
+      "message": "remote command failed",
+      "nextReconnectAt": null,
+      "failureCount": 0,
+      "reconnectAttempt": 0,
+      "requiresManualSetup": true,
+      "allowsReconnectAttempt": false
+    },
+    {
+      "failureKind": "unknown",
+      "blockReason": "unknown",
+      "repairAction": "inspectDiagnostics",
+      "message": "remote connection state is unknown",
+      "nextReconnectAt": null,
+      "failureCount": 0,
+      "reconnectAttempt": 0,
+      "requiresManualSetup": true,
+      "allowsReconnectAttempt": false
+    }
+  ]
+}

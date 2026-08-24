@@ -1,0 +1,37 @@
+{
+  "rows": [
+    {
+      "id": "handled-workspace-input",
+      "handlerId": "workspace-test",
+      "sessionId": "session-1",
+      "hasCwd": true,
+      "canHandle": true,
+      "resultSucceeded": true,
+      "precision": "workspace",
+      "failureReason": null,
+      "diagnosticSummary": "workspace-test: workspace"
+    },
+    {
+      "id": "missing-cwd-input",
+      "handlerId": "workspace-test",
+      "sessionId": "session-1",
+      "hasCwd": false,
+      "canHandle": false,
+      "resultSucceeded": false,
+      "precision": "workspace",
+      "failureReason": "missingTarget",
+      "diagnosticSummary": "workspace-test: workspace"
+    },
+    {
+      "id": "unhandled-session-input",
+      "handlerId": "workspace-test",
+      "sessionId": "session-2",
+      "hasCwd": true,
+      "canHandle": false,
+      "resultSucceeded": false,
+      "precision": "workspace",
+      "failureReason": "missingTarget",
+      "diagnosticSummary": "workspace-test: workspace"
+    }
+  ]
+}

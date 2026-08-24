@@ -1,0 +1,75 @@
+{
+  "rows": [
+    {
+      "id": "new-reset",
+      "plan": {
+        "actions": [
+          {
+            "schedule": {
+              "_0": {
+                "providerId": "codexRateLimits",
+                "accountId": null,
+                "windowId": "primary",
+                "kind": {
+                  "windowReset": {
+                    "resetAt": "2026-07-08T13:00:00Z"
+                  }
+                },
+                "title": "Usage window reset",
+                "message": "Primary resets at 2026-07-08T13:00:00Z",
+                "dedupeKey": "usageReset:codexRateLimits:2026-07-08T13:00:00Z"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "already-scheduled",
+      "plan": {
+        "actions": []
+      }
+    },
+    {
+      "id": "stale-scheduled-key",
+      "plan": {
+        "actions": [
+          {
+            "cancel": {
+              "dedupeKey": "usageReset:codexRateLimits:2026-07-08T13:00:00Z"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "mixed-actions",
+      "plan": {
+        "actions": [
+          {
+            "schedule": {
+              "_0": {
+                "providerId": "codexRateLimits",
+                "accountId": null,
+                "windowId": "primary",
+                "kind": {
+                  "windowReset": {
+                    "resetAt": "2026-07-08T15:00:00Z"
+                  }
+                },
+                "title": "Usage window reset",
+                "message": "Primary resets at 2026-07-08T15:00:00Z",
+                "dedupeKey": "usageReset:codexRateLimits:2026-07-08T15:00:00Z"
+              }
+            }
+          },
+          {
+            "cancel": {
+              "dedupeKey": "usageReset:codexRateLimits:2026-07-08T09:00:00Z"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

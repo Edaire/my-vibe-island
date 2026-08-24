@@ -1,0 +1,37 @@
+{
+  "rows": [
+    {
+      "id": "explicit-inclusion-disabled",
+      "isIncluded": false,
+      "includedReportCount": 0,
+      "excludedReportCount": 2,
+      "firstReportIDHash": null,
+      "firstProcessName": null,
+      "firstOccurredAt": null,
+      "firstAppVersion": null,
+      "firstRedactedExceptionType": null
+    },
+    {
+      "id": "explicit-inclusion-filters-this-app",
+      "isIncluded": true,
+      "includedReportCount": 1,
+      "excludedReportCount": 1,
+      "firstReportIDHash": "hash-this-app",
+      "firstProcessName": "MyVibeIsland",
+      "firstOccurredAt": "2026-07-09T09:00:00Z",
+      "firstAppVersion": "1.2.0",
+      "firstRedactedExceptionType": "EXC_BAD_ACCESS"
+    },
+    {
+      "id": "explicit-inclusion-empty-input",
+      "isIncluded": true,
+      "includedReportCount": 0,
+      "excludedReportCount": 0,
+      "firstReportIDHash": null,
+      "firstProcessName": null,
+      "firstOccurredAt": null,
+      "firstAppVersion": null,
+      "firstRedactedExceptionType": null
+    }
+  ]
+}

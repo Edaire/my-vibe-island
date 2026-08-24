@@ -1,0 +1,236 @@
+{
+  "stepOrder": [
+    "welcome",
+    "localPrivacy",
+    "environmentScan",
+    "integrationSelection",
+    "installRepair",
+    "permissions",
+    "demo",
+    "verification",
+    "ready"
+  ],
+  "nextByStep": [
+    {
+      "step": "welcome",
+      "next": "localPrivacy"
+    },
+    {
+      "step": "localPrivacy",
+      "next": "environmentScan"
+    },
+    {
+      "step": "environmentScan",
+      "next": "integrationSelection"
+    },
+    {
+      "step": "integrationSelection",
+      "next": "installRepair"
+    },
+    {
+      "step": "installRepair",
+      "next": "permissions"
+    },
+    {
+      "step": "permissions",
+      "next": "demo"
+    },
+    {
+      "step": "demo",
+      "next": "verification"
+    },
+    {
+      "step": "verification",
+      "next": "ready"
+    },
+    {
+      "step": "ready",
+      "next": null
+    }
+  ],
+  "advanceRows": [
+    {
+      "id": "welcome-start",
+      "initialState": {
+        "currentStep": "welcome",
+        "completedSteps": [],
+        "skippedSteps": [],
+        "canContinue": true,
+        "blockingIssue": null,
+        "readinessOutcome": null
+      },
+      "decision": "advanced",
+      "nextState": {
+        "currentStep": "localPrivacy",
+        "completedSteps": [
+          "welcome"
+        ],
+        "skippedSteps": [],
+        "canContinue": true,
+        "blockingIssue": null,
+        "readinessOutcome": null
+      }
+    },
+    {
+      "id": "blocked-permissions",
+      "initialState": {
+        "currentStep": "permissions",
+        "completedSteps": [],
+        "skippedSteps": [],
+        "canContinue": false,
+        "blockingIssue": "automation permission denied",
+        "readinessOutcome": "blocked"
+      },
+      "decision": "blocked",
+      "nextState": {
+        "currentStep": "permissions",
+        "completedSteps": [],
+        "skippedSteps": [],
+        "canContinue": false,
+        "blockingIssue": "automation permission denied",
+        "readinessOutcome": "blocked"
+      }
+    },
+    {
+      "id": "already-ready",
+      "initialState": {
+        "currentStep": "ready",
+        "completedSteps": [],
+        "skippedSteps": [],
+        "canContinue": true,
+        "blockingIssue": null,
+        "readinessOutcome": null
+      },
+      "decision": "alreadyReady",
+      "nextState": {
+        "currentStep": "ready",
+        "completedSteps": [],
+        "skippedSteps": [],
+        "canContinue": true,
+        "blockingIssue": null,
+        "readinessOutcome": null
+      }
+    }
+  ],
+  "readinessRows": [
+    {
+      "id": "blocked-permission",
+      "outcome": "blocked",
+      "blockingIssues": [
+        "automation permission denied for terminal jump"
+      ],
+      "repairActions": [],
+      "appliedState": {
+        "currentStep": "environmentScan",
+        "completedSteps": [],
+        "skippedSteps": [],
+        "canContinue": false,
+        "blockingIssue": "automation permission denied for terminal jump",
+        "readinessOutcome": "blocked"
+      }
+    },
+    {
+      "id": "ready-agent",
+      "outcome": "ready",
+      "blockingIssues": [],
+      "repairActions": [],
+      "appliedState": {
+        "currentStep": "verification",
+        "completedSteps": [],
+        "skippedSteps": [],
+        "canContinue": true,
+        "blockingIssue": null,
+        "readinessOutcome": "ready"
+      }
+    },
+    {
+      "id": "partial-terminal-repair",
+      "outcome": "partial",
+      "blockingIssues": [],
+      "repairActions": [
+        "install terminal integration"
+      ],
+      "appliedState": {
+        "currentStep": "installRepair",
+        "completedSteps": [],
+        "skippedSteps": [],
+        "canContinue": true,
+        "blockingIssue": null,
+        "readinessOutcome": "partial"
+      }
+    }
+  ],
+  "coordinatorRows": [
+    {
+      "id": "first-run-ready-restart",
+      "shouldPresentOnboarding": true,
+      "coordinatedState": {
+        "currentStep": "verification",
+        "completedSteps": [],
+        "skippedSteps": [],
+        "canContinue": true,
+        "blockingIssue": null,
+        "readinessOutcome": "ready"
+      },
+      "restartBanner": {
+        "visible": true,
+        "source": "firstInstall",
+        "requiresRestart": true,
+        "shownAt": "2026-07-09T01:30:01Z",
+        "firstInstallOnly": true,
+        "affectedIntegrations": [
+          "codex"
+        ]
+      },
+      "readyWindow": {
+        "readinessOutcome": "ready",
+        "nextActions": [
+          "restartApp",
+          "openSettings"
+        ],
+        "isPresented": true
+      },
+      "demoPlan": {
+        "demoSource": "onboarding",
+        "sessionIds": [
+          "demo-onboarding-permission",
+          "demo-onboarding-question",
+          "demo-onboarding-completion",
+          "demo-onboarding-notification"
+        ],
+        "previewCompletionSessionId": "demo-onboarding-completion"
+      }
+    },
+    {
+      "id": "completed-no-presentation-demo-only",
+      "shouldPresentOnboarding": false,
+      "coordinatedState": {
+        "currentStep": "ready",
+        "completedSteps": [],
+        "skippedSteps": [],
+        "canContinue": true,
+        "blockingIssue": null,
+        "readinessOutcome": "demoOnly"
+      },
+      "restartBanner": {
+        "visible": false,
+        "source": null,
+        "requiresRestart": false,
+        "shownAt": null,
+        "firstInstallOnly": false,
+        "affectedIntegrations": []
+      },
+      "readyWindow": null,
+      "demoPlan": {
+        "demoSource": "onboarding",
+        "sessionIds": [
+          "demo-onboarding-permission",
+          "demo-onboarding-question",
+          "demo-onboarding-completion",
+          "demo-onboarding-notification"
+        ],
+        "previewCompletionSessionId": "demo-onboarding-completion"
+      }
+    }
+  ]
+}

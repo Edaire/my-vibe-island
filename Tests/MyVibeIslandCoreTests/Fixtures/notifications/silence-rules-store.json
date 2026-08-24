@@ -1,0 +1,120 @@
+{
+  "snapshot": {
+    "disabledBuiltInIds": [
+      "quiet-activity"
+    ],
+    "customRules": [
+      {
+        "id": "custom-codex-permission",
+        "enabled": true,
+        "matcher": {
+          "scope": "agent",
+          "target": "codex"
+        },
+        "action": {
+          "suppressesPeek": true,
+          "suppressesSound": true
+        },
+        "expiresAt": null,
+        "createdAt": "2026-07-08T08:00:00Z"
+      },
+      {
+        "id": "custom-project-sound",
+        "enabled": true,
+        "matcher": {
+          "scope": "workspace",
+          "target": "/Users/<user>/project"
+        },
+        "action": {
+          "suppressesPeek": false,
+          "suppressesSound": true
+        },
+        "expiresAt": "2026-07-08T12:00:00Z",
+        "createdAt": "2026-07-08T08:05:00Z"
+      }
+    ],
+    "builtInGroups": [
+      {
+        "id": "quiet-activity",
+        "name": "Activity updates",
+        "rules": [
+          {
+            "id": "built-in-activity",
+            "enabled": true,
+            "matcher": {
+              "scope": "category",
+              "target": "activityUpdate"
+            },
+            "action": {
+              "suppressesPeek": true,
+              "suppressesSound": true
+            },
+            "expiresAt": null,
+            "createdAt": "built-in"
+          }
+        ]
+      },
+      {
+        "id": "quiet-usage",
+        "name": "Usage notices",
+        "rules": [
+          {
+            "id": "built-in-usage-threshold",
+            "enabled": true,
+            "matcher": {
+              "scope": "category",
+              "target": "usageThreshold"
+            },
+            "action": {
+              "suppressesPeek": false,
+              "suppressesSound": true
+            },
+            "expiresAt": null,
+            "createdAt": "built-in"
+          }
+        ]
+      }
+    ]
+  },
+  "effectiveRuleIds": [
+    "built-in-usage-threshold",
+    "custom-codex-permission",
+    "custom-project-sound"
+  ],
+  "savePlan": {
+    "schemaVersion": 1,
+    "disabledBuiltInIds": [
+      "quiet-activity"
+    ],
+    "customRules": [
+      {
+        "id": "custom-codex-permission",
+        "enabled": true,
+        "matcher": {
+          "scope": "agent",
+          "target": "codex"
+        },
+        "action": {
+          "suppressesPeek": true,
+          "suppressesSound": true
+        },
+        "expiresAt": null,
+        "createdAt": "2026-07-08T08:00:00Z"
+      },
+      {
+        "id": "custom-project-sound",
+        "enabled": true,
+        "matcher": {
+          "scope": "workspace",
+          "target": "/Users/<user>/project"
+        },
+        "action": {
+          "suppressesPeek": false,
+          "suppressesSound": true
+        },
+        "expiresAt": "2026-07-08T12:00:00Z",
+        "createdAt": "2026-07-08T08:05:00Z"
+      }
+    ]
+  }
+}

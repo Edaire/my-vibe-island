@@ -1,0 +1,24 @@
+{
+  "rows": [
+    {
+      "id": "default",
+      "configChecked": false,
+      "cachedConfigAvailability": "unknown"
+    },
+    {
+      "id": "mark-available",
+      "configChecked": true,
+      "cachedConfigAvailability": "available"
+    },
+    {
+      "id": "mark-unavailable",
+      "configChecked": true,
+      "cachedConfigAvailability": "unavailable"
+    },
+    {
+      "id": "reset",
+      "configChecked": false,
+      "cachedConfigAvailability": "unknown"
+    }
+  ]
+}

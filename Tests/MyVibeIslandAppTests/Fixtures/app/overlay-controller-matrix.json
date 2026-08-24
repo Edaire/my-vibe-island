@@ -1,0 +1,37 @@
+{
+  "rows": [
+    {
+      "id": "injected-overlay-flow",
+      "lastPresentationState": "expanded",
+      "lastSurfaceSections": ["compactPill"],
+      "lastSurfaceViewWidth": 320,
+      "surfaceViewAttachedToWindow": false,
+      "lastDisplayReason": "keyboardShortcut",
+      "routedOpenSettings": true,
+      "lastFrameWidth": 640,
+      "lastShownState": "expanded",
+      "lastHiddenReason": "outsideClick",
+      "hasLastForwardedAction": false,
+      "currentPanelState": "closed",
+      "keyboardFocusRequested": false,
+      "pendingHoverReveal": false,
+      "pendingAutoCollapse": false,
+      "events": [
+        "render:expanded",
+        "frame:640",
+        "show:expanded",
+        "interaction",
+        "interaction",
+        "interaction",
+        "interaction",
+        "hide:outsideClick",
+        "reason:outsideClick",
+        "route",
+        "reason:keyboardShortcut",
+        "surface:1",
+        "build:320x120",
+        "view:320"
+      ]
+    }
+  ]
+}

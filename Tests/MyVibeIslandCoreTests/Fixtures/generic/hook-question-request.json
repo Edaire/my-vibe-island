@@ -1,0 +1,10 @@
+{
+  "rawEventName": "QuestionRequest",
+  "sessionId": "generic-session",
+  "requestId": "generic-question-1",
+  "cwd": "/tmp/generic-agent",
+  "model": "generic-model",
+  "permissionMode": "default",
+  "toolName": "Question",
+  "message": "Which implementation path should be used?"
+}

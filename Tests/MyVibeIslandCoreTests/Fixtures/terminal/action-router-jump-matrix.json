@@ -1,0 +1,88 @@
+{
+  "rows": [
+    {
+      "id": "resolved-exact-target",
+      "sessionId": "exact",
+      "status": "planned",
+      "handlerId": "tmux",
+      "precision": "exactPane",
+      "failureReason": null,
+      "repairAction": null,
+      "diagnosticSummary": "tmux: exactPane",
+      "resolvedStrength": 3,
+      "resolvedHandlerId": "tmux",
+      "jumpFailureReason": null,
+      "jumpSucceeded": true
+    },
+    {
+      "id": "raw-workspace-target",
+      "sessionId": "workspace",
+      "status": "planned",
+      "handlerId": "workspace",
+      "precision": "workspace",
+      "failureReason": null,
+      "repairAction": null,
+      "diagnosticSummary": "workspace: workspace",
+      "resolvedStrength": 1,
+      "resolvedHandlerId": "workspace",
+      "jumpFailureReason": null,
+      "jumpSucceeded": true
+    },
+    {
+      "id": "remote-repair-target",
+      "sessionId": "remote",
+      "status": "repairRequired",
+      "handlerId": "remote-hint",
+      "precision": "remoteHint",
+      "failureReason": "remoteRequiresReconnect",
+      "repairAction": "Reconnect remote terminal before jumping",
+      "diagnosticSummary": "remote-hint: remoteRequiresReconnect",
+      "resolvedStrength": 2,
+      "resolvedHandlerId": "remote-hint",
+      "jumpFailureReason": "remoteRequiresReconnect",
+      "jumpSucceeded": false
+    },
+    {
+      "id": "missing-session",
+      "sessionId": "missing",
+      "status": "unavailable",
+      "handlerId": null,
+      "precision": null,
+      "failureReason": "missingSession",
+      "repairAction": null,
+      "diagnosticSummary": "missing session",
+      "resolvedStrength": null,
+      "resolvedHandlerId": null,
+      "jumpFailureReason": null,
+      "jumpSucceeded": null
+    },
+    {
+      "id": "missing-jump-target",
+      "sessionId": "empty",
+      "status": "unavailable",
+      "handlerId": null,
+      "precision": null,
+      "failureReason": "missingJumpTarget",
+      "repairAction": null,
+      "diagnosticSummary": "missing jump target",
+      "resolvedStrength": null,
+      "resolvedHandlerId": null,
+      "jumpFailureReason": null,
+      "jumpSucceeded": null
+    },
+    {
+      "id": "unsupported-target",
+      "sessionId": "unsupported",
+      "status": "unavailable",
+      "handlerId": "unsupported",
+      "precision": "unsupported",
+      "failureReason": "unsupportedTarget",
+      "repairAction": "Collect terminal context before jumping",
+      "diagnosticSummary": "unsupported: missingTarget",
+      "resolvedStrength": 0,
+      "resolvedHandlerId": "unsupported",
+      "jumpFailureReason": "missingTarget",
+      "jumpSucceeded": false
+    }
+  ]
+}

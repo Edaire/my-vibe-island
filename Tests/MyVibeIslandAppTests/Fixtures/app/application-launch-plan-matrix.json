@@ -1,0 +1,14 @@
+{
+  "rows": [
+    {
+      "id": "default-platform-launch",
+      "intentCount": 36,
+      "lifecycleIntentCount": 10,
+      "runtimeStartIntentCount": 19,
+      "notchWindowIntentCount": 5,
+      "statusItemMenuEntryCount": 14,
+      "route": "island",
+      "targetDisplayName": "Built-in Display"
+    }
+  ]
+}

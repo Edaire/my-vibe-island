@@ -1,0 +1,43 @@
+{
+  "rows": [
+    {
+      "id": "exact-iterm-hook-environment",
+      "provenance": "hookEnvironment",
+      "strength": 3,
+      "plannedHandlerId": "iterm",
+      "plannedPrecision": "exactPane",
+      "capabilityDisplayName": "iTerm2",
+      "diagnosticSummary": "iterm: exact",
+      "fingerprintSessionId": "s1",
+      "fingerprintITermSessionId": "iterm-1",
+      "focusConfidence": "exact",
+      "focusExternalSessionId": "iterm-1"
+    },
+    {
+      "id": "strong-terminal-window-probe",
+      "provenance": "windowProbe",
+      "strength": 2,
+      "plannedHandlerId": "terminal-tty",
+      "plannedPrecision": "exactWindow",
+      "capabilityDisplayName": "Terminal.app",
+      "diagnosticSummary": "terminal-tty: strong",
+      "fingerprintSessionId": "s2",
+      "fingerprintTTY": "/dev/ttys001",
+      "focusConfidence": "strong",
+      "selectedTTY": "/dev/ttys001"
+    },
+    {
+      "id": "remote-like-unmarked-does-not-replace-local",
+      "provenance": "windowProbe",
+      "strength": 2,
+      "plannedHandlerId": "terminal-tty",
+      "plannedPrecision": "exactWindow",
+      "capabilityDisplayName": "Terminal.app",
+      "diagnosticSummary": "terminal-tty: strong",
+      "fingerprintSessionId": "s2",
+      "fingerprintTTY": "/dev/ttys001",
+      "focusConfidence": "strong",
+      "selectedTTY": "/dev/ttys001"
+    }
+  ]
+}

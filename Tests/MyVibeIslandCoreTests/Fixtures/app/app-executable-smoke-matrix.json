@@ -1,0 +1,30 @@
+{
+  "rows": [
+    {
+      "id": "status-home-override",
+      "exitCode": 0,
+      "firstLine": "My Vibe Island runtime status",
+      "containsRuntimeStatus": true,
+      "containsSessionCount": true,
+      "containsJumpDryRun": false,
+      "containsStoredSession": false,
+      "containsDryRunStatus": false,
+      "containsWorkspaceHandler": false,
+      "containsOpenWorkspaceAction": false,
+      "containsStoredTarget": false
+    },
+    {
+      "id": "jump-dry-run-home-override",
+      "exitCode": 0,
+      "firstLine": "My Vibe Island jump dry run",
+      "containsRuntimeStatus": false,
+      "containsSessionCount": false,
+      "containsJumpDryRun": true,
+      "containsStoredSession": true,
+      "containsDryRunStatus": true,
+      "containsWorkspaceHandler": true,
+      "containsOpenWorkspaceAction": true,
+      "containsStoredTarget": true
+    }
+  ]
+}

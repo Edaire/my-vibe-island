@@ -1,0 +1,229 @@
+{
+  "cases": [
+    {
+      "name": "normal-launch-routes-island",
+      "projection": {
+        "route": "island",
+        "hasLaunched": true,
+        "isTerminated": false,
+        "pendingSettingsDeepLinkSection": null,
+        "pendingSettingsDeepLinkRowId": null,
+        "completedStartupSteps": [
+          "createRuntime",
+          "loadSettings",
+          "configureDockPolicy",
+          "createScreenSelection",
+          "createIslandWindow",
+          "startBridge",
+          "startRuntimeCoordinators",
+          "runOnboardingDecision",
+          "attachUpdateDriver",
+          "scheduleHealthChecks"
+        ],
+        "completedTerminationSteps": [],
+        "steps": [
+          "createRuntime",
+          "loadSettings",
+          "configureDockPolicy",
+          "createScreenSelection",
+          "createIslandWindow",
+          "startBridge",
+          "startRuntimeCoordinators",
+          "runOnboardingDecision",
+          "attachUpdateDriver",
+          "scheduleHealthChecks"
+        ]
+      }
+    },
+    {
+      "name": "first-launch-routes-onboarding",
+      "projection": {
+        "route": "onboarding",
+        "hasLaunched": true,
+        "isTerminated": false,
+        "pendingSettingsDeepLinkSection": null,
+        "pendingSettingsDeepLinkRowId": null,
+        "completedStartupSteps": [
+          "createRuntime",
+          "loadSettings",
+          "configureDockPolicy",
+          "createScreenSelection",
+          "createIslandWindow",
+          "startBridge",
+          "startRuntimeCoordinators",
+          "runOnboardingDecision",
+          "attachUpdateDriver",
+          "scheduleHealthChecks"
+        ],
+        "completedTerminationSteps": [],
+        "steps": [
+          "createRuntime",
+          "loadSettings",
+          "configureDockPolicy",
+          "createScreenSelection",
+          "createIslandWindow",
+          "startBridge",
+          "startRuntimeCoordinators",
+          "runOnboardingDecision",
+          "attachUpdateDriver",
+          "scheduleHealthChecks"
+        ]
+      }
+    },
+    {
+      "name": "pending-onboarding-routes-onboarding",
+      "projection": {
+        "route": "onboarding",
+        "hasLaunched": true,
+        "isTerminated": false,
+        "pendingSettingsDeepLinkSection": null,
+        "pendingSettingsDeepLinkRowId": null,
+        "completedStartupSteps": [
+          "createRuntime",
+          "loadSettings",
+          "configureDockPolicy",
+          "createScreenSelection",
+          "createIslandWindow",
+          "startBridge",
+          "startRuntimeCoordinators",
+          "runOnboardingDecision",
+          "attachUpdateDriver",
+          "scheduleHealthChecks"
+        ],
+        "completedTerminationSteps": [],
+        "steps": [
+          "createRuntime",
+          "loadSettings",
+          "configureDockPolicy",
+          "createScreenSelection",
+          "createIslandWindow",
+          "startBridge",
+          "startRuntimeCoordinators",
+          "runOnboardingDecision",
+          "attachUpdateDriver",
+          "scheduleHealthChecks"
+        ]
+      }
+    },
+    {
+      "name": "launch-is-idempotent-after-startup",
+      "projection": {
+        "route": "island",
+        "hasLaunched": true,
+        "isTerminated": false,
+        "pendingSettingsDeepLinkSection": null,
+        "pendingSettingsDeepLinkRowId": null,
+        "completedStartupSteps": [
+          "createRuntime",
+          "loadSettings"
+        ],
+        "completedTerminationSteps": [],
+        "steps": []
+      }
+    },
+    {
+      "name": "reopen-default-route-shows-island",
+      "projection": {
+        "route": "island",
+        "hasLaunched": true,
+        "isTerminated": false,
+        "pendingSettingsDeepLinkSection": null,
+        "pendingSettingsDeepLinkRowId": null,
+        "completedStartupSteps": [
+          "createRuntime",
+          "loadSettings"
+        ],
+        "completedTerminationSteps": [],
+        "steps": [
+          "showIsland"
+        ]
+      }
+    },
+    {
+      "name": "reopen-settings-keeps-deep-link",
+      "projection": {
+        "route": "settings",
+        "hasLaunched": true,
+        "isTerminated": false,
+        "pendingSettingsDeepLinkSection": "about",
+        "pendingSettingsDeepLinkRowId": "export",
+        "completedStartupSteps": [
+          "createRuntime",
+          "loadSettings"
+        ],
+        "completedTerminationSteps": [],
+        "steps": [
+          "showSettingsWindow"
+        ]
+      }
+    },
+    {
+      "name": "reopen-onboarding-shows-onboarding",
+      "projection": {
+        "route": "onboarding",
+        "hasLaunched": true,
+        "isTerminated": false,
+        "pendingSettingsDeepLinkSection": null,
+        "pendingSettingsDeepLinkRowId": null,
+        "completedStartupSteps": [
+          "createRuntime",
+          "loadSettings"
+        ],
+        "completedTerminationSteps": [],
+        "steps": [
+          "showOnboarding"
+        ]
+      }
+    },
+    {
+      "name": "terminate-runs-shutdown-steps",
+      "projection": {
+        "route": "none",
+        "hasLaunched": true,
+        "isTerminated": true,
+        "pendingSettingsDeepLinkSection": null,
+        "pendingSettingsDeepLinkRowId": null,
+        "completedStartupSteps": [
+          "createRuntime",
+          "loadSettings"
+        ],
+        "completedTerminationSteps": [
+          "persistSettingsAndSessions",
+          "unregisterShortcuts",
+          "closeWindows",
+          "stopBridge",
+          "flushDiagnostics"
+        ],
+        "steps": [
+          "persistSettingsAndSessions",
+          "unregisterShortcuts",
+          "closeWindows",
+          "stopBridge",
+          "flushDiagnostics"
+        ]
+      }
+    },
+    {
+      "name": "terminate-is-idempotent-after-shutdown",
+      "projection": {
+        "route": "none",
+        "hasLaunched": true,
+        "isTerminated": true,
+        "pendingSettingsDeepLinkSection": null,
+        "pendingSettingsDeepLinkRowId": null,
+        "completedStartupSteps": [
+          "createRuntime",
+          "loadSettings"
+        ],
+        "completedTerminationSteps": [
+          "persistSettingsAndSessions",
+          "unregisterShortcuts",
+          "closeWindows",
+          "stopBridge",
+          "flushDiagnostics"
+        ],
+        "steps": []
+      }
+    }
+  ]
+}

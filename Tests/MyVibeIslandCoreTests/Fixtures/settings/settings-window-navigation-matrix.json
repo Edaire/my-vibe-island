@@ -1,0 +1,196 @@
+{
+  "defaultSidebarSections": [
+    "general",
+    "integrations",
+    "notifications",
+    "display",
+    "sound",
+    "usage",
+    "shortcuts",
+    "sshRemote",
+    "labs",
+    "about"
+  ],
+  "headers": [
+    {
+      "section": "general",
+      "title": "General",
+      "iconName": "gearshape",
+      "helpLink": null
+    },
+    {
+      "section": "integrations",
+      "title": "Integrations",
+      "iconName": "puzzlepiece.extension",
+      "helpLink": null
+    },
+    {
+      "section": "sound",
+      "title": "Sound",
+      "iconName": "speaker.wave.2",
+      "helpLink": null
+    },
+    {
+      "section": "labs",
+      "title": "Labs",
+      "iconName": "flask",
+      "helpLink": null
+    },
+    {
+      "section": "about",
+      "title": "About",
+      "iconName": "info.circle",
+      "helpLink": null
+    }
+  ],
+  "planRows": [
+    {
+      "id": "open-diagnostics-deeplink",
+      "action": "showWindow",
+      "state": {
+        "isOpen": true,
+        "availableSections": [
+          "general",
+          "integrations",
+          "notifications",
+          "display",
+          "sound",
+          "usage",
+          "shortcuts",
+          "sshRemote",
+          "labs",
+          "about"
+        ],
+        "selectedSection": "about",
+        "detailTitle": "About",
+        "deepLinkSection": "about",
+        "deepLinkRowId": "export",
+        "deepLinkHighlightReason": "userRequested",
+        "deepLinkActionHint": "openDiagnostics",
+        "searchQuery": "old"
+      }
+    },
+    {
+      "id": "close-preserves-section",
+      "action": "closeWindow",
+      "state": {
+        "isOpen": false,
+        "availableSections": [
+          "general",
+          "integrations",
+          "notifications",
+          "display",
+          "sound",
+          "usage",
+          "shortcuts",
+          "sshRemote",
+          "labs",
+          "about"
+        ],
+        "selectedSection": "about",
+        "detailTitle": "About",
+        "deepLinkSection": "about",
+        "deepLinkRowId": "export",
+        "deepLinkHighlightReason": "userRequested",
+        "deepLinkActionHint": "openDiagnostics",
+        "searchQuery": "old"
+      }
+    },
+    {
+      "id": "reopen-preserves-section",
+      "action": "showWindow",
+      "state": {
+        "isOpen": true,
+        "availableSections": [
+          "general",
+          "integrations",
+          "notifications",
+          "display",
+          "sound",
+          "usage",
+          "shortcuts",
+          "sshRemote",
+          "labs",
+          "about"
+        ],
+        "selectedSection": "about",
+        "detailTitle": "About",
+        "deepLinkSection": "about",
+        "deepLinkRowId": "export",
+        "deepLinkHighlightReason": "userRequested",
+        "deepLinkActionHint": "openDiagnostics",
+        "searchQuery": "old"
+      }
+    },
+    {
+      "id": "select-about-clears-deeplink",
+      "action": "selectSection",
+      "state": {
+        "isOpen": true,
+        "availableSections": [
+          "general",
+          "integrations",
+          "notifications",
+          "display",
+          "sound",
+          "usage",
+          "shortcuts",
+          "sshRemote",
+          "labs",
+          "about"
+        ],
+        "selectedSection": "about",
+        "detailTitle": "About",
+        "deepLinkSection": null,
+        "deepLinkRowId": null,
+        "deepLinkHighlightReason": null,
+        "deepLinkActionHint": null,
+        "searchQuery": "old"
+      }
+    },
+    {
+      "id": "select-unavailable-labs-ignored",
+      "action": "ignoredUnavailableSection",
+      "state": {
+        "isOpen": false,
+        "availableSections": [
+          "general",
+          "about"
+        ],
+        "selectedSection": "general",
+        "detailTitle": "General",
+        "deepLinkSection": null,
+        "deepLinkRowId": null,
+        "deepLinkHighlightReason": null,
+        "deepLinkActionHint": null,
+        "searchQuery": ""
+      }
+    },
+    {
+      "id": "search-trims-query",
+      "action": "updateSearch",
+      "state": {
+        "isOpen": true,
+        "availableSections": [
+          "general",
+          "integrations",
+          "notifications",
+          "display",
+          "sound",
+          "usage",
+          "shortcuts",
+          "sshRemote",
+          "labs",
+          "about"
+        ],
+        "selectedSection": "shortcuts",
+        "detailTitle": "Shortcuts",
+        "deepLinkSection": null,
+        "deepLinkRowId": null,
+        "deepLinkHighlightReason": null,
+        "deepLinkActionHint": null,
+        "searchQuery": "hooks"
+      }
+    }
+  ]
+}

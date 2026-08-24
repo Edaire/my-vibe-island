@@ -1,0 +1,68 @@
+{
+  "rows": [
+    {
+      "id": "publish-changed-observer",
+      "didPublish": [true],
+      "currentObserver": {
+        "hostId": "devbox",
+        "lastProbeResult": "succeeded",
+        "currentReachability": "satisfied",
+        "failureCount": 0,
+        "lastSuccessAt": "2026-07-09T10:00:00Z"
+      },
+      "lastPublishedObserver": {
+        "hostId": "devbox",
+        "lastProbeResult": "succeeded",
+        "currentReachability": "satisfied",
+        "failureCount": 0,
+        "lastSuccessAt": "2026-07-09T10:00:00Z"
+      },
+      "events": [{
+        "hostId": "devbox",
+        "lastProbeResult": "succeeded",
+        "currentReachability": "satisfied",
+        "failureCount": 0,
+        "lastSuccessAt": "2026-07-09T10:00:00Z"
+      }]
+    },
+    {
+      "id": "suppress-unchanged-observer",
+      "didPublish": [false],
+      "currentObserver": {
+        "hostId": "devbox",
+        "lastProbeResult": "heartbeatTimeout",
+        "currentReachability": "unsatisfied",
+        "failureCount": 2,
+        "nextReconnectAt": "2026-07-09T10:01:00Z"
+      },
+      "lastFailureKind": "heartbeatTimeout",
+      "events": []
+    },
+    {
+      "id": "publish-first-observer",
+      "didPublish": [true],
+      "currentObserver": {
+        "hostId": "devbox",
+        "lastProbeResult": "networkUnsatisfied",
+        "currentReachability": "unsatisfied",
+        "failureCount": 1,
+        "nextReconnectAt": "2026-07-09T10:01:00Z"
+      },
+      "lastPublishedObserver": {
+        "hostId": "devbox",
+        "lastProbeResult": "networkUnsatisfied",
+        "currentReachability": "unsatisfied",
+        "failureCount": 1,
+        "nextReconnectAt": "2026-07-09T10:01:00Z"
+      },
+      "lastFailureKind": "hostUnreachable",
+      "events": [{
+        "hostId": "devbox",
+        "lastProbeResult": "networkUnsatisfied",
+        "currentReachability": "unsatisfied",
+        "failureCount": 1,
+        "nextReconnectAt": "2026-07-09T10:01:00Z"
+      }]
+    }
+  ]
+}

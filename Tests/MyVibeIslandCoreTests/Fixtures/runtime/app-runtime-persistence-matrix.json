@@ -1,0 +1,28 @@
+{
+  "rows": [
+    {
+      "id": "restores-sessions-from-injected-store",
+      "statusSessionCount": 1,
+      "sessionIds": ["restored"],
+      "restoredSessionIds": ["restored"],
+      "activeSessionId": "restored",
+      "activeRuntimeSessionId": "restored",
+      "summarizedSessionIds": ["previous"],
+      "questionSelections": {
+        "request-1": "approve"
+      },
+      "selectedQuestionAnswer": "approve"
+    },
+    {
+      "id": "runtime-without-store-keeps-empty-state",
+      "statusSessionCount": 0,
+      "sessionIds": [],
+      "restoredSessionIds": [],
+      "activeSessionId": null,
+      "activeRuntimeSessionId": null,
+      "summarizedSessionIds": [],
+      "questionSelections": {},
+      "selectedQuestionAnswer": null
+    }
+  ]
+}

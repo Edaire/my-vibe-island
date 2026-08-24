@@ -1,0 +1,95 @@
+{
+  "rows": [
+    {
+      "id": "full-primary-secondary-credits",
+      "status": "fresh",
+      "displayWindows": [
+        {
+          "id": "primary",
+          "label": "Codex Pro primary",
+          "kind": "fiveHour",
+          "usedPercent": 64.5,
+          "resetAt": "2026-07-08T18:00:00Z",
+          "resetInSeconds": 3600
+        },
+        {
+          "id": "secondary",
+          "label": "Codex Pro secondary",
+          "kind": "sevenDay",
+          "usedPercent": 12,
+          "resetAt": "2026-07-15T00:00:00Z",
+          "resetInSeconds": 604800
+        }
+      ],
+      "extraUsage": [
+        {
+          "key": "credits",
+          "value": "42.25",
+          "isEnabled": true,
+          "usedCreditsValue": 42.25,
+          "usedCreditsUnit": "credits"
+        }
+      ],
+      "bridgeHintTitle": "Codex primary limit reached",
+      "failure": null
+    },
+    {
+      "id": "missing-windows",
+      "status": "unavailable",
+      "displayWindows": [],
+      "extraUsage": [
+        {
+          "key": "credits",
+          "value": "unknown",
+          "isEnabled": false,
+          "usedCreditsValue": null,
+          "usedCreditsUnit": null
+        }
+      ],
+      "bridgeHintTitle": "Codex unknown limit reached",
+      "failure": "noUsageWindows"
+    },
+    {
+      "id": "provider-specific-window",
+      "status": "fresh",
+      "displayWindows": [
+        {
+          "id": "primary",
+          "label": "codex-custom primary",
+          "kind": "providerSpecific",
+          "usedPercent": 77,
+          "resetAt": null,
+          "resetInSeconds": 900
+        }
+      ],
+      "extraUsage": [
+        {
+          "key": "credits",
+          "value": "unknown",
+          "isEnabled": true,
+          "usedCreditsValue": null,
+          "usedCreditsUnit": null
+        }
+      ],
+      "bridgeHintTitle": null,
+      "failure": null
+    },
+    {
+      "id": "secondary-limit-reached",
+      "status": "fresh",
+      "displayWindows": [
+        {
+          "id": "secondary",
+          "label": "Codex Team secondary",
+          "kind": "sevenDay",
+          "usedPercent": 99,
+          "resetAt": "2026-07-16T00:00:00Z",
+          "resetInSeconds": null
+        }
+      ],
+      "extraUsage": [],
+      "bridgeHintTitle": "Codex secondary limit reached",
+      "failure": null
+    }
+  ]
+}

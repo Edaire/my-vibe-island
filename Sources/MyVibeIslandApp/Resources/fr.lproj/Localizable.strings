@@ -1,0 +1,16 @@
+"content.session" = "session";
+"content.sessions" = "sessions";
+"status.compacting" = "Compression";
+"tool.allowPrefix" = "Autoriser %@";
+"tool.editing" = "Modification";
+"tool.fetching" = "Récupération";
+"tool.finding" = "Recherche";
+"tool.reading" = "Lecture";
+"tool.running" = "Exécution";
+"tool.runningSkill" = "Exécution d'un skill";
+"tool.searching" = "Recherche";
+"tool.tasking" = "Tâche en cours";
+"tool.thinkingDetail" = "Réflexion : %@";
+"tool.thinkingEllipsis" = "Réflexion…";
+"tool.workingEllipsis" = "Traitement…";
+"tool.writing" = "Écriture";

@@ -1,0 +1,44 @@
+{
+  "rows": [
+    {
+      "id": "direct-normalized",
+      "isPresent": true,
+      "source": " codex:cli ",
+      "remoteSessionId": " session:1 ",
+      "hostId": " host:a ",
+      "stableLocalSessionId": "remote:codex_cli:host_a:session_1"
+    },
+    {
+      "id": "jump-remote-with-host",
+      "isPresent": true,
+      "source": "codex",
+      "remoteSessionId": "session-1",
+      "hostId": "host-a",
+      "stableLocalSessionId": "remote:codex:host-a:session-1"
+    },
+    {
+      "id": "jump-local-ignored",
+      "isPresent": false,
+      "source": null,
+      "remoteSessionId": null,
+      "hostId": null,
+      "stableLocalSessionId": null
+    },
+    {
+      "id": "jump-remote-missing-host",
+      "isPresent": false,
+      "source": null,
+      "remoteSessionId": null,
+      "hostId": null,
+      "stableLocalSessionId": null
+    },
+    {
+      "id": "jump-remote-empty-host",
+      "isPresent": false,
+      "source": null,
+      "remoteSessionId": null,
+      "hostId": null,
+      "stableLocalSessionId": null
+    }
+  ]
+}

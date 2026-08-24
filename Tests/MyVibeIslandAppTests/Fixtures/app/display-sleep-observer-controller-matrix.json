@@ -1,0 +1,78 @@
+{
+  "rows": [
+    {
+      "id": "first-observed-awake",
+      "eventName": "displaySleepStateDidChange",
+      "observedSnapshots": [
+        {
+          "isDisplayAsleep": false,
+          "lastWakeAt": "2026-07-08T09:45:00Z"
+        }
+      ],
+      "publishResults": [
+        true
+      ],
+      "currentSnapshot": {
+        "isDisplayAsleep": false,
+        "lastWakeAt": "2026-07-08T09:45:00Z"
+      },
+      "lastPublishedSnapshot": {
+        "isDisplayAsleep": false,
+        "lastWakeAt": "2026-07-08T09:45:00Z"
+      },
+      "events": [
+        "false:2026-07-08T09:45:00Z"
+      ]
+    },
+    {
+      "id": "unchanged-awake",
+      "eventName": "displaySleepStateDidChange",
+      "initialSnapshot": {
+        "isDisplayAsleep": false,
+        "lastWakeAt": "2026-07-08T09:45:00Z"
+      },
+      "observedSnapshots": [
+        {
+          "isDisplayAsleep": false,
+          "lastWakeAt": "2026-07-08T09:45:00Z"
+        }
+      ],
+      "publishResults": [
+        false
+      ],
+      "currentSnapshot": {
+        "isDisplayAsleep": false,
+        "lastWakeAt": "2026-07-08T09:45:00Z"
+      },
+      "events": []
+    },
+    {
+      "id": "awake-to-asleep",
+      "eventName": "displaySleepStateDidChange",
+      "initialSnapshot": {
+        "isDisplayAsleep": false,
+        "lastWakeAt": "2026-07-08T09:45:00Z"
+      },
+      "observedSnapshots": [
+        {
+          "isDisplayAsleep": true,
+          "lastWakeAt": "2026-07-08T09:45:00Z"
+        }
+      ],
+      "publishResults": [
+        true
+      ],
+      "currentSnapshot": {
+        "isDisplayAsleep": true,
+        "lastWakeAt": "2026-07-08T09:45:00Z"
+      },
+      "lastPublishedSnapshot": {
+        "isDisplayAsleep": true,
+        "lastWakeAt": "2026-07-08T09:45:00Z"
+      },
+      "events": [
+        "true:2026-07-08T09:45:00Z"
+      ]
+    }
+  ]
+}

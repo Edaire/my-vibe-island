@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ATSApplicationFontsPath</key>
+	<string>Fonts</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>Vibe Island</string>
+	<key>CFBundleExecutable</key>
+	<string>vibe-island</string>
+	<key>CFBundleIconFile</key>
+	<string>AppIcon</string>
+	<key>CFBundleIdentifier</key>
+	<string>app.vibeisland.macos</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>zh-Hans</string>
+		<string>ja</string>
+		<string>ko</string>
+		<string>fr</string>
+	</array>
+	<key>CFBundleName</key>
+	<string>Vibe Island</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.41</string>
+	<key>CFBundleVersion</key>
+	<string>1.0.41</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>14.0</string>
+	<key>LSUIElement</key>
+	<true/>
+	<key>NSAppleEventsUsageDescription</key>
+	<string>Vibe Island needs to control terminal apps (iTerm2, Terminal) to jump to the correct window, tab, and session when you click a notification.</string>
+	<key>VibeIslandBuildCommit</key>
+	<string>0dbf1ec96bda</string>
+	<key>VibeIslandBuildTree</key>
+	<string>946e7dcc5db358d35913a2c72baefad3cfa3d8ee</string>
+	<key>VibeIslandUsageEnabled</key>
+	<true/>
+</dict>
+</plist>

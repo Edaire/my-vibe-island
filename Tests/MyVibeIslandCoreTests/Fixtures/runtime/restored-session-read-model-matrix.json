@@ -1,0 +1,36 @@
+{
+  "rows": [
+    {
+      "id": "coordinator-restore-marks-session",
+      "sessionId": "restored",
+      "snapshotRestored": true,
+      "presentationRestored": true,
+      "previewRestored": true,
+      "storedSessionRestored": true
+    },
+    {
+      "id": "live-session-start-is-not-restored",
+      "sessionId": "live",
+      "snapshotRestored": false,
+      "presentationRestored": false,
+      "previewRestored": false,
+      "storedSessionRestored": false
+    },
+    {
+      "id": "live-mutation-clears-restored-state",
+      "sessionId": "restored",
+      "snapshotRestored": false,
+      "presentationRestored": false,
+      "previewRestored": false,
+      "storedSessionRestored": false
+    },
+    {
+      "id": "state-projections-expose-restored-state",
+      "sessionId": "restored",
+      "snapshotRestored": true,
+      "presentationRestored": true,
+      "previewRestored": true,
+      "storedSessionRestored": true
+    }
+  ]
+}

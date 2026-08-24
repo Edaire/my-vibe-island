@@ -1,0 +1,93 @@
+{
+  "rows": [
+    {
+      "id": "session-start-event",
+      "eventKind": "sessionStarted",
+      "eventSource": "codex",
+      "eventSessionId": "s1",
+      "requestId": null,
+      "toolName": null,
+      "pendingRequestIds": null,
+      "needsAttention": null,
+      "actionableKinds": null
+    },
+    {
+      "id": "permission-request-event",
+      "eventKind": "permissionRequested",
+      "eventSource": "codex",
+      "eventSessionId": "s1",
+      "requestId": "r1",
+      "toolName": "Shell",
+      "pendingRequestIds": null,
+      "needsAttention": null,
+      "actionableKinds": null
+    },
+    {
+      "id": "question-request-event",
+      "eventKind": "questionAsked",
+      "eventSource": "opencode",
+      "eventSessionId": "s1",
+      "requestId": "q1",
+      "toolName": "Question",
+      "pendingRequestIds": null,
+      "needsAttention": null,
+      "actionableKinds": null
+    },
+    {
+      "id": "permission-missing-request-id",
+      "eventKind": null,
+      "eventSource": "codex",
+      "eventSessionId": "s1",
+      "requestId": null,
+      "toolName": "Shell",
+      "pendingRequestIds": null,
+      "needsAttention": null,
+      "actionableKinds": null
+    },
+    {
+      "id": "permission-state",
+      "eventKind": null,
+      "eventSource": null,
+      "eventSessionId": null,
+      "requestId": null,
+      "toolName": null,
+      "pendingRequestIds": [
+        "r1"
+      ],
+      "needsAttention": true,
+      "actionableKinds": [
+        "permission"
+      ]
+    },
+    {
+      "id": "question-state",
+      "eventKind": null,
+      "eventSource": null,
+      "eventSessionId": null,
+      "requestId": null,
+      "toolName": null,
+      "pendingRequestIds": [
+        "q1"
+      ],
+      "needsAttention": true,
+      "actionableKinds": [
+        "question"
+      ]
+    },
+    {
+      "id": "duplicate-request-state",
+      "eventKind": null,
+      "eventSource": null,
+      "eventSessionId": null,
+      "requestId": null,
+      "toolName": null,
+      "pendingRequestIds": [
+        "r1"
+      ],
+      "needsAttention": true,
+      "actionableKinds": [
+        "permission"
+      ]
+    }
+  ]
+}

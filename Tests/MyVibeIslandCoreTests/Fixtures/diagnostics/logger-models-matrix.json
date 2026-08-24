@@ -1,0 +1,69 @@
+{
+  "states": [
+    {
+      "logFileURL": null,
+      "currentFileSize": 0,
+      "dateFormatIdentifier": "iso8601"
+    },
+    {
+      "logFileURL": "/Users/<user>/Library/Logs/MyVibeIsland/app.log",
+      "currentFileSize": 2048,
+      "dateFormatIdentifier": "iso8601"
+    },
+    {
+      "logFileURL": "/Users/<user>/Library/Logs/MyVibeIsland/rotated.log",
+      "currentFileSize": 0,
+      "dateFormatIdentifier": "rfc3339"
+    }
+  ],
+  "entries": [
+    {
+      "eventID": "runtime-warning",
+      "category": "runtime",
+      "severity": "warning",
+      "source": "bridge",
+      "redactedMessage": "bridge restart skipped while session active",
+      "redactedMetadata": {
+        "sessionCount": "2",
+        "cwd": "/Users/<user>/project"
+      },
+      "createdAt": "2026-07-08T10:15:00Z"
+    },
+    {
+      "eventID": "environment-info",
+      "category": "environment",
+      "severity": "info",
+      "source": "scanner",
+      "redactedMessage": "environment scan completed",
+      "redactedMetadata": {
+        "ready": "true",
+        "repairableIssues": "0"
+      },
+      "createdAt": "2026-07-08T10:16:00Z"
+    },
+    {
+      "eventID": "diagnostics-error",
+      "category": "diagnostics",
+      "severity": "error",
+      "source": "export",
+      "redactedMessage": "required diagnostic section missing",
+      "redactedMetadata": {
+        "section": "sessions-snapshot.txt"
+      },
+      "createdAt": "2026-07-08T10:17:00Z"
+    }
+  ],
+  "categories": [
+    "runtime",
+    "hooks",
+    "environment",
+    "diagnostics",
+    "usage"
+  ],
+  "severities": [
+    "debug",
+    "info",
+    "warning",
+    "error"
+  ]
+}

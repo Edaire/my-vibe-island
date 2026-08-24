@@ -1,0 +1,105 @@
+{
+  "rows": [
+    {
+      "id": "uds-connect",
+      "hostId": "devbox",
+      "tunnelKind": "uds",
+      "operation": "connect",
+      "currentGeneration": 4,
+      "nextGeneration": 5,
+      "nextStatus": "connecting",
+      "actions": [
+        {
+          "kind": "startTunnel",
+          "processId": null,
+          "commandPreview": "ssh -N devbox",
+          "remoteForwardPreview": "RemoteForward /tmp/remote.sock /tmp/local.sock"
+        }
+      ]
+    },
+    {
+      "id": "uds-disconnect-owned",
+      "hostId": "devbox",
+      "tunnelKind": "uds",
+      "operation": "disconnect",
+      "currentGeneration": 4,
+      "nextGeneration": 4,
+      "nextStatus": "disconnected",
+      "actions": [
+        {
+          "kind": "stopHostOwnedTunnel",
+          "processId": 2468,
+          "commandPreview": null,
+          "remoteForwardPreview": null
+        }
+      ]
+    },
+    {
+      "id": "tcp-reconnect-owned",
+      "hostId": "devbox",
+      "tunnelKind": "tcp",
+      "operation": "reconnect",
+      "currentGeneration": 2,
+      "nextGeneration": 3,
+      "nextStatus": "reconnecting",
+      "actions": [
+        {
+          "kind": "stopHostOwnedTunnel",
+          "processId": 1357,
+          "commandPreview": null,
+          "remoteForwardPreview": null
+        },
+        {
+          "kind": "startTunnel",
+          "processId": null,
+          "commandPreview": "ssh -N devbox",
+          "remoteForwardPreview": "RemoteForward 49152 127.0.0.1:49152"
+        }
+      ]
+    },
+    {
+      "id": "tcp-reconnect-piggyback",
+      "hostId": "devbox",
+      "tunnelKind": "tcp",
+      "operation": "reconnect",
+      "currentGeneration": 2,
+      "nextGeneration": 3,
+      "nextStatus": "reconnecting",
+      "actions": [
+        {
+          "kind": "startTunnel",
+          "processId": null,
+          "commandPreview": "ssh -N devbox",
+          "remoteForwardPreview": "RemoteForward 49152 127.0.0.1:49152"
+        }
+      ]
+    },
+    {
+      "id": "foreign-process-disconnect",
+      "hostId": "devbox",
+      "tunnelKind": "tcp",
+      "operation": "disconnect",
+      "currentGeneration": 2,
+      "nextGeneration": 2,
+      "nextStatus": "disconnected",
+      "actions": []
+    },
+    {
+      "id": "uds-connect-missing-socket-preview",
+      "hostId": "incomplete",
+      "tunnelKind": "uds",
+      "operation": "connect",
+      "currentGeneration": 0,
+      "nextGeneration": 1,
+      "nextStatus": "connecting",
+      "actions": [
+        {
+          "kind": "startTunnel",
+          "processId": null,
+          "commandPreview": "ssh -N incomplete",
+          "remoteForwardPreview": null
+        }
+      ]
+    }
+  ]
+}

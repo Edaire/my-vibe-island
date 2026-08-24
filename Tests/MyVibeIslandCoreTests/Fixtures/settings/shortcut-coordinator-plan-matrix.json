@@ -1,0 +1,152 @@
+{
+  "lifecycleRows": [
+    {
+      "id": "start-registers-persistent",
+      "action": "registerShortcuts",
+      "registrationIds": [
+        "toggle-island"
+      ],
+      "skipped": [
+        {
+          "specId": "collapse",
+          "reason": "scopeInactive"
+        }
+      ],
+      "conflictIds": [],
+      "hotKeyIdsToUnregister": [],
+      "nextState": {
+        "activeScopes": [
+          "persistentGlobal"
+        ],
+        "registeredHotKeyIds": [
+          "toggle-island"
+        ],
+        "isStarted": true
+      }
+    },
+    {
+      "id": "enter-expanded-registers-panel",
+      "action": "registerShortcuts",
+      "registrationIds": [
+        "toggle-island",
+        "collapse"
+      ],
+      "skipped": [],
+      "conflictIds": [],
+      "hotKeyIdsToUnregister": [],
+      "nextState": {
+        "activeScopes": [
+          "persistentGlobal",
+          "expandedPanel"
+        ],
+        "registeredHotKeyIds": [
+          "toggle-island",
+          "collapse"
+        ],
+        "isStarted": true
+      }
+    },
+    {
+      "id": "exit-expanded-unregisters-panel",
+      "action": "unregisterShortcuts",
+      "registrationIds": [
+        "toggle-island"
+      ],
+      "skipped": [
+        {
+          "specId": "collapse",
+          "reason": "scopeInactive"
+        }
+      ],
+      "conflictIds": [],
+      "hotKeyIdsToUnregister": [
+        "collapse"
+      ],
+      "nextState": {
+        "activeScopes": [
+          "persistentGlobal"
+        ],
+        "registeredHotKeyIds": [
+          "toggle-island"
+        ],
+        "isStarted": true
+      }
+    },
+    {
+      "id": "disable-settings-unregisters-all",
+      "action": "unregisterShortcuts",
+      "registrationIds": [],
+      "skipped": [
+        {
+          "specId": "toggle-island",
+          "reason": "shortcutsDisabled"
+        },
+        {
+          "specId": "collapse",
+          "reason": "shortcutsDisabled"
+        }
+      ],
+      "conflictIds": [],
+      "hotKeyIdsToUnregister": [
+        "collapse",
+        "toggle-island"
+      ],
+      "nextState": {
+        "activeScopes": [
+          "persistentGlobal",
+          "expandedPanel"
+        ],
+        "registeredHotKeyIds": [],
+        "isStarted": true
+      }
+    },
+    {
+      "id": "stop-unregisters-all-and-clears-started",
+      "action": "unregisterShortcuts",
+      "registrationIds": [],
+      "skipped": [
+        {
+          "specId": "toggle-island",
+          "reason": "scopeInactive"
+        },
+        {
+          "specId": "collapse",
+          "reason": "scopeInactive"
+        }
+      ],
+      "conflictIds": [],
+      "hotKeyIdsToUnregister": [
+        "collapse",
+        "toggle-island"
+      ],
+      "nextState": {
+        "activeScopes": [],
+        "registeredHotKeyIds": [],
+        "isStarted": false
+      }
+    }
+  ],
+  "dispatchRows": [
+    {
+      "id": "registered-global-dispatches",
+      "action": "dispatchAction",
+      "hotKeyId": "toggle-island",
+      "shortcutAction": "toggleIsland",
+      "dispatchPolicy": "routeThroughActionRouter"
+    },
+    {
+      "id": "unregistered-known-hotkey-ignored",
+      "action": "ignore",
+      "hotKeyId": "collapse",
+      "shortcutAction": null,
+      "dispatchPolicy": "notRegistered"
+    },
+    {
+      "id": "registered-unknown-hotkey-ignored",
+      "action": "ignore",
+      "hotKeyId": "unknown",
+      "shortcutAction": null,
+      "dispatchPolicy": "unknownHotKey"
+    }
+  ]
+}

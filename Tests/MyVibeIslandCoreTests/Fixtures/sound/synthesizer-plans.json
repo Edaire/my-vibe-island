@@ -1,0 +1,60 @@
+{
+  "setup": {
+    "action": "setup",
+    "nextState": {
+      "isSetup": true,
+      "outputVolume": 1,
+      "queuedSoundIds": [],
+      "generation": 1,
+      "isIdleShutdownScheduled": false
+    }
+  },
+  "enqueue": {
+    "action": "enqueue",
+    "nextState": {
+      "isSetup": true,
+      "outputVolume": 1,
+      "queuedSoundIds": [
+        "permission.clean"
+      ],
+      "generation": 2,
+      "isIdleShutdownScheduled": false
+    }
+  },
+  "updateVolume": {
+    "action": "updateVolume",
+    "nextState": {
+      "isSetup": true,
+      "outputVolume": 0.25,
+      "queuedSoundIds": [
+        "permission.clean"
+      ],
+      "generation": 3,
+      "isIdleShutdownScheduled": false
+    }
+  },
+  "scheduleIdleShutdown": {
+    "action": "scheduleIdleShutdown",
+    "nextState": {
+      "isSetup": true,
+      "outputVolume": 0.25,
+      "queuedSoundIds": [
+        "permission.clean"
+      ],
+      "generation": 3,
+      "isIdleShutdownScheduled": true
+    }
+  },
+  "ignoreStaleGeneration": {
+    "action": "ignoreStaleGeneration",
+    "nextState": {
+      "isSetup": true,
+      "outputVolume": 0.25,
+      "queuedSoundIds": [
+        "permission.clean"
+      ],
+      "generation": 3,
+      "isIdleShutdownScheduled": false
+    }
+  }
+}

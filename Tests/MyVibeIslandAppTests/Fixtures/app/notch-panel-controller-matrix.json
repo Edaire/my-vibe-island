@@ -1,0 +1,29 @@
+{
+  "rows": [
+    {
+      "id": "injected-panel-lifecycle",
+      "hasPanel": false,
+      "targetScreenIdentifier": "built-in",
+      "placementClosedWidth": 220,
+      "lastFrameWidth": 220,
+      "contentViewIdentifier": "my-vibe-island.surface",
+      "hasLastInteractionAction": false,
+      "keyboardFocusRequested": false,
+      "pendingHoverReveal": false,
+      "pendingAutoCollapse": false,
+      "interactionDisplayState": "closed",
+      "hasCollapseReason": false,
+      "isVisible": false,
+      "events": [
+        "create",
+        "install-monitors",
+        "move:panel-1:220",
+        "content:panel-1:my-vibe-island.surface",
+        "show:panel-1",
+        "hide:panel-1",
+        "remove-monitors",
+        "close:panel-1"
+      ]
+    }
+  ]
+}

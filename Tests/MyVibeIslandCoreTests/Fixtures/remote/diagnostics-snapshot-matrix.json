@@ -1,0 +1,46 @@
+{
+  "rows": [
+    {
+      "id": "uds-redacted-mismatch",
+      "hostId": "devbox",
+      "hostAlias": "devbox",
+      "redactedSSHOptionsSummary": "<redacted>",
+      "redactedSSHCommand": "ssh devbox",
+      "redactedSocketPath": "/Users/<user>/.my-vibe-island/remote.sock",
+      "hasUIDMismatch": true,
+      "helperVersion": "0.9.0",
+      "lastHeartbeatAt": "2026-07-09T10:00:00Z",
+      "tunnelKind": "uds",
+      "tunnelStatus": "error",
+      "reconnectAttempt": 2,
+      "redactedDeployStep": "copy /Users/<user>/private-helper token=<redacted>",
+      "stdoutTail": "connected session_token=<redacted> at /Users/<user>/project",
+      "stderrTail": "failed secret=<redacted> from /Users/<user>/project",
+      "commandOutputMaxBytes": 120,
+      "commandOutputRedactionApplied": true,
+      "portConflictDecision": "foreignOccupied",
+      "containsRawSSHOptions": false
+    },
+    {
+      "id": "tcp-default-output",
+      "hostId": "tcpbox",
+      "hostAlias": "tcpbox",
+      "redactedSSHOptionsSummary": "",
+      "redactedSSHCommand": "ssh tcpbox",
+      "redactedSocketPath": "tcp:49300",
+      "hasUIDMismatch": false,
+      "helperVersion": null,
+      "lastHeartbeatAt": null,
+      "tunnelKind": "tcp",
+      "tunnelStatus": null,
+      "reconnectAttempt": 0,
+      "redactedDeployStep": null,
+      "stdoutTail": "",
+      "stderrTail": "",
+      "commandOutputMaxBytes": 0,
+      "commandOutputRedactionApplied": true,
+      "portConflictDecision": null,
+      "containsRawSSHOptions": false
+    }
+  ]
+}

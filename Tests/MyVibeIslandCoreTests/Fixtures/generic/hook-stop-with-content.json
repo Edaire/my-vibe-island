@@ -1,0 +1,26 @@
+{
+  "rawEventName": "Stop",
+  "sessionId": "generic-session",
+  "cwd": "/tmp/generic-agent",
+  "model": "generic-model",
+  "permissionMode": "default",
+  "message": "Generic agent completed the task",
+  "tasks": [
+    {
+      "id": "task-generic-1",
+      "subject": "Normalize generic hook content",
+      "description": "Cover fallback agent task payloads",
+      "status": "completed",
+      "activeForm": "Normalizing generic hook content",
+      "owner": "generic"
+    }
+  ],
+  "todos": [
+    {
+      "id": "todo-generic-1",
+      "content": "Verify generic fixture",
+      "status": "completed",
+      "activeForm": "Verifying generic fixture"
+    }
+  ]
+}

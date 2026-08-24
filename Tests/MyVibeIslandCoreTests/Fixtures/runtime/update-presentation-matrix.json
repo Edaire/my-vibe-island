@@ -1,0 +1,221 @@
+{
+  "rows": [
+    {
+      "id": "manual-check",
+      "phase": "checking",
+      "targetVersion": null,
+      "isCritical": false,
+      "isMajorUpgrade": false,
+      "isAlreadyDownloaded": false,
+      "skippedVersion": null,
+      "errorHint": null,
+      "presentedAction": "none",
+      "progressFraction": null,
+      "primaryAction": "none",
+      "secondaryActions": [],
+      "pill": {
+        "visible": false,
+        "label": "",
+        "targetVersion": null,
+        "installReady": false,
+        "action": "none"
+      },
+      "releaseNoteTitles": []
+    },
+    {
+      "id": "found-available-update",
+      "phase": "available",
+      "targetVersion": "2.0.0",
+      "isCritical": false,
+      "isMajorUpgrade": true,
+      "isAlreadyDownloaded": false,
+      "skippedVersion": null,
+      "errorHint": null,
+      "presentedAction": "showUpdateWindow",
+      "progressFraction": null,
+      "primaryAction": "downloadAndInstall",
+      "secondaryActions": [
+        "remindLater",
+        "skipVersion"
+      ],
+      "pill": {
+        "visible": true,
+        "label": "Update 2.0.0",
+        "targetVersion": "2.0.0",
+        "installReady": false,
+        "action": "openUpdateWindow"
+      },
+      "releaseNoteTitles": [
+        "Highlights"
+      ]
+    },
+    {
+      "id": "found-downloaded-update",
+      "phase": "readyToInstall",
+      "targetVersion": "2.0.1",
+      "isCritical": false,
+      "isMajorUpgrade": false,
+      "isAlreadyDownloaded": true,
+      "skippedVersion": null,
+      "errorHint": null,
+      "presentedAction": "showUpdateWindow",
+      "progressFraction": null,
+      "primaryAction": "installAndRelaunch",
+      "secondaryActions": [
+        "remindLater"
+      ],
+      "pill": {
+        "visible": true,
+        "label": "Update 2.0.1",
+        "targetVersion": "2.0.1",
+        "installReady": true,
+        "action": "installAndRelaunch"
+      },
+      "releaseNoteTitles": []
+    },
+    {
+      "id": "download-progress-clamped",
+      "phase": "downloading",
+      "targetVersion": "2.0.0",
+      "isCritical": false,
+      "isMajorUpgrade": true,
+      "isAlreadyDownloaded": false,
+      "skippedVersion": null,
+      "errorHint": null,
+      "presentedAction": "none",
+      "progressFraction": 1,
+      "primaryAction": "none",
+      "secondaryActions": [],
+      "pill": {
+        "visible": true,
+        "label": "Update 2.0.0",
+        "targetVersion": "2.0.0",
+        "installReady": false,
+        "action": "openUpdateWindow"
+      },
+      "releaseNoteTitles": [
+        "Highlights"
+      ]
+    },
+    {
+      "id": "ready-to-install",
+      "phase": "readyToInstall",
+      "targetVersion": "2.0.0",
+      "isCritical": false,
+      "isMajorUpgrade": true,
+      "isAlreadyDownloaded": true,
+      "skippedVersion": null,
+      "errorHint": null,
+      "presentedAction": "none",
+      "progressFraction": null,
+      "primaryAction": "installAndRelaunch",
+      "secondaryActions": [
+        "remindLater"
+      ],
+      "pill": {
+        "visible": true,
+        "label": "Update 2.0.0",
+        "targetVersion": "2.0.0",
+        "installReady": true,
+        "action": "installAndRelaunch"
+      },
+      "releaseNoteTitles": [
+        "Highlights"
+      ]
+    },
+    {
+      "id": "critical-secondary-actions",
+      "phase": "available",
+      "targetVersion": "2.1.0",
+      "isCritical": true,
+      "isMajorUpgrade": false,
+      "isAlreadyDownloaded": false,
+      "skippedVersion": null,
+      "errorHint": null,
+      "presentedAction": "none",
+      "progressFraction": null,
+      "primaryAction": "downloadAndInstall",
+      "secondaryActions": [
+        "remindLater"
+      ],
+      "pill": {
+        "visible": true,
+        "label": "Update 2.1.0",
+        "targetVersion": "2.1.0",
+        "installReady": false,
+        "action": "openUpdateWindow"
+      },
+      "releaseNoteTitles": []
+    },
+    {
+      "id": "skip-version",
+      "phase": "skipped",
+      "targetVersion": "2.0.0",
+      "isCritical": false,
+      "isMajorUpgrade": true,
+      "isAlreadyDownloaded": false,
+      "skippedVersion": "2.0.0",
+      "errorHint": null,
+      "presentedAction": "dismissUpdateWindow",
+      "progressFraction": null,
+      "primaryAction": "none",
+      "secondaryActions": [],
+      "pill": {
+        "visible": false,
+        "label": "",
+        "targetVersion": null,
+        "installReady": false,
+        "action": "none"
+      },
+      "releaseNoteTitles": [
+        "Highlights"
+      ]
+    },
+    {
+      "id": "remind-later",
+      "phase": "idle",
+      "targetVersion": "2.0.0",
+      "isCritical": false,
+      "isMajorUpgrade": true,
+      "isAlreadyDownloaded": false,
+      "skippedVersion": null,
+      "errorHint": null,
+      "presentedAction": "dismissUpdateWindow",
+      "progressFraction": null,
+      "primaryAction": "none",
+      "secondaryActions": [],
+      "pill": {
+        "visible": false,
+        "label": "",
+        "targetVersion": null,
+        "installReady": false,
+        "action": "none"
+      },
+      "releaseNoteTitles": [
+        "Highlights"
+      ]
+    },
+    {
+      "id": "failure",
+      "phase": "failed",
+      "targetVersion": null,
+      "isCritical": false,
+      "isMajorUpgrade": false,
+      "isAlreadyDownloaded": false,
+      "skippedVersion": null,
+      "errorHint": "feed unavailable",
+      "presentedAction": "none",
+      "progressFraction": null,
+      "primaryAction": "checkAgain",
+      "secondaryActions": [],
+      "pill": {
+        "visible": false,
+        "label": "",
+        "targetVersion": null,
+        "installReady": false,
+        "action": "none"
+      },
+      "releaseNoteTitles": []
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "rows": [
+    {
+      "id": "local-links-no-registry",
+      "hasDocumentationURL": true,
+      "hasSupportURL": true,
+      "discordVisible": true,
+      "discordMemberCount": 42,
+      "hasRegistryBrowsing": false,
+      "registryEntryCount": 0,
+      "experimentalEntryCount": 0,
+      "registryCategories": [],
+      "skeletonState": "localOnly",
+      "visibleSections": [
+        "discord",
+        "documentation"
+      ],
+      "selectedEntryId": null,
+      "requiresRegistryFetch": false
+    },
+    {
+      "id": "registry-index-summary",
+      "hasDocumentationURL": false,
+      "hasSupportURL": false,
+      "discordVisible": false,
+      "discordMemberCount": null,
+      "hasRegistryBrowsing": true,
+      "registryEntryCount": 2,
+      "experimentalEntryCount": 1,
+      "registryCategories": [
+        "soundPack",
+        "labsTool"
+      ],
+      "skeletonState": "registryAvailable",
+      "visibleSections": [
+        "registry"
+      ],
+      "selectedEntryId": "theme-8bit",
+      "requiresRegistryFetch": false
+    },
+    {
+      "id": "loading-registry-deferred-boundary",
+      "hasDocumentationURL": false,
+      "hasSupportURL": false,
+      "discordVisible": false,
+      "discordMemberCount": null,
+      "hasRegistryBrowsing": false,
+      "registryEntryCount": 0,
+      "experimentalEntryCount": 0,
+      "registryCategories": [],
+      "skeletonState": "loadingRegistry",
+      "visibleSections": [
+        "registry"
+      ],
+      "selectedEntryId": null,
+      "requiresRegistryFetch": true
+    }
+  ]
+}

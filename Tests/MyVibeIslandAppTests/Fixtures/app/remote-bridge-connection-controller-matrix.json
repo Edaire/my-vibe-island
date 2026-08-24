@@ -1,0 +1,43 @@
+{
+  "rows": [
+    {
+      "id": "upsert-sorts-connections",
+      "actions": ["upsert:a"],
+      "results": ["connections=a,b"],
+      "connections": [
+        {"connectionId": "a", "hostId": "labbox", "lastMessageAt": "2026-07-09T10:00:00Z"},
+        {"connectionId": "b", "hostId": "devbox", "lastMessageAt": "2026-07-09T10:00:00Z"}
+      ],
+      "lastPublishedConnections": [
+        {"connectionId": "a", "hostId": "labbox", "lastMessageAt": "2026-07-09T10:00:00Z"},
+        {"connectionId": "b", "hostId": "devbox", "lastMessageAt": "2026-07-09T10:00:00Z"}
+      ],
+      "events": [[
+        {"connectionId": "a", "hostId": "labbox", "lastMessageAt": "2026-07-09T10:00:00Z"},
+        {"connectionId": "b", "hostId": "devbox", "lastMessageAt": "2026-07-09T10:00:00Z"}
+      ]]
+    },
+    {
+      "id": "upsert-replaces-connection",
+      "actions": ["upsert:bridge"],
+      "results": ["connections=bridge"],
+      "connections": [
+        {"connectionId": "bridge", "hostId": "devbox", "lastMessageAt": "2026-07-09T10:00:00Z"}
+      ],
+      "lastPublishedConnections": [
+        {"connectionId": "bridge", "hostId": "devbox", "lastMessageAt": "2026-07-09T10:00:00Z"}
+      ],
+      "events": [[
+        {"connectionId": "bridge", "hostId": "devbox", "lastMessageAt": "2026-07-09T10:00:00Z"}
+      ]]
+    },
+    {
+      "id": "remove-existing-then-missing",
+      "actions": ["remove:bridge", "remove:missing"],
+      "results": ["removed=true", "removed=false"],
+      "connections": [],
+      "lastPublishedConnections": [],
+      "events": [[]]
+    }
+  ]
+}

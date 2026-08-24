@@ -1,0 +1,13 @@
+{
+  "cwd": "/tmp/claude",
+  "hook_event_name": "PreToolUse",
+  "session_id": "claude-session",
+  "transcript_path": "/tmp/claude/transcript.jsonl",
+  "permission_mode": "default",
+  "model": "claude-sonnet-4-5",
+  "tool_name": "Edit",
+  "tool_use_id": "tool-use-claude-pre-1",
+  "tool_input": {
+    "description": "Edit a test file"
+  }
+}

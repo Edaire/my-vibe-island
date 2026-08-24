@@ -1,0 +1,78 @@
+{
+  "checks": [
+    {
+      "sourceID": "codex",
+      "status": "trusted",
+      "observedAt": "2026-07-08T12:00:00Z",
+      "provenance": {
+        "status": "trustedManaged",
+        "redactionLevel": "redacted"
+      },
+      "redactedConfigPath": "/Users/<user>/.codex/config.toml"
+    },
+    {
+      "sourceID": "claude-code",
+      "status": "mismatched",
+      "observedAt": "2026-07-08T12:01:00Z",
+      "provenance": {
+        "status": "pathMismatch",
+        "redactionLevel": "redacted",
+        "reason": "command path differs from expected helper"
+      },
+      "redactedConfigPath": "/Users/<user>/.claude/settings.json"
+    },
+    {
+      "sourceID": "opencode",
+      "status": "blocked",
+      "observedAt": "2026-07-08T12:02:00Z",
+      "provenance": {
+        "status": "missingMarker",
+        "redactionLevel": "redacted",
+        "reason": "managed marker missing"
+      },
+      "redactedConfigPath": "/Users/<user>/.config/opencode/config.json"
+    },
+    {
+      "sourceID": "gemini",
+      "status": "unknown"
+    },
+    {
+      "sourceID": "cursor",
+      "status": "unmanaged"
+    }
+  ],
+  "repairHints": [
+    {
+      "sourceID": "codex",
+      "status": "trusted"
+    },
+    {
+      "sourceID": "claude-code",
+      "status": "mismatched",
+      "repairHint": {
+        "source": "claude-code",
+        "message": "Managed hook command differs from the expected helper.",
+        "repairability": "appCanRepairManagedBlock",
+        "severity": "repairable"
+      }
+    },
+    {
+      "sourceID": "opencode",
+      "status": "blocked",
+      "repairHint": {
+        "source": "opencode",
+        "message": "Hook integration is disabled for this source.",
+        "repairability": "userActionRequired",
+        "severity": "blocking"
+      }
+    },
+    {
+      "sourceID": "gemini",
+      "status": "unknown"
+    },
+    {
+      "sourceID": "cursor",
+      "status": "unmanaged"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "rows": [
+    {
+      "id": "codex-permission-blocking",
+      "source": "codex",
+      "eventName": "PermissionRequest",
+      "expectsResponse": true,
+      "timeoutSeconds": 3600,
+      "timeoutBehavior": "failOpen",
+      "directiveEncoderId": "codex.permission",
+      "userVisible": true
+    },
+    {
+      "id": "opencode-question-blocking",
+      "source": "opencode",
+      "eventName": "Question",
+      "expectsResponse": true,
+      "timeoutSeconds": 1800,
+      "timeoutBehavior": "explicitDeny",
+      "directiveEncoderId": "opencode.question",
+      "userVisible": true
+    },
+    {
+      "id": "generic-session-fire-and-forget",
+      "source": "generic",
+      "eventName": "SessionStart",
+      "expectsResponse": false,
+      "timeoutSeconds": null,
+      "timeoutBehavior": "drop",
+      "directiveEncoderId": null,
+      "userVisible": false
+    },
+    {
+      "id": "background-maintenance-hidden",
+      "source": "runtime",
+      "eventName": "Maintenance",
+      "expectsResponse": false,
+      "timeoutSeconds": null,
+      "timeoutBehavior": "explicitAllow",
+      "directiveEncoderId": null,
+      "userVisible": false
+    }
+  ]
+}

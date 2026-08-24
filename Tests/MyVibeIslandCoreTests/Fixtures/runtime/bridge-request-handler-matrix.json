@@ -1,0 +1,102 @@
+{
+  "rows": [
+    {
+      "id": "hello",
+      "responseOK": true,
+      "responseMessage": "bridge reachable",
+      "directiveBehavior": null,
+      "coordinatorSessionIds": [],
+      "pendingRequestIds": [],
+      "taskIds": [],
+      "storedSessionIds": [],
+      "storedPendingRequestIds": [],
+      "questionSelections": {}
+    },
+    {
+      "id": "hook-session-start",
+      "responseOK": true,
+      "responseMessage": "event accepted",
+      "directiveBehavior": null,
+      "coordinatorSessionIds": ["s1"],
+      "pendingRequestIds": [],
+      "taskIds": [],
+      "storedSessionIds": ["s1"],
+      "storedPendingRequestIds": [],
+      "questionSelections": {}
+    },
+    {
+      "id": "permission-request-envelope-id",
+      "responseOK": true,
+      "responseMessage": "event accepted",
+      "directiveBehavior": null,
+      "coordinatorSessionIds": ["s1"],
+      "pendingRequestIds": ["req-envelope"],
+      "taskIds": [],
+      "storedSessionIds": ["s1"],
+      "storedPendingRequestIds": [],
+      "questionSelections": {}
+    },
+    {
+      "id": "permission-request-missing-stable-id",
+      "responseOK": false,
+      "responseMessage": "stable requestId required",
+      "directiveBehavior": null,
+      "coordinatorSessionIds": [],
+      "pendingRequestIds": [],
+      "taskIds": [],
+      "storedSessionIds": [],
+      "storedPendingRequestIds": [],
+      "questionSelections": {}
+    },
+    {
+      "id": "watch-content",
+      "responseOK": true,
+      "responseMessage": "event accepted",
+      "directiveBehavior": null,
+      "coordinatorSessionIds": ["s1"],
+      "pendingRequestIds": [],
+      "taskIds": ["task-1"],
+      "storedSessionIds": ["s1"],
+      "storedPendingRequestIds": [],
+      "questionSelections": {}
+    },
+    {
+      "id": "resolve-codex-approval",
+      "responseOK": true,
+      "responseMessage": "action resolved locally",
+      "directiveBehavior": "allow",
+      "coordinatorSessionIds": ["s1"],
+      "pendingRequestIds": [],
+      "taskIds": [],
+      "storedSessionIds": ["s1"],
+      "storedPendingRequestIds": [],
+      "questionSelections": {}
+    },
+    {
+      "id": "resolve-question-selection",
+      "responseOK": true,
+      "responseMessage": "action resolved locally",
+      "directiveBehavior": null,
+      "coordinatorSessionIds": ["s1"],
+      "pendingRequestIds": [],
+      "taskIds": [],
+      "storedSessionIds": ["s1"],
+      "storedPendingRequestIds": [],
+      "questionSelections": {
+        "r1": "yes"
+      }
+    },
+    {
+      "id": "unsupported-health-probe",
+      "responseOK": false,
+      "responseMessage": "unsupported command",
+      "directiveBehavior": null,
+      "coordinatorSessionIds": [],
+      "pendingRequestIds": [],
+      "taskIds": [],
+      "storedSessionIds": [],
+      "storedPendingRequestIds": [],
+      "questionSelections": {}
+    }
+  ]
+}
