@@ -242,7 +242,8 @@ public enum CodexRolloutReducer {
                 codexOrigin: newSnapshot.codexOrigin,
                 codexSubagentKind: newSnapshot.codexSubagentKind,
                 needsAttention: newSnapshot.needsAttention,
-                hasUnreadCompletion: newSnapshot.status == .completed
+                hasUnreadCompletion: oldSnapshot != nil
+                    && newSnapshot.status == .completed
                     && nonEmpty(newSnapshot.lastAssistantMessage) != nil,
                 startsNewTurn: newSnapshot.startsNewTurn,
                 isCompletionFallback: newSnapshot.isCompletionFallback

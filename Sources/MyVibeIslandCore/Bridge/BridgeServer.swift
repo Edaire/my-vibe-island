@@ -4,12 +4,15 @@ import Foundation
 public final class BridgeServer: @unchecked Sendable {
     private static let hardFrameByteLimit = 1_048_576
     private static let hardConcurrentClientLimit = 64
+    private static let firstFrameReadTimeoutMicroseconds = 1_000_000
+    private static let remainingFrameReadTimeoutMicroseconds = 100_000
 
     private let socketPath: String
     private let handler: BridgeRequestHandler
     private let codec: BridgeCodec
     private let frameByteLimit: Int
     private let maxConcurrentClients: Int
+    private let lifecycleTrace: @Sendable (String, [String: String]) -> Void
     private let queue = DispatchQueue(label: "my-vibe-island.bridge-server")
     private let connectionQueue = DispatchQueue(
         label: "my-vibe-island.bridge-server.connections",
@@ -33,18 +36,31 @@ public final class BridgeServer: @unchecked Sendable {
         handler: BridgeRequestHandler,
         codec: BridgeCodec = BridgeCodec(),
         frameByteLimit: Int = 1_048_576,
-        maxConcurrentClients: Int = 64
+        maxConcurrentClients: Int = 64,
+        lifecycleTrace: @escaping @Sendable (String, [String: String]) -> Void = { _, _ in }
     ) {
         self.socketPath = socketPath
         self.handler = handler
         self.codec = codec
         self.frameByteLimit = min(max(frameByteLimit, 1), Self.hardFrameByteLimit)
         self.maxConcurrentClients = min(max(maxConcurrentClients, 1), Self.hardConcurrentClientLimit)
+        self.lifecycleTrace = lifecycleTrace
         queue.setSpecific(key: queueKey, value: ())
     }
 
     var activeClientCount: Int {
         lock.withLock { activeClientFDs.count }
+    }
+
+    public var isAcceptingConnections: Bool {
+        let fd = lock.withLock { isRunning ? listenerFD : -1 }
+        guard fd >= 0, fcntl(fd, F_GETFD) != -1 else {
+            return false
+        }
+
+        var fileStatus = stat()
+        return lstat(socketPath, &fileStatus) == 0
+            && (fileStatus.st_mode & S_IFMT) == S_IFSOCK
     }
 
     public func start() throws {
@@ -103,6 +119,7 @@ public final class BridgeServer: @unchecked Sendable {
         lock.lock()
         listenerFD = fd
         lock.unlock()
+        trace("bridge.listener_started", metadata: ["socket": socketPath, "fd": String(fd)])
 
         queue.async { [weak self] in
             self?.acceptLoop(listenerFD: fd)
@@ -114,6 +131,7 @@ public final class BridgeServer: @unchecked Sendable {
         lock.lock()
         let fd = listenerFD
         let clientFDs = activeClientFDs
+        let wasRunning = isRunning
         listenerFD = -1
         isRunning = false
         lock.unlock()
@@ -126,6 +144,13 @@ public final class BridgeServer: @unchecked Sendable {
             shutdown(clientFD, SHUT_RDWR)
         }
         unlink(socketPath)
+        if wasRunning {
+            trace("bridge.listener_stopped", metadata: [
+                "socket": socketPath,
+                "fd": String(fd),
+                "activeClients": String(clientFDs.count),
+            ])
+        }
 
         if DispatchQueue.getSpecific(key: queueKey) == nil {
             queue.sync {}
@@ -141,13 +166,27 @@ public final class BridgeServer: @unchecked Sendable {
             let clientFD = accept(fd, nil, nil)
             guard clientFD >= 0 else {
                 if running(listenerFD: fd) {
-                    continue
+                    let acceptErrno = errno
+                    if acceptErrno == EINTR {
+                        continue
+                    }
+                    markListenerUnavailable(fd, errno: acceptErrno)
+                    break
                 }
                 break
             }
             SocketIO.preventSIGPIPE(on: clientFD)
-            SocketIO.setReadTimeout(on: clientFD, seconds: 0, microseconds: 100_000)
+            SocketIO.setReadTimeout(
+                on: clientFD,
+                seconds: 0,
+                microseconds: Self.firstFrameReadTimeoutMicroseconds
+            )
             guard trackActiveClientIfCapacity(clientFD) else {
+                trace("bridge.client_rejected", metadata: [
+                    "reason": "capacity",
+                    "activeClients": String(activeClientCount),
+                    "maxConcurrentClients": String(maxConcurrentClients),
+                ])
                 shutdown(clientFD, SHUT_RDWR)
                 close(clientFD)
                 continue
@@ -165,10 +204,20 @@ public final class BridgeServer: @unchecked Sendable {
 
     private func handleClient(_ clientFD: Int32) {
         do {
+            // A hook can be descheduled after connect but before its first
+            // write. Once it starts a frame, retain the short legacy timeout
+            // so malformed partial frames promptly release their client slot.
+            let firstByte = try SocketIO.readByte(from: clientFD)
+            SocketIO.setReadTimeout(
+                on: clientFD,
+                seconds: 0,
+                microseconds: Self.remainingFrameReadTimeoutMicroseconds
+            )
             let requestLine = try SocketIO.readLine(
                 from: clientFD,
                 maxBytes: frameByteLimit,
-                requireNewline: true
+                requireNewline: true,
+                initialBytes: [firstByte]
             )
             let envelope = try codec.decodeRequestLine(requestLine)
             let monitor = DisconnectMonitor()
@@ -211,6 +260,10 @@ public final class BridgeServer: @unchecked Sendable {
                 }
             }
         } catch {
+            trace("bridge.client_rejected", metadata: [
+                "reason": "invalid_or_incomplete_frame",
+                "error": String(describing: error),
+            ])
             let response = BridgeResponse.failure(message: "bridge request failed")
             try? SocketIO.writeAll(codec.encodeResponseLine(response), to: clientFD)
             if untrackActiveClient(clientFD) {
@@ -226,6 +279,27 @@ public final class BridgeServer: @unchecked Sendable {
         }
 
         return isRunning && listenerFD == fd
+    }
+
+    private func markListenerUnavailable(_ fd: Int32, errno: Int32) {
+        lock.lock()
+        guard isRunning, listenerFD == fd else {
+            lock.unlock()
+            return
+        }
+        listenerFD = -1
+        isRunning = false
+        lock.unlock()
+        close(fd)
+        trace("bridge.listener_unavailable", metadata: [
+            "socket": socketPath,
+            "fd": String(fd),
+            "errno": String(errno),
+        ])
+    }
+
+    private func trace(_ stage: String, metadata: [String: String]) {
+        lifecycleTrace(stage, metadata)
     }
 
     private func trackActiveClientIfCapacity(_ clientFD: Int32) -> Bool {

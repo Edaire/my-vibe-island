@@ -212,6 +212,19 @@ final class CodexRolloutReducerTests: XCTestCase {
         XCTAssertFalse(activity.hasUnreadCompletion)
     }
 
+    func testInitialCompletedRolloutDoesNotMarkHistoricalCompletionUnread() {
+        var snapshot = CodexRolloutSnapshot(sessionId: "historical", cwd: "/tmp")
+        snapshot.status = .completed
+        snapshot.lastAssistantMessage = "Finished before the watcher started."
+
+        let events = CodexRolloutReducer.agentEvents(from: nil, to: snapshot)
+        guard case let .sessionActivityUpdated(_, _, activity) = events.last else {
+            return XCTFail("expected completion activity update")
+        }
+
+        XCTAssertFalse(activity.hasUnreadCompletion)
+    }
+
     func testAgentEventsAreDeduplicatedAndContainNoRawRolloutContent() throws {
         let snapshot = CodexRolloutReducer.snapshot(
             for: try lines("codex/rollout-startup")

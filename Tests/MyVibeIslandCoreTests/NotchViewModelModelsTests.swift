@@ -431,6 +431,50 @@ final class NotchViewModelModelsTests: XCTestCase {
         )
     }
 
+    func testRemovingLastLocallyResolvablePermissionSchedulesMouseLeaveCollapseWhenPointerIsOutside() {
+        let permission = actionPreview(
+            requestId: "permission-1",
+            sessionId: "approval-session",
+            kind: .permission,
+            prompt: "Allow /usr/bin/whoami?"
+        )
+        let reducer = NotchViewModelReducer()
+        let initial = NotchViewModelState(sessionPreviews: [
+            preview(id: "approval-session", status: .waiting)
+        ])
+
+        let blocking = reducer.reduce(
+            .replaceActionRequestPreviews([permission]),
+            state: initial
+        )
+        let resolved = reducer.reduce(
+            .replaceActionRequestPreviews([]),
+            state: blocking.nextState
+        )
+
+        let interaction = resolved.nextState.overlayState.panelState.presentationState.interactionState
+        XCTAssertFalse(interaction.blockingActionVisible)
+        XCTAssertFalse(interaction.isMouseInExpandedPanel)
+        XCTAssertEqual(interaction.mouseLeaveCollapseGeneration, 1)
+        XCTAssertTrue(resolved.actions.contains { action in
+            guard case let .overlay(.applyPanelPlan(actions)) = action else {
+                return false
+            }
+            return actions.contains(
+                .forwardInteractionAction(.scheduleMouseLeaveCollapse(delay: 0.25, generation: 1))
+            )
+        })
+
+        let collapsed = reducer.reduce(
+            .panelInteraction(.mouseLeaveCollapseTick(generation: 1)),
+            state: resolved.nextState
+        )
+        XCTAssertEqual(
+            collapsed.nextState.overlayState.panelState.presentationState.displayState,
+            .closed
+        )
+    }
+
     func testReplacingLocallyResolvablePermissionImmediatelyExpandsAndBlocksPresentation() {
         let permission = actionPreview(
             requestId: "permission-1",

@@ -74,17 +74,29 @@ public final class OriginalUnifiedIslandHostingModel: ObservableObject {
         self.actionRequests = actionRequests
     }
 
+    @discardableResult
     public func replace(
         _ presentation: OriginalUnifiedIslandPresentation,
         rootAnimationInputs: OriginalUnifiedIslandRootAnimationInputs? = nil
-    ) {
-        self.presentation = presentation
+    ) -> Bool {
         let rootInputs = rootAnimationInputs ?? Self.rootAnimationInputs(for: presentation)
+        guard self.presentation != presentation
+            || rootIsMinimized != rootInputs.isMinimized
+            || rootIsHovering != rootInputs.isHovering
+            || rootLayoutMode != rootInputs.layoutMode
+            || rootNotchHeightOffset != rootInputs.notchHeightOffset
+            || completionFlashTick != rootInputs.completionFlashTick
+        else {
+            return false
+        }
+
+        self.presentation = presentation
         rootIsMinimized = rootInputs.isMinimized
         rootIsHovering = rootInputs.isHovering
         rootLayoutMode = rootInputs.layoutMode
         rootNotchHeightOffset = rootInputs.notchHeightOffset
         completionFlashTick = rootInputs.completionFlashTick
+        return true
     }
 
     public func selectSession(_ sessionID: String) {

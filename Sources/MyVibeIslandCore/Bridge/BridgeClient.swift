@@ -134,13 +134,33 @@ enum SocketIO {
         }
     }
 
+    static func readByte(from fd: Int32) throws -> UInt8 {
+        var byte: UInt8 = 0
+        let count = read(fd, &byte, 1)
+        guard count > 0 else {
+            if count < 0 {
+                throw BridgeSocketError.readFailed(errno: errno)
+            }
+            throw BridgeSocketError.incompleteFrame
+        }
+        return byte
+    }
+
     static func readLine(
         from fd: Int32,
         maxBytes: Int = 1_048_576,
-        requireNewline: Bool = false
+        requireNewline: Bool = false,
+        initialBytes: [UInt8] = []
     ) throws -> String {
-        var bytes: [UInt8] = []
+        var bytes = initialBytes
         var byte: UInt8 = 0
+
+        guard bytes.count <= maxBytes else {
+            throw BridgeSocketError.frameTooLarge(limit: maxBytes)
+        }
+        if bytes.last == UInt8(ascii: "\n") {
+            return String(decoding: bytes, as: UTF8.self)
+        }
 
         while true {
             let count = read(fd, &byte, 1)

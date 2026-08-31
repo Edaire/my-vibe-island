@@ -138,15 +138,15 @@ public final class MyVibeIslandAppKitOriginalUnifiedHostingRenderer {
             )
         }
 
-        if let model, let container, let hostingView {
+        if let model, let container, hostingView != nil {
             model.replace(
                 presentation,
                 rootAnimationInputs: rootAnimationInputs(from: renderList)
             )
             model.replaceActionRequests(actionRequests(in: renderList))
-            // Keep the AppKit host and ObservableObject identity stable, while
-            // explicitly publishing the current root branch to SwiftUI.
-            hostingView.rootView = makeRootView(model)
+            // The retained root observes the model. Replacing this entire
+            // SwiftUI tree for every hook event discards list scroll and
+            // layout state, even when the presentation is unchanged.
             return container
         }
 

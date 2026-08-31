@@ -98,6 +98,18 @@ final class BridgeSocketRoundTripTests: XCTestCase {
         XCTAssertEqual(response, .ok(message: "bridge reachable"))
     }
 
+    func testStartedServerReportsAcceptingConnections() throws {
+        let socketPath = BridgeSocketPath.temporaryForTests()
+        let server = BridgeServer(socketPath: socketPath, handler: BridgeRequestHandler(sessionCoordinator: SessionCoordinator()))
+        try server.start()
+        defer {
+            server.stop()
+            try? FileManager.default.removeItem(atPath: socketPath)
+        }
+
+        XCTAssertTrue(server.isAcceptingConnections)
+    }
+
     func testFireAndForgetClientDoesNotWaitForServerResponse() throws {
         let socketPath = BridgeSocketPath.temporaryForTests()
         let listener = socket(AF_UNIX, SOCK_STREAM, 0)
@@ -255,6 +267,26 @@ final class BridgeSocketRoundTripTests: XCTestCase {
         close(fd)
         XCTAssertTrue(waitUntil { server.activeClientCount == 0 })
         XCTAssertEqual(try helloResponse(socketPath: socketPath), .ok(message: "bridge reachable"))
+    }
+
+    func testClientCanWriteFirstFrameAfterShortSchedulingDelay() throws {
+        let socketPath = BridgeSocketPath.temporaryForTests()
+        let server = BridgeServer(
+            socketPath: socketPath,
+            handler: BridgeRequestHandler(sessionCoordinator: SessionCoordinator())
+        )
+        try server.start()
+        defer { server.stop() }
+
+        let fd = try connectedSocket(path: socketPath)
+        defer { close(fd) }
+        SocketIO.preventSIGPIPE(on: fd)
+        Thread.sleep(forTimeInterval: 0.2)
+
+        try SocketIO.writeAll("{\"schemaVersion\":1,\"clientRole\":\"hook\",\"source\":\"codex\",\"command\":\"hello\",\"payload\":{}}\n", to: fd)
+        let response = try BridgeCodec().decodeResponseLine(SocketIO.readLine(from: fd))
+
+        XCTAssertEqual(response, .ok(message: "bridge reachable"))
     }
 
     func testConcurrentConnectionLimitRejectsExcessAndRecoversSlot() throws {

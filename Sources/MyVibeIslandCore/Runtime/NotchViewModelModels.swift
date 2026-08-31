@@ -1482,6 +1482,8 @@ public struct NotchViewModelReducer: Sendable {
     ) -> NotchViewModelPlan {
         let currentPresentation = state.overlayState.panelState.presentationState
         let hasLocallyResolvableAction = previews.contains { $0.canResolveLocally }
+        let didResolveLastLocallyResolvableAction = currentPresentation.interactionState.blockingActionVisible
+            && !hasLocallyResolvableAction
         let displayState: PanelDisplayState = hasLocallyResolvableAction
             ? .expanded
             : currentPresentation.displayState
@@ -1542,16 +1544,27 @@ public struct NotchViewModelReducer: Sendable {
             .replacePresentation(presentation),
             from: state.overlayState
         )
+        let mouseLeavePlan: OverlayControllerPlan?
+        if didResolveLastLocallyResolvableAction,
+           !interactionState.isMouseInExpandedPanel {
+            mouseLeavePlan = overlayController.plan(
+                .panelInteraction(.setExpandedPanelHover(false)),
+                from: overlayPlan.nextState
+            )
+        } else {
+            mouseLeavePlan = nil
+        }
         let nextState = replacing(
             state,
             actionRequestPreviews: previews,
             focusedSessionId: focusedSessionId,
-            overlayState: overlayPlan.nextState
+            overlayState: mouseLeavePlan?.nextState ?? overlayPlan.nextState
         )
 
         return NotchViewModelPlan(
             nextState: nextState,
-            actions: overlayPlan.actions.map(NotchViewModelAction.overlay) + [
+            actions: overlayPlan.actions.map(NotchViewModelAction.overlay)
+                + (mouseLeavePlan?.actions.map(NotchViewModelAction.overlay) ?? []) + [
                 .overlay(.renderIslandSurface(IslandSurfaceRenderList(surface: IslandSurfaceSnapshot(state: nextState))))
             ]
         )

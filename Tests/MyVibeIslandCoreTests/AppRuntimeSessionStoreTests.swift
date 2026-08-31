@@ -185,6 +185,43 @@ final class AppRuntimeSessionStoreTests: XCTestCase {
         )
     }
 
+    func testRuntimeRestoresBridgeListenerAfterSocketPathIsRemoved() throws {
+        let socketPath = BridgeSocketPath.temporaryForTests()
+        let runtime = AppRuntime(socketPath: socketPath, bridgeHealthCheckInterval: 0.01)
+        try runtime.startBridge()
+        defer { runtime.stop() }
+
+        XCTAssertEqual(try BridgeClient(socketPath: socketPath).send(
+            BridgeEnvelope(
+                schemaVersion: 1,
+                clientRole: "diagnostic",
+                source: "codex",
+                requestId: nil,
+                command: .hello,
+                payload: [:]
+            )
+        ), .ok(message: "bridge reachable"))
+
+        XCTAssertEqual(unlink(socketPath), 0)
+        let deadline = Date().addingTimeInterval(1)
+        while Date() < deadline,
+              !FileManager.default.fileExists(atPath: socketPath) {
+            Thread.sleep(forTimeInterval: 0.01)
+        }
+        XCTAssertTrue(FileManager.default.fileExists(atPath: socketPath))
+
+        XCTAssertEqual(try BridgeClient(socketPath: socketPath).send(
+            BridgeEnvelope(
+                schemaVersion: 1,
+                clientRole: "diagnostic",
+                source: "codex",
+                requestId: nil,
+                command: .hello,
+                payload: [:]
+            )
+        ), .ok(message: "bridge reachable"))
+    }
+
     private func temporaryHomeDirectory() -> URL {
         let root = FileManager.default.temporaryDirectory
             .appendingPathComponent("my-vibe-island-runtime-store-tests")

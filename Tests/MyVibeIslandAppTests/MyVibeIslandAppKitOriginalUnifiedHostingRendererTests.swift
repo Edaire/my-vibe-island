@@ -50,6 +50,20 @@ final class MyVibeIslandAppKitOriginalUnifiedHostingRendererTests: XCTestCase {
         withExtendedLifetime(observation) {}
     }
 
+    func testReplacingEqualPresentationDoesNotPublishAnotherModelChange() {
+        let presentation = OriginalUnifiedIslandPresentation.compact(compactDescriptor())
+        let model = OriginalUnifiedIslandHostingModel(presentation: presentation)
+        var publicationCount = 0
+        let observation = model.objectWillChange.sink {
+            publicationCount += 1
+        }
+
+        model.replace(presentation)
+
+        XCTAssertEqual(publicationCount, 0)
+        withExtendedLifetime(observation) {}
+    }
+
     func testRendererRetainsContainerHostAndModelAcrossCompactExpandedCompact() throws {
         let renderer = makeRenderer()
 

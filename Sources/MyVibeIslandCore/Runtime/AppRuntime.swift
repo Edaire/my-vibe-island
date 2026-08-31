@@ -17,7 +17,10 @@ public final class AppRuntime: @unchecked Sendable {
     private let lifecycleLock = NSLock()
     private let publicationScheduleLock = NSLock()
     private let publicationQueue: DispatchQueue
+    private let bridgeHealthQueue = DispatchQueue(label: "my-vibe-island.app-runtime.bridge-health")
+    private let bridgeHealthCheckInterval: TimeInterval
     private var bridgeServer: BridgeServer?
+    private var bridgeHealthTimer: DispatchSourceTimer?
     private var openCodeSyncDiagnostics: OpenCodeSyncDiagnostics?
     private var codexSessionWatcher: CodexSessionWatcher?
     private var openCodeContinuousSessionWatcher: OpenCodeContinuousSessionWatcher?
@@ -38,6 +41,7 @@ public final class AppRuntime: @unchecked Sendable {
         activeCodexSessions: @escaping @Sendable (SessionStore) -> [SessionState]? = { _ in nil },
         liveCodexSessionIDs: @escaping @Sendable () -> Set<String> = { [] },
         localWatcherHomeDirectory: URL = VibeIslandStateRoot.runtimeHomeDirectory(),
+        bridgeHealthCheckInterval: TimeInterval = 5,
         sessionPreviewsDidChange: @escaping @Sendable ([SessionCardPreview]) -> Void = { _ in },
         islandRuntimeDidChange: @escaping @Sendable (IslandRuntimeSnapshot) -> Void = { _ in }
     ) {
@@ -52,6 +56,7 @@ public final class AppRuntime: @unchecked Sendable {
             liveCodexSessionIDs: liveCodexSessionIDs,
             jumpInputEnricher: { $0 },
             localWatcherHomeDirectory: localWatcherHomeDirectory,
+            bridgeHealthCheckInterval: bridgeHealthCheckInterval,
             sessionPreviewsDidChange: sessionPreviewsDidChange,
             islandRuntimeDidChange: islandRuntimeDidChange
         )
@@ -70,6 +75,7 @@ public final class AppRuntime: @unchecked Sendable {
         localWatcherHomeDirectory: URL = VibeIslandStateRoot.runtimeHomeDirectory(),
         restorePersistedSessions: Bool = true,
         publicationQueue: DispatchQueue? = nil,
+        bridgeHealthCheckInterval: TimeInterval = 5,
         sessionPreviewsDidChange: @escaping @Sendable ([SessionCardPreview]) -> Void = { _ in },
         islandRuntimeDidChange: @escaping @Sendable (IslandRuntimeSnapshot) -> Void = { _ in }
     ) {
@@ -86,6 +92,7 @@ public final class AppRuntime: @unchecked Sendable {
         self.publicationQueue = publicationQueue ?? DispatchQueue(
             label: "my-vibe-island.app-runtime.publication"
         )
+        self.bridgeHealthCheckInterval = max(bridgeHealthCheckInterval, 0.001)
         self.sessionPreviewsDidChange = sessionPreviewsDidChange
         self.islandRuntimeDidChange = islandRuntimeDidChange
         if restorePersistedSessions,
@@ -158,6 +165,62 @@ public final class AppRuntime: @unchecked Sendable {
     }
 
     public func startBridge() throws {
+        lifecycleLock.lock()
+        defer { lifecycleLock.unlock() }
+        try startBridgeLocked()
+    }
+
+    @discardableResult
+    public func recoverBridgeListenerIfNeeded() -> Bool {
+        lifecycleLock.lock()
+        defer { lifecycleLock.unlock() }
+
+        lock.lock()
+        let server = bridgeServer
+        lock.unlock()
+        guard let server else {
+            return false
+        }
+        guard !server.isAcceptingConnections else {
+            return false
+        }
+
+        SessionCompletionTraceLog.append(
+            stage: "bridge.listener_unhealthy",
+            sessionId: nil,
+            metadata: ["socket": socketPath]
+        )
+        lock.lock()
+        guard bridgeServer === server else {
+            lock.unlock()
+            return false
+        }
+        bridgeServer = nil
+        lock.unlock()
+        server.stop()
+
+        do {
+            try startBridgeLocked()
+            SessionCompletionTraceLog.append(
+                stage: "bridge.listener_restarted",
+                sessionId: nil,
+                metadata: ["socket": socketPath]
+            )
+            return true
+        } catch {
+            SessionCompletionTraceLog.append(
+                stage: "bridge.listener_restart_failed",
+                sessionId: nil,
+                metadata: [
+                    "socket": socketPath,
+                    "error": String(describing: error),
+                ]
+            )
+            return false
+        }
+    }
+
+    private func startBridgeLocked() throws {
         lock.lock()
         do {
             guard bridgeServer == nil else {
@@ -174,7 +237,17 @@ public final class AppRuntime: @unchecked Sendable {
                     self?.publishSessionPreviews()
                 }
             )
-            let server = BridgeServer(socketPath: socketPath, handler: handler)
+            let server = BridgeServer(
+                socketPath: socketPath,
+                handler: handler,
+                lifecycleTrace: { [socketPath] stage, metadata in
+                    SessionCompletionTraceLog.append(
+                        stage: stage,
+                        sessionId: nil,
+                        metadata: metadata.merging(["socket": socketPath]) { current, _ in current }
+                    )
+                }
+            )
             try server.start()
             bridgeServer = server
             lock.unlock()
@@ -184,6 +257,7 @@ public final class AppRuntime: @unchecked Sendable {
         }
 
         publishSessionPreviews()
+        scheduleBridgeHealthCheckLocked()
     }
 
     public func setSessionPreviewsDidChange(
@@ -343,6 +417,10 @@ public final class AppRuntime: @unchecked Sendable {
     public func stop() {
         lifecycleLock.lock()
         defer { lifecycleLock.unlock() }
+        let healthTimer = bridgeHealthTimer
+        bridgeHealthTimer = nil
+        healthTimer?.setEventHandler {}
+        healthTimer?.cancel()
         stopLocalSessionWatchersLockedWithoutLifecycleLock()
 
         lock.lock()
@@ -466,17 +544,31 @@ public final class AppRuntime: @unchecked Sendable {
 
     public func status() -> AppRuntimeStatus {
         lock.lock()
-        let isBridgeRunning = bridgeServer != nil
+        let server = bridgeServer
         let openCodeSyncDiagnostics = openCodeSyncDiagnostics
         lock.unlock()
 
         return AppRuntimeStatus(
             socketPath: socketPath,
-            isBridgeRunning: isBridgeRunning,
+            isBridgeRunning: server?.isAcceptingConnections == true,
             sessionCount: sessionCoordinator.snapshots().count,
             sessionStoreDiagnostics: (sessionStore as? SessionStoreDiagnosticsProviding)?.diagnostics(),
             openCodeSyncDiagnostics: openCodeSyncDiagnostics
         )
+    }
+
+    private func scheduleBridgeHealthCheckLocked() {
+        guard bridgeHealthTimer == nil else { return }
+        let timer = DispatchSource.makeTimerSource(queue: bridgeHealthQueue)
+        timer.schedule(
+            deadline: .now() + bridgeHealthCheckInterval,
+            repeating: bridgeHealthCheckInterval
+        )
+        timer.setEventHandler { [weak self] in
+            _ = self?.recoverBridgeListenerIfNeeded()
+        }
+        bridgeHealthTimer = timer
+        timer.resume()
     }
 
     public func sessionSnapshot(sessionId: String) -> SessionState? {
