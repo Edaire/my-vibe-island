@@ -411,8 +411,15 @@ public struct BridgeRequestHandler: Sendable {
         _ request: ActionableRequest,
         reason: String
     ) {
-        // Preserve the request so the Island can replace local allow/deny controls
-        // with the captured terminal-handoff surface after ownership is released.
+        // Once Codex has handed the request back to its native terminal UI, the
+        // Island no longer owns a resolvable action.  A terminal deny/approve
+        // does not reliably produce a second hook event, so retaining this
+        // request leaves a stale blocking card forever.
+        let cleared = sessionCoordinator.resolveAction(ActionResolution(
+            requestId: request.requestId,
+            sessionId: request.sessionId,
+            kind: .dismiss
+        ))
         blockingActionContinuations?.expire(
             sessionId: request.sessionId,
             requestId: request.requestId
@@ -429,6 +436,7 @@ public struct BridgeRequestHandler: Sendable {
                 "reason": reason,
                 "destination": "terminal",
                 "delaySeconds": String(terminalRoutedCodexApprovalHandoffDelay),
+                "clearedIslandRequest": String(cleared),
             ]
         )
     }

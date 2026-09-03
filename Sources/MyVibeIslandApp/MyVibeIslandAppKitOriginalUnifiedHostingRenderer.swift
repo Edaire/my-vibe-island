@@ -28,6 +28,8 @@ public final class MyVibeIslandAppKitOriginalUnifiedHostingRenderer {
     private var switcherHighlightedID: String?
     private var lastLoggedCompletionFlashTick: Int?
     private var lastLoggedRootHoverInput: Bool?
+    private var renderRevision = 0
+    private var geometryRevision = 0
     private let onOpenSettings: () -> Void
     private let onContextMenuCommand: (AppCommand) -> Void
     private let onSelectSession: (String) -> Void
@@ -75,6 +77,22 @@ public final class MyVibeIslandAppKitOriginalUnifiedHostingRenderer {
         screen: OriginalNSScreenMetricsInput
     ) -> NSView? {
         let renderList = inputRenderList
+        renderRevision += 1
+        SessionCompletionTraceLog.append(
+            stage: "render.pass.begin",
+            sessionId: renderList.sections.focusedSessionId,
+            metadata: [
+                "renderRevision": String(renderRevision),
+                "displayStatus": renderList.sections.displayStatus.rawValue,
+                "rootContentStatus": String(describing: renderList.sections.rootContentStatus),
+                "layoutMode": String(describing: renderList.sections.layoutMode),
+                "itemCount": String(renderList.items.count),
+                "sessionCount": String(renderList.sections.sessions.count),
+                "actionRequestCount": String(renderList.sections.actionRequestPreviews.count),
+                "focusedSessionId": renderList.sections.focusedSessionId ?? "-",
+                "screen": screenDescription(screen),
+            ]
+        )
         if renderList.sections.rootContentStatus == .expanded {
             let sessionIDs = expandedSessionIDs(in: renderList)
             if measuredExpandedSessionIDs != sessionIDs {
@@ -89,6 +107,11 @@ public final class MyVibeIslandAppKitOriginalUnifiedHostingRenderer {
             screen: screen,
             measuredContentHeight: measuredExpandedContentHeight
         ) else {
+            SessionCompletionTraceLog.append(
+                stage: "render.pass.empty",
+                sessionId: renderList.sections.focusedSessionId,
+                metadata: ["renderRevision": String(renderRevision)]
+            )
             interactionGeometry = nil
             lastRenderList = nil
             lastScreen = nil
@@ -100,6 +123,14 @@ public final class MyVibeIslandAppKitOriginalUnifiedHostingRenderer {
         }
         lastRenderList = renderList
         lastScreen = screen
+        SessionCompletionTraceLog.append(
+            stage: "render.pass.presentation",
+            sessionId: renderList.sections.focusedSessionId,
+            metadata: [
+                "renderRevision": String(renderRevision),
+                "presentation": String(describing: presentation.displayState),
+            ]
+        )
         logRootHoverInputIfChanged(renderList)
         logCompletionFlashTickIfChanged(renderList)
         updateInteractionGeometry(for: presentation, screen: screen)
@@ -161,19 +192,24 @@ public final class MyVibeIslandAppKitOriginalUnifiedHostingRenderer {
         hostingView.layer?.backgroundColor = NSColor.clear.cgColor
 
         let panelSize = OriginalIslandGeometryResolver.panelSize
-        let container = NSView(frame: NSRect(
+        let container = MyVibeIslandAppKitHitTestView(frame: NSRect(
             x: 0,
             y: 0,
             width: panelSize.width,
             height: panelSize.height
         ))
+        container.identifier = NSUserInterfaceItemIdentifier("my-vibe-island.container")
+        container.wantsLayer = true
+        container.layer?.masksToBounds = true
         hostingView.frame = container.bounds
-        hostingView.autoresizingMask = [.width, .height]
         container.addSubview(hostingView)
 
         self.model = model
         self.hostingView = hostingView
         self.container = container
+        if let interactionGeometry {
+            applyVisibleSurfaceHostLayout(interactionGeometry)
+        }
         return container
     }
 
@@ -459,6 +495,7 @@ public final class MyVibeIslandAppKitOriginalUnifiedHostingRenderer {
         for presentation: OriginalUnifiedIslandPresentation,
         screen: OriginalNSScreenMetricsInput
     ) {
+        geometryRevision += 1
         let panelSize = OriginalIslandGeometryResolver.panelSize
         let panelFrame = DisplayFrame(
             x: screen.screenFrame.x + (screen.screenFrame.width - panelSize.width) / 2,
@@ -484,6 +521,7 @@ public final class MyVibeIslandAppKitOriginalUnifiedHostingRenderer {
             interactionGeometry = MyVibeIslandAppKitPanelInteractionGeometry(
                 compactFrame: compactFrame,
                 hostingFrame: panelFrame,
+                visibleFrame: compactFrame,
                 expandedFrame: current?.expandedFrame ?? panelFrame
             )
 
@@ -498,6 +536,7 @@ public final class MyVibeIslandAppKitOriginalUnifiedHostingRenderer {
             interactionGeometry = MyVibeIslandAppKitPanelInteractionGeometry(
                 compactFrame: current?.compactFrame ?? panelFrame,
                 hostingFrame: panelFrame,
+                visibleFrame: peekFrame,
                 expandedFrame: peekFrame
             )
 
@@ -506,6 +545,12 @@ public final class MyVibeIslandAppKitOriginalUnifiedHostingRenderer {
             interactionGeometry = MyVibeIslandAppKitPanelInteractionGeometry(
                 compactFrame: current?.compactFrame ?? panelFrame,
                 hostingFrame: panelFrame,
+                visibleFrame: DisplayFrame(
+                    x: descriptor.geometry.panelFrame.x + surfaceFrame.x,
+                    y: descriptor.geometry.panelFrame.y + surfaceFrame.y,
+                    width: surfaceFrame.width,
+                    height: surfaceFrame.height
+                ),
                 expandedFrame: DisplayFrame(
                     x: descriptor.geometry.panelFrame.x + surfaceFrame.x,
                     y: descriptor.geometry.panelFrame.y + surfaceFrame.y,
@@ -518,6 +563,12 @@ public final class MyVibeIslandAppKitOriginalUnifiedHostingRenderer {
             interactionGeometry = MyVibeIslandAppKitPanelInteractionGeometry(
                 compactFrame: current?.compactFrame ?? panelFrame,
                 hostingFrame: panelFrame,
+                visibleFrame: DisplayFrame(
+                    x: descriptor.geometry.panelFrame.x + descriptor.geometry.surfaceFrame.x,
+                    y: descriptor.geometry.panelFrame.y + descriptor.geometry.surfaceFrame.y,
+                    width: descriptor.geometry.surfaceFrame.width,
+                    height: descriptor.geometry.surfaceFrame.height
+                ),
                 expandedFrame: DisplayFrame(
                     x: descriptor.geometry.panelFrame.x + descriptor.geometry.surfaceFrame.x,
                     y: descriptor.geometry.panelFrame.y + descriptor.geometry.surfaceFrame.y,
@@ -527,6 +578,7 @@ public final class MyVibeIslandAppKitOriginalUnifiedHostingRenderer {
             )
         }
         if let interactionGeometry {
+            applyVisibleSurfaceHostLayout(interactionGeometry)
             SessionCompletionTraceLog.append(
                 stage: "panel.geometry.emit",
                 sessionId: nil,
@@ -534,13 +586,66 @@ public final class MyVibeIslandAppKitOriginalUnifiedHostingRenderer {
                     "presentation": String(describing: presentation.displayState),
                     "compactFrame": geometryDescription(interactionGeometry.compactFrame),
                     "expandedFrame": geometryDescription(interactionGeometry.expandedFrame),
+                    "visibleFrame": geometryDescription(interactionGeometry.visibleFrame),
                     "containerFrame": container.map { nsRectDescription($0.frame) } ?? "nil",
                     "hostingFrame": hostingView.map { nsRectDescription($0.frame) } ?? "nil",
                     "hostingBounds": hostingView.map { nsRectDescription($0.bounds) } ?? "nil",
+                    "renderRevision": String(renderRevision),
+                    "geometryRevision": String(geometryRevision),
                 ]
             )
             onInteractionGeometryChange(interactionGeometry)
         }
+    }
+
+    private func applyVisibleSurfaceHostLayout(
+        _ geometry: MyVibeIslandAppKitPanelInteractionGeometry
+    ) {
+        guard let container, let hostingView else { return }
+
+        SessionCompletionTraceLog.append(
+            stage: "render.host_layout.before",
+            sessionId: nil,
+            metadata: [
+                "renderRevision": String(renderRevision),
+                "geometryRevision": String(geometryRevision),
+                "container": nsRectDescription(container.frame),
+                "hosting": nsRectDescription(hostingView.frame),
+                "visible": geometryDescription(geometry.visibleFrame),
+                "hostingFrame": geometryDescription(geometry.hostingFrame),
+            ]
+        )
+
+        let sourceOriginX = geometry.visibleFrame.x - geometry.hostingFrame.x
+        let sourceOriginY = geometry.visibleFrame.y - geometry.hostingFrame.y
+        container.frame = NSRect(
+            x: 0,
+            y: 0,
+            width: geometry.visibleFrame.width,
+            height: geometry.visibleFrame.height
+        )
+        hostingView.frame = NSRect(
+            x: -sourceOriginX,
+            y: -sourceOriginY,
+            width: geometry.hostingFrame.width,
+            height: geometry.hostingFrame.height
+        )
+        hostingView.autoresizingMask = []
+        SessionCompletionTraceLog.append(
+            stage: "render.host_layout.after",
+            sessionId: nil,
+            metadata: [
+                "renderRevision": String(renderRevision),
+                "geometryRevision": String(geometryRevision),
+                "container": nsRectDescription(container.frame),
+                "hosting": nsRectDescription(hostingView.frame),
+                "hostingBounds": nsRectDescription(hostingView.bounds),
+            ]
+        )
+    }
+
+    private func screenDescription(_ screen: OriginalNSScreenMetricsInput) -> String {
+        "screen=\(geometryDescription(screen.screenFrame)),visible=\(geometryDescription(screen.visibleFrame)),safeTop=\(screen.safeAreaTopInset)"
     }
 
     private func geometryDescription(_ frame: DisplayFrame) -> String {

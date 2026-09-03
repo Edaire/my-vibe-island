@@ -412,11 +412,32 @@ public struct SystemAutomationProcessLauncher: Sendable {
     public func launch(arguments: [String]) -> AutomationRunResult {
         do {
             let result = try execute(arguments)
+            let stderr = result.standardError.trimmingCharacters(in: .whitespacesAndNewlines)
+            SessionCompletionTraceLog.append(
+                stage: "terminal.automation.process",
+                sessionId: nil,
+                metadata: [
+                    "executable": "/usr/bin/osascript",
+                    "terminationStatus": String(result.terminationStatus),
+                    "stderr": stderr.isEmpty ? "-" : stderr,
+                    "argumentCount": String(arguments.count),
+                ]
+            )
             guard result.terminationStatus == 0 else {
                 return isPermissionDenied(standardError: result.standardError) ? .permissionDenied : .failed
             }
             return .succeeded
         } catch {
+            SessionCompletionTraceLog.append(
+                stage: "terminal.automation.process",
+                sessionId: nil,
+                metadata: [
+                    "executable": "/usr/bin/osascript",
+                    "terminationStatus": "launch_failed",
+                    "stderr": String(describing: error),
+                    "argumentCount": String(arguments.count),
+                ]
+            )
             return .failed
         }
     }

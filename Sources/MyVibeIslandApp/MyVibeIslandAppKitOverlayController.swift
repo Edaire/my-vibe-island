@@ -28,6 +28,7 @@ public final class MyVibeIslandAppKitOverlayController {
     private let forwardInteractionAction: @MainActor (PanelInteractionAction) -> Void
     private let routeAction: @MainActor (OverlayRoutedAction) -> Void
     private let recordDisplayReason: @MainActor (DisplayIntentReason) -> Void
+    private var surfaceRenderRevision = 0
 
     public init(
         renderPresentation: @escaping @MainActor (NotchPresentationState) -> Void = { _ in },
@@ -58,6 +59,20 @@ public final class MyVibeIslandAppKitOverlayController {
     }
 
     public func renderIslandSurface(_ renderList: IslandSurfaceRenderList) {
+        surfaceRenderRevision += 1
+        SessionCompletionTraceLog.append(
+            stage: "overlay.surface_render.begin",
+            sessionId: renderList.sections.focusedSessionId,
+            metadata: [
+                "renderRevision": String(surfaceRenderRevision),
+                "displayStatus": renderList.sections.displayStatus.rawValue,
+                "rootContentStatus": String(describing: renderList.sections.rootContentStatus),
+                "layoutMode": String(describing: renderList.sections.layoutMode),
+                "itemCount": String(renderList.items.count),
+                "sessionCount": String(renderList.sections.sessions.count),
+                "actionRequestCount": String(renderList.sections.actionRequestPreviews.count),
+            ]
+        )
         let originalView = buildOriginalIslandSurfaceView?(renderList)
         let descriptor = MyVibeIslandAppKitIslandSurfaceAdapter()
             .makeSurfaceDescriptor(from: renderList)
@@ -69,6 +84,16 @@ public final class MyVibeIslandAppKitOverlayController {
         let view = originalView ?? buildIslandSurfaceView(descriptor)
         lastIslandSurfaceView = view
         renderIslandSurfaceView(view)
+        SessionCompletionTraceLog.append(
+            stage: "overlay.surface_render.end",
+            sessionId: renderList.sections.focusedSessionId,
+            metadata: [
+                "renderRevision": String(surfaceRenderRevision),
+                "view": String(describing: type(of: view)),
+                "usedOriginalView": String(originalView != nil),
+                "descriptorItemCount": String(descriptor.items.count),
+            ]
+        )
     }
 
     public func apply(_ action: OverlayControllerAction) {
@@ -90,10 +115,20 @@ public final class MyVibeIslandAppKitOverlayController {
     }
 
     private func applyPanelPlan(_ actions: [OverlayPanelAction]) {
-        for action in actions {
+        for (index, action) in actions.enumerated() {
             switch action {
             case let .applyFrame(frame):
                 lastAppliedFrame = frame
+                SessionCompletionTraceLog.append(
+                    stage: "overlay.panel_frame_action",
+                    sessionId: nil,
+                    metadata: [
+                        "actionIndex": String(index),
+                        "frame": frameDescription(frame),
+                        "currentPanelDisplayState": String(describing: currentPanelDisplayState),
+                        "lastPresentationState": lastPresentation.map { String(describing: $0.displayState) } ?? "nil",
+                    ]
+                )
                 applyFrame(frame)
             case let .showPanel(displayState):
                 lastShownPanelState = displayState
@@ -113,6 +148,10 @@ public final class MyVibeIslandAppKitOverlayController {
                 recordDisplayReason(reason)
             }
         }
+    }
+
+    private func frameDescription(_ frame: DisplayFrame) -> String {
+        "x=\(frame.x),y=\(frame.y),w=\(frame.width),h=\(frame.height)"
     }
 
     private func resetInteractionIntentState() {

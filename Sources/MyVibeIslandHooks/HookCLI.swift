@@ -69,7 +69,7 @@ public struct HookCLI {
         }
         let sessionId = Self.firstString(in: payload, keys: ["sessionId", "session_id"])
         let effectiveEventName = eventName ?? Self.firstString(in: payload, keys: ["hook_event_name"])
-        if Self.isCompletionEvent(effectiveEventName) {
+        if Self.isCompletionEvent(effectiveEventName) || Self.requiresResponse(for: effectiveEventName) {
             SessionCompletionTraceLog.append(
                 stage: "hook.received",
                 sessionId: sessionId,
@@ -94,7 +94,7 @@ public struct HookCLI {
         do {
             guard waitForAck || Self.requiresResponse(for: effectiveEventName) else {
                 try bridgeSendFireAndForget(envelope, socketPath, codec)
-                if Self.isCompletionEvent(effectiveEventName) {
+                if Self.isCompletionEvent(effectiveEventName) || Self.requiresResponse(for: effectiveEventName) {
                     SessionCompletionTraceLog.append(
                         stage: "hook.sent",
                         sessionId: sessionId,
@@ -109,7 +109,7 @@ public struct HookCLI {
             }
 
             let response = try bridgeSend(envelope, socketPath, codec)
-            if Self.isCompletionEvent(effectiveEventName) {
+            if Self.isCompletionEvent(effectiveEventName) || Self.requiresResponse(for: effectiveEventName) {
                 SessionCompletionTraceLog.append(
                     stage: "hook.sent",
                     sessionId: sessionId,
@@ -117,12 +117,27 @@ public struct HookCLI {
                         "source": source,
                         "event": effectiveEventName ?? "-",
                         "ok": String(response.ok),
+                        "hasSourceDirective": String(response.sourceDirective != nil),
+                        "mode": "blocking",
                     ]
                 )
             }
-            return try sourceHookOutput(for: response, eventName: effectiveEventName)
+            let output = try sourceHookOutput(for: response, eventName: effectiveEventName)
+            if Self.requiresResponse(for: effectiveEventName) {
+                SessionCompletionTraceLog.append(
+                    stage: "hook.stdout_ready",
+                    sessionId: sessionId,
+                    metadata: [
+                        "source": source,
+                        "event": effectiveEventName ?? "-",
+                        "bytes": String(output.utf8.count),
+                        "isEmpty": String(output.isEmpty),
+                    ]
+                )
+            }
+            return output
         } catch {
-            if Self.isCompletionEvent(effectiveEventName) {
+            if Self.isCompletionEvent(effectiveEventName) || Self.requiresResponse(for: effectiveEventName) {
                 SessionCompletionTraceLog.append(
                     stage: "hook.send_failed",
                     sessionId: sessionId,

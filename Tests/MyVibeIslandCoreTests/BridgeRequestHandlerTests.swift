@@ -593,7 +593,7 @@ final class BridgeRequestHandlerTests: XCTestCase {
         )
     }
 
-    func testCodexDeadlineHandoffReleasesLocalOwnershipButRetainsTerminalCard() throws {
+    func testCodexDeadlineHandoffReleasesLocalOwnershipAndRemovesTerminalCard() throws {
         let coordinator = SessionCoordinator()
         let continuations = PendingActionContinuations(timeout: 10)
         let handler = BridgeRequestHandler(
@@ -614,10 +614,8 @@ final class BridgeRequestHandlerTests: XCTestCase {
 
         wait(for: [completed], timeout: 0.5)
 
-        let request = try XCTUnwrap(coordinator.actionableRequests().first)
-        XCTAssertEqual(request.requestId, "codex-terminal:codex-live:turn-42")
-        XCTAssertEqual(coordinator.snapshot(sessionId: "codex-live")?.pendingRequestIds, [request.requestId])
-        XCTAssertFalse(continuations.owns(request))
+        XCTAssertTrue(coordinator.actionableRequests().isEmpty)
+        XCTAssertTrue(coordinator.snapshot(sessionId: "codex-live")?.pendingRequestIds.isEmpty ?? true)
         XCTAssertEqual(continuations.pendingCount, 0)
     }
 

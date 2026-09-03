@@ -181,6 +181,125 @@ final class MyVibeIslandAppKitNotchPanelControllerTests: XCTestCase {
         XCTAssertEqual(ignoresMouseEvents, [true, false, true, true])
     }
 
+    func testInteractionGeometryUsesExplicitVisibleSurfaceForWindowHitBoundary() {
+        let host = DisplayFrame(x: 620, y: 500, width: 680, height: 580)
+        let surface = DisplayFrame(x: 640, y: 738, width: 640, height: 342)
+        let geometry = MyVibeIslandAppKitPanelInteractionGeometry(
+            compactFrame: DisplayFrame(x: 847, y: 1050, width: 226, height: 30),
+            hostingFrame: host,
+            visibleFrame: surface,
+            expandedFrame: surface
+        )
+
+        XCTAssertEqual(geometry.hostingFrame, host)
+        XCTAssertEqual(geometry.visibleFrame, surface)
+    }
+
+    @MainActor
+    func testExpandedTransparentHostAreaIsClickThroughAfterSurfaceGeometryArrives() {
+        var ignoresMouseEvents: [Bool] = []
+        let controller = MyVibeIslandAppKitNotchPanelController(
+            makePanel: { "panel" },
+            installEventMonitors: {},
+            removeEventMonitors: {},
+            currentMouseLocation: { DisplayPoint(x: 320, y: 650) },
+            setIgnoresMouseEvents: { _, value in ignoresMouseEvents.append(value) },
+            movePanel: { _, _ in },
+            installContentView: { _, _ in },
+            showPanel: { _ in },
+            hidePanel: { _ in },
+            closePanel: { _ in }
+        )
+
+        let host = DisplayFrame(x: 0, y: 500, width: 680, height: 580)
+        let surface = DisplayFrame(x: 20, y: 844, width: 640, height: 236)
+        controller.applyPlacement(DisplayPlacementPlan(
+            closedFrame: host,
+            expandedFrame: host,
+            anchor: DisplayPoint(x: 340, y: 1080),
+            safeAreaAdjustment: 0
+        ))
+        controller.applyInteractionGeometry(MyVibeIslandAppKitPanelInteractionGeometry(
+            compactFrame: DisplayFrame(x: 300, y: 1044, width: 80, height: 36),
+            hostingFrame: host,
+            expandedFrame: surface
+        ))
+
+        controller.applyInteractionAction(.setDisplayState(.expanded))
+
+        XCTAssertEqual(ignoresMouseEvents.last, true)
+    }
+
+    @MainActor
+    func testBlockingActionDoesNotBlockOutsideVisibleSurface() {
+        var ignoresMouseEvents: [Bool] = []
+        let controller = MyVibeIslandAppKitNotchPanelController(
+            makePanel: { "panel" },
+            installEventMonitors: {},
+            removeEventMonitors: {},
+            currentMouseLocation: { DisplayPoint(x: 10, y: 10) },
+            setIgnoresMouseEvents: { _, value in ignoresMouseEvents.append(value) },
+            movePanel: { _, _ in },
+            installContentView: { _, _ in },
+            showPanel: { _ in },
+            hidePanel: { _ in },
+            closePanel: { _ in }
+        )
+
+        controller.applyPlacement(DisplayPlacementPlan(
+            closedFrame: DisplayFrame(x: 620, y: 500, width: 680, height: 580),
+            expandedFrame: DisplayFrame(x: 640, y: 844, width: 640, height: 236),
+            anchor: DisplayPoint(x: 960, y: 1080),
+            safeAreaAdjustment: 0
+        ))
+        controller.applyInteractionGeometry(MyVibeIslandAppKitPanelInteractionGeometry(
+            compactFrame: DisplayFrame(x: 847, y: 1050, width: 226, height: 30),
+            hostingFrame: DisplayFrame(x: 620, y: 500, width: 680, height: 580),
+            expandedFrame: DisplayFrame(x: 640, y: 844, width: 640, height: 236)
+        ))
+        controller.setBlockingActionVisible(true)
+        controller.processMouseLocation(DisplayPoint(x: 10, y: 10))
+
+        XCTAssertEqual(ignoresMouseEvents.last, true)
+    }
+
+    @MainActor
+    func testBlockingActionRemainsClickableBeforeExpandedDisplayStateArrives() {
+        var ignoresMouseEvents: [Bool] = []
+        let controller = MyVibeIslandAppKitNotchPanelController(
+            makePanel: { "panel" },
+            installEventMonitors: {},
+            removeEventMonitors: {},
+            currentMouseLocation: { DisplayPoint(x: 900, y: 900) },
+            setIgnoresMouseEvents: { _, value in ignoresMouseEvents.append(value) },
+            movePanel: { _, _ in },
+            installContentView: { _, _ in },
+            showPanel: { _ in },
+            hidePanel: { _ in },
+            closePanel: { _ in }
+        )
+
+        let host = DisplayFrame(x: 620, y: 500, width: 680, height: 580)
+        let surface = DisplayFrame(x: 640, y: 844, width: 640, height: 236)
+        controller.applyPlacement(DisplayPlacementPlan(
+            closedFrame: host,
+            expandedFrame: host,
+            anchor: DisplayPoint(x: 960, y: 1080),
+            safeAreaAdjustment: 0
+        ))
+        controller.applyInteractionGeometry(MyVibeIslandAppKitPanelInteractionGeometry(
+            compactFrame: DisplayFrame(x: 847, y: 1050, width: 226, height: 30),
+            hostingFrame: host,
+            expandedFrame: surface
+        ))
+
+        controller.setBlockingActionVisible(true)
+        controller.processMouseLocation(DisplayPoint(x: 900, y: 900))
+
+        XCTAssertEqual(controller.interactionDisplayState, .closed)
+        XCTAssertEqual(ignoresMouseEvents.last, false)
+    }
+
     @MainActor
     func testExpandedGeometryChangeRecomputesClickThroughForStationaryPointer() {
         var ignoresMouseEvents: [Bool] = []
@@ -721,6 +840,105 @@ final class MyVibeIslandAppKitNotchPanelControllerTests: XCTestCase {
         try await Task.sleep(nanoseconds: 80_000_000)
         controller.applyFrame(expanded)
         controller.applyFrame(compact)
+        try await Task.sleep(nanoseconds: 80_000_000)
+
+        XCTAssertEqual(movedFrames, [compact])
+        XCTAssertEqual(controller.lastFrame, compact)
+    }
+
+    @MainActor
+    func testVisibleSurfaceGeometryNormalizesHostEnvelopeFrameDuringCollapse() async throws {
+        var movedFrames: [DisplayFrame] = []
+        let controller = MyVibeIslandAppKitNotchPanelController(
+            makePanel: { "panel" },
+            installEventMonitors: {},
+            removeEventMonitors: {},
+            movePanel: { _, frame in movedFrames.append(frame) },
+            installContentView: { _, _ in },
+            showPanel: { _ in },
+            hidePanel: { _ in },
+            closePanel: { _ in }
+        )
+        let host = DisplayFrame(x: 620, y: 500, width: 680, height: 580)
+        let expandedVisible = DisplayFrame(x: 640, y: 520, width: 640, height: 360)
+        let compactVisible = DisplayFrame(x: 847, y: 1050, width: 226, height: 30)
+
+        controller.applyInteractionGeometry(MyVibeIslandAppKitPanelInteractionGeometry(
+            compactFrame: compactVisible,
+            hostingFrame: host,
+            visibleFrame: expandedVisible,
+            expandedFrame: expandedVisible
+        ))
+        controller.applyFrame(host)
+        try await Task.sleep(nanoseconds: 80_000_000)
+
+        XCTAssertEqual(movedFrames, [compactVisible])
+        XCTAssertEqual(controller.lastFrame, compactVisible)
+    }
+
+    @MainActor
+    func testClosedPanelNormalizesHostEnvelopeToCompactFrameImmediately() async throws {
+        var movedFrames: [DisplayFrame] = []
+        let controller = MyVibeIslandAppKitNotchPanelController(
+            makePanel: { "panel" },
+            installEventMonitors: {},
+            removeEventMonitors: {},
+            movePanel: { _, frame in movedFrames.append(frame) },
+            installContentView: { _, _ in },
+            showPanel: { _ in },
+            hidePanel: { _ in },
+            closePanel: { _ in }
+        )
+        let compact = DisplayFrame(x: 847, y: 1050, width: 226, height: 30)
+        let host = DisplayFrame(x: 620, y: 500, width: 680, height: 580)
+        let expanded = DisplayFrame(x: 640, y: 738, width: 640, height: 342)
+
+        controller.applyInteractionGeometry(MyVibeIslandAppKitPanelInteractionGeometry(
+            compactFrame: compact,
+            hostingFrame: host,
+            visibleFrame: expanded,
+            expandedFrame: expanded
+        ))
+        controller.applyFrame(expanded)
+        try await Task.sleep(nanoseconds: 80_000_000)
+        controller.applyInteractionAction(.setDisplayState(.closed))
+        controller.applyFrame(host)
+
+        XCTAssertEqual(movedFrames, [expanded, compact])
+        XCTAssertEqual(controller.lastFrame, compact)
+    }
+
+    @MainActor
+    func testClosedPanelRejectsLateExpandedVisibleFrameAfterActionClears() async throws {
+        var movedFrames: [DisplayFrame] = []
+        let controller = MyVibeIslandAppKitNotchPanelController(
+            makePanel: { "panel" },
+            installEventMonitors: {},
+            removeEventMonitors: {},
+            movePanel: { _, frame in movedFrames.append(frame) },
+            installContentView: { _, _ in },
+            showPanel: { _ in },
+            hidePanel: { _ in },
+            closePanel: { _ in }
+        )
+        let compact = DisplayFrame(x: 847, y: 1050, width: 226, height: 30)
+        let expanded = DisplayFrame(x: 640, y: 844, width: 640, height: 236)
+
+        controller.applyPlacement(DisplayPlacementPlan(
+            closedFrame: compact,
+            expandedFrame: expanded,
+            anchor: DisplayPoint(x: 960, y: 1080),
+            safeAreaAdjustment: 0
+        ))
+        try await Task.sleep(nanoseconds: 80_000_000)
+        controller.applyInteractionGeometry(MyVibeIslandAppKitPanelInteractionGeometry(
+            compactFrame: compact,
+            hostingFrame: DisplayFrame(x: 620, y: 500, width: 680, height: 580),
+            visibleFrame: expanded,
+            expandedFrame: expanded
+        ))
+
+        controller.applyVisibleSurfaceFrame(expanded)
         try await Task.sleep(nanoseconds: 80_000_000)
 
         XCTAssertEqual(movedFrames, [compact])

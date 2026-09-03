@@ -431,6 +431,21 @@ final class NotchViewModelModelsTests: XCTestCase {
         )
     }
 
+    func testReplacingIdenticalActionRequestsDoesNotReRenderSurface() {
+        let state = NotchViewModelState(
+            sessionPreviews: [preview(id: "session-1", status: .active)],
+            actionRequestPreviews: []
+        )
+
+        let plan = NotchViewModelReducer().reduce(
+            .replaceActionRequestPreviews([]),
+            state: state
+        )
+
+        XCTAssertEqual(plan.nextState, state)
+        XCTAssertTrue(plan.actions.isEmpty)
+    }
+
     func testRemovingLastLocallyResolvablePermissionSchedulesMouseLeaveCollapseWhenPointerIsOutside() {
         let permission = actionPreview(
             requestId: "permission-1",

@@ -628,7 +628,99 @@ public final class AppRuntime: @unchecked Sendable {
         sessionId: String,
         mode: TerminalJumpExecutionMode = .dryRun
     ) -> TerminalJumpExecutionResult {
-        TerminalJumpExecutor(runner: jumpRunner).execute(plan: jumpToSession(sessionId: sessionId), mode: mode)
+        let plan = jumpToSession(sessionId: sessionId)
+        let targetInput = plan.resolvedTarget?.input
+        SessionCompletionTraceLog.append(
+            stage: "terminal.jump_plan",
+            sessionId: sessionId,
+            metadata: [
+                "mode": mode.rawValue,
+                "planStatus": plan.status.rawValue,
+                "handler": plan.handlerId ?? "-",
+                "precision": plan.precision?.rawValue ?? "-",
+                "targetBundle": targetInput?.bundleId ?? "-",
+                "targetTTY": targetInput?.tty ?? "-",
+                "targetIsInTmux": String(targetInput?.isInTmux ?? false),
+                "targetTmuxPane": targetInput?.tmuxPane ?? "-",
+                "targetTmuxSocket": targetInput?.tmuxSocketPath ?? "-",
+                "targetTermSession": targetInput?.termSessionId ?? "-",
+                "targetCWD": targetInput?.cwd ?? "-",
+                "targetThread": targetInput?.codexThreadId ?? "-",
+                "planDiagnostic": plan.diagnosticSummary,
+            ]
+        )
+        let result = TerminalJumpExecutor(runner: jumpRunner).execute(plan: plan, mode: mode)
+        SessionCompletionTraceLog.append(
+            stage: "terminal.jump_execution",
+            sessionId: sessionId,
+            metadata: [
+                "mode": mode.rawValue,
+                "status": result.status.rawValue,
+                "handler": result.handlerId ?? "-",
+                "precision": result.precision?.rawValue ?? "-",
+                "blockReason": result.blockReason?.rawValue ?? "-",
+                "actionKind": result.actionDescription?.kind.rawValue ?? "-",
+                "actionTarget": result.actionDescription?.target ?? "-",
+                "diagnostic": result.diagnosticSummary,
+            ]
+        )
+        return result
+    }
+
+    /// Releases a hook that is waiting for a native terminal approval after
+    /// the user has been routed to that terminal. The request stays in the
+    /// session snapshot so the Island can continue reflecting its state, but
+    /// the blocked hook must be woken immediately.
+    @discardableResult
+    public func handoffPendingApprovalToTerminal(sessionId: String) -> Bool {
+        guard let request = sessionCoordinator.actionableRequests().first(where: {
+            $0.sessionId == sessionId && $0.kind == .permission
+        }) else {
+            SessionCompletionTraceLog.append(
+                stage: "approval.terminal_release",
+                sessionId: sessionId,
+                metadata: ["released": "false", "reason": "no_pending_permission"]
+            )
+            return false
+        }
+
+        let owned = blockingActionContinuations?.owns(request) ?? false
+        SessionCompletionTraceLog.append(
+            stage: "approval.terminal_release_requested",
+            sessionId: sessionId,
+            metadata: [
+                "requestId": request.requestId,
+                "owned": String(owned),
+                "pendingCount": String(blockingActionContinuations?.pendingCount ?? 0),
+            ]
+        )
+        guard owned else {
+            SessionCompletionTraceLog.append(
+                stage: "approval.terminal_release",
+                sessionId: sessionId,
+                metadata: [
+                    "requestId": request.requestId,
+                    "released": "false",
+                    "reason": "hook_not_owned",
+                ]
+            )
+            return false
+        }
+
+        blockingActionContinuations?.expire(
+            sessionId: sessionId,
+            requestId: request.requestId
+        )
+        SessionCompletionTraceLog.append(
+            stage: "approval.terminal_release",
+            sessionId: sessionId,
+            metadata: [
+                "requestId": request.requestId,
+                "released": "true",
+                "pendingCount": String(blockingActionContinuations?.pendingCount ?? 0),
+            ]
+        )
+        return true
     }
 
     @discardableResult
@@ -663,8 +755,26 @@ public final class AppRuntime: @unchecked Sendable {
         let actionableRequest = sessionCoordinator.actionableRequests().first {
             $0.requestId == resolution.requestId && $0.sessionId == resolution.sessionId
         }
+        SessionCompletionTraceLog.append(
+            stage: "approval.runtime.resolve_requested",
+            sessionId: resolution.sessionId,
+            metadata: [
+                "requestId": resolution.requestId,
+                "kind": resolution.kind.rawValue,
+                "requestMatched": String(actionableRequest != nil),
+            ]
+        )
         let resolved = sessionCoordinator.resolveAction(resolution)
         guard resolved else {
+            SessionCompletionTraceLog.append(
+                stage: "approval.runtime.resolve_result",
+                sessionId: resolution.sessionId,
+                metadata: [
+                    "requestId": resolution.requestId,
+                    "resolved": "false",
+                    "remainingRequestCount": String(sessionCoordinator.actionableRequests().count),
+                ]
+            )
             return false
         }
 
@@ -675,6 +785,16 @@ public final class AppRuntime: @unchecked Sendable {
             sessionStore?.setQuestionSelection(selection, forRequestId: resolution.requestId)
         }
         publishSessionPreviews()
+
+        SessionCompletionTraceLog.append(
+            stage: "approval.runtime.resolve_result",
+            sessionId: resolution.sessionId,
+            metadata: [
+                "requestId": resolution.requestId,
+                "resolved": "true",
+                "remainingRequestCount": String(sessionCoordinator.actionableRequests().count),
+            ]
+        )
 
         if let actionableRequest {
             switch AgentAdapterRegistry.default.directive(for: actionableRequest, resolution: resolution) {

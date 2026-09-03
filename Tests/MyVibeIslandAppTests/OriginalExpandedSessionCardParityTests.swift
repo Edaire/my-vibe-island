@@ -68,6 +68,17 @@ final class OriginalExpandedSessionCardParityTests: XCTestCase {
         ))
     }
 
+    func testPermissionCardDoesNotPlaceApprovalButtonsUnderSessionTapGesture() throws {
+        let source = try String(contentsOf: productionSourceURL, encoding: .utf8)
+
+        XCTAssertFalse(source.contains(
+            "branchShell\n                .frame(minHeight: CGFloat(OriginalExpandedNonCommercialMeasurement.cardHeight))\n                .contentShape(Rectangle())\n                .onTapGesture"
+        ))
+        XCTAssertTrue(source.contains(
+            ".contentShape(Rectangle())\n            .onTapGesture {\n                performTapAction()"
+        ))
+    }
+
     func testExpandedSessionListRendersEveryDisplayRowWithoutAnExplicitExpansion() {
         let rows = ["active", "history-1", "history-2"].map { id in
             OriginalExpandedSessionRow(session: AgentSession(
@@ -481,6 +492,14 @@ final class OriginalExpandedSessionCardParityTests: XCTestCase {
         XCTAssertTrue(source.contains("if request.canResolveLocally"))
     }
 
+    func testTerminalApprovalButtonHasAStableHitTargetAndTrace() throws {
+        let source = try String(contentsOf: permissionRequestSourceURL, encoding: .utf8)
+
+        XCTAssertTrue(source.contains("approval.ui.jump_to_terminal_requested"))
+        XCTAssertTrue(source.contains(".frame(minWidth: 92, minHeight: 22, alignment: .trailing)"))
+        XCTAssertTrue(source.contains(".contentShape(Rectangle())"))
+    }
+
     func testTerminalRoutedPermissionUsesOriginalTerminalHandoffInsteadOfLocalControls() throws {
         let source = try String(contentsOf: permissionRequestSourceURL, encoding: .utf8)
 
@@ -665,11 +684,13 @@ final class OriginalExpandedSessionCardParityTests: XCTestCase {
         ))
     }
 
-    func testSessionCardUsesSingleWholeCardTapAction() throws {
+    func testSessionCardUsesWholeCardTapOnlyForHorizontalRows() throws {
         let source = try String(contentsOf: productionSourceURL, encoding: .utf8)
 
         XCTAssertTrue(source.contains("branchShell\n                .frame(minHeight:"))
-        XCTAssertTrue(source.contains(".onTapGesture {\n                    performTapAction()"))
+        XCTAssertTrue(source.contains("case .horizontal:"))
+        XCTAssertTrue(source.contains(".contentShape(Rectangle())\n            .onTapGesture {\n                performTapAction()"))
+        XCTAssertFalse(source.contains("branchShell\n                .frame(minHeight: CGFloat(OriginalExpandedNonCommercialMeasurement.cardHeight))\n                .contentShape(Rectangle())\n                .onTapGesture"))
         XCTAssertFalse(source.contains("independentInteractionRegions"))
         XCTAssertFalse(source.contains("OriginalExpandedSessionCardInteractionRegionPlan"))
         XCTAssertFalse(source.contains("GeometryReader { proxy in"))

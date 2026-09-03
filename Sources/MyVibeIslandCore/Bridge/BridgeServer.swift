@@ -220,6 +220,7 @@ public final class BridgeServer: @unchecked Sendable {
                 initialBytes: [firstByte]
             )
             let envelope = try codec.decodeRequestLine(requestLine)
+            trace("bridge.request_received", metadata: requestMetadata(envelope: envelope, clientFD: clientFD))
             let monitor = DisconnectMonitor()
             disconnectMonitorQueue.async { [handler] in
                 while monitor.isActive {
@@ -249,13 +250,18 @@ public final class BridgeServer: @unchecked Sendable {
                     }
 
                     guard response.transportDisposition == .reply else {
+                        self.trace("bridge.response_suppressed", metadata: self.responseMetadata(envelope: envelope, response: response, clientFD: clientFD))
                         return
                     }
-                    let responseLine = envelope.clientRole == "original-bridge"
-                        ? try? self.codec.encodeOriginalBridgeResponseLine(response)
-                        : try? self.codec.encodeResponseLine(response)
-                    if let responseLine {
-                        try? SocketIO.writeAll(responseLine, to: clientFD)
+                    do {
+                        let responseLine = try envelope.clientRole == "original-bridge"
+                            ? self.codec.encodeOriginalBridgeResponseLine(response)
+                            : self.codec.encodeResponseLine(response)
+                        self.trace("bridge.response_encoded", metadata: self.responseMetadata(envelope: envelope, response: response, clientFD: clientFD, bytes: responseLine.utf8.count))
+                        try SocketIO.writeAll(responseLine, to: clientFD)
+                        self.trace("bridge.response_written", metadata: self.responseMetadata(envelope: envelope, response: response, clientFD: clientFD, bytes: responseLine.utf8.count))
+                    } catch {
+                        self.trace("bridge.response_write_failed", metadata: self.responseMetadata(envelope: envelope, response: response, clientFD: clientFD, error: String(describing: error)))
                     }
                 }
             }
@@ -300,6 +306,32 @@ public final class BridgeServer: @unchecked Sendable {
 
     private func trace(_ stage: String, metadata: [String: String]) {
         lifecycleTrace(stage, metadata)
+    }
+
+    private func requestMetadata(envelope: BridgeEnvelope, clientFD: Int32) -> [String: String] {
+        [
+            "clientFD": String(clientFD),
+            "source": envelope.source,
+            "clientRole": envelope.clientRole,
+            "command": envelope.command.rawValue,
+            "sessionId": envelope.payload.stringValue(for: "sessionId") ?? envelope.payload.stringValue(for: "session_id") ?? "-",
+            "requestId": envelope.requestId ?? envelope.payload.stringValue(for: "requestId") ?? envelope.payload.stringValue(for: "request_id") ?? "-",
+        ]
+    }
+
+    private func responseMetadata(
+        envelope: BridgeEnvelope,
+        response: BridgeResponse,
+        clientFD: Int32,
+        bytes: Int? = nil,
+        error: String? = nil
+    ) -> [String: String] {
+        var metadata = requestMetadata(envelope: envelope, clientFD: clientFD)
+        metadata["ok"] = String(response.ok)
+        metadata["hasSourceDirective"] = String(response.sourceDirective != nil)
+        if let bytes { metadata["bytesWritten"] = String(bytes) }
+        if let error { metadata["error"] = error }
+        return metadata
     }
 
     private func trackActiveClientIfCapacity(_ clientFD: Int32) -> Bool {

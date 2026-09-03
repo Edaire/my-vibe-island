@@ -85,6 +85,36 @@ final class AppRuntimeTests: XCTestCase {
         XCTAssertEqual(continuations.pendingCount, 0)
     }
 
+    func testRuntimeTerminalHandoffReleasesOwnedPermissionHook() throws {
+        let coordinator = SessionCoordinator()
+        coordinator.apply(.permissionRequested(
+            source: "codex",
+            sessionId: "terminal-handoff-session",
+            requestId: "terminal-handoff-request",
+            toolName: "Shell"
+        ))
+        let continuations = PendingActionContinuations(timeout: 10)
+        let runtime = AppRuntime(
+            sessionCoordinator: coordinator,
+            blockingActionContinuations: continuations
+        )
+        let request = try XCTUnwrap(coordinator.actionableRequests().first)
+        let waiter = DispatchGroup()
+        waiter.enter()
+        DispatchQueue.global().async {
+            _ = continuations.wait(for: request)
+            waiter.leave()
+        }
+        let deadline = Date().addingTimeInterval(0.2)
+        while Date() < deadline, !continuations.owns(request) {
+            Thread.sleep(forTimeInterval: 0.005)
+        }
+
+        XCTAssertTrue(runtime.handoffPendingApprovalToTerminal(sessionId: request.sessionId))
+        XCTAssertEqual(waiter.wait(timeout: .now() + 0.2), .success)
+        XCTAssertFalse(continuations.owns(request))
+    }
+
     private final class ResponseBox: @unchecked Sendable {
         private let lock = NSLock()
         private var response: BridgeResponse?

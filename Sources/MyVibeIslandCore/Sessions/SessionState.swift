@@ -279,6 +279,26 @@ public struct SessionState: Equatable, Sendable {
         switch event {
         case let .sessionActivityUpdated(_, _, activity):
             isRestored = false
+            // A confirmed terminal state is authoritative: a completed or
+            // failed turn cannot retain an actionable request after native
+            // Terminal approval has finished.
+            if activity.status == .completed || activity.status == .failed {
+                let pendingRequestCount = pendingRequestIds.count
+                let actionableRequestCount = actionableRequests.count
+                pendingRequestIds.removeAll()
+                actionableRequests.removeAll()
+                if pendingRequestCount > 0 || actionableRequestCount > 0 {
+                    SessionCompletionTraceLog.append(
+                        stage: "approval.terminal_completion_cleared",
+                        sessionId: sessionId,
+                        metadata: [
+                            "status": activity.status.rawValue,
+                            "pendingRequestCount": String(pendingRequestCount),
+                            "actionableRequestCount": String(actionableRequestCount),
+                        ]
+                    )
+                }
+            }
             cliSessionId = activity.cliSessionId ?? cliSessionId
             safeTitle = activity.safeTitle ?? safeTitle
             activeTool = activity.activeTool

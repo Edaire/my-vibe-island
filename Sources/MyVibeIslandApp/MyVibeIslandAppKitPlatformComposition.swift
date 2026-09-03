@@ -767,13 +767,11 @@ public final class MyVibeIslandAppKitPlatformComposition {
                     sessionId: nil,
                     metadata: [
                         "expandedFrame": "x=\(geometry.expandedFrame.x),y=\(geometry.expandedFrame.y),w=\(geometry.expandedFrame.width),h=\(geometry.expandedFrame.height)",
+                        "visibleFrame": "x=\(geometry.visibleFrame.x),y=\(geometry.visibleFrame.y),w=\(geometry.visibleFrame.width),h=\(geometry.visibleFrame.height)",
                     ]
                 )
                 notchPanelController.applyInteractionGeometry(geometry)
-                // V3 `NotchWindowController` resizes its NSPanel to the
-                // maximum transparent host envelope. The smaller visible
-                // surface remains an interaction-only rectangle.
-                notchPanelController.applyFrame(geometry.hostingFrame)
+                notchPanelController.applyVisibleSurfaceFrame(geometry.visibleFrame)
             },
             onOpenSettings: { routeOverlayAction(.openSettings) },
             onContextMenuCommand: { command in
@@ -797,6 +795,9 @@ public final class MyVibeIslandAppKitPlatformComposition {
         }
         let overlayController = overlayController ?? MyVibeIslandAppKitOverlayController(
             buildOriginalIslandSurfaceView: { renderList in
+                notchPanelController.setBlockingActionVisible(
+                    !renderList.sections.actionRequestPreviews.isEmpty
+                )
                 if renderList.sections.rootContentStatus == .expanded {
                     _ = concreteShortcutManagerController.enterScope(.expandedPanel)
                 } else {

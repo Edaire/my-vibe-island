@@ -38,13 +38,28 @@ struct OriginalExpandedPermissionRequestCard: View {
                         .foregroundStyle(Color.orange.opacity(0.95))
                     if request.canResolveLocally {
                         Spacer(minLength: 0)
-                        Button(action: onJumpToTerminal) {
+                        Button {
+                            SessionCompletionTraceLog.append(
+                                stage: "approval.ui.jump_to_terminal_requested",
+                                sessionId: request.sessionId,
+                                metadata: [
+                                    "requestId": request.requestId,
+                                    "toolName": request.toolName,
+                                    "location": "header",
+                                ]
+                            )
+                            onJumpToTerminal()
+                        } label: {
                             HStack(spacing: 4) {
                                 Text("在终端中审批")
                                 Image(systemName: "arrow.up.right")
                             }
                             .font(.system(size: 10, weight: .semibold))
                             .foregroundStyle(Color.white.opacity(0.62))
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 4)
+                            .frame(minWidth: 92, minHeight: 22, alignment: .trailing)
+                            .contentShape(Rectangle())
                         }
                         .buttonStyle(.plain)
                         .help("在终端中审批")
@@ -111,11 +126,30 @@ struct OriginalLocalApprovalActionRow: View {
         background: Color
     ) -> some View {
         Button {
-            _ = onSubmit(ActionResolution(
+            let resolution = ActionResolution(
                 requestId: request.requestId,
                 sessionId: request.sessionId,
                 kind: kind
-            ))
+            )
+            SessionCompletionTraceLog.append(
+                stage: "approval.ui.submit_requested",
+                sessionId: request.sessionId,
+                metadata: [
+                    "requestId": request.requestId,
+                    "kind": kind.rawValue,
+                    "locallyResolvable": String(request.canResolveLocally),
+                ]
+            )
+            let resolved = onSubmit(resolution)
+            SessionCompletionTraceLog.append(
+                stage: "approval.ui.submit_result",
+                sessionId: request.sessionId,
+                metadata: [
+                    "requestId": request.requestId,
+                    "kind": kind.rawValue,
+                    "resolved": String(resolved),
+                ]
+            )
         } label: {
             Text(title)
                 .font(.system(size: 11, weight: .semibold))

@@ -194,7 +194,18 @@ struct OriginalJumpToTerminalPill: View {
 
             Spacer(minLength: 4)
 
-            Button(action: action) {
+            Button {
+                SessionCompletionTraceLog.append(
+                    stage: "approval.ui.jump_to_terminal_requested",
+                    sessionId: nil,
+                    metadata: [
+                        "requestId": "-",
+                        "toolName": toolName,
+                        "location": "footer",
+                    ]
+                )
+                action()
+            } label: {
                 HStack(spacing: 4) {
                     Text("前往终端")
                     Image(systemName: "arrow.up.right")
@@ -204,6 +215,7 @@ struct OriginalJumpToTerminalPill: View {
                 .padding(.horizontal, 8)
                 .padding(.vertical, 5)
                 .background(Color.white.opacity(0.14), in: RoundedRectangle(cornerRadius: 5, style: .continuous))
+                .contentShape(Rectangle())
             }
             .buttonStyle(.plain)
             .help("前往终端")

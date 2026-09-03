@@ -3,6 +3,10 @@ import Foundation
 import XCTest
 @testable import MyVibeIslandCore
 
+private final class TraceBox: @unchecked Sendable {
+    var values: [(String, [String: String])] = []
+}
+
 final class BridgeSocketRoundTripTests: XCTestCase {
     private struct ShortTimeoutCodexAdapter: AgentAdapter {
         let sourceIds: Set<String> = ["codex"]
@@ -357,6 +361,46 @@ final class BridgeSocketRoundTripTests: XCTestCase {
         XCTAssertEqual(response, .ok(message: "event accepted"))
         XCTAssertEqual(coordinator.snapshot(sessionId: "s1")?.source, "codex")
         XCTAssertEqual(coordinator.snapshot(sessionId: "s1")?.cwd, "/tmp/project")
+    }
+
+    func testResponseWriteTraceKeepsRequestCorrelation() throws {
+        let socketPath = BridgeSocketPath.temporaryForTests()
+        let traceExpectation = expectation(description: "response write trace")
+        let traceLock = NSLock()
+        let traces = TraceBox()
+        let server = BridgeServer(
+            socketPath: socketPath,
+            handler: BridgeRequestHandler(sessionCoordinator: SessionCoordinator()),
+            lifecycleTrace: { stage, metadata in
+                traceLock.withLock {
+                    traces.values.append((stage, metadata))
+                    if stage == "bridge.response_written" { traceExpectation.fulfill() }
+                }
+            }
+        )
+        try server.start()
+        defer {
+            server.stop()
+            try? FileManager.default.removeItem(atPath: socketPath)
+        }
+
+        let request = BridgeEnvelope(
+            schemaVersion: 1,
+            clientRole: "hook",
+            source: "codex",
+            requestId: "request-1",
+            command: .hello,
+            payload: [:]
+        )
+        XCTAssertEqual(try BridgeClient(socketPath: socketPath).send(request), .ok(message: "bridge reachable"))
+        wait(for: [traceExpectation], timeout: 1)
+
+        let responseTrace = traceLock.withLock { traces.values.first { $0.0 == "bridge.response_written" } }
+        XCTAssertEqual(responseTrace?.1["source"], "codex")
+        XCTAssertEqual(responseTrace?.1["requestId"], "request-1")
+        XCTAssertEqual(responseTrace?.1["ok"], "true")
+        XCTAssertEqual(responseTrace?.1["hasSourceDirective"], "false")
+        XCTAssertNotNil(responseTrace?.1["bytesWritten"])
     }
 
     func testHookEventResponseDoesNotWaitForSessionPublication() throws {

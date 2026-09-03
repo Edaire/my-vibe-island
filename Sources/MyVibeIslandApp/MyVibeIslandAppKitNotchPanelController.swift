@@ -7,8 +7,51 @@ private let originalWindowFrameUpdateDelay = 0.05
 public final class MyVibeIslandAppKitNotchPanel: NSPanel {
     public override var canBecomeKey: Bool { true }
 
+    public override func sendEvent(_ event: NSEvent) {
+        switch event.type {
+        case .leftMouseDown, .leftMouseUp:
+            SessionCompletionTraceLog.append(
+                stage: "panel.mouse_event",
+                sessionId: nil,
+                metadata: [
+                    "type": event.type == .leftMouseDown ? "leftMouseDown" : "leftMouseUp",
+                    "windowNumber": String(windowNumber),
+                    "locationInWindow": "x=\(event.locationInWindow.x),y=\(event.locationInWindow.y)",
+                    "frame": "x=\(frame.origin.x),y=\(frame.origin.y),w=\(frame.size.width),h=\(frame.size.height)",
+                    "ignoresMouseEvents": String(ignoresMouseEvents),
+                    "isVisible": String(isVisible),
+                    "isKeyWindow": String(isKeyWindow),
+                    "level": String(level.rawValue),
+                ]
+            )
+        default:
+            break
+        }
+        super.sendEvent(event)
+    }
+
     public override func constrainFrameRect(_ frameRect: NSRect, to screen: NSScreen?) -> NSRect {
         frameRect
+    }
+}
+
+/// Logs the AppKit hit-test boundary without changing the view hierarchy or
+/// forwarding behavior. This distinguishes a window-level miss from a
+/// SwiftUI control-level routing problem.
+final class MyVibeIslandAppKitHitTestView: NSView {
+    override func hitTest(_ point: NSPoint) -> NSView? {
+        let hit = super.hitTest(point)
+        SessionCompletionTraceLog.append(
+            stage: "panel.hit_test",
+            sessionId: nil,
+            metadata: [
+                "pointInContainer": "x=\(point.x),y=\(point.y)",
+                "hitView": hit.map { String(describing: type(of: $0)) } ?? "nil",
+                "hitIdentifier": hit?.identifier?.rawValue ?? "-",
+                "frame": "x=\(frame.origin.x),y=\(frame.origin.y),w=\(frame.size.width),h=\(frame.size.height)",
+            ]
+        )
+        return hit
     }
 }
 
@@ -22,7 +65,9 @@ public protocol MyVibeIslandAppKitNotchPanelControlling: AnyObject {
     func applyPlacement(_ placement: DisplayPlacementPlan)
     func applyInteractionGeometry(_ geometry: MyVibeIslandAppKitPanelInteractionGeometry)
     func clearInteractionGeometry()
+    func setBlockingActionVisible(_ isVisible: Bool)
     func applyFrame(_ frame: DisplayFrame)
+    func applyVisibleSurfaceFrame(_ frame: DisplayFrame)
     func installContentView(_ view: NSView)
     func processExpandedContentHover(_ isInside: Bool)
     func applyInteractionAction(_ action: PanelInteractionAction)
@@ -42,12 +87,17 @@ public struct MyVibeIslandAppKitPanelInteractionGeometry: Equatable, Sendable {
     /// The transparent AppKit host envelope. This is deliberately distinct
     /// from the visible expanded surface used for pointer classification.
     public let hostingFrame: DisplayFrame
+    /// The sole visible and interactive surface for the current presentation.
+    /// AppKit uses this as the physical window frame so the OS hit boundary
+    /// cannot outgrow the rendered Island.
+    public let visibleFrame: DisplayFrame
     public let expandedFrame: DisplayFrame
 
     public init(
         compactFrame: DisplayFrame,
         menuBarFrame: DisplayFrame? = nil,
         hostingFrame: DisplayFrame? = nil,
+        visibleFrame: DisplayFrame? = nil,
         expandedFrame: DisplayFrame
     ) {
         self.compactFrame = compactFrame
@@ -65,6 +115,7 @@ public struct MyVibeIslandAppKitPanelInteractionGeometry: Equatable, Sendable {
         )
         self.menuBarFrame = resolvedMenuBarFrame
         self.hostingFrame = hostingFrame ?? expandedFrame
+        self.visibleFrame = visibleFrame ?? expandedFrame
         self.expandedFrame = expandedFrame
     }
 }
@@ -95,6 +146,8 @@ public final class MyVibeIslandAppKitNotchPanelController<Panel>: MyVibeIslandAp
     public private(set) var interactionDisplayState: PanelDisplayState = .closed
     public private(set) var lastCollapseReason: PanelCollapseReason?
     public private(set) var isVisible = false
+    public private(set) var blockingActionVisible = false
+    private var interactionGeometryRevision = 0
 
     public var activeInteractionFrame: DisplayFrame? {
         guard interactionDisplayState == .switcher else { return nil }
@@ -228,13 +281,49 @@ public final class MyVibeIslandAppKitNotchPanelController<Panel>: MyVibeIslandAp
     }
 
     public func applyInteractionGeometry(_ geometry: MyVibeIslandAppKitPanelInteractionGeometry) {
+        interactionGeometryRevision += 1
         interactionGeometry = geometry
+        SessionCompletionTraceLog.append(
+            stage: "panel.geometry.accept",
+            sessionId: nil,
+            metadata: [
+                "geometryRevision": String(interactionGeometryRevision),
+                "compact": frameDescription(geometry.compactFrame),
+                "compactHover": frameDescription(geometry.compactHoverFrame),
+                "menuBar": frameDescription(geometry.menuBarFrame),
+                "hosting": frameDescription(geometry.hostingFrame),
+                "visible": frameDescription(geometry.visibleFrame),
+                "expanded": frameDescription(geometry.expandedFrame),
+                "displayState": String(describing: interactionDisplayState),
+            ]
+        )
         reclassifyCurrentPointer()
     }
 
     public func clearInteractionGeometry() {
         interactionGeometry = nil
         reclassifyCurrentPointer()
+    }
+
+    public func setBlockingActionVisible(_ isVisible: Bool) {
+        guard blockingActionVisible != isVisible else { return }
+        blockingActionVisible = isVisible
+        SessionCompletionTraceLog.append(
+            stage: "panel.blocking_action_state",
+            sessionId: nil,
+            metadata: ["visible": String(isVisible)]
+        )
+        if isVisible {
+            mouseLeaveCollapseTask?.cancel()
+            mouseLeaveCollapseTask = nil
+            mouseLeaveCollapseGeneration = nil
+            pendingMouseLeaveCollapse = nil
+            // The render pipeline can publish an expanded action surface one
+            // cycle before the interaction controller receives its expanded
+            // state. The blocking surface must still be the hit-test owner.
+            setIgnoresMouseEvents(currentPanel(), false)
+        }
+        refreshMouseInteractivity()
     }
 
     public func applyFrame(_ frame: DisplayFrame) {
@@ -246,8 +335,32 @@ public final class MyVibeIslandAppKitNotchPanelController<Panel>: MyVibeIslandAp
                 "pending": frameDescription(pendingWindowFrame),
                 "last": frameDescription(lastFrame),
                 "displayState": String(describing: interactionDisplayState),
+                "geometryRevision": String(interactionGeometryRevision),
+                "frameRole": frameRole(frame),
             ]
         )
+        // The unified renderer owns the physical panel frame through
+        // `visibleFrame`. Overlay placement still carries the 680x580 host
+        // envelope for reducer layout, but applying it here briefly exposes
+        // that transparent envelope while a render is collapsing.
+        if let interactionGeometry,
+           frame == interactionGeometry.hostingFrame,
+           frame != interactionGeometry.visibleFrame {
+            SessionCompletionTraceLog.append(
+                stage: "panel.frame.normalize_closed_host_envelope",
+                sessionId: nil,
+                metadata: [
+                    "requested": frameDescription(frame),
+                    "visible": frameDescription(interactionGeometry.visibleFrame),
+                    "compact": frameDescription(interactionGeometry.compactFrame),
+                    "displayState": String(describing: interactionDisplayState),
+                ]
+            )
+            if interactionDisplayState == .closed, !blockingActionVisible {
+                applyFrameImmediately(interactionGeometry.compactFrame)
+            }
+            return
+        }
         guard pendingWindowFrame != frame else { return }
         if lastFrame == frame {
             discardPendingWindowFrameUpdate()
@@ -259,6 +372,28 @@ public final class MyVibeIslandAppKitNotchPanelController<Panel>: MyVibeIslandAp
         windowFrameUpdateTask = schedule(after: originalWindowFrameUpdateDelay) { [weak self] in
             self?.applyPendingWindowFrame(frame)
         }
+    }
+
+    public func applyVisibleSurfaceFrame(_ frame: DisplayFrame) {
+        guard interactionDisplayState != .closed || blockingActionVisible else {
+            guard let compactFrame = interactionGeometry?.compactFrame ?? lastPlacement?.closedFrame else {
+                return
+            }
+            SessionCompletionTraceLog.append(
+                stage: "panel.frame.normalize_closed_visible",
+                sessionId: nil,
+                metadata: [
+                    "requested": frameDescription(frame),
+                    "effective": frameDescription(compactFrame),
+                    "displayState": String(describing: interactionDisplayState),
+                    "blockingActionVisible": String(blockingActionVisible),
+                    "geometryRevision": String(interactionGeometryRevision),
+                ]
+            )
+            applyFrame(compactFrame)
+            return
+        }
+        applyFrame(frame)
     }
 
     private func applyPendingWindowFrame(_ frame: DisplayFrame) {
@@ -278,10 +413,52 @@ public final class MyVibeIslandAppKitNotchPanelController<Panel>: MyVibeIslandAp
             metadata: [
                 "requested": frameDescription(frame),
                 "displayState": String(describing: interactionDisplayState),
+                "geometryRevision": String(interactionGeometryRevision),
+                "frameRole": frameRole(frame),
+            ]
+        )
+        movePanel(currentPanel(), frame)
+        SessionCompletionTraceLog.append(
+            stage: "panel.frame.apply_complete",
+            sessionId: nil,
+            metadata: [
+                "requested": frameDescription(frame),
+                "geometryRevision": String(interactionGeometryRevision),
+                "frameRole": frameRole(frame),
+            ]
+        )
+        reclassifyCurrentPointer()
+    }
+
+    private func applyFrameImmediately(_ frame: DisplayFrame) {
+        pendingWindowFrame = nil
+        windowFrameUpdateTask?.cancel()
+        windowFrameUpdateTask = nil
+        guard lastFrame != frame else { return }
+        lastFrame = frame
+        SessionCompletionTraceLog.append(
+            stage: "panel.frame.apply_immediate",
+            sessionId: nil,
+            metadata: [
+                "requested": frameDescription(frame),
+                "displayState": String(describing: interactionDisplayState),
+                "geometryRevision": String(interactionGeometryRevision),
+                "frameRole": frameRole(frame),
             ]
         )
         movePanel(currentPanel(), frame)
         reclassifyCurrentPointer()
+    }
+
+    private func frameRole(_ frame: DisplayFrame) -> String {
+        guard let geometry = interactionGeometry else { return "no_geometry" }
+        if frame == geometry.visibleFrame { return "visible" }
+        if frame == geometry.hostingFrame { return "hosting" }
+        if frame == geometry.expandedFrame { return "expanded" }
+        if frame == geometry.compactFrame { return "compact" }
+        if frame == geometry.compactHoverFrame { return "compact_hover" }
+        if frame == geometry.menuBarFrame { return "menu_bar" }
+        return "other"
     }
 
     public func installContentView(_ view: NSView) {
@@ -306,9 +483,25 @@ public final class MyVibeIslandAppKitNotchPanelController<Panel>: MyVibeIslandAp
                 point,
                 in: interactionGeometry?.expandedFrame ?? placement.expandedFrame
             )
-            setIgnoresMouseEvents(currentPanel(), !isInside)
+            // The host can be larger than the rendered surface, but it must
+            // not consume clicks in the transparent area below the surface.
+            // Otherwise the panel blocks the application underneath while
+            // the user is trying to interact with it.
+            let isInsideVisibleSurface = contains(
+                point,
+                in: interactionGeometry?.expandedFrame ?? placement.expandedFrame
+            )
+            setIgnoresMouseEvents(currentPanel(), !isInsideVisibleSurface)
             updateExpandedPanelHover(isInside, force: forceExpandedPanelHoverUpdate)
         case .closed, .opening, .hidden, .autoHidden:
+            if blockingActionVisible {
+                let isInsideVisibleSurface = contains(
+                    point,
+                    in: interactionGeometry?.expandedFrame ?? placement.expandedFrame
+                )
+                setIgnoresMouseEvents(currentPanel(), !isInsideVisibleSurface)
+                return
+            }
             updateCompactHover(contains(
                 point,
                 in: interactionGeometry?.compactHoverFrame ?? placement.closedFrame
@@ -405,11 +598,24 @@ public final class MyVibeIslandAppKitNotchPanelController<Panel>: MyVibeIslandAp
             mouseLeaveCollapseTask = nil
             mouseLeaveCollapseGeneration = nil
         case let .setDisplayState(displayState):
+            SessionCompletionTraceLog.append(
+                stage: "panel.display_state",
+                sessionId: nil,
+                metadata: [
+                    "from": String(describing: interactionDisplayState),
+                    "to": String(describing: displayState),
+                    "blockingActionVisible": String(blockingActionVisible),
+                    "isVisible": String(isVisible),
+                ]
+            )
             interactionDisplayState = displayState
             reclassifyCurrentPointer(
                 forceExpandedPanelHoverUpdate: displayState == .expanded && mouseInMenuBarZone
             )
         case let .collapsePanel(reason):
+            guard !blockingActionVisible else {
+                return
+            }
             releasePanelKeyboardFocus()
             interactionDisplayState = .closed
             setIgnoresMouseEvents(currentPanel(), true)
@@ -466,6 +672,7 @@ public final class MyVibeIslandAppKitNotchPanelController<Panel>: MyVibeIslandAp
         keyboardFocusRequested = false
         cancelScheduledInteractionTasks()
         interactionDisplayState = .closed
+        blockingActionVisible = false
         lastCollapseReason = nil
         mouseInMenuBarZone = false
         mouseInCompactHover = false
@@ -658,13 +865,18 @@ public final class MyVibeIslandAppKitNotchPanelController<Panel>: MyVibeIslandAp
     }
 
     private func refreshMouseInteractivity() {
-        guard interactionDisplayState.acceptsDirectInteraction,
-              let point = lastMouseLocation,
-              let frame = interactionGeometry?.expandedFrame ?? lastPlacement?.expandedFrame
-        else {
+        guard interactionDisplayState.acceptsDirectInteraction || blockingActionVisible else {
             if let panel {
                 setIgnoresMouseEvents(panel, true)
             }
+            return
+        }
+        guard let point = lastMouseLocation,
+              let frame = interactionGeometry?.expandedFrame ?? lastPlacement?.expandedFrame
+        else {
+            // A blocking card must remain reachable until the first global
+            // mouse sample establishes whether the pointer is over it.
+            setIgnoresMouseEvents(currentPanel(), !blockingActionVisible)
             return
         }
         setIgnoresMouseEvents(currentPanel(), !contains(point, in: frame))
@@ -818,6 +1030,18 @@ public extension MyVibeIslandAppKitNotchPanelController where Panel == NSPanel {
             stopMouseMonitoring: mouseMoveMonitor.stop,
             setIgnoresMouseEvents: { panel, ignoresMouseEvents in
                 panel.ignoresMouseEvents = ignoresMouseEvents
+                SessionCompletionTraceLog.append(
+                    stage: "panel.mouse_interactivity",
+                    sessionId: nil,
+                    metadata: [
+                        "ignoresMouseEvents": String(ignoresMouseEvents),
+                        "frame": "x=\(panel.frame.origin.x),y=\(panel.frame.origin.y),w=\(panel.frame.size.width),h=\(panel.frame.size.height)",
+                        "isVisible": String(panel.isVisible),
+                        "isKeyWindow": String(panel.isKeyWindow),
+                        "windowNumber": String(panel.windowNumber),
+                        "level": String(panel.level.rawValue),
+                    ]
+                )
             },
             movePanel: { panel, frame in
                 let aligned = Self.pixelAlignedFrame(
@@ -843,8 +1067,31 @@ public extension MyVibeIslandAppKitNotchPanelController where Panel == NSPanel {
                 if panel.contentView !== view {
                     panel.contentView = view
                 }
+                SessionCompletionTraceLog.append(
+                    stage: "panel.content_view_installed",
+                    sessionId: nil,
+                    metadata: [
+                        "view": String(describing: type(of: view)),
+                        "identifier": view.identifier?.rawValue ?? "-",
+                        "frame": "x=\(view.frame.origin.x),y=\(view.frame.origin.y),w=\(view.frame.size.width),h=\(view.frame.size.height)",
+                        "panelFrame": "x=\(panel.frame.origin.x),y=\(panel.frame.origin.y),w=\(panel.frame.size.width),h=\(panel.frame.size.height)",
+                        "ignoresMouseEvents": String(panel.ignoresMouseEvents),
+                        "isVisible": String(panel.isVisible),
+                    ]
+                )
             },
             showPanel: { panel in
+                SessionCompletionTraceLog.append(
+                    stage: "panel.show.request",
+                    sessionId: nil,
+                    metadata: [
+                        "frame": "x=\(panel.frame.origin.x),y=\(panel.frame.origin.y),w=\(panel.frame.size.width),h=\(panel.frame.size.height)",
+                        "alpha": String(describing: panel.alphaValue),
+                        "isVisible": String(panel.isVisible),
+                        "ignoresMouseEvents": String(panel.ignoresMouseEvents),
+                        "isKeyWindow": String(panel.isKeyWindow),
+                    ]
+                )
                 panel.orderFrontRegardless()
                 guard panel.alphaValue < 1 else { return }
                 Self.applyOriginalPanelVisibilityFade(
@@ -856,6 +1103,17 @@ public extension MyVibeIslandAppKitNotchPanelController where Panel == NSPanel {
                 )
             },
             hidePanel: { panel in
+                SessionCompletionTraceLog.append(
+                    stage: "panel.hide.request",
+                    sessionId: nil,
+                    metadata: [
+                        "frame": "x=\(panel.frame.origin.x),y=\(panel.frame.origin.y),w=\(panel.frame.size.width),h=\(panel.frame.size.height)",
+                        "alpha": String(describing: panel.alphaValue),
+                        "isVisible": String(panel.isVisible),
+                        "ignoresMouseEvents": String(panel.ignoresMouseEvents),
+                        "isKeyWindow": String(panel.isKeyWindow),
+                    ]
+                )
                 Self.applyOriginalPanelVisibilityFade(
                     panel,
                     targetAlpha: 0,

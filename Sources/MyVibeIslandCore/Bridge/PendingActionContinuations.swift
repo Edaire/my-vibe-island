@@ -30,7 +30,16 @@ public final class PendingActionContinuations: @unchecked Sendable {
         let key = Key(sessionId: request.sessionId, requestId: request.requestId)
         condition.lock()
         waiterCounts[key, default: 0] += 1
+        let count = waiterCounts[key] ?? 0
         condition.unlock()
+        SessionCompletionTraceLog.append(
+            stage: "approval.continuation.register",
+            sessionId: request.sessionId,
+            metadata: [
+                "requestId": request.requestId,
+                "waiterCount": String(count),
+            ]
+        )
     }
 
     func waitForRegistered(_ request: ActionableRequest, timeout: TimeInterval) -> BridgeJSONValue? {
@@ -59,8 +68,17 @@ public final class PendingActionContinuations: @unchecked Sendable {
             }
             condition.wait(until: Date().addingTimeInterval(remaining))
         }
-
-        return directives[key]
+        let result = directives[key]
+        SessionCompletionTraceLog.append(
+            stage: "approval.continuation.wait_result",
+            sessionId: request.sessionId,
+            metadata: [
+                "requestId": request.requestId,
+                "resolved": String(result != nil),
+                "cancelled": String(cancelled.contains(key)),
+            ]
+        )
+        return result
     }
 
     /// Wait without occupying a thread. This is the transport path used by
@@ -77,11 +95,21 @@ public final class PendingActionContinuations: @unchecked Sendable {
         condition.lock()
         if let directive = directives[key], !cancelled.contains(key) {
             condition.unlock()
+            SessionCompletionTraceLog.append(
+                stage: "approval.continuation.async_wait_result",
+                sessionId: request.sessionId,
+                metadata: ["requestId": request.requestId, "resolved": "true", "immediate": "true"]
+            )
             completion(directive)
             return
         }
         if cancelled.contains(key) || waiterCounts[key] == nil {
             condition.unlock()
+            SessionCompletionTraceLog.append(
+                stage: "approval.continuation.async_wait_result",
+                sessionId: request.sessionId,
+                metadata: ["requestId": request.requestId, "resolved": "false", "reason": "not_pending"]
+            )
             completion(nil)
             return
         }
@@ -159,11 +187,13 @@ public final class PendingActionContinuations: @unchecked Sendable {
         let key = Key(sessionId: sessionId, requestId: requestId)
 
         condition.lock()
-        defer {
-            condition.unlock()
-        }
-
         guard waiterCounts[key] != nil else {
+            condition.unlock()
+            SessionCompletionTraceLog.append(
+                stage: "approval.continuation.resolve",
+                sessionId: sessionId,
+                metadata: ["requestId": requestId, "resolved": "false", "reason": "no_waiter"]
+            )
             return false
         }
 
@@ -171,6 +201,15 @@ public final class PendingActionContinuations: @unchecked Sendable {
         condition.broadcast()
         let waiterIDs = asyncWaiters[key].map { Array($0.keys) } ?? []
         condition.unlock()
+        SessionCompletionTraceLog.append(
+            stage: "approval.continuation.resolve",
+            sessionId: sessionId,
+            metadata: [
+                "requestId": requestId,
+                "resolved": "true",
+                "asyncWaiterCount": String(waiterIDs.count),
+            ]
+        )
         waiterIDs.forEach { finishAsyncWaiter(key: key, waiterID: $0) }
         return true
     }
@@ -193,6 +232,15 @@ public final class PendingActionContinuations: @unchecked Sendable {
             cancelled.remove(key)
         }
         condition.unlock()
+        SessionCompletionTraceLog.append(
+            stage: "approval.continuation.async_wait_result",
+            sessionId: key.sessionId,
+            metadata: [
+                "requestId": key.requestId,
+                "resolved": String(result != nil),
+                "cancelled": String(result == nil),
+            ]
+        )
         completion(result)
     }
 }

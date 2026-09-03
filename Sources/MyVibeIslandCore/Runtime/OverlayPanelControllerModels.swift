@@ -61,17 +61,21 @@ public struct OverlayPanelControllerModel: Sendable {
                     )
                 )
                 : presentationState
+            let presentationChangedDisplayState =
+                nextPresentation.displayState != state.presentationState.displayState
             return OverlayPanelPlan(
                 nextState: OverlayPanelState(
                     presentationState: nextPresentation,
                     placementPlan: state.placementPlan
                 ),
-                actions: state.placementPlan.map {
-                    visiblePlacementActions(
-                        displayState: nextPresentation.displayState,
-                        placementPlan: $0
-                    )
-                } ?? []
+                actions: presentationChangedDisplayState
+                    ? (state.placementPlan.map {
+                        visiblePlacementActions(
+                            displayState: nextPresentation.displayState,
+                            placementPlan: $0
+                        )
+                    } ?? [])
+                    : []
             )
         }
     }

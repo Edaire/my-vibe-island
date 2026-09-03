@@ -34,9 +34,19 @@ public final class MyVibeIslandAppKitLocalSessionJumpCoordinator {
     @discardableResult
     public func jumpToSession(_ sessionId: String) -> Bool {
         guard inFlightJumpSessionIDs.insert(sessionId).inserted else {
+            SessionCompletionTraceLog.append(
+                stage: "terminal.jump_ignored_in_flight",
+                sessionId: sessionId,
+                metadata: [:]
+            )
             return false
         }
         lastJumpedSessionId = sessionId
+        SessionCompletionTraceLog.append(
+            stage: "terminal.jump_requested",
+            sessionId: sessionId,
+            metadata: [:]
+        )
         Task.detached(priority: .utility) { [executeJump] in
             let result = executeJump(sessionId)
             await self.completeJump(sessionId, result: result)
@@ -64,6 +74,11 @@ public final class MyVibeIslandAppKitLocalSessionJumpCoordinator {
                 "arguments": result.actionDescription?.arguments.joined(separator: ",") ?? "-",
             ]
         )
+        if result.status == .executed,
+           result.actionDescription?.kind == .runAutomation,
+           result.actionDescription?.target == "com.apple.Terminal" {
+            _ = runtime.handoffPendingApprovalToTerminal(sessionId: sessionId)
+        }
     }
 
     @discardableResult

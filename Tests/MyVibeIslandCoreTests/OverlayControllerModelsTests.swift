@@ -95,6 +95,22 @@ final class OverlayControllerModelsTests: XCTestCase {
         ])
     }
 
+    func testReplacingClosedPresentationDoesNotReapplyPlacementFrame() {
+        let controller = OverlayControllerModel()
+        let placement = placementPlan()
+        let state = OverlayControllerState(
+            panelState: OverlayPanelState(
+                presentationState: presentationState(displayState: .closed),
+                placementPlan: placement
+            )
+        )
+        let presentation = presentationState(displayState: .closed, focusedSessionId: "session-1")
+
+        let plan = controller.plan(.replacePresentation(presentation), from: state)
+
+        XCTAssertEqual(plan.actions, [.renderPresentation(presentation)])
+    }
+
     func testPlacementCommandDelegatesToPanelController() {
         let controller = OverlayControllerModel()
         let state = OverlayControllerState(

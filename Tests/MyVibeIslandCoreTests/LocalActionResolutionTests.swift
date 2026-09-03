@@ -91,6 +91,27 @@ final class LocalActionResolutionTests: XCTestCase {
         XCTAssertTrue(state.actionableRequests.isEmpty)
     }
 
+    func testTerminalCompletionClearsPendingPermissionWithoutLocalResolution() {
+        var state = SessionState(sessionId: "s1", source: "codex", cwd: "/tmp/project")
+        state.apply(.permissionRequested(
+            source: "codex",
+            sessionId: "s1",
+            requestId: "terminal-r1",
+            toolName: "Bash"
+        ))
+
+        state.apply(.sessionActivityUpdated(
+            source: "codex",
+            sessionId: "s1",
+            activity: SessionActivityUpdate(status: .completed, summary: "Codex completed the turn.")
+        ))
+
+        XCTAssertTrue(state.pendingRequestIds.isEmpty)
+        XCTAssertTrue(state.actionableRequests.isEmpty)
+        XCTAssertFalse(state.needsAttention)
+        XCTAssertEqual(state.originalStatus, .ended)
+    }
+
     func testResolvingOneOfMultipleRequestsKeepsRemainingAttention() {
         var state = SessionState(sessionId: "s1", source: "codex", cwd: "/tmp/project")
         state.apply(.permissionRequested(source: "codex", sessionId: "s1", requestId: "r1", toolName: "Shell"))

@@ -1480,6 +1480,13 @@ public struct NotchViewModelReducer: Sendable {
         _ previews: [ActionRequestPreview],
         state: NotchViewModelState
     ) -> NotchViewModelPlan {
+        // The bridge can publish an unchanged empty snapshot while waiting for
+        // the next action event. Re-running the surface render for that no-op
+        // publication causes the retained SwiftUI root to relayout repeatedly.
+        guard previews != state.actionRequestPreviews else {
+            return NotchViewModelPlan(nextState: state, actions: [])
+        }
+
         let currentPresentation = state.overlayState.panelState.presentationState
         let hasLocallyResolvableAction = previews.contains { $0.canResolveLocally }
         let didResolveLastLocallyResolvableAction = currentPresentation.interactionState.blockingActionVisible
@@ -1554,6 +1561,19 @@ public struct NotchViewModelReducer: Sendable {
         } else {
             mouseLeavePlan = nil
         }
+        SessionCompletionTraceLog.append(
+            stage: "approval.notch.snapshot_applied",
+            sessionId: focusedSessionId,
+            metadata: [
+                "previousRequestCount": String(state.actionRequestPreviews.count),
+                "requestCount": String(previews.count),
+                "hasLocallyResolvableAction": String(hasLocallyResolvableAction),
+                "resolvedLastLocalAction": String(didResolveLastLocallyResolvableAction),
+                "mouseInExpandedPanel": String(interactionState.isMouseInExpandedPanel),
+                "mouseLeaveCollapseScheduled": String(mouseLeavePlan != nil),
+                "displayState": displayState.rawValue,
+            ]
+        )
         let nextState = replacing(
             state,
             actionRequestPreviews: previews,

@@ -146,10 +146,6 @@ struct OriginalExpandedSessionCardView: View {
         VStack(spacing: 4) {
             branchShell
                 .frame(minHeight: CGFloat(OriginalExpandedNonCommercialMeasurement.cardHeight))
-                .contentShape(Rectangle())
-                .onTapGesture {
-                    performTapAction()
-                }
                 .contextMenu {
                     if !row.session.cwd.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                         Button {
@@ -218,6 +214,10 @@ struct OriginalExpandedSessionCardView: View {
             }
             .onHover { isHovering in
                 isHovered = isHovering
+            }
+            .contentShape(Rectangle())
+            .onTapGesture {
+                performTapAction()
             }
         case .vertical:
             let decision = OriginalSessionCardVerticalVisualDecision.resolve(
