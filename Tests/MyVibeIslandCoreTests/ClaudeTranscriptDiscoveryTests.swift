@@ -21,6 +21,36 @@ final class ClaudeTranscriptDiscoveryTests: XCTestCase {
         XCTAssertFalse(result.first?.description.contains("secret") ?? true)
     }
 
+    func testDiscoveryEmitsLatestConversationActivityForTheMostRecentTranscript() throws {
+        let root = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+        try FileManager.default.createDirectory(at: root, withIntermediateDirectories: true)
+        let transcript = root.appendingPathComponent("session-1.jsonl")
+        let lines = [
+            #"{"type":"user","sessionId":"session-1","cwd":"/tmp/project","message":{"role":"user","content":"Inspect the service"}}"#,
+            #"{"type":"assistant","sessionId":"session-1","message":{"role":"assistant","content":"I am checking the service."}}"#
+        ].joined(separator: "\n") + "\n"
+        try lines.write(to: transcript, atomically: true, encoding: .utf8)
+        addTeardownBlock { try? FileManager.default.removeItem(at: root) }
+
+        let result = ClaudeTranscriptDiscovery(rootURL: root, maximumFiles: 1).discover()
+
+        XCTAssertEqual(result.first?.agentEvents(), [
+            .sessionStarted(source: "claude", sessionId: "session-1", cwd: "/tmp/project"),
+            .sessionActivityUpdated(
+                source: "claude",
+                sessionId: "session-1",
+                activity: SessionActivityUpdate(
+                    status: .active,
+                    summary: "I am checking the service.",
+                    lastAssistantMessage: "I am checking the service.",
+                    firstUserMessage: "Inspect the service",
+                    lastUserMessage: "Inspect the service",
+                    cwd: "/tmp/project"
+                )
+            ),
+        ])
+    }
+
     func testDiscoveryBoundsFileCountDepthAndFirstLineSize() throws {
         let root = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
         let shallow = root.appendingPathComponent("shallow")

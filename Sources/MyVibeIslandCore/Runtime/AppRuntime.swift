@@ -25,6 +25,7 @@ public final class AppRuntime: @unchecked Sendable {
     private var codexSessionWatcher: CodexSessionWatcher?
     private var openCodeContinuousSessionWatcher: OpenCodeContinuousSessionWatcher?
     private var claudeCoworkWatcher: ClaudeCoworkWatcher?
+    private var claudeTranscriptDiscovery: ClaudeTranscriptDiscovery?
     private var isPublicationScheduled = false
     private var publicationDirty = false
     private var lastPublishedCoordinatorRevision: UInt64?
@@ -443,6 +444,7 @@ public final class AppRuntime: @unchecked Sendable {
         return codexSessionWatcher != nil
             || openCodeContinuousSessionWatcher != nil
             || claudeCoworkWatcher != nil
+            || claudeTranscriptDiscovery != nil
     }
 
     private func stopLocalSessionWatchersLockedWithoutLifecycleLock() {
@@ -450,13 +452,16 @@ public final class AppRuntime: @unchecked Sendable {
         let codexWatcher = codexSessionWatcher
         let openCodeWatcher = openCodeContinuousSessionWatcher
         let claudeCoworkWatcher = claudeCoworkWatcher
+        let claudeTranscriptDiscovery = claudeTranscriptDiscovery
         codexSessionWatcher = nil
         openCodeContinuousSessionWatcher = nil
         self.claudeCoworkWatcher = nil
+        self.claudeTranscriptDiscovery = nil
         lock.unlock()
         codexWatcher?.stop()
         openCodeWatcher?.stop()
         claudeCoworkWatcher?.stop()
+        claudeTranscriptDiscovery?.stop()
     }
 
     public func start(homeDirectory: URL = FileManager.default.homeDirectoryForCurrentUser) {
@@ -465,7 +470,8 @@ public final class AppRuntime: @unchecked Sendable {
         lock.lock()
         guard codexSessionWatcher == nil,
               openCodeContinuousSessionWatcher == nil,
-              claudeCoworkWatcher == nil else {
+              claudeCoworkWatcher == nil,
+              claudeTranscriptDiscovery == nil else {
             lock.unlock()
             return
         }
@@ -514,14 +520,22 @@ public final class AppRuntime: @unchecked Sendable {
             discovery: ClaudeCoworkSessionDiscovery(homeDirectory: homeDirectory),
             eventHandler: handler
         )
+        let claudeTranscript = ClaudeTranscriptDiscovery(
+            homeDirectory: homeDirectory,
+            maximumFiles: 1
+        )
         codexSessionWatcher = codex
         openCodeContinuousSessionWatcher = openCode
         claudeCoworkWatcher = claudeCowork
+        claudeTranscriptDiscovery = claudeTranscript
         lock.unlock()
 
         codex.start()
         openCode.start()
         claudeCowork.start()
+        claudeTranscript.start { event in
+            handler(event)
+        }
     }
 
     public func startLocalSessionWatchers(homeDirectory: URL? = nil) {
